@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 # One-time setup for Amazon Linux 2023 (run as ec2-user, needs sudo). Idempotent.
-# Prerequisite: ~/.ssh/pyq_deploy.pub is added to the GitHub repo as a read-only deploy key.
+# Public repo: pulls over HTTPS, no key needed. Private repo: REPO=git@github.com:... and add
+# ~/.ssh/pyq_deploy.pub (created on first run) to the repo as a read-only deploy key.
 #   PUBLIC_HOST=65.1.100.164 bash server_setup.sh
 set -euo pipefail
 
 PUBLIC_HOST=${PUBLIC_HOST:?Set PUBLIC_HOST to the server IP or domain}
-REPO=${REPO:-git@github.com:abhijeet179346-lgtm/pyq.git}
+REPO=${REPO:-https://github.com/abhijeet179346-lgtm/pyq.git}
 APP_ROOT=/opt/pyq
 APP_DIR=$APP_ROOT/app
 PYTHON=python3.12
@@ -23,7 +24,8 @@ if ! swapon --show | grep -q .; then
   grep -q '^/swapfile' /etc/fstab || echo '/swapfile none swap defaults 0 0' | sudo tee -a /etc/fstab >/dev/null
 fi
 
-log "GitHub access"
+if [[ "$REPO" == git@* ]]; then
+log "GitHub access (SSH deploy key)"
 mkdir -p ~/.ssh && chmod 700 ~/.ssh
 [ -f ~/.ssh/pyq_deploy ] || ssh-keygen -q -t ed25519 -N '' -C "pyq-deploy@$PUBLIC_HOST" -f ~/.ssh/pyq_deploy
 grep -q 'IdentityFile ~/.ssh/pyq_deploy' ~/.ssh/config 2>/dev/null || cat >> ~/.ssh/config <<'EOF'
@@ -38,6 +40,7 @@ if ! ssh -o BatchMode=yes -T git@github.com 2>&1 | grep -q 'successfully authent
   echo "GitHub rejected the deploy key. Add this as a read-only deploy key, then re-run:" >&2
   cat ~/.ssh/pyq_deploy.pub >&2
   exit 1
+fi
 fi
 
 log "Code"
