@@ -76,7 +76,9 @@ def scope(request):
         tenant=_tenant_user(request)
         if not workspace_ready(request.user,tenant) or not is_enabled(tenant,'tests'):raise PermissionDenied('Tests require an active enrolled account and enabled test access.')
     exams=TenantExam.objects.filter(tenant=tenant,enabled=True,exam__active=True).values_list('exam_id',flat=True)
-    return tenant,TimedTest.objects.filter(tenant=tenant,exam_id__in=exams,active=True)
+    from django.db.models import Q
+    # Learner-built custom tests are private to their owner.
+    return tenant,TimedTest.objects.filter(tenant=tenant,exam_id__in=exams,active=True).filter(Q(owner__isnull=True)|Q(owner=request.user))
 
 
 @login_required
@@ -89,14 +91,17 @@ def catalog(request):
             finish(expired,expired=True)
     attempts={item.test_id:item for item in TimedAttempt.objects.filter(user=request.user,test__in=tests)}
     rows=[]
+    custom=[]
     for test in tests:
-        rows.append({'test':test,'count':len(test.questions),'attempt':attempts.get(test.pk)})
+        row={'test':test,'count':len(test.questions),'attempt':attempts.get(test.pk)}
+        (custom if test.owner_id else rows).append(row)
     summaries=[]
     for series in sorted({row['test'].series for row in rows if row['test'].series.startswith('Full mock')}):
         parts=[row for row in rows if row['test'].series==series]
         finished=[row['attempt'] for row in parts if row['attempt'] and row['attempt'].status!='in_progress']
         summaries.append({'series':series,'completed':len(finished),'papers':len(parts),'score':sum(item.score for item in finished)})
-    return render(request,'assessments/timed_catalog.html',{'test_rows':rows,'series_summaries':summaries})
+    custom.sort(key=lambda row:row['test'].created_at,reverse=True)
+    return render(request,'assessments/timed_catalog.html',{'test_rows':rows,'custom_rows':custom,'series_summaries':summaries})
 
 
 @login_required

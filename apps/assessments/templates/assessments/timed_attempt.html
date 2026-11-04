@@ -21,7 +21,7 @@
     </nav>
 
     <div class="exam-main">
-      <main class="exam-question-area" id="question-area">
+      <main class="exam-question-area" id="question-area" tabindex="-1">
         {% for row in rows %}
         <section class="exam-question" id="question-{{ row.key }}" data-key="{{ row.key }}" data-subject="{{ row.subject }}" data-type="{{ row.question_type }}" aria-labelledby="qh-{{ row.key }}" hidden>
           <header class="exam-q-head">

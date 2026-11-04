@@ -123,6 +123,8 @@ class TimedTest(models.Model):
     questions = models.JSONField(default=list, help_text='Question snapshots including answer keys and section marking rules. Use Excel import to create tests.')
     active = models.BooleanField(default=False)
     source = models.URLField(blank=True)
+    owner = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.CASCADE, related_name='custom_tests',
+        help_text='Set for a learner-built custom test; only the owner can see it.')
     fullscreen_exit_limit = models.PositiveSmallIntegerField(null=True, blank=True,
         help_text='Auto-submit after this many full-screen exits or tab switches. Leave blank to warn and log only.')
     created_at = models.DateTimeField(auto_now_add=True)

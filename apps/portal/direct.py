@@ -137,6 +137,8 @@ def start_practice(request):
     browse_url = reverse("direct_bank") + "?" + params.urlencode()
     if request.POST.get("action") == "browse" or not queryset.exists():
         return redirect(browse_url + "#questions")
+    if request.POST.get("action") == "test":
+        return _start_custom_test(request, tenant, exam, queryset, context, browse_url)
     order = request.POST.get("order", "sequential")
     if order == "random":
         ids = list(queryset.order_by("?").values_list("pk", flat=True)[:500])
@@ -149,6 +151,28 @@ def start_practice(request):
         ids = ids[:int(count)]
     title = exam.name + (" · " + context["selected_subject"] if context["selected_subject"] else " · Whole exam bank")
     return _new_session(request, tenant, ids, title, request.POST.get("mode", "learn"), browse_url)
+
+
+def _start_custom_test(request, tenant, exam, queryset, context, browse_url):
+    from django.contrib import messages
+    from apps.assessments.custom_tests import MAX_QUESTIONS, build_custom_test
+    if exam.pk == "practice" or not is_enabled(tenant, "tests"):
+        messages.error(request, "Timed tests are available for exam question banks only.")
+        return redirect(browse_url)
+    count = request.POST.get("count", "20")
+    limit = int(count) if count.isdecimal() and int(count) > 0 else MAX_QUESTIONS
+    picked = list(queryset.order_by("?" if request.POST.get("order") == "random" else "pk")[:min(limit, MAX_QUESTIONS)])
+    minutes = request.POST.get("duration", "")
+    minutes = int(minutes) if minutes.isdecimal() and 5 <= int(minutes) <= 180 else None
+    title = exam.name + (" · " + context["selected_subject"] if context["selected_subject"] else "")
+    try:
+        test, skipped = build_custom_test(request.user, tenant, exam, picked, "Custom · " + title, minutes)
+    except ValueError as exc:
+        messages.error(request, str(exc))
+        return redirect(browse_url)
+    if skipped:
+        messages.info(request, f"{skipped} question{'s' if skipped != 1 else ''} without an automatically markable answer key were left out.")
+    return redirect("timed_start", test_id=test.pk)
 
 
 def _practice_run(request, tenant, session_id):

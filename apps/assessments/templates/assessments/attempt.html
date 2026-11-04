@@ -18,7 +18,7 @@
       {% for group in sections %}<button type="button" role="tab" data-subject="{{ group.subject }}" aria-selected="false">{{ group.subject }} <span class="exam-tab-count">{{ group.count }}</span></button>{% endfor %}
     </nav>
     <div class="exam-main">
-      <main class="exam-question-area" id="question-area">
+      <main class="exam-question-area" id="question-area" tabindex="-1">
         {% for row in items %}
         <section class="exam-question" id="question-{{ row.question.pk }}" data-key="{{ row.question.pk }}" data-subject="{{ row.subject }}" data-type="{{ row.question.question_type }}" aria-labelledby="qh-{{ row.question.pk }}" hidden>
           <header class="exam-q-head">

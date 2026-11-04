@@ -131,3 +131,55 @@ class PracticeTests(TestCase):
         page = self.answer(session, 1, "A")
         self.assertContains(page, "✓ Correct")
         self.assertContains(page, "SOLUTION-0")
+
+
+class CustomTestBuilderTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        from apps.features.models import FeatureEntitlement
+        cls.master = Tenant.objects.get(is_master=True)
+        FeatureEntitlement.objects.update_or_create(tenant=cls.master, key="tests", defaults={"entitled": True, "enabled_override": True})
+        cls.exam = Exam.objects.create(name="JEE Advanced", slug="jee-advanced", active=True)
+        TenantExam.objects.create(tenant=cls.master, exam=cls.exam, enabled=True)
+        paper = Paper.objects.create(exam=cls.exam, year=2023)
+        topic = Topic.objects.create(chapter=Chapter.objects.create(subject=Subject.objects.create(name="Maths", slug="maths-c"), name="Algebra"), name="Roots")
+        options = [{"id": "A", "text": "2"}, {"id": "B", "text": "3"}]
+        common = dict(kind="PYQ", paper=paper, topic=topic, source="Fixture", license="Fixture", status="published")
+        cls.single = Question.objects.create(stem="Custom single", options=options, answer="B", **common)
+        cls.numeric = Question.objects.create(stem="Custom numeric", options=[], answer="7.5", question_type="numerical", **common)
+        cls.bad = Question.objects.create(stem="Custom unmarkable", options=[], answer="about seven", question_type="numerical", **common)
+        cls.user = User.objects.create_user(username="builder", email="builder@example.test", password="Builder-password-27",
+                                            email_verified_at=timezone.now())
+        cls.other = User.objects.create_user(username="nosy", email="nosy@example.test", password="Builder-password-27",
+                                             email_verified_at=timezone.now())
+
+    def client_for(self, user):
+        client = Client(HTTP_HOST="localhost")
+        client.force_login(user)
+        return client
+
+    def test_builds_private_test_with_exam_pattern_and_grades_it(self):
+        from apps.assessments.models import TimedAttempt, TimedTest
+        client = self.client_for(self.user)
+        response = client.post("/practice/start/", {"exam": self.exam.pk, "action": "test", "count": "all"})
+        test = TimedTest.objects.get(owner=self.user)
+        self.assertRedirects(response, f"/practice/tests/{test.pk}/start/", fetch_redirect_response=False)
+        self.assertEqual(len(test.questions), 2)  # the unmarkable numeric was skipped
+        self.assertEqual(test.duration_minutes, 10)  # 2 questions × 3.3 min, rounded up to 5-minute steps
+        rows = {row["key"]: row for row in test.questions}
+        self.assertEqual((rows[f"q{self.single.pk}"]["answer"], rows[f"q{self.single.pk}"]["marking"]["correct"]), ("B", 3))
+        self.assertContains(client.get("/practice/tests/"), "Your custom tests")
+        self.assertNotContains(self.client_for(self.other).get("/practice/tests/"), "Your custom tests")
+        self.assertEqual(self.client_for(self.other).get(f"/practice/tests/{test.pk}/start/").status_code, 404)
+        client.post(f"/practice/tests/{test.pk}/start/")
+        attempt = TimedAttempt.objects.get(test=test, user=self.user)
+        client.post(f"/practice/test-attempts/{attempt.pk}/", {"action": "submit", f"answer_q{self.single.pk}": "B", f"answer_q{self.numeric.pk}": "7.50"})
+        attempt.refresh_from_db()
+        self.assertEqual(float(attempt.score), 6.0)
+
+    def test_practice_only_bank_cannot_become_a_test(self):
+        client = self.client_for(self.user)
+        response = client.post("/practice/start/", {"exam": "practice", "action": "test"})
+        from apps.assessments.models import TimedTest
+        self.assertFalse(TimedTest.objects.filter(owner=self.user).exists())
+        self.assertIn(response.status_code, (302, 404))
