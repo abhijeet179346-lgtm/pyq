@@ -10,6 +10,7 @@ urlpatterns = [
     path("practice/sessions/<uuid:session_id>/", direct.practice_summary, name="practice_summary"),
     path("practice/", direct.question_bank, name="direct_bank"),
     path("practice/questions/<int:question_id>/", direct.question, name="direct_question"),
+    path("practice/questions/<int:question_id>/figures/<int:index>/", direct.question_figure, name="direct_question_figure"),
     path("progress/", direct.progress, name="direct_progress"),
     path("library/<int:section_id>/source/", direct.study_source, name="direct_study_source"),
     path("library/<int:section_id>/", direct.study_section, name="direct_study_section"),

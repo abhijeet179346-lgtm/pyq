@@ -48,9 +48,11 @@ class ContentJobForm(forms.ModelForm):
     def clean(self):
         data=super().clean();file=data.get('file');kind=data.get('kind')
         if file:
-            extension='.pdf' if kind=='pdf' else '.xlsx'
-            limit=100 if kind=='pdf' else 25
-            if not file.name.lower().endswith(extension):raise forms.ValidationError('Upload a '+extension+' file for this job type.')
+            name=file.name.lower()
+            if kind=='pdf':allowed,limit=('.pdf',),100
+            elif kind in ('questions','tests'):allowed,limit=('.xlsx','.zip'),(100 if name.endswith('.zip') else 25)
+            else:allowed,limit=('.xlsx',),25
+            if not name.endswith(allowed):raise forms.ValidationError('Upload a '+' or '.join(allowed)+' file for this job type.'+(' Use a .zip containing the workbook and image files when questions need images.' if '.zip' in allowed else ''))
             if file.size>limit*1024*1024:raise forms.ValidationError(f'Maximum file size is {limit} MB.')
         return data
 

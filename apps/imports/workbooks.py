@@ -4,11 +4,39 @@ from openpyxl import Workbook,load_workbook
 from openpyxl.styles import Font,PatternFill,Alignment
 from django.core.exceptions import ValidationError
 
-QUESTION_COLUMNS=['source_id','kind','exam','year','paper','subject','chapter','topic','subtopic','difficulty','question_type','stem','option_a','option_b','option_c','option_d','answer','solution','source','license','tags','source_page','review_status','warnings','original_text']
+QUESTION_COLUMNS=['source_id','kind','exam','year','paper','subject','chapter','topic','subtopic','difficulty','question_type','stem','images','option_a','option_b','option_c','option_d','answer','solution','source','license','tags','source_page','review_status','warnings','original_text']
 EXAM_COLUMNS=['exam','name','active']
-TEST_COLUMNS=['test_name','series','paper_number','exam','duration_minutes','subject','chapter','topic','subtopic','section','source_id','question_type','stem','option_a','option_b','option_c','option_d','answer','solution','correct_marks','incorrect_marks','unanswered_marks','partial_credit','source','license']
+TEST_COLUMNS=['test_name','series','paper_number','exam','duration_minutes','subject','chapter','topic','subtopic','section','source_id','question_type','stem','images','option_a','option_b','option_c','option_d','answer','solution','correct_marks','incorrect_marks','unanswered_marks','partial_credit','source','license']
 MATERIAL_COLUMNS=['document','exam','subject','chapter','topic','title','body','page_reference','source','license']
 COLUMNS={'questions':QUESTION_COLUMNS,'pdf':QUESTION_COLUMNS,'exams':EXAM_COLUMNS,'tests':TEST_COLUMNS,'materials':MATERIAL_COLUMNS}
+
+
+IMAGE_EXTENSIONS=('.png','.jpg','.jpeg','.webp','.gif')
+
+
+def open_upload(raw,filename):
+    """Return (workbook bytes, {image basename: bytes}). A .zip holds one workbook plus image files."""
+    if not filename.lower().endswith('.zip'):return raw,{}
+    if len(raw)>100*1024*1024:raise ValueError('Zip uploads must be at most 100 MB.')
+    try:archive=zipfile.ZipFile(io.BytesIO(raw))
+    except zipfile.BadZipFile as exc:raise ValueError('The upload is not a valid .zip file.') from exc
+    entries=[item for item in archive.infolist() if not item.is_dir() and '__MACOSX' not in item.filename and not item.filename.rsplit('/',1)[-1].startswith('.')]
+    if len(entries)>3000:raise ValueError('Zip uploads may contain at most 3,000 files.')
+    if sum(item.file_size for item in entries)>200*1024*1024:raise ValueError('Uncompressed zip contents exceed 200 MB.')
+    books=[item for item in entries if item.filename.lower().endswith('.xlsx')]
+    if len(books)!=1:raise ValueError('The zip must contain exactly one .xlsx workbook.')
+    images={}
+    for item in entries:
+        name=item.filename.rsplit('/',1)[-1].lower()
+        if not name.endswith(IMAGE_EXTENSIONS):continue
+        if item.file_size>5*1024*1024:raise ValueError(f'Image {name} is larger than 5 MB.')
+        if name in images:raise ValueError(f'Two images are named {name}; image file names must be unique.')
+        images[name]=archive.read(item)
+    return archive.read(books[0]),images
+
+
+def image_names(row):
+    return [part.strip().rsplit('/',1)[-1].lower() for part in str(row.get('images','')).replace(';',',').split(',') if part.strip()]
 
 
 def read_workbook(raw):

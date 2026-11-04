@@ -1,3 +1,4 @@
+from django.urls import reverse
 import io
 import csv
 import mimetypes
@@ -181,6 +182,7 @@ def practice_question(request, question_id):
         feedback = {"correct": correct, "selected": selected}
     return render(request, "learning/practice_question.html", {
         "question": question, "options": option_pairs(question), "feedback": feedback, "tenant": tenant,
+        "figure_urls": [reverse("question_figure_image", args=[question.pk, index]) for index in range(len(question.figure_paths or []))] if question.tenant_id == tenant.pk else [],
         "selected_batch": selected_batch, "available_batches": available_batches,
         "mistake_tutor_enabled": is_enabled(tenant, "ai_tutor_mistake"),
         "mistake_attempt_id": practice_attempt.pk if request.method == "POST" else None,

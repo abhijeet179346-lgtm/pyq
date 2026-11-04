@@ -1,4 +1,10 @@
+from django import forms
 from django.contrib import admin
+from django.core.exceptions import PermissionDenied
+from django.http import FileResponse, Http404
+from django.shortcuts import get_object_or_404
+from django.urls import path, reverse
+from django.utils.html import format_html, format_html_join
 from apps.tenancy.features import is_enabled
 from apps.audit.models import AuditEvent
 from apps.learning.models import TeacherSubjectAssignment
@@ -45,7 +51,7 @@ class TenantScopedAdmin(admin.ModelAdmin):
     def get_readonly_fields(self, request, obj=None):
         fields = list(super().get_readonly_fields(request, obj))
         if not request.user.is_superuser:
-            fields += ["kind", "paper", "version", "ai_generated", "reviewed_by", "source_scan_id", "source_page", "figure_paths"]
+            fields += ["kind", "paper", "version", "ai_generated", "reviewed_by", "source_scan_id", "source_page"]
         return fields
 
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
@@ -86,13 +92,90 @@ class QuestionMaterialLinkInline(admin.TabularInline):
         return super().formfield_for_foreignkey(db_field,request,**kwargs)
 
 
+class MultipleImageInput(forms.ClearableFileInput):
+    allow_multiple_selected = True
+
+
+class MultipleImageField(forms.FileField):
+    widget = MultipleImageInput
+
+    def clean(self, data, initial=None):
+        files = data if isinstance(data, (list, tuple)) else ([data] if data else [])
+        return [super(MultipleImageField, self).clean(item, initial) for item in files]
+
+
+class QuestionAdminForm(forms.ModelForm):
+    add_figures = MultipleImageField(required=False, label="Add images",
+        help_text="Diagrams, graphs or tables the question needs. PNG, JPEG, WEBP or GIF, up to 5 MB each.",
+        widget=MultipleImageInput(attrs={"accept": "image/png,image/jpeg,image/webp,image/gif"}))
+    remove_figures = forms.TypedMultipleChoiceField(required=False, coerce=int, label="Remove images",
+        widget=forms.CheckboxSelectMultiple)
+
+    class Meta:
+        model = Question
+        exclude = ("figure_paths",)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        paths = self.instance.figure_paths if self.instance and self.instance.pk else []
+        self.fields["remove_figures"].choices = [(index, f"Image {index + 1}") for index in range(len(paths))]
+        if not paths:
+            self.fields["remove_figures"].widget = forms.HiddenInput()
+
+    def clean_add_figures(self):
+        from .figures import MAX_FIGURES, clean_image
+        files = self.cleaned_data.get("add_figures") or []
+        kept = len(self.instance.figure_paths or []) - len(self.data.getlist("remove_figures")) if self.instance.pk else 0
+        if kept + len(files) > MAX_FIGURES:
+            raise forms.ValidationError(f"A question can have at most {MAX_FIGURES} images.")
+        cleaned = []
+        for upload in files:
+            cleaned.append(clean_image(upload.read(), upload.name))
+        return cleaned
+
+
 @admin.register(Question)
 class QuestionAdmin(TenantScopedAdmin):
+    form = QuestionAdminForm
     inlines=[QuestionMaterialLinkInline]
     list_display = ("id", "kind", "tenant", "question_type", "topic", "subtopic", "difficulty", "status", "ai_generated", "version")
     list_filter = ("kind", "status", "question_type", "difficulty", "tenant", "paper__exam", "paper__year", "topic__chapter__subject", "topic__chapter", "topic", "subtopic")
     search_fields = ("stem", "source", "topic__name", "subtopic__name", "tags")
-    readonly_fields = ("version", "created_at", "updated_at")
+    readonly_fields = ("version", "created_at", "updated_at", "figure_previews")
+
+    def get_urls(self):
+        return [path("<int:question_id>/figures/<int:index>/", self.admin_site.admin_view(self.figure_view),
+                     name="content_question_figure")] + super().get_urls()
+
+    def figure_view(self, request, question_id, index):
+        from .figures import content_type, open_figure
+        question = get_object_or_404(self.get_queryset(request), pk=question_id)
+        if not self.has_view_permission(request, question):
+            raise PermissionDenied()
+        if not 0 <= index < len(question.figure_paths):
+            raise Http404()
+        handle = open_figure(question.figure_paths[index])
+        if handle is None:
+            raise Http404()
+        return FileResponse(handle, content_type=content_type(question.figure_paths[index]))
+
+    @admin.display(description="Images")
+    def figure_previews(self, obj):
+        if not obj or not obj.pk or not obj.figure_paths:
+            return "No images. Use “Add images” to attach diagrams."
+        return format_html_join("", '<figure style="display:inline-block;margin:0 12px 12px 0"><img src="{}" alt="Image {}" style="max-height:160px;max-width:260px;border:1px solid var(--border-color,#ccc);border-radius:6px"><figcaption>Image {}</figcaption></figure>',
+            ((reverse("admin:content_question_figure", args=[obj.pk, index]), index + 1, index + 1) for index in range(len(obj.figure_paths))))
+
+    def save_model(self, request, obj, form, change):
+        super().save_model(request, obj, form, change)
+        from .figures import store
+        removed = set(form.cleaned_data.get("remove_figures") or [])
+        added = form.cleaned_data.get("add_figures") or []
+        if removed or added:
+            paths = [p for index, p in enumerate(obj.figure_paths or []) if index not in removed]
+            paths += [store(data, extension, obj.pk) for data, extension in added]
+            Question.objects.filter(pk=obj.pk).update(figure_paths=paths)
+            obj.figure_paths = paths
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)

@@ -50,8 +50,25 @@ def question_row(row):
     return options,answer
 
 
+def row_images(row,images,preview,prefix):
+    """Validate (preview) or store (commit) the images a row names; returns stored paths."""
+    from apps.content.figures import MAX_FIGURES,clean_image,store
+    from .workbooks import image_names
+    names=image_names(row)
+    if len(names)>MAX_FIGURES:raise ValueError(f'At most {MAX_FIGURES} images per question.')
+    missing=[name for name in names if name not in images]
+    if missing:raise ValueError(('Image not found in the zip: ' if images else 'Upload a .zip with the workbook and images to use the images column. Missing: ')+', '.join(missing))
+    paths=[]
+    for name in names:
+        try:data,extension=clean_image(images[name],name)
+        except ValidationError as exc:raise ValueError(exc.messages[0]) from exc
+        if not preview:paths.append(store(data,extension,prefix))
+    return paths
+
+
 @transaction.atomic
-def apply_rows(job,rows,preview=False):
+def apply_rows(job,rows,preview=False,images=None):
+    images=images or {}
     superuser=bool(job.initiated_by and job.initiated_by.is_superuser)
     if job.kind=='exams' and not superuser:raise PermissionDenied('Only platform administrators may edit exams.')
     errors=[];created=0;tests={}
@@ -80,7 +97,8 @@ def apply_rows(job,rows,preview=False):
                     exam=exam_for(row)
                     title=row['test_name'];group=tests.setdefault(title,{'row':row,'exam':exam,'questions':[]})
                     if row['exam']!=group['row']['exam'] or row['duration_minutes']!=group['row']['duration_minutes']:raise ValueError('Inconsistent exam or duration within one test.')
-                    group['questions'].append({'key':row.get('source_id') or f'excel-{number}','stem':row['stem'],'options':options,'answer':answer,'question_type':row['question_type'],'subject':row['subject'],'chapter':row.get('chapter',''),'topic':row.get('topic',''),'subtopic':row.get('subtopic',''),'section':row['section'],'source':source,'license':license,'solution':row.get('solution',''),'marking':{'correct':float(row.get('correct_marks') or 3),'incorrect':float(row.get('incorrect_marks') or 0),'unanswered':float(row.get('unanswered_marks') or 0),'partial':truth(row.get('partial_credit'))}})
+                    figures=row_images(row,images,preview,f'job-{job.pk}')
+                    group['questions'].append({'key':row.get('source_id') or f'excel-{number}','stem':row['stem'],'figures':figures,'options':options,'answer':answer,'question_type':row['question_type'],'subject':row['subject'],'chapter':row.get('chapter',''),'topic':row.get('topic',''),'subtopic':row.get('subtopic',''),'section':row['section'],'source':source,'license':license,'solution':row.get('solution',''),'marking':{'correct':float(row.get('correct_marks') or 3),'incorrect':float(row.get('incorrect_marks') or 0),'unanswered':float(row.get('unanswered_marks') or 0),'partial':truth(row.get('partial_credit'))}})
                     continue
                 topic,subtopic=taxonomy(row)
                 kind=(row.get('kind') or 'PRACTICE').upper()
@@ -98,6 +116,7 @@ def apply_rows(job,rows,preview=False):
                 if Question.objects.filter(tenant=owner,paper=paper,source=source,section=section).exists():continue
                 tags=[value.strip() for value in row.get('tags','').split(',') if value.strip()]
                 question=Question(tenant=owner,kind=kind,paper=paper,section=section,stem=row['stem'],options=options,answer=json.dumps(answer) if isinstance(answer,list) else answer,question_type=row['question_type'],topic=topic,subtopic=subtopic,difficulty=int(row.get('difficulty') or 3),source=source,license=license,status='draft',created_by=job.initiated_by,solution=row.get('solution',''),tags=tags+[topic.chapter.subject.name,topic.chapter.name,topic.name]+([subtopic.name] if subtopic else []),difficulty_basis='Uploaded editorial rating.',taxonomy_basis='Uploaded taxonomy; review before publishing.')
+                question.figure_paths=row_images(row,images,preview,f'job-{job.pk}')
                 question.full_clean();question.save();concept,_=ConceptTag.objects.get_or_create(topic=topic,name=topic.name);QuestionConceptTag.objects.create(question=question,concept_tag=concept);created+=1
         except (ValueError,TypeError,ValidationError,ArithmeticError) as exc:errors.append(f'Row {row.get("_row",index)}: {exc}')
     for title,group in tests.items():

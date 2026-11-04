@@ -3,7 +3,8 @@ from collections import Counter
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
-from django.http import JsonResponse
+from django.http import FileResponse,Http404,JsonResponse
+from django.urls import reverse
 from django.shortcuts import get_object_or_404,redirect,render
 from django.utils import timezone
 from django.views.decorators.http import require_GET,require_POST,require_http_methods
@@ -12,6 +13,18 @@ from apps.features.models import TenantExam
 from apps.materials.recommendations import recommend_sections
 from .models import TimedTest,TimedAttempt
 from .timed_services import finish
+
+
+def snapshot_with_figures(rows):
+    """Copy each linked question's images into the attempt snapshot so later edits never change a started paper."""
+    from apps.content.models import Question
+    ids=[row.get('question_id') for row in rows if row.get('question_id') and not row.get('figures')]
+    paths=dict(Question.objects.filter(pk__in=ids).values_list('pk','figure_paths')) if ids else {}
+    return [{**row,'figures':row.get('figures') or paths.get(row.get('question_id')) or []} for row in rows]
+
+
+def row_figures(attempt,row):
+    return [reverse('timed_figure',args=[attempt.pk,row['key'],index]) for index in range(len(row.get('figures') or []))]
 
 
 def scope(request):
@@ -60,7 +73,7 @@ def start(request,test_id):
         test.full_clean()
         now=timezone.now()
         with transaction.atomic():
-            attempt,_=TimedAttempt.objects.get_or_create(test=test,user=request.user,defaults={'started_at':now,'deadline':now+timedelta(minutes=test.duration_minutes),'snapshot':test.questions})
+            attempt,_=TimedAttempt.objects.get_or_create(test=test,user=request.user,defaults={'started_at':now,'deadline':now+timedelta(minutes=test.duration_minutes),'snapshot':snapshot_with_figures(test.questions)})
         return redirect('timed_attempt',attempt_id=attempt.pk)
     return render(request,'assessments/timed_instructions.html',{'test':test,'count':len(test.questions)})
 
@@ -93,7 +106,7 @@ def attempt(request,attempt_id):
             # Keep answer keys/solutions out of the response until the deadline/submission.
             rows.append({'key':row['key'],'stem':row['stem'],'subject':row['subject'],'section':row.get('section',''),
                 'question_type':row['question_type'],'options':row['options'],'marking':row['marking'],'number':index,
-                'saved':item.answers.get(row['key'],[]),'review':row['key'] in item.review})
+                'saved':item.answers.get(row['key'],[]),'review':row['key'] in item.review,'figure_urls':row_figures(item,row)})
     return render(request,'assessments/timed_attempt.html',{'attempt':item,'test':item.test,'rows':rows,'server_time':timezone.now().isoformat()})
 
 
@@ -111,5 +124,20 @@ def result(request,attempt_id):
         recommendations=[]
         if mark.get('state') in ['incorrect','partial','unanswered']:
             recommendations=recommend_sections(tenant,question.get('topic_id'),question.get('chapter'),question.get('subject'),question.get('stem',''),question.get('question_id'))
-        rows.append({'question':question,'mark':mark,'selected':item.answers.get(question['key'],[]),'recommendations':recommendations})
+        rows.append({'question':question,'mark':mark,'selected':item.answers.get(question['key'],[]),'recommendations':recommendations,'figure_urls':row_figures(item,question)})
     return render(request,'assessments/timed_result.html',{'attempt':item,'test':item.test,'rows':rows,'states':dict(Counter(row['state'] for row in item.result.get('questions',[])))})
+
+
+@login_required
+@require_GET
+def figure(request,attempt_id,key,index):
+    from apps.content.figures import content_type,open_figure
+    tenant,tests=scope(request)
+    item=get_object_or_404(TimedAttempt,pk=attempt_id,user=request.user,test__in=tests)
+    row=next((row for row in item.snapshot if row.get('key')==key),None)
+    figures=(row or {}).get('figures') or []
+    if not 0<=index<len(figures):raise Http404()
+    handle=open_figure(figures[index])
+    if handle is None:raise Http404()
+    response=FileResponse(handle,content_type=content_type(figures[index]));response['Cache-Control']='private, max-age=3600'
+    return response

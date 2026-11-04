@@ -6,6 +6,7 @@ urlpatterns = [
     path("practice/tests/<int:test_id>/start/",timed_views.start,name="timed_start"),
     path("practice/test-attempts/<int:attempt_id>/",timed_views.attempt,name="timed_attempt"),
     path("practice/test-attempts/<int:attempt_id>/result/",timed_views.result,name="timed_result"),
+    path("practice/test-attempts/<int:attempt_id>/figures/<str:key>/<int:index>/",timed_views.figure,name="timed_figure"),
     path("tests/", views.assignment_list, name="test_assignment_list"),
     path("tests/assignments/<int:assignment_id>/start/", views.start_assignment, name="start_test_assignment"),
     path("tests/attempts/<int:attempt_id>/", views.test_attempt, name="test_attempt"),

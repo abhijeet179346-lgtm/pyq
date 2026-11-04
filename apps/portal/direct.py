@@ -7,7 +7,7 @@ from django.core import signing
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
 from django.db.models import Count, Q, F
-from django.http import Http404, HttpResponseBadRequest
+from django.http import FileResponse, Http404, HttpResponseBadRequest
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
 from django.views.decorators.http import require_GET, require_http_methods
@@ -215,6 +215,7 @@ def _question_response(request, tenant, item, run=None, session_id=None, positio
     if attempt is not None and not attempt.is_correct:
         recommendations=recommend_sections(tenant,item.topic_id,item.topic.chapter.name,item.topic.chapter.subject.name,item.stem,item.pk)
     return render(request, "portal/direct_question.html", {"question": item, "recommendations":recommendations,
+        "figure_urls": figure_urls(item),
         "options": option_pairs(item), "attempt": attempt, "submission": token, **run_context})
 
 
@@ -292,3 +293,23 @@ def study_source(request, section_id):
     file=section.document.source_file
     if not file or not file.storage.exists(file.name):raise Http404("Source file unavailable.")
     return FileResponse(file.open("rb"),as_attachment=not file.name.lower().endswith(".pdf"),filename=Path(file.name).name)
+
+
+def figure_urls(question):
+    return [reverse("direct_question_figure", args=[question.pk, index]) for index in range(len(question.figure_paths or []))]
+
+
+@login_required
+@require_GET
+def question_figure(request, question_id, index):
+    from apps.content.figures import content_type, open_figure
+    tenant = _direct_user(request, "practice")
+    item = get_object_or_404(questions(tenant), pk=question_id)
+    if not 0 <= index < len(item.figure_paths or []):
+        raise Http404()
+    handle = open_figure(item.figure_paths[index])
+    if handle is None:
+        raise Http404()
+    response = FileResponse(handle, content_type=content_type(item.figure_paths[index]))
+    response["Cache-Control"] = "private, max-age=3600"
+    return response

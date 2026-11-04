@@ -195,7 +195,7 @@ class AdminUploadTests(TestCase):
         client = self.client_for(self.root)
         response, _ = self.upload(client, self.master, "questions", "q.csv", b"a,b\n", ctype="text/csv")
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Upload a .xlsx file")
+        self.assertContains(response, "Upload a .xlsx or .zip file")
 
     # ---------- PDF ----------
 
