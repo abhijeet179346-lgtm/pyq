@@ -257,7 +257,7 @@ from .models import TimedTest,TimedAttempt
 
 @admin.register(TimedTest)
 class TimedTestAdmin(TenantScopedAdmin):
-    list_display=('name','tenant','exam','series','paper_number','subject','duration_minutes','active')
+    list_display=('name','tenant','exam','series','paper_number','subject','duration_minutes','fullscreen_exit_limit','active')
     list_filter=('tenant','exam','series','subject','active')
     search_fields=('name','series')
     def save_model(self,request,obj,form,change):
@@ -271,8 +271,12 @@ class TimedTestAdmin(TenantScopedAdmin):
 
 @admin.register(TimedAttempt)
 class TimedAttemptAdmin(admin.ModelAdmin):
-    list_display=('test','user','status','started_at','deadline','score')
+    list_display=('test','user','status','started_at','deadline','score','proctoring_events')
     readonly_fields=tuple(field.name for field in TimedAttempt._meta.fields)
+    @admin.display(description='Full-screen exits / tab switches')
+    def proctoring_events(self,obj):
+        exits=sum(1 for event in obj.events if event.get('type')=='fullscreen_exit')
+        return f"{exits} / {len(obj.events)-exits}" if obj.events else '—'
     def get_queryset(self,request):
         qs=super().get_queryset(request)
         return qs if request.user.is_superuser else qs.filter(test__tenant_id=getattr(request.user,'tenant_id',None))

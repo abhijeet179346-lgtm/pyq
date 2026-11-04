@@ -1,1 +1,39 @@
-{% extends 'portal/base.html' %}{% block title %}Test instructions{% endblock %}{% block content %}<p><a href="{% url 'timed_catalog' %}">← Tests</a></p><h1>{{ test.name }}</h1>{% if error %}<p class="notice" role="alert">{{ error }}</p>{% endif %}<section class="panel"><p>{{ count }} questions · {{ test.duration_minutes }} minutes · {{ test.max_marks|floatformat:0 }} marks</p><div style="white-space:pre-wrap">{{ test.instructions }}</div><p>The timer starts when you press Start. Reloading or leaving the page does not reset it. Answers autosave; watch the saved status. You can move between subjects and mark questions for review. Answers and study links appear after submission.</p><p>You have one attempt per paper. Correct answers are supplied by the attributed dataset and are not all independently verified.</p><form method="post">{% csrf_token %}<button type="submit">Start / resume timed test →</button></form></section>{% endblock %}
+{% extends 'portal/base.html' %}{% load static %}{% block title %}Instructions · {{ test.name }}{% endblock %}
+{% block head %}<link rel="stylesheet" href="{% static 'portal/exam.css' %}">{% endblock %}
+{% block content %}<div class="exam-intro">
+<nav class="quiet-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'timed_catalog' %}">Timed tests</a><span>/</span><span>{{ test.name }}</span></nav>
+<p class="eyebrow">{{ test.exam.name }}{% if test.series %} · {{ test.series }}{% endif %}</p>
+<h1>{{ test.name }}</h1>
+<div class="exam-facts"><span>{{ count }} questions</span><span>{{ test.duration_minutes }} minutes</span><span>{{ test.max_marks|floatformat:0 }} marks</span><span>One attempt</span></div>
+{% if error %}<p class="notice" role="alert">{{ error }}</p>{% endif %}
+
+<h2>Sections and marking</h2>
+<table><thead><tr><th scope="col">Section</th><th scope="col">Questions</th><th scope="col">Question types and marking</th></tr></thead><tbody>
+{% for section in sections %}<tr><th scope="row">{{ section.subject }}</th><td>{{ section.count }}</td><td>{% for kind in section.types %}{{ kind.count }} {{ kind.label|lower }}: +{{ kind.marking.correct }} correct, {{ kind.marking.incorrect }} wrong{% if kind.marking.partial %}, partial credit{% endif %}{% if not forloop.last %}<br>{% endif %}{% endfor %}</td></tr>{% endfor %}
+</tbody></table>
+
+<h2>Question palette</h2>
+<ul class="exam-legend">
+  <li><span class="chip-shape" data-state="not-visited" aria-hidden="true">1</span>Not visited yet</li>
+  <li><span class="chip-shape" data-state="not-answered" aria-hidden="true">2</span>Seen but not answered</li>
+  <li><span class="chip-shape" data-state="answered" aria-hidden="true">3</span>Answered</li>
+  <li><span class="chip-shape" data-state="marked" aria-hidden="true">4</span>Marked for review, not answered</li>
+  <li><span class="chip-shape" data-state="answered-marked" aria-hidden="true">5</span>Answered and marked — counted for evaluation</li>
+</ul>
+
+<h2>Before you start</h2>
+<ol>
+  <li>The timer starts when you select <strong>Start test</strong> and keeps running on the server. Reloading or closing the page does not pause it; the paper submits automatically when time runs out.</li>
+  <li>The paper opens in <strong>full screen</strong>. Leaving full screen or switching to another tab is recorded and shown on your result{% if test.fullscreen_exit_limit %}; after <strong>{{ test.fullscreen_exit_limit }}</strong> times the paper is submitted automatically{% endif %}.</li>
+  <li>Answers save automatically every few seconds and whenever you move to another question. Watch the save status at the top.</li>
+  <li>Use <strong>Save &amp; next</strong>, <strong>Mark for review &amp; next</strong> and <strong>Clear response</strong> at the bottom, or jump to any question from the palette. Keyboard: <kbd>A</kbd>–<kbd>D</kbd> choose, <kbd>→</kbd> next, <kbd>←</kbd> back, <kbd>M</kbd> mark, <kbd>C</kbd> clear.</li>
+  <li>Numerical answers accept digits, one decimal point and a leading minus sign; an on-screen keypad is available.</li>
+  <li>Answers, solutions and analysis appear after you submit. Answer keys come from the attributed source and have not all been independently verified.</li>
+</ol>
+{% if test.instructions %}<h2>Paper instructions</h2><div style="white-space:pre-wrap">{{ test.instructions }}</div>{% endif %}
+
+<form method="post">{% csrf_token %}
+  <label class="exam-agree"><input type="checkbox" required> <span>I have read the instructions. I understand the paper runs in full screen and that leaving it is recorded.</span></label>
+  <button type="submit" class="btn">{% if resuming %}Resume test →{% else %}Start test →{% endif %}</button>
+</form>
+</div>{% endblock %}

@@ -123,6 +123,8 @@ class TimedTest(models.Model):
     questions = models.JSONField(default=list, help_text='Question snapshots including answer keys and section marking rules. Use Excel import to create tests.')
     active = models.BooleanField(default=False)
     source = models.URLField(blank=True)
+    fullscreen_exit_limit = models.PositiveSmallIntegerField(null=True, blank=True,
+        help_text='Auto-submit after this many full-screen exits or tab switches. Leave blank to warn and log only.')
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -152,6 +154,9 @@ class TimedAttempt(models.Model):
     result = models.JSONField(default=dict,blank=True)
     score = models.DecimalField(max_digits=9,decimal_places=2,default=0)
     submitted_at = models.DateTimeField(null=True,blank=True)
+    visited = models.JSONField(default=list,blank=True)
+    time_spent = models.JSONField(default=dict,blank=True,help_text='Seconds spent on each question key.')
+    events = models.JSONField(default=list,blank=True,help_text='Full-screen exits and tab switches during the attempt.')
 
     class Meta:
         constraints=[models.UniqueConstraint(fields=['test','user'],name='unique_user_timed_attempt')]

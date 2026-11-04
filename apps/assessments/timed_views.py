@@ -1,5 +1,6 @@
 from datetime import timedelta
 from collections import Counter
+import json
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
@@ -25,6 +26,45 @@ def snapshot_with_figures(rows):
 
 def row_figures(attempt,row):
     return [reverse('timed_figure',args=[attempt.pk,row['key'],index]) for index in range(len(row.get('figures') or []))]
+
+
+EVENT_TYPES={'fullscreen_exit','tab_hidden'}
+TYPE_LABELS={'single_correct':'Single correct','multi_correct':'Multiple correct','integer':'Integer','numerical':'Numerical'}
+
+
+def paper_sections(rows):
+    """Subjects in paper order, each with question count and the question types / marking used."""
+    sections={}
+    for row in rows:
+        section=sections.setdefault(row['subject'],{'subject':row['subject'],'count':0,'types':{}})
+        section['count']+=1
+        kind=section['types'].setdefault(row['question_type'],{'label':TYPE_LABELS.get(row['question_type'],row['question_type']),'count':0,'marking':row.get('marking',{})})
+        kind['count']+=1
+    return [{**item,'types':list(item['types'].values())} for item in sections.values()]
+
+
+def violations(attempt):
+    return sum(1 for event in attempt.events if event.get('type') in EVENT_TYPES)
+
+
+def record_tracking(item,post):
+    """Merge visited keys, per-question seconds and proctoring events sent by the exam page."""
+    keys={row['key'] for row in item.snapshot}
+    visited=[key for key in post.get('visited','').split(',') if key in keys]
+    item.visited=list(dict.fromkeys([*item.visited,*visited]))
+    try:spent=json.loads(post.get('time_spent') or '{}')
+    except ValueError:spent={}
+    limit=item.test.duration_minutes*60
+    if isinstance(spent,dict):
+        for key,value in spent.items():
+            if key in keys and isinstance(value,(int,float)):item.time_spent[key]=max(0,min(int(value),limit))
+    try:events=json.loads(post.get('events') or '[]')
+    except ValueError:events=[]
+    if isinstance(events,list):
+        now=timezone.now().isoformat()
+        for event in events[:50]:
+            if isinstance(event,dict) and event.get('type') in EVENT_TYPES and len(item.events)<500:
+                item.events.append({'type':event['type'],'at':now})
 
 
 def scope(request):
@@ -69,13 +109,14 @@ def start(request,test_id):
             prior=TimedAttempt.objects.filter(test=first,user=request.user).first() if first else None
             if prior and prior.status=='in_progress' and timezone.now()>=prior.deadline:finish(prior,expired=True)
             if not prior or prior.status=='in_progress':
-                return render(request,'assessments/timed_instructions.html',{'test':test,'count':len(test.questions),'error':'Complete Paper 1 of this mock set before starting Paper 2.'},status=409)
+                return render(request,'assessments/timed_instructions.html',{'test':test,'count':len(test.questions),'sections':paper_sections(test.questions),'error':'Complete Paper 1 of this mock set before starting Paper 2.'},status=409)
         test.full_clean()
         now=timezone.now()
         with transaction.atomic():
             attempt,_=TimedAttempt.objects.get_or_create(test=test,user=request.user,defaults={'started_at':now,'deadline':now+timedelta(minutes=test.duration_minutes),'snapshot':snapshot_with_figures(test.questions)})
         return redirect('timed_attempt',attempt_id=attempt.pk)
-    return render(request,'assessments/timed_instructions.html',{'test':test,'count':len(test.questions)})
+    existing=TimedAttempt.objects.filter(test=test,user=request.user,status='in_progress').first()
+    return render(request,'assessments/timed_instructions.html',{'test':test,'count':len(test.questions),'sections':paper_sections(test.questions),'resuming':existing is not None})
 
 
 @login_required
@@ -97,17 +138,26 @@ def attempt(request,attempt_id):
                     if not set(values).issubset(allowed):raise PermissionDenied('Invalid answer option.')
                 if values:answers[row['key']]=values
                 if request.POST.get('review_'+row['key']):review.append(row['key'])
-            item.answers=answers;item.review=review;item.save(update_fields=['answers','review'])
+            item.answers=answers;item.review=review
+            record_tracking(item,request.POST)
+            item.save(update_fields=['answers','review','visited','time_spent','events'])
+            limit=item.test.fullscreen_exit_limit
+            if limit and violations(item)>=limit:
+                finish(item);item.result['ended_by']='proctoring';item.save(update_fields=['result'])
+                if request.POST.get('action')=='save':return JsonResponse({'result_url':redirect('timed_result',attempt_id=item.pk).url,'ended_by':'proctoring'})
+                return redirect('timed_result',attempt_id=item.pk)
             if request.POST.get('action')=='submit':
                 finish(item);return redirect('timed_result',attempt_id=item.pk)
-            return JsonResponse({'state':'saved','server_time':timezone.now().isoformat()})
+            return JsonResponse({'state':'saved','server_time':timezone.now().isoformat(),'violations':violations(item)})
         rows=[]
         for index,row in enumerate(item.snapshot,1):
             # Keep answer keys/solutions out of the response until the deadline/submission.
             rows.append({'key':row['key'],'stem':row['stem'],'subject':row['subject'],'section':row.get('section',''),
-                'question_type':row['question_type'],'options':row['options'],'marking':row['marking'],'number':index,
+                'question_type':row['question_type'],'type_label':TYPE_LABELS.get(row['question_type'],row['question_type']),'options':row['options'],'marking':row['marking'],'number':index,
                 'saved':item.answers.get(row['key'],[]),'review':row['key'] in item.review,'figure_urls':row_figures(item,row)})
-    return render(request,'assessments/timed_attempt.html',{'attempt':item,'test':item.test,'rows':rows,'server_time':timezone.now().isoformat()})
+    return render(request,'assessments/timed_attempt.html',{'attempt':item,'test':item.test,'rows':rows,'sections':paper_sections(item.snapshot),
+        'server_time':timezone.now().isoformat(),'exam_state':{'visited':item.visited,'time_spent':item.time_spent,'violations':violations(item),
+        'limit':item.test.fullscreen_exit_limit}})
 
 
 @login_required

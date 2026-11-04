@@ -1,1 +1,103 @@
-{% extends 'portal/base.html' %}{% load static %}{% block title %}{{ test.name }}{% endblock %}{% block content %}<div class="timed-toolbar"><div><p class="eyebrow">{{ test.name }}</p><strong>Time remaining: <span id="test-clock">--:--</span></strong></div><span id="save-status" role="status">Answers autosave every 10 seconds</span></div><form method="post" id="timed-form" data-deadline="{{ attempt.deadline|date:'c' }}" data-server-time="{{ server_time }}">{% csrf_token %}<nav class="test-subjects" aria-label="Subjects"><button type="button" data-subject="all">All subjects</button><button type="button" data-subject="Physics">Physics</button><button type="button" data-subject="Chemistry">Chemistry</button><button type="button" data-subject="Mathematics">Mathematics</button></nav><nav class="test-palette" aria-label="Questions">{% for row in rows %}<a href="#question-{{ row.key }}" data-key="{{ row.key }}">{{ row.number }}</a>{% endfor %}</nav><div class="test-layout">{% for row in rows %}<section class="panel timed-question" id="question-{{ row.key }}" data-subject="{{ row.subject }}" data-key="{{ row.key }}"><div class="section-heading"><span class="badge">{{ row.subject }} · {{ row.question_type }}</span><span class="muted">+{{ row.marking.correct }} / {{ row.marking.incorrect }}{% if row.marking.partial %} · Partial credit{% endif %}</span></div><h2>Question {{ row.number }}</h2><div class="question-stem" style="white-space:pre-wrap">{{ row.stem }}</div>{% include "portal/question_figures.html" with figure_urls=row.figure_urls %}{% if row.question_type == 'multi_correct' %}<p class="muted">Select all correct answers. A proper subset earns +1 per selected correct option. Any wrong option earns the negative mark.</p>{% endif %}{% if row.options %}{% for option in row.options %}<label class="test-option"><input type="{% if row.question_type == 'multi_correct' %}checkbox{% else %}radio{% endif %}" name="answer_{{ row.key }}" value="{{ option.id }}" {% if option.id in row.saved %}checked{% endif %}><span>{{ option.id }}. {{ option.text }}</span></label>{% endfor %}{% else %}<label>Numerical answer <input type="text" name="answer_{{ row.key }}" value="{{ row.saved.0|default:'' }}" inputmode="decimal" autocomplete="off"></label>{% endif %}<div class="test-question-tools"><label><input type="checkbox" name="review_{{ row.key }}" {% if row.review %}checked{% endif %}> Mark for review</label><button type="button" class="clear-answer" data-key="{{ row.key }}">Clear answer</button></div></section>{% endfor %}</div><div class="practice-pagination"><button type="button" id="test-previous" class="btn secondary">← Previous question</button><span class="muted" id="question-position"></span><button type="button" id="test-next" class="btn secondary">Save &amp; next →</button></div><div class="practice-actions"><button type="button" id="save-now" class="btn secondary">Save now</button><button type="submit" name="action" value="submit">Submit test</button></div></form>{% endblock %}{% block scripts %}{% include 'portal/question_math.html' %}<script defer src="{% static 'portal/timed-test.js' %}"></script>{% endblock %}
+{% extends 'assessments/exam_shell.html' %}{% load static %}{% block title %}{{ test.name }}{% endblock %}
+{% block body %}
+<div class="exam" id="exam">
+  <header class="exam-top">
+    <div class="exam-title"><strong>{{ test.name }}</strong><span>{{ test.exam.name }}{% if test.paper_number and test.series %} · Paper {{ test.paper_number }}{% endif %}</span></div>
+    <div class="exam-timer" id="exam-timer" role="timer" aria-label="Time remaining"><span>Time left</span><strong id="test-clock">--:--:--</strong></div>
+    <div class="exam-top-tools">
+      <span class="exam-save" id="save-status" role="status" aria-live="polite">All answers saved</span>
+      <div class="exam-zoom" role="group" aria-label="Text size"><button type="button" data-zoom="-1" aria-label="Smaller text">A−</button><button type="button" data-zoom="1" aria-label="Larger text">A+</button></div>
+      <button type="button" class="exam-icon-btn" id="fullscreen-toggle" aria-label="Enter full screen" hidden>⛶</button>
+      <span class="exam-user" title="{{ request.user.email }}">{{ request.user.username }}</span>
+    </div>
+  </header>
+
+  <form method="post" id="timed-form" class="exam-form" data-deadline="{{ attempt.deadline|date:'c' }}" data-server-time="{{ server_time }}" novalidate>
+    {% csrf_token %}
+    <input type="hidden" name="visited" value=""><input type="hidden" name="time_spent" value=""><input type="hidden" name="events" value="">
+
+    <nav class="exam-sections" role="tablist" aria-label="Sections">
+      {% for section in sections %}<button type="button" role="tab" data-subject="{{ section.subject }}" aria-selected="false">{{ section.subject }} <span class="exam-tab-count">{{ section.count }}</span></button>{% endfor %}
+    </nav>
+
+    <div class="exam-main">
+      <main class="exam-question-area" id="question-area">
+        {% for row in rows %}
+        <section class="exam-question" id="question-{{ row.key }}" data-key="{{ row.key }}" data-subject="{{ row.subject }}" data-type="{{ row.question_type }}" aria-labelledby="qh-{{ row.key }}" hidden>
+          <header class="exam-q-head">
+            <h2 id="qh-{{ row.key }}" tabindex="-1">Question {{ row.number }}</h2>
+            <span class="exam-q-type">{{ row.type_label }}</span>
+            <span class="exam-q-marks" title="Marks for correct / incorrect answers">+{{ row.marking.correct }} / {{ row.marking.incorrect }}{% if row.marking.partial %} · partial credit{% endif %}</span>
+          </header>
+          <div class="exam-q-body">
+            <div class="question-stem">{{ row.stem }}</div>
+            {% include "portal/question_figures.html" with figure_urls=row.figure_urls %}
+            {% if row.question_type == 'multi_correct' %}<p class="exam-hint">Select one or more options. A correct subset earns partial marks only if you choose no wrong option.</p>{% endif %}
+            {% if row.options %}
+            <fieldset class="exam-options"><legend class="sr-only">Options for question {{ row.number }}</legend>
+              {% for option in row.options %}<label class="exam-option"><input type="{% if row.question_type == 'multi_correct' %}checkbox{% else %}radio{% endif %}" name="answer_{{ row.key }}" value="{{ option.id }}" {% if option.id in row.saved %}checked{% endif %}><span class="exam-option-id" aria-hidden="true">{{ option.id }}</span><span class="exam-option-text">{{ option.text }}</span></label>{% endfor %}
+            </fieldset>
+            {% else %}
+            <div class="exam-numeric">
+              <label for="num-{{ row.key }}">Your answer</label>
+              <input id="num-{{ row.key }}" class="exam-numeric-input" type="text" name="answer_{{ row.key }}" value="{{ row.saved.0|default:'' }}" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="20" placeholder="Type or use the keypad">
+              <div class="exam-keypad" data-target="num-{{ row.key }}" aria-label="Numeric keypad">
+                {% for key in "789456123" %}<button type="button" data-key="{{ key }}">{{ key }}</button>{% endfor %}<button type="button" data-key="0">0</button><button type="button" data-key=".">.</button><button type="button" data-key="-" aria-label="Minus sign">−</button><button type="button" data-key="back" aria-label="Delete last character">⌫</button><button type="button" data-key="clear" class="wide">Clear</button>
+              </div>
+            </div>
+            {% endif %}
+            <input type="checkbox" name="review_{{ row.key }}" class="review-flag" {% if row.review %}checked{% endif %} hidden tabindex="-1" aria-hidden="true">
+          </div>
+        </section>
+        {% endfor %}
+      </main>
+
+      <aside class="exam-panel" id="exam-panel" aria-label="Question palette">
+        <div class="exam-panel-head"><strong id="palette-subject"></strong><button type="button" class="exam-icon-btn only-mobile" id="palette-close" aria-label="Close question palette">✕</button></div>
+        <ul class="exam-legend">
+          <li><span class="chip-shape" data-state="answered" aria-hidden="true"></span>Answered <b data-count="answered">0</b></li>
+          <li><span class="chip-shape" data-state="not-answered" aria-hidden="true"></span>Not answered <b data-count="not-answered">0</b></li>
+          <li><span class="chip-shape" data-state="not-visited" aria-hidden="true"></span>Not visited <b data-count="not-visited">0</b></li>
+          <li><span class="chip-shape" data-state="marked" aria-hidden="true"></span>Marked for review <b data-count="marked">0</b></li>
+          <li><span class="chip-shape" data-state="answered-marked" aria-hidden="true"></span>Answered &amp; marked <b data-count="answered-marked">0</b><small>Counted for evaluation</small></li>
+        </ul>
+        <div class="exam-palette" role="list" aria-label="Questions in this section">
+          {% for row in rows %}<button type="button" class="chip" role="listitem" data-key="{{ row.key }}" data-subject="{{ row.subject }}"><span class="chip-shape">{{ row.number }}</span></button>{% endfor %}
+        </div>
+        <p class="exam-shortcuts">Keys: <kbd>A</kbd>–<kbd>D</kbd> choose · <kbd>→</kbd> save &amp; next · <kbd>←</kbd> back · <kbd>M</kbd> mark · <kbd>C</kbd> clear</p>
+      </aside>
+    </div>
+
+    <footer class="exam-actions">
+      <div class="exam-actions-group">
+        <button type="button" class="exam-btn rev" id="mark-next">Mark for review &amp; next</button>
+        <button type="button" class="exam-btn ghost" id="clear-response">Clear response</button>
+      </div>
+      <div class="exam-actions-group">
+        <button type="button" class="exam-btn ghost only-mobile" id="palette-toggle" aria-controls="exam-panel" aria-expanded="false">Questions</button>
+        <button type="button" class="exam-btn ghost" id="test-previous">← Back</button>
+        <button type="button" class="exam-btn primary" id="save-next">Save &amp; next →</button>
+        <button type="button" class="exam-btn submit" id="open-submit">Submit</button>
+      </div>
+    </footer>
+
+    <dialog class="exam-dialog" id="submit-dialog" aria-labelledby="submit-title">
+      <h2 id="submit-title">Submit this paper?</h2>
+      <p>You can't change any answer after submitting.</p>
+      <div class="exam-table-wrap"><table class="exam-summary"><thead><tr><th scope="col">Section</th><th scope="col">Answered</th><th scope="col">Not answered</th><th scope="col">Marked</th><th scope="col">Answered &amp; marked</th><th scope="col">Not visited</th></tr></thead><tbody id="submit-summary"></tbody></table></div>
+      <div class="exam-dialog-actions"><button type="button" class="exam-btn ghost" id="cancel-submit">Back to paper</button><button type="submit" name="action" value="submit" class="exam-btn submit" id="confirm-submit">Submit paper</button></div>
+    </dialog>
+  </form>
+
+  <div class="exam-overlay" id="fullscreen-overlay" role="alertdialog" aria-modal="true" aria-labelledby="overlay-title" aria-describedby="overlay-message" hidden>
+    <div class="exam-overlay-card">
+      <h2 id="overlay-title">This test runs in full screen</h2>
+      <p id="overlay-message">Full screen keeps the paper free of distractions. Leaving full screen or switching tabs is recorded.</p>
+      <button type="button" class="exam-btn primary" id="overlay-action">Continue in full screen</button>
+    </div>
+  </div>
+  <div class="exam-toast" id="exam-toast" role="status" aria-live="assertive" hidden></div>
+</div>
+{{ exam_state|json_script:"exam-state" }}
+{% endblock %}
+{% block scripts %}{% include 'portal/question_math.html' %}<script defer src="{% static 'portal/exam.js' %}"></script>{% endblock %}
