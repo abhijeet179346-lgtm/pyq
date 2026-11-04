@@ -202,3 +202,71 @@ kbd{font:inherit;font-size:12px;border:1px solid var(--line-strong);border-botto
 .result-solution summary{cursor:pointer;font-weight:700;color:var(--accent-text)}
 .result-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-weight:700}
 @media (max-width:600px){.result-options li{grid-template-columns:32px 1fr}.result-tag{grid-column:2}}
+
+/* ---------- Practice ---------- */
+.practice-shell .exam-form{grid-template-rows:1fr auto}
+.practice-wrap{max-width:860px;margin:0 auto}
+.practice-standalone{max-width:900px}
+.practice-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px 24px}
+.practice-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-bottom:14px}
+.practice-meta .muted{font-size:14px}
+.practice-meta-tools{display:flex;gap:8px;align-items:center;margin-left:auto}
+.practice-info summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--accent-text);list-style:none;padding:6px 10px;border-radius:8px;border:1px solid var(--line-strong)}
+.practice-info summary::-webkit-details-marker{display:none}
+.practice-info[open] summary{background:var(--accent-soft)}
+.practice-info>div{position:absolute;z-index:5;max-width:min(460px,86vw);margin-top:8px;right:24px;background:var(--surface);border:1px solid var(--line-strong);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow);font-size:14px}
+.practice-meta-tools{position:relative}
+.practice-bookmark{font:inherit;font-size:14px;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer}
+.practice-bookmark[aria-pressed=true]{background:var(--warn-soft);border-color:var(--warn);color:var(--warn-text)}
+.practice-stem{font-size:18px;line-height:1.75;white-space:pre-wrap;margin:6px 0 18px;font-weight:500}
+.practice-card .exam-option{grid-template-columns:36px 1fr auto}
+.practice-tag{font-size:13px;font-weight:700;white-space:nowrap}
+.practice-card fieldset:disabled .exam-option{cursor:default}
+.practice-card .exam-option.is-answer{border:2px solid var(--ok);background:var(--ok-soft);padding:13px 15px}
+.practice-card .exam-option.is-answer .exam-option-id{background:var(--ok);border-color:var(--ok);color:var(--on-accent)}
+.practice-card .exam-option.is-answer .practice-tag{color:var(--ok-text)}
+.practice-card .exam-option.is-wrong{border:2px solid var(--bad);background:var(--bad-soft);padding:13px 15px}
+.practice-card .exam-option.is-wrong .exam-option-id{background:var(--bad);border-color:var(--bad);color:var(--on-accent)}
+.practice-card .exam-option.is-wrong .practice-tag{color:var(--bad-text)}
+.practice-buttons{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:18px}
+.practice-keys{font-size:13px;margin-left:auto}
+.practice-error{color:var(--bad-text);font-weight:700;margin:10px 0 0}
+.practice-feedback{margin-top:20px;border-top:1px solid var(--line);padding-top:16px}
+.practice-feedback h3{margin:16px 0 6px;font-size:16px}
+.practice-solution{white-space:pre-wrap;line-height:1.7;background:var(--surface-2);border-radius:10px;padding:12px 14px}
+.practice-links{padding-left:20px;line-height:1.9}
+.practice-again{margin-top:16px}
+.practice-progress{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:200px;font-size:14px;font-weight:700}
+.practice-bar{width:220px;height:8px;border-radius:8px;background:var(--surface-2);border:1px solid var(--line-strong);overflow:hidden}
+.practice-bar span{display:block;height:100%;background:var(--accent)}
+.practice-stats{margin-bottom:6px}
+.practice-palette{margin:0}
+.practice-palette .result-chip[aria-current=page]{outline:3px solid var(--focus);outline-offset:2px}
+.practice-legend{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:14px}
+.practice-legend li{display:flex;align-items:center;gap:10px}
+.practice-legend .result-chip{min-width:30px;height:28px;font-size:12px}
+.result-chip[data-state=wrong]{background:var(--bad);border-color:var(--bad);color:var(--on-accent);border-radius:8px 8px 18px 18px}
+.result-chip[data-state=revealed]{background:var(--warn-soft);border-color:var(--warn);color:var(--warn-text);border-style:dashed}
+.result-chip[data-state=saved]{background:var(--accent);border-color:var(--accent);color:var(--on-accent);border-radius:50%}
+.practice-setup{border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:16px 0;display:flex;flex-wrap:wrap;gap:14px;align-items:flex-end}
+.practice-setup legend{font-weight:700;padding:0 6px}
+.practice-setup>label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
+.practice-mode{display:flex;gap:10px;flex-wrap:wrap}
+.practice-mode label{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line-strong);border-radius:10px;padding:10px 14px;cursor:pointer;max-width:280px}
+.practice-mode label:has(input:checked){border:2px solid var(--accent);background:var(--accent-soft);padding:9px 13px}
+.practice-mode span{display:flex;flex-direction:column}
+.practice-mode small{font-size:13px;color:var(--ink-2)}
+.practice-summary-actions{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 10px}
+.practice-summary-actions form{margin:0}
+@media (max-width:900px){.practice-progress{order:3;flex-basis:100%;align-items:stretch}.practice-bar{width:100%}.practice-card{padding:16px}.practice-keys{display:none}.practice-meta-tools{margin-left:0}}
+/* Buttons rendered as links, and controls that must not inherit the global submit-button style */
+a.exam-btn{display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+a.exam-btn:hover{text-decoration:none}
+.practice-card .practice-bookmark,.practice-card .practice-bookmark:hover{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)}
+.practice-card .practice-bookmark[aria-pressed=true]{background:var(--warn-soft);border-color:var(--warn);color:var(--warn-text)}
+.practice-card .exam-btn.ghost,.practice-card .exam-btn.ghost:hover{background:var(--surface);color:var(--ink);border:1px solid var(--line-strong)}
+.practice-picker .practice-setup>label{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.practice-picker .practice-mode label{display:flex;flex-direction:row;align-items:flex-start;gap:10px}
+.practice-picker .practice-mode label span{display:flex;flex-direction:column;gap:2px}
+.practice-picker .practice-mode input{margin-top:3px}
+.practice-buttons[hidden],.practice-feedback[hidden],.practice-error[hidden]{display:none}

@@ -1,0 +1,8 @@
+<div class="practice-result" data-state="{{ feedback.state }}">
+{% if feedback.state == 'correct' %}<p class="result-pill-state" data-state="correct">✓ Correct</p>
+{% elif feedback.state == 'wrong' %}<p class="result-pill-state" data-state="incorrect">✗ Not quite</p><p>Correct answer: <strong>{{ feedback.answer }}</strong>{% if not option_rows %} · your answer: {{ feedback.selected|join:", " }}{% endif %}</p>
+{% elif feedback.state == 'revealed' %}<p class="result-pill-state" data-state="unanswered">Solution viewed</p><p>Answer: <strong>{{ feedback.answer }}</strong></p>
+{% elif feedback.state == 'saved' %}<p class="result-pill-state" data-state="unanswered">Answer saved</p><p>You'll see whether it was right, with the solution, at the end of the quiz.</p>{% endif %}
+{% if feedback.state != 'saved' and feedback.solution %}<h3>Explanation</h3><div class="practice-solution">{{ feedback.solution }}</div>{% endif %}
+{% if feedback.recommendations %}<h3>Study these related sections</h3><ul class="practice-links">{% for item in feedback.recommendations %}<li><a href="{{ item.url }}">{{ item.title }}</a></li>{% endfor %}</ul>{% endif %}
+</div>

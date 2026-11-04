@@ -1,1 +1,30 @@
-{% extends 'portal/base.html' %}{% block title %}Practice summary{% endblock %}{% block content %}<p class="eyebrow">Your practice session</p><h1>Session summary</h1><p class="muted">{{ run.title }}</p><div class="vault-stats"><div class="vault-stat"><div><strong>{{ total }}</strong><small>Questions in session</small></div></div><div class="vault-stat"><div><strong>{{ answered }}</strong><small>Answered</small></div></div><div class="vault-stat"><div><strong>{{ correct }}</strong><small>Correct</small></div></div><div class="vault-stat"><div><strong>{{ skipped }}</strong><small>Unanswered</small></div></div></div><div class="action-buttons"><a class="btn" href="{% url 'practice_session' session_id 1 %}">Review this session</a><a class="btn secondary" href="{{ run.browse_url }}">Browse selected questions</a><a class="btn secondary" href="{% url 'direct_bank' %}">Choose another exam</a></div>{% endblock %}
+{% extends 'portal/base.html' %}{% load static exam_extras %}{% block title %}Practice summary{% endblock %}
+{% block head %}<link rel="stylesheet" href="{% static 'portal/exam.css' %}">{% endblock %}
+{% block content %}<div class="result-page">
+<p class="eyebrow">Practice session · {% if run.mode == 'quiz' %}Quiz{% else %}Learn{% endif %}</p>
+<h1>{{ run.title }}</h1>
+<section class="result-hero" aria-label="Session summary">
+  <div class="result-score"><span>Correct</span><strong>{{ correct }}<em>/{{ answered }}</em></strong><small>answered questions</small></div>
+  <div class="result-stat"><span>Accuracy</span><strong>{% if accuracy is not None %}{{ accuracy }}%{% else %}—{% endif %}</strong><small>{{ wrong }} wrong</small></div>
+  <div class="result-stat"><span>Answered</span><strong>{{ answered }}<em>/{{ total }}</em></strong><small>{{ skipped }} skipped</small></div>
+  <div class="result-stat"><span>Average time</span><strong>{% if avg_seconds %}{{ avg_seconds|duration }}{% else %}—{% endif %}</strong><small>per answered question</small></div>
+</section>
+<div class="action-buttons practice-summary-actions">
+  {% if wrong_count %}<form method="post" action="{% url 'practice_retry' session_id %}">{% csrf_token %}<button type="submit" class="btn">Retry {{ wrong_count }} wrong →</button></form>{% endif %}
+  {% if retry_count > wrong_count %}<form method="post" action="{% url 'practice_retry' session_id %}">{% csrf_token %}<input type="hidden" name="include" value="skipped"><button type="submit" class="btn secondary">Retry wrong + skipped ({{ retry_count }})</button></form>{% endif %}
+  <a class="btn secondary" href="{% url 'practice_session' session_id 1 %}">Review this session</a>
+  {% if run.browse_url %}<a class="btn secondary" href="{{ run.browse_url }}">Browse the selection</a>{% endif %}
+  <a class="btn secondary" href="{% url 'direct_bank' %}">Choose another exam</a>
+</div>
+{% if chapters %}<h2>By chapter</h2><div class="exam-table-wrap"><table class="result-table"><thead><tr><th scope="col">Chapter</th><th scope="col">Answered</th><th scope="col">Correct</th><th scope="col">Accuracy</th></tr></thead><tbody>{% for row in chapters %}<tr><th scope="row">{{ row.name }}</th><td>{{ row.total }}</td><td>{{ row.correct }}</td><td>{{ row.accuracy }}%</td></tr>{% endfor %}</tbody></table></div>{% endif %}
+<h2>Questions</h2>
+<nav class="result-palette" aria-label="Session questions">{% for row in review %}<a href="{% url 'practice_session' session_id row.position %}" class="result-chip" data-state="{% if row.attempt %}{% if row.attempt.is_correct %}correct{% else %}wrong{% endif %}{% elif row.revealed %}revealed{% else %}open{% endif %}">{{ row.position }}<span class="sr-only">, {% if row.attempt %}{% if row.attempt.is_correct %}correct{% else %}wrong{% endif %}{% elif row.revealed %}solution viewed{% else %}not answered{% endif %}</span></a>{% endfor %}</nav>
+{% for row in review %}{% if run.mode == 'quiz' or row.attempt and not row.attempt.is_correct %}
+<article class="panel result-question"><header class="result-q-head"><h3>Question {{ row.position }}</h3>{% if row.attempt %}<span class="result-pill-state" data-state="{% if row.attempt.is_correct %}correct{% else %}incorrect{% endif %}">{% if row.attempt.is_correct %}✓ Correct{% else %}✗ Wrong{% endif %}</span>{% else %}<span class="result-pill-state" data-state="unanswered">○ Not answered</span>{% endif %}<span class="muted">{{ row.question.topic.chapter.name }}</span></header>
+<div class="question-stem">{{ row.question.stem|truncatechars:400 }}</div>
+<dl class="result-dl result-numeric"><div><dt>Your answer</dt><dd>{{ row.attempt.selected_answers|join:", "|default:"—" }}</dd></div><div><dt>Correct answer</dt><dd>{{ row.answer_display }}</dd></div></dl>
+{% if row.question.solution %}<details class="result-solution"><summary>Show solution</summary><div style="white-space:pre-wrap">{{ row.question.solution }}</div></details>{% endif %}
+<div class="result-links"><a href="{% url 'practice_session' session_id row.position %}">Open question →</a></div></article>
+{% endif %}{% endfor %}
+</div>{% endblock %}
+{% block scripts %}{% include 'portal/question_math.html' %}{% endblock %}

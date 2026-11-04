@@ -1,0 +1,34 @@
+<article class="practice-card" id="practice-card" data-mode="{{ run.mode|default:'learn' }}">
+  <header class="practice-meta">
+    <span class="exam-q-type">{{ question.get_question_type_display }}</span>
+    <span class="muted">{% if question.paper_id %}{{ question.paper.exam.name }} {{ question.paper.year }}{% if question.paper.sitting %} · {{ question.paper.sitting }}{% endif %}{% else %}Practice question{% endif %} · {{ question.difficulty_label }}</span>
+    <div class="practice-meta-tools">
+      <details class="practice-info"><summary>About this question</summary><div>
+        <p>{{ question.topic.chapter.subject.name }} › {{ question.topic.chapter.name }} › {{ question.topic.name }}{% if question.subtopic_id %} › {{ question.subtopic.name }}{% endif %}</p>
+        {% if question.tags %}<p class="question-tags">{% for tag in question.tags %}<span class="badge">{{ tag }}</span> {% endfor %}</p>{% endif %}
+        <p class="muted">Difficulty: {{ question.difficulty_basis|default:'Editorial estimate.' }} Topics: {{ question.taxonomy_basis|default:'Editorial classification.' }} Imported answer keys come from the attributed source and have not all been independently checked.</p>
+        {% if question.source|slice:':8' == 'https://' %}<p><a href="{{ question.source }}" target="_blank" rel="noopener noreferrer">Question source ↗</a></p>{% endif %}
+      </div></details>
+      <form method="post" action="{% url 'practice_bookmark' question.pk %}" class="bookmark-form">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><button type="submit" class="practice-bookmark" aria-pressed="{{ bookmarked|yesno:'true,false' }}">{% if bookmarked %}★ Bookmarked{% else %}☆ Bookmark{% endif %}</button></form>
+    </div>
+  </header>
+  <div class="question-stem practice-stem">{{ question.stem }}</div>
+  {% include "portal/question_figures.html" %}
+  {% if question.question_type == 'multi_correct' %}<p class="exam-hint">Select every correct option.</p>{% endif %}
+  <form method="post" id="practice-form" action="{{ practice_url }}" data-mode="{{ run.mode|default:'learn' }}">{% csrf_token %}<input type="hidden" name="submission" value="{{ submission }}">
+    {% if option_rows %}
+    <fieldset class="exam-options"{% if feedback %} disabled{% endif %}><legend class="sr-only">Options</legend>
+      {% for option in option_rows %}<label class="exam-option{% if option.is_answer %} is-answer{% endif %}{% if option.is_selected and feedback.state != 'saved' and not option.is_answer %} is-wrong{% endif %}" data-id="{{ option.id }}"><input type="{% if question.question_type == 'multi_correct' %}checkbox{% else %}radio{% endif %}" name="answer" value="{{ option.id }}"{% if option.is_selected %} checked{% endif %}><span class="exam-option-id" aria-hidden="true">{{ option.id }}</span><span class="exam-option-text">{{ option.text }}</span><span class="practice-tag">{% if feedback.state != 'saved' %}{% if option.is_answer and option.is_selected %}✓ Your answer · correct{% elif option.is_answer %}✓ Correct answer{% elif option.is_selected %}✗ Your answer{% endif %}{% endif %}</span></label>{% endfor %}
+    </fieldset>
+    {% else %}
+    <div class="exam-numeric"><label for="practice-numeric">Your answer</label><input id="practice-numeric" class="exam-numeric-input" type="text" name="answer" inputmode="decimal" autocomplete="off" maxlength="40" required{% if feedback %} disabled{% endif %}{% if attempt %} value="{{ attempt.selected_answers|join:', ' }}"{% endif %}></div>
+    {% endif %}
+    <div class="practice-buttons"{% if feedback %} hidden{% endif %}>
+      <button type="submit" class="exam-btn primary" id="check-answer">{% if run.mode == 'quiz' %}Save answer{% else %}Check answer{% endif %}</button>
+      {% if run.mode != 'quiz' %}<button type="submit" name="action" value="reveal" formnovalidate class="exam-btn ghost" id="reveal-answer">Show solution</button>{% endif %}
+      <span class="practice-keys muted"><kbd>A</kbd>–<kbd>D</kbd> choose · <kbd>Enter</kbd> check{% if run.mode != 'quiz' %} · <kbd>S</kbd> solution{% endif %}</span>
+    </div>
+    <p class="practice-error" id="practice-error" role="alert" hidden></p>
+  </form>
+  <div class="practice-feedback" id="practice-feedback" aria-live="polite"{% if not feedback %} hidden{% endif %}>{% if feedback %}{% include "portal/practice_feedback.html" %}{% endif %}</div>
+</article>

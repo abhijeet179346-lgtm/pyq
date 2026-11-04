@@ -1,0 +1,36 @@
+{% extends 'assessments/exam_shell.html' %}{% load static %}{% block title %}{{ run.title }} · Question {{ position }}{% endblock %}
+{% block body %}
+<div class="exam practice-shell">
+  <header class="exam-top">
+    <div class="exam-title"><strong>{{ run.title }}</strong><span>{% if run.mode == 'quiz' %}Quiz · feedback at the end{% else %}Learn · feedback after each question{% endif %}</span></div>
+    <div class="practice-progress"><span>Question {{ position }} of {{ total }}</span><div class="practice-bar" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="{{ total }}" aria-valuenow="{{ answered_count }}"><span style="width:{% widthratio answered_count total 100 %}%"></span></div></div>
+    <div class="exam-top-tools"><span class="exam-save" id="practice-timer" title="Time on this question">0:00</span><a class="exam-btn ghost" href="{% url 'practice_summary' session_id %}">Finish</a></div>
+  </header>
+  <div class="exam-form">
+    <div class="exam-main practice-main">
+      <main class="exam-question-area"><div class="practice-wrap">{% include "portal/practice_card.html" %}</div></main>
+      <aside class="exam-panel" id="exam-panel" aria-label="Session progress">
+        <div class="exam-panel-head"><strong>This session</strong><button type="button" class="exam-icon-btn only-mobile" id="palette-close" aria-label="Close session panel">✕</button></div>
+        <dl class="result-dl practice-stats" id="practice-stats">
+          <div><dt>Answered</dt><dd><span data-stat="answered">{{ answered_count }}</span> / {{ total }}</dd></div>
+          {% if run.mode != 'quiz' %}<div><dt>Correct</dt><dd data-stat="correct">{{ correct_count }}</dd></div>
+          <div><dt>Accuracy</dt><dd data-stat="accuracy">{% if answered_count %}{% widthratio correct_count answered_count 100 %}%{% else %}—{% endif %}</dd></div>{% endif %}
+        </dl>
+        <nav class="result-palette practice-palette" aria-label="Questions in this session">{% for chip in palette %}<a href="{% url 'practice_session' session_id chip.position %}" class="result-chip" data-position="{{ chip.position }}" data-state="{{ chip.state }}"{% if chip.position == position %} aria-current="page"{% endif %}>{{ chip.position }}<span class="sr-only">, {% if chip.state == 'correct' %}correct{% elif chip.state == 'wrong' %}wrong{% elif chip.state == 'saved' %}answered{% elif chip.state == 'revealed' %}solution viewed{% else %}not answered{% endif %}</span></a>{% endfor %}</nav>
+        <ul class="practice-legend">{% if run.mode == 'quiz' %}<li><span class="result-chip" data-state="saved" aria-hidden="true">1</span>Answered</li>{% else %}<li><span class="result-chip" data-state="correct" aria-hidden="true">1</span>Correct</li><li><span class="result-chip" data-state="wrong" aria-hidden="true">2</span>Wrong</li><li><span class="result-chip" data-state="revealed" aria-hidden="true">3</span>Solution viewed</li>{% endif %}<li><span class="result-chip" data-state="open" aria-hidden="true">4</span>Not answered</li></ul>
+        {% if run.browse_url %}<p><a href="{{ run.browse_url }}">Browse this selection</a></p>{% endif %}
+        <p class="exam-shortcuts">Keys: <kbd>→</kbd> next · <kbd>←</kbd> previous · <kbd>B</kbd> bookmark</p>
+      </aside>
+    </div>
+    <footer class="exam-actions">
+      <div class="exam-actions-group">{% if previous_position %}<a class="exam-btn ghost" id="prev-link" href="{% url 'practice_session' session_id previous_position %}">← Previous</a>{% endif %}</div>
+      <div class="exam-actions-group">
+        <button type="button" class="exam-btn ghost only-mobile" id="palette-toggle" aria-controls="exam-panel" aria-expanded="false">Progress</button>
+        {% if next_position %}<a class="exam-btn {% if feedback %}primary{% else %}ghost{% endif %}" id="next-link" href="{% url 'practice_session' session_id next_position %}" data-answered-label="Next question →">{% if feedback %}Next question{% else %}Skip{% endif %} →</a>
+        {% else %}<a class="exam-btn {% if feedback %}primary{% else %}ghost{% endif %}" id="next-link" href="{% url 'practice_summary' session_id %}" data-answered-label="See summary →">See summary →</a>{% endif %}
+      </div>
+    </footer>
+  </div>
+</div>
+{% endblock %}
+{% block scripts %}{% include 'portal/question_math.html' %}<script defer src="{% static 'portal/practice.js' %}"></script>{% endblock %}
