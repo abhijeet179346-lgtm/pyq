@@ -60,12 +60,12 @@ class MasterTenantTests(TestCase):
         self.assertContains(response, "Additional practice")
         self.assertNotContains(response, self.pyq.stem)
         self.assertContains(self.client.get(f"/practice/?exam={self.exam.pk}&view=browse"), self.pyq.stem)
-        self.assertContains(self.client.get("/practice/?exam=practice"), self.owned.stem)
-        self.assertNotContains(self.client.get("/practice/?exam=practice"), self.private.stem)
+        self.assertContains(self.client.get("/practice/?exam=practice&view=browse"), self.owned.stem)
+        self.assertNotContains(self.client.get("/practice/?exam=practice&view=browse"), self.private.stem)
         TenantExam.objects.filter(tenant=self.master, exam=self.exam).update(enabled=False)
         self.assertNotContains(self.client.get("/practice/"), self.exam.name)
         self.assertEqual(self.client.get(f"/practice/?exam={self.exam.pk}").status_code, 404)
-        self.assertContains(self.client.get("/practice/?exam=practice"), self.owned.stem)
+        self.assertContains(self.client.get("/practice/?exam=practice&view=browse"), self.owned.stem)
         self.assertEqual(self.client.get(f"/practice/questions/{self.pyq.pk}/").status_code, 404)
 
     def test_feature_switches_control_navigation_and_direct_urls(self):
