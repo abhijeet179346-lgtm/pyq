@@ -30,7 +30,8 @@ ANSWER = re.compile(
     r'((?:[A-Da-d1-4]\s*,\s*)*[A-Da-d1-4](?![\w.])|[-+]?\d+(?:\.\d+)?)\)?',
     re.IGNORECASE)
 SOLUTION = re.compile(r'(?:^|(?<=\s))(?:solution|explanation|sol|exp)\s*[.:：\-–]\s*', re.IGNORECASE)
-MARKDOWN_NOISE = re.compile(r'(?m)^\s*(?:[-*•]|#{1,6})\s+|\*\*|__')
+EXPLANATION_KEY = re.compile(r'\(([A-Da-d1-4])\)(?:\s+|$)')
+MARKDOWN_NOISE =re.compile(r'(?m)^\s*(?:[-*•]|#{1,6})\s+|\*\*|__')
 LETTERS = 'ABCD'
 
 
@@ -72,7 +73,7 @@ def _question_starts(text):
         number = int(match[1] or match[2])
         at_line_start = match.start() == 0 or text[match.start() - 1] == '\n'
         if last is None:
-            ok = at_line_start
+            ok = at_line_start or number == 1  # OCR may join a heading and question 1 on one line
         elif at_line_start:
             ok = last < number <= last + 5
         else:
@@ -129,6 +130,11 @@ def split_questions(text, page, job, warning=TEXT_WARNING):
         raw_answer = printed[1] if printed else ''
         if printed:
             block = (block[:printed.start()] + ' ' + block[printed.end():]).strip()
+        elif solution:
+            # Coaching modules often print the key as the explanation's first token: "Exp. (2) ...".
+            keyed = EXPLANATION_KEY.match(solution)
+            if keyed:
+                raw_answer, solution = keyed[1], solution[keyed.end():].strip()
         stem_end, spans, labels = _options(block)
         stem = (block[:stem_end] if spans else block).strip()
         row = {key: '' for key in ROW_KEYS}

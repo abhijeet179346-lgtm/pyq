@@ -1,15 +1,17 @@
-"""Conservative local question candidates from Docling's page Markdown.
+"""Local question candidates from Docling's page Markdown for the scan review queue.
 
-This is a review aid: numbered worked examples or answer keys may also match.
-No answer is inferred unless an explicit printed marker is present.
+Uses the same parser as admin PDF-to-Excel jobs (apps.imports.pdf_excel) and
+converts its rows to the scan payload shape. This is a review aid: no answer is
+inferred unless an explicit printed marker is present.
 """
 
-import re
+import json
+
+from apps.imports.pdf_excel import LOCAL_OCR_WARNING, split_questions
 
 
-QUESTION_START = re.compile(r"(?m)^\s*(\d{1,3})[.)]\s+(?=[A-Za-z(])")
-OPTION_START = re.compile(r"(?m)^\s*[-•]?\s*\(?([A-Da-d1-4])\)\s+")
-ANSWER_LINE = re.compile(r"(?im)^\s*(?:ans(?:wer)?\.?|exp\.?)\s*[:.]?\s*\(?([A-Da-d1-4])\)?\s*$")
+class _Source:
+    pk, source, license = "scan", "", ""
 
 
 def _topic_from_context(text, filename, topics):
@@ -20,37 +22,19 @@ def _topic_from_context(text, filename, topics):
 
 
 def extract_local_questions(markdown, topics, filename=""):
-    starts = list(QUESTION_START.finditer(markdown))
     topic = _topic_from_context(markdown, filename, topics)
     rows = []
-    for index, match in enumerate(starts):
-        block = markdown[match.end():starts[index + 1].start() if index + 1 < len(starts) else len(markdown)].strip()
-        if len(block) < 30:
-            continue
-        option_matches = list(OPTION_START.finditer(block))
-        if option_matches:
-            stem = block[:option_matches[0].start()].strip()
-        else:
-            stem = block
-        options = []
-        for position, option in enumerate(option_matches):
-            option_text = block[option.end():option_matches[position + 1].start()
-                                if position + 1 < len(option_matches) else len(block)].strip()
-            marker = ANSWER_LINE.search(option_text)
-            if marker:
-                option_text = option_text[:marker.start()].strip()
-            options.append({"id": option.group(1).upper(), "text": option_text})
-        printed_answer = ANSWER_LINE.search(block)
-        answer = printed_answer.group(1).upper() if printed_answer else ""
-        solution = block[printed_answer.end():].strip() if printed_answer else ""
-        if printed_answer:
-            stem = stem[:printed_answer.start()].strip() if not option_matches else stem
-        tags = ([topic["subject"], topic["chapter"], topic["name"]] if topic else [])
+    for parsed in split_questions(markdown, 0, _Source, LOCAL_OCR_WARNING):
+        options = [{"id": letter, "text": parsed["option_" + letter.lower()]}
+                   for letter in "ABCD" if parsed["option_" + letter.lower()]]
+        answer = parsed["answer"]
+        if parsed["question_type"] == "multi_correct" and answer:
+            answer = json.dumps(answer.split(","))
         rows.append({
-            "stem": stem, "options": options, "answer": answer, "solution": solution,
-            "question_type": "single_correct" if options else "numerical", "difficulty": 3,
+            "stem": parsed["stem"], "options": options, "answer": answer, "solution": parsed["solution"],
+            "question_type": parsed["question_type"], "difficulty": 3,
             "topic_id": topic["id"] if topic else "", "needs_topic_review": topic is None,
-            "tags": tags, "raw_text": block,
-            "warnings": "Local OCR and numbering are heuristic; check equations, options, answer keys and page boundaries.",
+            "tags": [topic["subject"], topic["chapter"], topic["name"]] if topic else [],
+            "raw_text": parsed["original_text"], "warnings": parsed["warnings"],
         })
     return rows

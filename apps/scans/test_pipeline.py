@@ -82,5 +82,34 @@ class ScanPipelineTests(TestCase):
         request_page.assert_not_called()
         self.assertEqual((self.scan.status, self.scan.next_page, self.scan.extracted_count),
                          (ScanImport.Status.REVIEW, 2, 2))
-        self.assertEqual(self.scan.extraction_payload[0]["answer"], "2")
-        self.assertEqual(self.scan.extraction_payload[0]["topic_id"], self.topic.pk)
+        first = self.scan.extraction_payload[0]
+        # (1)-(4) option labels are stored as A-D, like every other import path.
+        self.assertEqual(first["options"], [{"id": "A", "text": "First"}, {"id": "B", "text": "Second"}])
+        self.assertEqual((first["answer"], first["solution"]), ("B", "Printed explanation."))
+        self.assertEqual(first["topic_id"], self.topic.pk)
+
+    @patch("apps.scans.services._request_page")
+    @patch("apps.scans.docling_adapter.extract_page_markdown")
+    def test_local_backend_uses_shared_parser_formats(self, markdown_pages, request_page):
+        from apps.learning.answering import is_correct
+        TenantOCRSettings.objects.create(tenant=self.tenant, backend="docling_local", page_batch_size=2)
+        markdown_pages.return_value = [
+            # OCR output joined onto one line, inline options, short answer marker.
+            "Center of Mass 1. A body moves along x. Its centre of mass is (A) fixed (B) moving (C) at origin "
+            "(D) undefined Ans: b 2. Which of these are vectors here? (A) mass (B) velocity (C) speed (D) momentum Answer: B, D",
+            "Q3. Find the value of g in metres per second squared\nAnswer: 9.8",
+        ]
+        process_scan(self.scan)
+        request_page.assert_not_called()
+        rows = self.scan.extraction_payload
+        self.assertEqual([(r["question_type"], r["answer"]) for r in rows],
+                         [("single_correct", "B"), ("multi_correct", '["B", "D"]'), ("numerical", "9.8")])
+        self.assertEqual(rows[0]["options"][3], {"id": "D", "text": "undefined"})
+        self.assertEqual([r["source_page"] for r in rows], [1, 1, 2])
+        created = approve_extracted(self.scan, ["0", "1", "2"], {"2": {"topic_id": self.topic.pk}}, self.user)
+        self.assertEqual(len(created), 3)
+        by_type = {q.question_type: q for q in created}
+        self.assertTrue(is_correct(by_type["multi_correct"], ["B", "D"]))
+        self.assertFalse(is_correct(by_type["multi_correct"], ["B"]))
+        self.assertTrue(is_correct(by_type["single_correct"], ["B"]))
+        self.assertTrue(is_correct(by_type["numerical"], ["9.8"]))
