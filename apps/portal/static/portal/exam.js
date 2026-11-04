@@ -82,11 +82,15 @@
     if (focus) q.querySelector('h2').focus({ preventScroll: true });
   }
 
+  const recordEvents = form.dataset.recordEvents !== 'false';
   function fillTracking() {
     account();
-    form.elements.visited.value = [...visited].join(',');
-    form.elements.time_spent.value = JSON.stringify(Object.fromEntries(Object.entries(spent).map(([k, v]) => [k, Math.round(v)])));
-    form.elements.events.value = JSON.stringify(pending);
+    // Timed tests send visited/time_spent/events; institute tests send time_<id> and tab_switch_count.
+    if (form.elements.visited) form.elements.visited.value = [...visited].join(',');
+    if (form.elements.time_spent) form.elements.time_spent.value = JSON.stringify(Object.fromEntries(Object.entries(spent).map(([k, v]) => [k, Math.round(v)])));
+    if (form.elements.events) form.elements.events.value = JSON.stringify(pending);
+    questions.forEach((q) => { const field = form.elements['time_' + q.dataset.key]; if (field) field.value = Math.round(spent[q.dataset.key] || 0); });
+    if (form.elements.tab_switch_count) form.elements.tab_switch_count.value = violations;
   }
 
   async function save() {
@@ -104,6 +108,7 @@
       if (!response.ok) throw new Error(String(response.status));
       const payload = await response.json();
       if (payload.result_url) { finishing = true; location.href = payload.result_url; return; }
+      if (payload.reload_url) { finishing = true; location.href = payload.reload_url; return; }
       pending = pending.slice(sent);
       if (typeof payload.violations === 'number') violations = payload.violations;
       if (payload.server_time) offset = Date.parse(payload.server_time) - Date.now();
@@ -232,7 +237,7 @@
       finishing = true;
       fillTracking();
       const action = document.createElement('input');
-      Object.assign(action, { type: 'hidden', name: 'action', value: 'submit' });
+      Object.assign(action, { type: 'hidden', name: 'action', value: form.dataset.timeoutAction || 'submit' });
       form.append(action);
       form.submit();
     }
@@ -249,6 +254,7 @@
   }
   function recordViolation(type) {
     if (!started || finishing) return;
+    if (!recordEvents) return 'Please stay in full screen until you finish.';
     violations += 1;
     pending.push({ type });
     save();
@@ -280,7 +286,7 @@
     const toggle = $('fullscreen-toggle');
     toggle.hidden = false;
     toggle.addEventListener('click', () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(() => {}); });
-    openOverlay('This test runs in full screen', 'Full screen keeps the paper free of distractions. Leaving full screen or switching tabs is recorded' + (limit ? `, and after ${limit} times the paper is submitted automatically.` : '.'), 'Continue in full screen');
+    openOverlay('This test runs in full screen', 'Full screen keeps the paper free of distractions.' + (recordEvents ? ' Leaving full screen or switching tabs is recorded' + (limit ? `, and after ${limit} times the paper is submitted automatically.` : '.') : ''), 'Continue in full screen');
   } else {
     started = true;
   }

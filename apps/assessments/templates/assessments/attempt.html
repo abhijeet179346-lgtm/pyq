@@ -1,20 +1,94 @@
-<!doctype html>
-<html lang="en">
-<head><link rel="stylesheet" href="/static/portal/tokens.css"><link rel="stylesheet" href="/static/portal/ui.css"><link rel="icon" href="/static/portal/favicon.svg" type="image/svg+xml"><link rel="icon" href="/static/portal/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/static/portal/apple-touch-icon.png"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ assignment.title }}</title>
-<style>body{font:16px system-ui;max-width:980px;margin:2rem auto;padding:0 1rem;color:var(--ink)}.q{border-top:1px solid var(--line-strong);padding:1rem 0}.stem{white-space:pre-wrap;line-height:1.55}label{display:block;padding:.4rem}button{padding:.65rem 1rem;margin:.4rem;background:var(--accent);color:white;border:0;cursor:pointer}#clock{font-size:1.25rem;font-weight:700}.palette span{display:inline-block;border:1px solid var(--line-strong);padding:.3rem;margin:.2rem}</style></head>
-<body><h1>{{ assignment.title }}</h1><p>{{ section.name }} · section {{ section.order|add:1 }} · {{ question_count }} questions</p><p>Time remaining: <span id="clock">--:--</span></p>
-<p class="palette">Palette: numbered boxes are answered (green), marked for review (amber), or not answered.</p>
-<form id="attempt-form" method="post">{% csrf_token %}{% if integrity_enabled %}<input type="hidden" name="tab_switch_count" id="tab-switch-count" value="{{ attempt.tab_switch_count }}">{% endif %}
-{% for row in items %}<section class="q" data-question-id="{{ row.question.pk }}"><h2>Question {{ forloop.counter }}</h2><div class="stem">{{ row.question.stem }}</div>{% if row.question.source_scan_id and row.question.source_page %}<p><img src="{% url 'question_source_image' row.question.pk %}" alt="Question source scan page {{ row.question.source_page }}" style="max-width:100%"></p>{% endif %}<span id="palette-{{ row.question.pk }}" class="{% if row.saved.answer %}answered{% elif row.saved.marked_for_review %}marked{% endif %}">{{ forloop.counter }}</span><input type="hidden" name="time_{{ row.question.pk }}" id="time-{{ row.question.pk }}" value="{{ row.saved.time_spent_seconds|default:0 }}">
-{% if row.options %}{% for key,text in row.options %}<label><input type="{% if row.question.question_type == 'multi_correct' %}checkbox{% else %}radio{% endif %}" name="answer_{{ row.question.pk }}" value="{{ key }}" {% if row.saved and key in row.saved.answer %}checked{% endif %}> {{ key }}. {{ text }}</label>{% endfor %}
-{% else %}<label>Your answer <input type="text" name="answer_{{ row.question.pk }}" value="{{ row.saved.answer|default:'' }}"></label>{% endif %}
-<label><input type="checkbox" name="review_{{ row.question.pk }}" value="1" {% if row.saved.marked_for_review %}checked{% endif %}> Mark for review</label></section>{% endfor %}
-<button name="action" value="save">Save answers</button>{% if has_next_section %}<button name="action" value="next">Save and next section</button>{% else %}<button name="action" value="submit">Submit test</button>{% endif %}</form>
-<script>
-const form=document.getElementById('attempt-form');const csrf=form.querySelector('[name=csrfmiddlewaretoken]').value;
-{% if integrity_enabled %}let switches=Number(document.getElementById('tab-switch-count').value||0);document.addEventListener('visibilitychange',()=>{if(document.hidden){switches++;document.getElementById('tab-switch-count').value=switches}});{% endif %}
-let activeQuestion=null;const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting)activeQuestion=entry.target.dataset.questionId}},{threshold:.55});document.querySelectorAll('.q').forEach(node=>observer.observe(node));setInterval(()=>{if(activeQuestion&&!document.hidden){const field=document.getElementById('time-'+activeQuestion);field.value=Number(field.value||0)+1}},1000);document.querySelectorAll('.q input').forEach(input=>input.addEventListener('change',()=>{const id=input.closest('.q').dataset.questionId;const answer=document.querySelector('[name="answer_'+id+'"]:checked,[name="answer_'+id+'"]:not([type=radio]):not([type=checkbox])');const review=document.querySelector('[name="review_'+id+'"]:checked');const palette=document.getElementById('palette-'+id);palette.className=review?'marked':(answer&&answer.value?'answered':'') }));
-const sectionDeadline=new Date('{{ attempt.section_deadline|date:"c" }}').getTime();const overallDeadline=new Date('{{ attempt.deadline|date:"c" }}').getTime();const clock=document.getElementById('clock');
-const timer=setInterval(()=>{const now=Date.now();const left=Math.max(0,Math.min(sectionDeadline,overallDeadline)-now);clock.textContent=Math.floor(left/60000)+':'+String(Math.floor((left%60000)/1000)).padStart(2,'0');if(left===0){clearInterval(timer);const button=now>=overallDeadline||!{{ has_next_section|yesno:"true,false" }}?form.querySelector('[name=action][value=submit]'):form.querySelector('[name=action][value=next]');if(button)form.requestSubmit(button)}},500);
-setInterval(async()=>{const data=new FormData(form);data.set('action','save');try{const response=await fetch(location.href,{method:'POST',body:data,headers:{'X-CSRFToken':csrf,'X-Requested-With':'XMLHttpRequest'}});const payload=await response.json();if(payload.result_url)location.href=payload.result_url;else if(payload.reload_url)location.href=payload.reload_url}catch(e){}},15000);
-</script></body></html>
+{% extends 'assessments/exam_shell.html' %}{% load static %}{% block title %}{{ assignment.title }}{% endblock %}
+{% block body %}
+<div class="exam" id="exam">
+  <header class="exam-top">
+    <div class="exam-title"><strong>{{ assignment.title }}</strong><span>{{ section.name }} · section {{ section.order|add:1 }}{% if has_next_section %} · more sections follow{% endif %}</span></div>
+    <div class="exam-timer" id="exam-timer" role="timer" aria-label="Time remaining in this section"><span>{% if attempt.section_deadline %}Section time{% else %}Time left{% endif %}</span><strong id="test-clock">--:--:--</strong></div>
+    <div class="exam-top-tools">
+      <span class="exam-save" id="save-status" role="status" aria-live="polite">All answers saved</span>
+      <div class="exam-zoom" role="group" aria-label="Text size"><button type="button" data-zoom="-1" aria-label="Smaller text">A−</button><button type="button" data-zoom="1" aria-label="Larger text">A+</button></div>
+      <button type="button" class="exam-icon-btn" id="fullscreen-toggle" aria-label="Enter full screen" hidden>⛶</button>
+      <span class="exam-user" title="{{ request.user.email }}">{{ request.user.username }}</span>
+    </div>
+  </header>
+
+  <form method="post" id="timed-form" class="exam-form" data-deadline="{{ deadline|date:'c' }}" data-server-time="{{ server_time }}" data-record-events="{{ integrity_enabled|yesno:'true,false' }}" data-timeout-action="{% if has_next_section %}next{% else %}submit{% endif %}" novalidate>
+    {% csrf_token %}{% if integrity_enabled %}<input type="hidden" name="tab_switch_count" value="{{ attempt.tab_switch_count }}">{% endif %}
+    <nav class="exam-sections" role="tablist" aria-label="Subjects in this section">
+      {% for group in sections %}<button type="button" role="tab" data-subject="{{ group.subject }}" aria-selected="false">{{ group.subject }} <span class="exam-tab-count">{{ group.count }}</span></button>{% endfor %}
+    </nav>
+    <div class="exam-main">
+      <main class="exam-question-area" id="question-area">
+        {% for row in items %}
+        <section class="exam-question" id="question-{{ row.question.pk }}" data-key="{{ row.question.pk }}" data-subject="{{ row.subject }}" data-type="{{ row.question.question_type }}" aria-labelledby="qh-{{ row.question.pk }}" hidden>
+          <header class="exam-q-head">
+            <h2 id="qh-{{ row.question.pk }}" tabindex="-1">Question {{ forloop.counter }}</h2>
+            <span class="exam-q-type">{{ row.question.get_question_type_display }}</span>
+            {% if marking %}<span class="exam-q-marks">+{{ marking.correct }} / {{ marking.incorrect }}</span>{% endif %}
+          </header>
+          <div class="exam-q-body">
+            <div class="question-stem">{{ row.question.stem }}</div>
+            {% include "portal/question_figures.html" with figure_urls=row.figure_urls %}
+            {% if row.question.source_scan_id and row.question.source_page %}<div class="question-figures"><figure><img src="{% url 'question_source_image' row.question.pk %}" alt="Source scan, page {{ row.question.source_page }}" loading="lazy"><figcaption>Source page {{ row.question.source_page }}</figcaption></figure></div>{% endif %}
+            {% if row.question.question_type == 'multi_correct' %}<p class="exam-hint">Select one or more options.</p>{% endif %}
+            {% if row.options %}
+            <fieldset class="exam-options"><legend class="sr-only">Options for question {{ forloop.counter }}</legend>
+              {% for key, text in row.options %}<label class="exam-option"><input type="{% if row.question.question_type == 'multi_correct' %}checkbox{% else %}radio{% endif %}" name="answer_{{ row.question.pk }}" value="{{ key }}"{% if key in row.selected %} checked{% endif %}><span class="exam-option-id" aria-hidden="true">{{ key }}</span><span class="exam-option-text">{{ text }}</span></label>{% endfor %}
+            </fieldset>
+            {% else %}
+            <div class="exam-numeric">
+              <label for="num-{{ row.question.pk }}">Your answer</label>
+              <input id="num-{{ row.question.pk }}" class="exam-numeric-input" type="text" name="answer_{{ row.question.pk }}" value="{{ row.saved.answer|default:'' }}" inputmode="decimal" autocomplete="off" spellcheck="false" maxlength="20" placeholder="Type or use the keypad">
+              <div class="exam-keypad" data-target="num-{{ row.question.pk }}" aria-label="Numeric keypad">
+                {% for key in "789456123" %}<button type="button" data-key="{{ key }}">{{ key }}</button>{% endfor %}<button type="button" data-key="0">0</button><button type="button" data-key=".">.</button><button type="button" data-key="-" aria-label="Minus sign">−</button><button type="button" data-key="back" aria-label="Delete last character">⌫</button><button type="button" data-key="clear" class="wide">Clear</button>
+              </div>
+            </div>
+            {% endif %}
+            <input type="checkbox" name="review_{{ row.question.pk }}" value="1" class="review-flag"{% if row.saved.marked_for_review %} checked{% endif %} hidden tabindex="-1" aria-hidden="true">
+            <input type="hidden" name="time_{{ row.question.pk }}" value="{{ row.saved.time_spent_seconds|default:0 }}">
+          </div>
+        </section>
+        {% endfor %}
+      </main>
+      <aside class="exam-panel" id="exam-panel" aria-label="Question palette">
+        <div class="exam-panel-head"><strong id="palette-subject"></strong><button type="button" class="exam-icon-btn only-mobile" id="palette-close" aria-label="Close question palette">✕</button></div>
+        <ul class="exam-legend">
+          <li><span class="chip-shape" data-state="answered" aria-hidden="true"></span>Answered <b data-count="answered">0</b></li>
+          <li><span class="chip-shape" data-state="not-answered" aria-hidden="true"></span>Not answered <b data-count="not-answered">0</b></li>
+          <li><span class="chip-shape" data-state="not-visited" aria-hidden="true"></span>Not visited <b data-count="not-visited">0</b></li>
+          <li><span class="chip-shape" data-state="marked" aria-hidden="true"></span>Marked for review <b data-count="marked">0</b></li>
+          <li><span class="chip-shape" data-state="answered-marked" aria-hidden="true"></span>Answered &amp; marked <b data-count="answered-marked">0</b></li>
+        </ul>
+        <div class="exam-palette" role="list" aria-label="Questions in this section">
+          {% for row in items %}<button type="button" class="chip" role="listitem" data-key="{{ row.question.pk }}" data-subject="{{ row.subject }}"><span class="chip-shape">{{ forloop.counter }}</span></button>{% endfor %}
+        </div>
+        <p class="exam-shortcuts">Keys: <kbd>A</kbd>–<kbd>D</kbd> choose · <kbd>→</kbd> save &amp; next · <kbd>←</kbd> back · <kbd>M</kbd> mark · <kbd>C</kbd> clear</p>
+      </aside>
+    </div>
+    <footer class="exam-actions">
+      <div class="exam-actions-group">
+        <button type="button" class="exam-btn rev" id="mark-next">Mark for review &amp; next</button>
+        <button type="button" class="exam-btn ghost" id="clear-response">Clear response</button>
+      </div>
+      <div class="exam-actions-group">
+        <button type="button" class="exam-btn ghost only-mobile" id="palette-toggle" aria-controls="exam-panel" aria-expanded="false">Questions</button>
+        <button type="button" class="exam-btn ghost" id="test-previous">← Back</button>
+        <button type="button" class="exam-btn primary" id="save-next">Save &amp; next →</button>
+        <button type="button" class="exam-btn submit" id="open-submit">{% if has_next_section %}Finish section{% else %}Submit{% endif %}</button>
+      </div>
+    </footer>
+    <dialog class="exam-dialog" id="submit-dialog" aria-labelledby="submit-title">
+      <h2 id="submit-title">{% if has_next_section %}Finish this section?{% else %}Submit this test?{% endif %}</h2>
+      <p>{% if has_next_section %}You can't return to this section after moving on.{% else %}You can't change any answer after submitting.{% endif %}</p>
+      <div class="exam-table-wrap"><table class="exam-summary"><thead><tr><th scope="col">Subject</th><th scope="col">Answered</th><th scope="col">Not answered</th><th scope="col">Marked</th><th scope="col">Answered &amp; marked</th><th scope="col">Not visited</th></tr></thead><tbody id="submit-summary"></tbody></table></div>
+      <div class="exam-dialog-actions"><button type="button" class="exam-btn ghost" id="cancel-submit">Back to questions</button><button type="submit" name="action" value="{% if has_next_section %}next{% else %}submit{% endif %}" class="exam-btn submit" id="confirm-submit">{% if has_next_section %}Go to next section{% else %}Submit test{% endif %}</button></div>
+    </dialog>
+  </form>
+  <div class="exam-overlay" id="fullscreen-overlay" role="alertdialog" aria-modal="true" aria-labelledby="overlay-title" aria-describedby="overlay-message" hidden>
+    <div class="exam-overlay-card"><h2 id="overlay-title">This test runs in full screen</h2><p id="overlay-message"></p><button type="button" class="exam-btn primary" id="overlay-action">Continue in full screen</button></div>
+  </div>
+  <div class="exam-toast" id="exam-toast" role="status" aria-live="assertive" hidden></div>
+</div>
+{{ exam_state|json_script:"exam-state" }}
+{% endblock %}
+{% block scripts %}{% include 'portal/question_math.html' %}<script defer src="{% static 'portal/exam.js' %}"></script>{% endblock %}

@@ -3,6 +3,7 @@ from django.core.exceptions import PermissionDenied
 from django.db.models import Count
 from django.http import JsonResponse
 from django.http import HttpResponse
+from django.urls import reverse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 from django.views.decorators.http import require_http_methods
@@ -87,7 +88,11 @@ def _attempt_questions(attempt):
         indices = attempt.option_order.get(str(q.pk))
         if indices:
             opts = [opts[index] for index in indices if index < len(opts)]
-        result.append({"item": item, "question": q, "options": opts, "saved": saved.get(q.pk)})
+        answer = saved.get(q.pk)
+        result.append({"item": item, "question": q, "options": opts, "saved": answer,
+            "selected": [part.strip() for part in answer.answer.split(",") if part.strip()] if answer and answer.answer else [],
+            "subject": q.topic.chapter.subject.name if q.topic_id else attempt.current_section.name,
+            "figure_urls": [reverse("question_figure_image", args=[q.pk, i]) for i in range(len(q.figure_paths or []))] if q.tenant_id == attempt.tenant_id else []})
     return result
 
 
@@ -142,9 +147,18 @@ def test_attempt(request, attempt_id):
         return JsonResponse({"state": "saved", "section_deadline": attempt.section_deadline.isoformat() if attempt.section_deadline else None})
     sections = list(attempt.assignment.template.sections.all())
     current_index = next((i for i, section in enumerate(sections) if section.pk == attempt.current_section_id), 0)
+    items = _attempt_questions(attempt)
+    deadline = min(attempt.deadline, attempt.section_deadline) if attempt.section_deadline else attempt.deadline
+    subjects = list(dict.fromkeys(row["subject"] for row in items))
     return render(request, "assessments/attempt.html", {
         "attempt": attempt, "assignment": attempt.assignment, "section": attempt.current_section,
-        "items": _attempt_questions(attempt), "answers": {str(answer.question_id): answer for answer in attempt.answers.all()},
+        "items": items, "answers": {str(answer.question_id): answer for answer in attempt.answers.all()},
+        "deadline": deadline, "server_time": timezone.now().isoformat(),
+        "sections": [{"subject": name, "count": sum(1 for row in items if row["subject"] == name)} for name in subjects],
+        "marking": attempt.current_section.marking_scheme or {},
+        "exam_state": {"visited": [str(row["question"].pk) for row in items if row["saved"] and (row["saved"].answer or row["saved"].marked_for_review or row["saved"].time_spent_seconds)],
+                       "time_spent": {str(row["question"].pk): row["saved"].time_spent_seconds for row in items if row["saved"]},
+                       "violations": attempt.tab_switch_count, "limit": None},
         "question_count": TestQuestion.objects.filter(section=attempt.current_section).count(),
         "integrity_enabled": is_enabled(tenant, "test_integrity"),
         "has_next_section": current_index < len(sections) - 1,
