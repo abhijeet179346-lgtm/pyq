@@ -7,8 +7,11 @@ requirements-ocr.txt in a worker environment before selecting this backend.
 from io import BytesIO
 
 
-def extract_page_markdown(pdf_pages):
-    """Return one Markdown string per page in a small PDF chunk."""
+def extract_page_markdown(pdf_pages, formulas=True):
+    """Return one Markdown string per page in a small PDF chunk.
+
+    ``formulas=False`` skips the (slow) formula-transcription model.
+    """
     try:
         from docling.datamodel.base_models import DocumentStream, InputFormat
         from docling.datamodel.pipeline_options import PdfPipelineOptions
@@ -18,7 +21,7 @@ def extract_page_markdown(pdf_pages):
 
     options = PdfPipelineOptions()
     options.do_ocr = True
-    options.do_formula_enrichment = True
+    options.do_formula_enrichment = formulas
     options.enable_remote_services = False
     converter = DocumentConverter(
         allowed_formats=[InputFormat.PDF],

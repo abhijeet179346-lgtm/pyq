@@ -10,6 +10,6 @@ class Command(BaseCommand):
         jobs=ContentJob.objects.filter(kind='pdf',status='queued')
         if options['job']:jobs=jobs.filter(pk=options['job'])
         for job in jobs:
-            process_pdf_chunk(job)
-            while options['all_pages'] and job.status=='queued':process_pdf_chunk(job)
+            process_pdf_chunk(job,ocr_page_limit=15)
+            while options['all_pages'] and job.status=='queued':process_pdf_chunk(job,ocr_page_limit=15)
             self.stdout.write(f'Job {job.pk}: {job.status}, {job.next_page}/{job.page_count} pages, {len(job.rows)} question rows')

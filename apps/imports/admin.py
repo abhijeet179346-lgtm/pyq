@@ -55,10 +55,12 @@ class ContentJobForm(forms.ModelForm):
         return data
 
 
-def job_allowed(user,tenant,kind):
+def job_allowed(user,tenant,kind,use_ocr=False):
     if user.is_superuser:return True
     if getattr(user,'tenant_id',None)!=tenant.pk or getattr(user,'role',None)!='tenant_admin':return False
-    feature={'questions':'bulk_question_import','tests':'tests','materials':'material_import','pdf':'scan_import'}.get(kind)
+    # PDF-to-Excel is a question-import aid (text + local OCR); paid vision OCR also needs scan_import.
+    feature={'questions':'bulk_question_import','tests':'tests','materials':'material_import','pdf':'bulk_question_import'}.get(kind)
+    if kind=='pdf' and use_ocr and not is_enabled(tenant,'scan_import'):return False
     return bool(feature and is_enabled(tenant,feature))
 
 
@@ -75,7 +77,7 @@ class ContentJobAdmin(admin.ModelAdmin):
     def has_module_permission(self,request):return request.user.is_superuser or getattr(request.user,'role',None)=='tenant_admin'
     def has_add_permission(self,request):return self.has_module_permission(request)
     def has_delete_permission(self,request,obj=None):return False
-    def has_view_permission(self,request,obj=None):return self.has_module_permission(request) and (obj is None or job_allowed(request.user,obj.tenant,obj.kind))
+    def has_view_permission(self,request,obj=None):return self.has_module_permission(request) and (obj is None or job_allowed(request.user,obj.tenant,obj.kind,obj.use_ocr))
     def has_change_permission(self,request,obj=None):return self.has_view_permission(request,obj)
     def get_queryset(self,request):
         queryset=super().get_queryset(request)
@@ -88,7 +90,7 @@ class ContentJobAdmin(admin.ModelAdmin):
         if db_field.name=='tenant' and not request.user.is_superuser:kwargs['queryset']=Tenant.objects.filter(pk=getattr(request.user,'tenant_id',None))
         return super().formfield_for_foreignkey(db_field,request,**kwargs)
     def save_model(self,request,obj,form,change):
-        if not job_allowed(request.user,obj.tenant,obj.kind):raise PermissionDenied('This upload is not enabled for this tenant.')
+        if not job_allowed(request.user,obj.tenant,obj.kind,obj.use_ocr):raise PermissionDenied('This upload is not enabled for this tenant. Vision OCR also requires the scan_import feature.')
         if not change:obj.initiated_by=request.user
         super().save_model(request,obj,form,change)
     def get_urls(self):
@@ -142,11 +144,11 @@ class ContentJobAdmin(admin.ModelAdmin):
         obj=get_object_or_404(self.get_queryset(request),pk=job_id)
         if not self.has_view_permission(request,obj):raise PermissionDenied()
         response=HttpResponse(workbook_bytes(obj.kind,obj.rows,obj.pages),content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');response['Content-Disposition']=f'attachment; filename="content-job-{obj.pk}.xlsx"';return response
-    @admin.action(description='Process uploads / continue next 15 PDF pages')
+    @admin.action(description='Process uploads / continue next 15 PDF pages (3 scanned pages per run)')
     def process_upload(self,request,queryset):
         from .job_services import process_job
         for obj in queryset:
-            if not job_allowed(request.user,obj.tenant,obj.kind):raise PermissionDenied()
+            if not job_allowed(request.user,obj.tenant,obj.kind,obj.use_ocr):raise PermissionDenied()
             process_job(obj)
         self.message_user(request,'Processing step finished. Use Process & review on the job for progress and results.')
     @admin.action(description='Commit validated Excel uploads as drafts (after review)')
@@ -155,7 +157,7 @@ class ContentJobAdmin(admin.ModelAdmin):
         if queryset.count()!=1:
             self.message_user(request,'Select one job and open its review page to confirm the import.',level='error');return
         obj=queryset.first()
-        if not job_allowed(request.user,obj.tenant,obj.kind):raise PermissionDenied()
+        if not job_allowed(request.user,obj.tenant,obj.kind,obj.use_ocr):raise PermissionDenied()
         return redirect('admin:contentjob_review',job_id=obj.pk)
     @admin.action(description='Download selected job as Excel (select one)')
     def download_excel(self,request,queryset):

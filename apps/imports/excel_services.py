@@ -1,4 +1,4 @@
-import json,hashlib,re
+import difflib,json,hashlib,re
 from decimal import Decimal
 from django.core.exceptions import ValidationError,PermissionDenied
 from django.db import transaction
@@ -23,12 +23,15 @@ def taxonomy(row):
     if row.get('subtopic'):subtopic,_=Subtopic.objects.get_or_create(topic=topic,name=row['subtopic'])
     return topic,subtopic
 
-def exam_for(row,allow_create):
-    required(row,'exam');key=slugify(row['exam']);exam=Exam.objects.filter(slug=key).first()
-    if exam is None:
-        if not allow_create:raise ValueError('Exam must already exist; only a platform admin can add exams.')
-        exam=Exam.objects.create(slug=key,name=row.get('name') or row['exam'],active=truth(row.get('active','false')))
-    return exam
+def exam_for(row):
+    """Resolve an existing exam by slug or name. Unknown exams are errors, never created implicitly."""
+    required(row,'exam');value=row['exam'].strip();key=slugify(value)
+    exam=Exam.objects.filter(slug=key).first() or next((item for item in Exam.objects.all() if slugify(item.name)==key),None)
+    if exam:return exam
+    slugs=sorted(Exam.objects.values_list('slug',flat=True))
+    close=difflib.get_close_matches(key,slugs,n=1,cutoff=0.6)
+    hint=f' Did you mean "{close[0]}"?' if close else ''
+    raise ValueError(f'Unknown exam "{value}".{hint} Valid exams: {", ".join(slugs) or "none"}. Platform admins add new exams with an Exams import.')
 
 def question_row(row):
     required(row,'stem','answer','question_type','subject')
@@ -58,15 +61,15 @@ def apply_rows(job,rows,preview=False):
                 number=row.get('_row',index)
                 if job.kind=='exams':
                     required(row,'exam','name')
-                    existed=Exam.objects.filter(slug=slugify(row['exam'])).exists()
-                    exam=exam_for(row,True)
+                    key=slugify(row['exam']);existed=Exam.objects.filter(slug=key).exists()
+                    if not existed:Exam.objects.create(slug=key,name=row['name'],active=truth(row.get('active','false')))
                     # Catalogue import adds entries without silently changing existing records.
                     created+=int(not existed);continue
                 if job.kind=='materials':
                     required(row,'document','title','body','source','license');topic,_=taxonomy(row)
                     source=row['source']
                     doc,_=MaterialDocument.objects.get_or_create(tenant=job.tenant,title=row['document'],source=source,defaults={'license':row['license'],'default_topic':topic,'uploaded_by':job.initiated_by})
-                    if row.get('exam'):doc.exams.add(exam_for(row,superuser))
+                    if row.get('exam'):doc.exams.add(exam_for(row))
                     section,section_created=MaterialSection.objects.get_or_create(document=doc,title=row['title'],topic=topic,page_reference=row.get('page_reference',''),defaults={'body':row['body'],'active':False})
                     created+=int(section_created);continue
                 options,answer=question_row(row)
@@ -74,7 +77,7 @@ def apply_rows(job,rows,preview=False):
                 if not source or not license:raise ValueError('Source and licence are required.')
                 if job.kind=='tests':
                     required(row,'test_name','exam','duration_minutes','section')
-                    exam=exam_for(row,superuser)
+                    exam=exam_for(row)
                     title=row['test_name'];group=tests.setdefault(title,{'row':row,'exam':exam,'questions':[]})
                     if row['exam']!=group['row']['exam'] or row['duration_minutes']!=group['row']['duration_minutes']:raise ValueError('Inconsistent exam or duration within one test.')
                     group['questions'].append({'key':row.get('source_id') or f'excel-{number}','stem':row['stem'],'options':options,'answer':answer,'question_type':row['question_type'],'subject':row['subject'],'chapter':row.get('chapter',''),'topic':row.get('topic',''),'subtopic':row.get('subtopic',''),'section':row['section'],'source':source,'license':license,'solution':row.get('solution',''),'marking':{'correct':float(row.get('correct_marks') or 3),'incorrect':float(row.get('incorrect_marks') or 0),'unanswered':float(row.get('unanswered_marks') or 0),'partial':truth(row.get('partial_credit'))}})
@@ -85,7 +88,7 @@ def apply_rows(job,rows,preview=False):
                 paper=None
                 if kind=='PYQ':
                     if not superuser:raise ValueError('Only a platform administrator may import global PYQs.')
-                    required(row,'exam','year');exam=exam_for(row,True)
+                    required(row,'exam','year');exam=exam_for(row)
                     year=int(row['year'])
                     if not 1900<=year<=2100:raise ValueError('Invalid exam year.')
                     paper,_=Paper.objects.get_or_create(exam=exam,year=year,sitting=row.get('paper',''))
