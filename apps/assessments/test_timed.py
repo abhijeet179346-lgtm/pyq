@@ -105,3 +105,19 @@ class TimedExamTests(TestCase):
         attempt.refresh_from_db()
         self.assertEqual(float(attempt.score), 7.0)  # +4 correct, -1 wrong, +4 numeric (2.50 == 2.5)
         self.assertContains(self.client.get(f"/practice/test-attempts/{attempt.pk}/result/"), "SECRET-SOLUTION-p1")
+
+    def test_result_analysis_by_section_time_and_review(self):
+        attempt = self.begin()
+        self.save(attempt, answer_p1="A", time_spent=json.dumps({"p1": 90, "b1": 30}), review_b1="on",
+                  events=json.dumps([{"type": "fullscreen_exit"}, {"type": "tab_hidden"}]))
+        self.client.post(f"/practice/test-attempts/{attempt.pk}/", {"action": "submit", "answer_p1": "A", "answer_b1": "B", "review_b1": "on"})
+        page = self.client.get(f"/practice/test-attempts/{attempt.pk}/result/")
+        sections = {s["subject"]: s for s in page.context["sections"]}
+        self.assertEqual((sections["Physics"]["incorrect"], sections["Physics"]["score"]), (1, -1.0))
+        self.assertEqual((sections["Biology"]["correct"], sections["Biology"]["unanswered"], sections["Biology"]["accuracy"]), (1, 1, 100))
+        self.assertEqual(page.context["total"]["accuracy"], 50)
+        self.assertEqual(page.context["time"]["slowest"][0]["question"]["key"], "p1")
+        self.assertEqual(page.context["proctoring"], {"exits": 1, "tabs": 1, "ended_by": None})
+        self.assertContains(page, "✗ Your answer")
+        self.assertContains(page, "✓ Correct answer")
+        self.assertContains(page, 'data-filter="marked"')

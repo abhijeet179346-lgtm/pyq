@@ -160,22 +160,63 @@ def attempt(request,attempt_id):
         'limit':item.test.fullscreen_exit_limit}})
 
 
+STATE_LABELS={'correct':'Correct','partial':'Partly correct','incorrect':'Wrong','unanswered':'Not answered'}
+
+
+def analyse(item):
+    """Section-wise statistics, time use and per-question review rows for a finished attempt."""
+    marks={row['key']:row for row in item.result.get('questions',[])}
+    rows=[];sections={}
+    for number,question in enumerate(item.snapshot,1):
+        mark=marks.get(question['key'],{});state=mark.get('state','unanswered')
+        selected=item.answers.get(question['key'],[])
+        expected=question['answer'] if isinstance(question['answer'],list) else [question['answer']]
+        options=[{**option,'is_answer':str(option['id']) in [str(x) for x in expected],'is_selected':str(option['id']) in selected} for option in question.get('options',[])]
+        seconds=int(item.time_spent.get(question['key'],0))
+        rows.append({'number':number,'question':question,'mark':mark,'state':state,'state_label':STATE_LABELS.get(state,state),
+            'score':float(mark.get('score',0)),'selected':selected,'expected':expected,'options':options,'seconds':seconds,
+            'marked':question['key'] in item.review,'figure_urls':row_figures(item,question)})
+        section=sections.setdefault(question['subject'],{'subject':question['subject'],'questions':0,'correct':0,'partial':0,'incorrect':0,'unanswered':0,'score':0.0,'max':0.0,'seconds':0})
+        section['questions']+=1;section[state if state in section else 'unanswered']+=1
+        section['score']+=float(mark.get('score',0));section['max']+=float(question.get('marking',{}).get('correct',0));section['seconds']+=seconds
+    for section in sections.values():
+        attempted=section['questions']-section['unanswered']
+        section['attempted']=attempted
+        section['accuracy']=round(100*(section['correct']+0.5*section['partial'])/attempted) if attempted else None
+    total={key:sum(section[key] for section in sections.values()) for key in ('questions','correct','partial','incorrect','unanswered','score','max','seconds','attempted')}
+    total['accuracy']=round(100*(total['correct']+0.5*total['partial'])/total['attempted']) if total['attempted'] else None
+    timed=[row for row in rows if row['seconds']]
+    def average(states):
+        values=[row['seconds'] for row in timed if row['state'] in states]
+        return round(sum(values)/len(values)) if values else None
+    time={'used':total['seconds'],'limit':item.test.duration_minutes*60,'avg':round(total['seconds']/len(timed)) if timed else None,
+          'avg_correct':average({'correct','partial'}),'avg_wrong':average({'incorrect'}),
+          'slowest':sorted(timed,key=lambda row:-row['seconds'])[:5]}
+    exits=sum(1 for event in item.events if event.get('type')=='fullscreen_exit')
+    proctoring={'exits':exits,'tabs':sum(1 for event in item.events if event.get('type')=='tab_hidden'),'ended_by':item.result.get('ended_by')}
+    counts=Counter(row['state'] for row in rows)
+    filters=[('all','All',len(rows)),('incorrect','Wrong',counts['incorrect']),('partial','Partly correct',counts['partial']),
+             ('unanswered','Not answered',counts['unanswered']),('correct','Correct',counts['correct']),('marked','Marked for review',sum(row['marked'] for row in rows))]
+    return {'rows':rows,'sections':list(sections.values()),'total':total,'time':time,'proctoring':proctoring,'filters':[f for f in filters if f[0]=='all' or f[2]]}
+
+
 @login_required
 @require_GET
 def result(request,attempt_id):
     tenant,tests=scope(request)
     with transaction.atomic():
-        item=get_object_or_404(TimedAttempt.objects.select_for_update().select_related('test'),pk=attempt_id,user=request.user,test__in=tests)
+        item=get_object_or_404(TimedAttempt.objects.select_for_update().select_related('test','test__exam'),pk=attempt_id,user=request.user,test__in=tests)
         if item.status=='in_progress' and timezone.now()>=item.deadline:finish(item,expired=True)
         if item.status=='in_progress':return redirect('timed_attempt',attempt_id=item.pk)
-    marks={row['key']:row for row in item.result.get('questions',[])};rows=[]
-    for question in item.snapshot:
-        mark=marks.get(question['key'],{})
-        recommendations=[]
-        if mark.get('state') in ['incorrect','partial','unanswered']:
-            recommendations=recommend_sections(tenant,question.get('topic_id'),question.get('chapter'),question.get('subject'),question.get('stem',''),question.get('question_id'))
-        rows.append({'question':question,'mark':mark,'selected':item.answers.get(question['key'],[]),'recommendations':recommendations,'figure_urls':row_figures(item,question)})
-    return render(request,'assessments/timed_result.html',{'attempt':item,'test':item.test,'rows':rows,'states':dict(Counter(row['state'] for row in item.result.get('questions',[])))})
+    context=analyse(item)
+    for row in context['rows']:
+        question=row['question'];row['recommendations']=[]
+        if row['state'] in ['incorrect','partial','unanswered']:
+            row['recommendations']=recommend_sections(tenant,question.get('topic_id'),question.get('chapter'),question.get('subject'),question.get('stem',''),question.get('question_id'))
+        if question.get('topic_id') and getattr(request,'is_core_domain',False):
+            row['practice_url']=reverse('direct_bank')+f"?exam={item.test.exam_id}&topic={question['topic_id']}&view=browse"
+    return render(request,'assessments/timed_result.html',{'attempt':item,'test':item.test,**context,
+        'states':dict(Counter(row['state'] for row in context['rows']))})
 
 
 @login_required

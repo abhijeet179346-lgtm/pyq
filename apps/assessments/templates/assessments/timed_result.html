@@ -1,1 +1,76 @@
-{% extends 'portal/base.html' %}{% block title %}Test result{% endblock %}{% block content %}<p><a href="{% url 'timed_catalog' %}">← Timed tests</a></p><h1>{{ test.name }}</h1><div class="vault-stats"><div class="vault-stat"><div><strong>{{ attempt.score }}</strong><small>Score · {{ attempt.status }}</small></div></div><div class="vault-stat"><div><strong>{{ states.correct|default:0 }}</strong><small>Fully correct</small></div></div><div class="vault-stat"><div><strong>{{ states.partial|default:0 }}</strong><small>Partial credit</small></div></div><div class="vault-stat"><div><strong>{{ states.unanswered|default:0 }}</strong><small>Unanswered</small></div></div></div>{% for row in rows %}<article class="panel"><span class="badge">{{ row.question.subject }} · {{ row.mark.state }} · {{ row.mark.score }} marks</span><h2>Question {{ forloop.counter }}</h2><div style="white-space:pre-wrap">{{ row.question.stem }}</div>{% include "portal/question_figures.html" with figure_urls=row.figure_urls %}<p>Your answer: {{ row.selected|join:', '|default:'Unanswered' }}</p><p>Correct answer: {{ row.question.answer }}</p><details><summary>Solution &amp; source</summary><div style="white-space:pre-wrap">{{ row.question.solution }}</div><p>{{ row.question.source_record }}</p><a href="{{ row.question.source }}" target="_blank" rel="noopener noreferrer">Question source ↗</a></details>{% if row.recommendations %}<h3>Study these related sections</h3>{% include 'portal/study_recommendations.html' with recommendations=row.recommendations %}{% endif %}</article>{% endfor %}{% endblock %}{% block scripts %}{% include 'portal/question_math.html' %}{% endblock %}
+{% extends 'portal/base.html' %}{% load static exam_extras %}{% block title %}Result · {{ test.name }}{% endblock %}
+{% block head %}<link rel="stylesheet" href="{% static 'portal/exam.css' %}">{% endblock %}
+{% block content %}<div class="result-page">
+<nav class="quiet-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'timed_catalog' %}">Timed tests</a><span>/</span><span>Result</span></nav>
+<p class="eyebrow">{{ test.exam.name }}{% if test.series %} · {{ test.series }}{% endif %}</p>
+<h1>{{ test.name }}</h1>
+<p class="muted">{% if proctoring.ended_by == 'proctoring' %}Submitted automatically after {{ test.fullscreen_exit_limit }} full-screen exits or tab switches{% elif attempt.status == 'expired' %}Submitted automatically when time ran out{% else %}Submitted{% endif %} · {{ attempt.submitted_at|date:"j M Y, H:i" }}</p>
+
+<section class="result-hero" aria-label="Score summary">
+  <div class="result-score"><span>Score</span><strong>{{ attempt.score|marks }}</strong><small>out of {{ total.max|floatformat:0 }}</small></div>
+  <div class="result-stat"><span>Accuracy</span><strong>{% if total.accuracy is not None %}{{ total.accuracy }}%{% else %}—{% endif %}</strong><small>of attempted questions</small></div>
+  <div class="result-stat"><span>Attempted</span><strong>{{ total.attempted }}<em>/{{ total.questions }}</em></strong><small>{{ total.unanswered }} not answered</small></div>
+  <div class="result-stat"><span>Time used</span><strong>{{ time.used|duration }}</strong><small>of {{ time.limit|duration }}</small></div>
+</section>
+
+<div class="result-states" aria-label="Outcome counts">
+  <span class="result-pill-state" data-state="correct">✓ Correct <b>{{ total.correct }}</b></span>
+  <span class="result-pill-state" data-state="partial">◐ Partly correct <b>{{ total.partial }}</b></span>
+  <span class="result-pill-state" data-state="incorrect">✗ Wrong <b>{{ total.incorrect }}</b></span>
+  <span class="result-pill-state" data-state="unanswered">○ Not answered <b>{{ total.unanswered }}</b></span>
+</div>
+
+<h2>By section</h2>
+<div class="exam-table-wrap"><table class="result-table">
+  <thead><tr><th scope="col">Section</th><th scope="col">Score</th><th scope="col">Correct</th><th scope="col">Partly</th><th scope="col">Wrong</th><th scope="col">Not answered</th><th scope="col">Accuracy</th><th scope="col">Time</th></tr></thead>
+  <tbody>{% for section in sections %}<tr><th scope="row">{{ section.subject }}</th><td>{{ section.score|marks }} / {{ section.max|floatformat:0 }}</td><td>{{ section.correct }}</td><td>{{ section.partial }}</td><td>{{ section.incorrect }}</td><td>{{ section.unanswered }}</td><td>{% if section.accuracy is not None %}{{ section.accuracy }}%{% else %}—{% endif %}</td><td>{{ section.seconds|duration }}</td></tr>{% endfor %}</tbody>
+</table></div>
+
+<div class="result-grid">
+  <section class="panel"><h2>Time</h2>
+    <dl class="result-dl"><div><dt>Average per question</dt><dd>{% if time.avg %}{{ time.avg|duration }}{% else %}—{% endif %}</dd></div>
+    <div><dt>Average on correct answers</dt><dd>{% if time.avg_correct %}{{ time.avg_correct|duration }}{% else %}—{% endif %}</dd></div>
+    <div><dt>Average on wrong answers</dt><dd>{% if time.avg_wrong %}{{ time.avg_wrong|duration }}{% else %}—{% endif %}</dd></div></dl>
+    {% if time.slowest %}<h3>Longest questions</h3><ol class="result-slowest">{% for row in time.slowest %}<li><a href="#q-{{ row.number }}">Question {{ row.number }}</a> · {{ row.question.subject }} · {{ row.seconds|duration }} · {{ row.state_label }}</li>{% endfor %}</ol>{% endif %}
+  </section>
+  <section class="panel"><h2>Exam conduct</h2>
+    <dl class="result-dl"><div><dt>Left full screen</dt><dd>{{ proctoring.exits }}</dd></div><div><dt>Switched tabs or apps</dt><dd>{{ proctoring.tabs }}</dd></div></dl>
+    <p class="muted">{% if proctoring.exits or proctoring.tabs %}These events were recorded while the paper was open.{% else %}No interruptions were recorded.{% endif %}</p>
+  </section>
+</div>
+
+<h2 id="review">Review questions</h2>
+<div class="result-filters" role="group" aria-label="Show questions">{% for key, label, count in filters %}<button type="button" data-filter="{{ key }}" aria-pressed="{% if key == 'all' %}true{% else %}false{% endif %}">{{ label }} <b>{{ count }}</b></button>{% endfor %}</div>
+<nav class="result-palette" aria-label="Jump to question">{% for row in rows %}<a href="#q-{{ row.number }}" class="result-chip" data-state="{{ row.state }}" title="Question {{ row.number }}: {{ row.state_label }}"><span class="sr-only">Question </span>{{ row.number }}<span class="sr-only">, {{ row.state_label }}</span></a>{% endfor %}</nav>
+
+{% for row in rows %}
+<article class="panel result-question" id="q-{{ row.number }}" data-state="{{ row.state }}" data-marked="{{ row.marked|yesno:'1,0' }}">
+  <header class="result-q-head">
+    <h3>Question {{ row.number }}</h3>
+    <span class="result-pill-state" data-state="{{ row.state }}">{% if row.state == 'correct' %}✓{% elif row.state == 'partial' %}◐{% elif row.state == 'incorrect' %}✗{% else %}○{% endif %} {{ row.state_label }}</span>
+    <span class="muted">{{ row.question.subject }} · {{ row.score|marks }} marks{% if row.seconds %} · {{ row.seconds|duration }}{% endif %}{% if row.marked %} · marked for review{% endif %}</span>
+  </header>
+  <div class="question-stem">{{ row.question.stem }}</div>
+  {% include "portal/question_figures.html" with figure_urls=row.figure_urls %}
+  {% if row.options %}<ul class="result-options">{% for option in row.options %}<li class="{% if option.is_answer %}is-answer{% endif %} {% if option.is_selected %}is-selected{% endif %}"><span class="exam-option-id" aria-hidden="true">{{ option.id }}</span><span class="result-option-text">{{ option.text }}</span>{% if option.is_answer and option.is_selected %}<span class="result-tag ok">✓ Your answer · correct</span>{% elif option.is_answer %}<span class="result-tag ok">✓ Correct answer</span>{% elif option.is_selected %}<span class="result-tag bad">✗ Your answer</span>{% endif %}</li>{% endfor %}</ul>
+  {% else %}<dl class="result-dl result-numeric"><div><dt>Your answer</dt><dd>{{ row.selected|join:", "|default:"Not answered" }}</dd></div><div><dt>Correct answer</dt><dd>{{ row.expected|join:", " }}</dd></div></dl>{% endif %}
+  {% if row.question.solution %}<details class="result-solution"><summary>Show solution</summary><div style="white-space:pre-wrap">{{ row.question.solution }}</div></details>{% endif %}
+  <div class="result-links">{% if row.practice_url %}<a href="{{ row.practice_url }}">Practise this topic →</a>{% endif %}{% if row.question.source|slice:':8' == 'https://' %}<a href="{{ row.question.source }}" target="_blank" rel="noopener noreferrer">Question source ↗</a>{% endif %}</div>
+  {% if row.recommendations %}<details class="result-solution"><summary>Study these related sections</summary>{% include 'portal/study_recommendations.html' with recommendations=row.recommendations %}</details>{% endif %}
+</article>
+{% endfor %}
+</div>{% endblock %}
+{% block scripts %}{% include 'portal/question_math.html' %}<script>
+(() => {
+  const buttons = [...document.querySelectorAll('.result-filters button')];
+  const cards = [...document.querySelectorAll('.result-question')];
+  const chips = [...document.querySelectorAll('.result-chip')];
+  buttons.forEach((button) => button.addEventListener('click', () => {
+    const filter = button.dataset.filter;
+    const match = (el) => filter === 'all' || (filter === 'marked' ? el.dataset.marked === '1' : el.dataset.state === filter);
+    buttons.forEach((b) => b.setAttribute('aria-pressed', String(b === button)));
+    cards.forEach((card) => { card.hidden = !match(card); });
+    chips.forEach((chip, i) => { chip.hidden = !match(cards[i]); });
+  }));
+})();
+</script>{% endblock %}
