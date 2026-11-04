@@ -5,6 +5,7 @@
   const button = document.querySelector('.theme-toggle');
   if (!button) return;
   const apply = (dark) => {
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
     document.body.classList.toggle('vault-dark', dark);
     button.setAttribute('aria-pressed', String(dark));
     button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');

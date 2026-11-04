@@ -1,0 +1,78 @@
+/* Accessible component layer. Loaded after the legacy stylesheets; colours come only from tokens.css. */
+
+/* ---------- Base (also styles the legacy, previously unstyled pages) ---------- */
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-size:15px;line-height:1.6}
+a{color:var(--accent-text)}
+a:hover{color:var(--accent-strong)}
+h1,h2,h3{color:var(--ink);line-height:1.3}
+input:not([type=checkbox]):not([type=radio]):not([type=hidden]),select,textarea{
+  background:var(--surface);color:var(--ink);border:1px solid var(--line-strong);border-radius:8px;
+  padding:9px 11px;font:inherit;font-size:15px;min-height:42px;max-width:100%}
+input::placeholder,textarea::placeholder{color:var(--muted);opacity:1}
+input[type=checkbox],input[type=radio]{accent-color:var(--accent);width:18px;height:18px}
+button,.btn{font:inherit}
+table{border-collapse:collapse}
+th,td{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left}
+th{color:var(--ink-2);font-weight:700}
+
+/* ---------- Focus: always visible, 3:1 against every surface ---------- */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid var(--focus);outline-offset:2px;border-radius:6px}
+.vault-core a:focus-visible,.vault-core button:focus-visible,.vault-core input:focus-visible,.vault-core select:focus-visible,.vault-core summary:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+
+/* ---------- Buttons ---------- */
+.btn,button[type=submit],.vault-core .btn,.vault-core button[type=submit]{background:var(--accent);color:var(--on-accent);border:1px solid var(--accent)}
+.btn:hover,button[type=submit]:hover,.vault-core .btn:hover,.vault-core button[type=submit]:hover{background:var(--accent-strong);border-color:var(--accent-strong);color:var(--on-accent);text-decoration:none}
+.btn.secondary,.vault-core .btn.secondary{background:var(--surface);color:var(--accent-text);border:1px solid var(--line-strong)}
+.btn.secondary:hover,.vault-core .btn.secondary:hover{background:var(--accent-soft);color:var(--accent-text)}
+button:disabled,.btn[aria-disabled=true]{cursor:not-allowed;opacity:.55}
+
+/* ---------- Text roles ---------- */
+.muted,.vault-core .muted{color:var(--muted)}
+.eyebrow,.vault-core .eyebrow{color:var(--accent-text);font-size:12px;letter-spacing:.08em}
+.badge,.vault-core .badge{background:var(--accent-soft);color:var(--accent-text);font-size:12px;font-weight:700}
+.notice,.vault-core .notice{background:var(--warn-soft);color:var(--ink);border:1px solid var(--warn)}
+
+/* ---------- Pills: colour + words, never colour alone ---------- */
+.result-pill,.vault-core .result-pill{background:var(--warn-soft);color:var(--warn-text);font-size:12px}
+.result-correct,.vault-core .result-correct{background:var(--ok-soft);color:var(--ok-text)}
+
+/* ---------- Answer options (practice + institute tests) ---------- */
+.answer-choice,.question-detail .answer-choice,.test-option{border:1px solid var(--line-strong);background:var(--surface);color:var(--ink)}
+.answer-choice:hover,.test-option:hover{border-color:var(--accent)}
+.answer-choice:has(input:checked),.question-detail .answer-choice:has(input:checked),.test-option:has(input:checked){
+  border:2px solid var(--accent);background:var(--accent-soft);color:var(--ink)}
+.question-detail .answer-choice b{color:var(--accent-text)}
+
+/* ---------- Exam identity (each exam keeps its own accessible hue) ---------- */
+.vault-exam,.exam-jee-main{--exam:var(--exam-jee-main);--exam-bg:var(--exam-jee-main-soft)}
+.exam-neet{--exam:var(--exam-neet);--exam-bg:var(--exam-neet-soft)}
+.exam-jee-advanced{--exam:var(--exam-jee-advanced);--exam-bg:var(--exam-jee-advanced-soft)}
+.exam-category,.exam-monogram,.vault-core .exam-category,.vault-dark .exam-category,.vault-dark .exam-monogram{color:var(--exam);background:var(--exam-bg)}
+.exam-footer span,.vault-core .exam-footer span{color:var(--exam)}
+.exam-footer strong,.vault-core .exam-footer strong{color:var(--ink)}
+
+/* ---------- Card links keep body colours (they are <a> elements) ---------- */
+.vault-core a.vault-exam,.vault-core a.subject-card,.vault-core a.tool-card,.vault-core .vault-logo,a.vault-exam,a.subject-card,a.tool-card,.vault-logo{color:var(--ink)}
+.vault-core .theme-toggle,.vault-core .vault-signout,.theme-toggle,.vault-signout{color:var(--ink-2)}
+.hero-pill{color:var(--on-accent)}
+.exam-banner,.exam-banner p,.exam-banner h1,.exam-banner h2{color:var(--on-accent)}
+.exam-banner .badge{background:#ffffff26;color:var(--on-accent)}
+
+/* ---------- Navigation ---------- */
+.vault-nav a{color:var(--ink-2);background:var(--surface-2);border-color:var(--line)}
+.vault-nav a[aria-current=page]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.vault-bottomnav a{font-size:12px;color:var(--muted)}
+.vault-bottomnav a[aria-current=page]{color:var(--accent-text)}
+.chapter-links a[aria-current=true]{border-color:var(--accent);background:var(--accent-soft);color:var(--accent-text)}
+.subject-links a[aria-current=true]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+
+/* ---------- Cards and panels keep visible edges in dark mode ---------- */
+.panel,.vault-stat,.vault-exam,.card,.stat{border-color:var(--line)}
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+
+/* ---------- Header details ---------- */
+.logo-accent,.vault-core .logo-accent{color:var(--accent-text)}
+.vault-core select,.vault-core .practice-filters select,.vault-core .practice-filters input{font-size:14px}

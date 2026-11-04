@@ -1,0 +1,61 @@
+/* PYQ Vault design tokens — the only place colours are defined.
+   Every text/background pair used by components is checked against WCAG AA
+   by apps/portal/test_design_tokens.py. Change values here, then run the tests. */
+:root,[data-theme=light]{
+  color-scheme:light;
+  --bg:#f4f6f9;--surface:#ffffff;--surface-2:#eef2f6;
+  --ink:#172033;--ink-2:#344154;--muted:#4f5d70;
+  --line:#d5dce5;--line-strong:#7d8a9c;
+  --accent:#1759a6;--accent-strong:#124a8c;--accent-text:#124a8c;--accent-soft:#e7effa;--accent-line:#9dbbe2;--on-accent:#ffffff;
+  --ok:#15803d;--ok-soft:#e7f5ec;--ok-text:#11622f;
+  --bad:#c0352b;--bad-soft:#fdecea;--bad-text:#9b2a22;
+  --warn:#a35200;--warn-soft:#fff3e0;--warn-text:#7c3d00;
+  --rev:#6d3fc0;--rev-soft:#f1eafc;--rev-text:#55309a;
+  --exam-jee-main:#3730a3;--exam-jee-main-soft:#ecebfb;
+  --exam-neet:#0f766e;--exam-neet-soft:#e3f4f1;
+  --exam-jee-advanced:#b4470b;--exam-jee-advanced-soft:#fcede3;
+  --exam-jee-main-solid:#3730a3;--exam-neet-solid:#0f766e;--exam-jee-advanced-solid:#b4470b;
+  --hero-from:#173c69;--hero-to:#1759a6;
+  --focus:#1759a6;
+  --shadow:0 1px 2px rgba(23,32,51,.06),0 4px 14px rgba(23,32,51,.06);
+  /* legacy aliases used by older stylesheets */
+  --soft:var(--accent-soft);
+}
+[data-theme=dark]{
+  color-scheme:dark;
+  --bg:#0e131a;--surface:#17202b;--surface-2:#212b38;
+  --ink:#e7ecf3;--ink-2:#c9d2de;--muted:#a7b3c4;
+  --line:#2c3746;--line-strong:#728196;
+  --accent:#2a6cc0;--accent-strong:#1f5aa6;--accent-text:#8fbaf0;--accent-soft:#1b2c44;--accent-line:#3d5f8f;--on-accent:#ffffff;
+  --ok:#1c8344;--ok-soft:#16351f;--ok-text:#6fd38f;
+  --bad:#c63d33;--bad-soft:#3b1c1a;--bad-text:#ff9a90;
+  --warn:#a85f10;--warn-soft:#3a2a12;--warn-text:#f4b65f;
+  --rev:#8455d6;--rev-soft:#2c2142;--rev-text:#c9adf7;
+  --exam-jee-main:#aaa5f6;--exam-jee-main-soft:#25234a;
+  --exam-neet:#62d0c1;--exam-neet-soft:#12302d;
+  --exam-jee-advanced:#f5a56c;--exam-jee-advanced-soft:#3a2416;
+  --exam-jee-main-solid:#3730a3;--exam-neet-solid:#0f766e;--exam-jee-advanced-solid:#b4470b;
+    --hero-from:#13243b;--hero-to:#1d4372;
+  --focus:#8fbaf0;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme=light]){
+    color-scheme:dark;
+    --bg:#0e131a;--surface:#17202b;--surface-2:#212b38;
+    --ink:#e7ecf3;--ink-2:#c9d2de;--muted:#a7b3c4;
+    --line:#2c3746;--line-strong:#728196;
+    --accent:#2a6cc0;--accent-strong:#1f5aa6;--accent-text:#8fbaf0;--accent-soft:#1b2c44;--accent-line:#3d5f8f;--on-accent:#ffffff;
+    --ok:#1c8344;--ok-soft:#16351f;--ok-text:#6fd38f;
+    --bad:#c63d33;--bad-soft:#3b1c1a;--bad-text:#ff9a90;
+    --warn:#a85f10;--warn-soft:#3a2a12;--warn-text:#f4b65f;
+    --rev:#8455d6;--rev-soft:#2c2142;--rev-text:#c9adf7;
+    --exam-jee-main:#aaa5f6;--exam-jee-main-soft:#25234a;
+    --exam-neet:#62d0c1;--exam-neet-soft:#12302d;
+    --exam-jee-advanced:#f5a56c;--exam-jee-advanced-soft:#3a2416;
+    --exam-jee-main-solid:#3730a3;--exam-neet-solid:#0f766e;--exam-jee-advanced-solid:#b4470b;
+    --hero-from:#13243b;--hero-to:#1d4372;
+    --focus:#8fbaf0;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 4px 14px rgba(0,0,0,.25);
+  }
+}
