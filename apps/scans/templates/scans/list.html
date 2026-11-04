@@ -1,0 +1,7 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Scan imports</title></head><body>
+<h1>Scanned material import</h1>
+<p>Upload a licensed coaching sheet. Extraction runs in the background management command and every result stays a draft until a human approves it.</p>
+{% for message in messages %}<p>{{ message }}</p>{% endfor %}
+<form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button>Upload scan</button></form>
+<h2>Recent imports</h2><ul>{% for scan in scans %}<li><a href="{% url 'scan_import_detail' scan.pk %}">{{ scan.file_name }}</a> — {{ scan.get_status_display }} ({{ scan.extracted_count }} extracted, {{ scan.accepted_count }} accepted)</li>{% empty %}<li>No imports yet.</li>{% endfor %}</ul>
+</body></html>

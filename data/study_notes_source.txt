@@ -1,0 +1,459 @@
+@@Physics|Motion In One Dimension|Kinematics in a straight line
+CORE IDEAS
+Displacement is the change in position; distance is the length of the path. Velocity is the rate of displacement and acceleration is the rate of velocity. The slope of a position-time graph gives velocity; signed area under a velocity-time graph gives displacement.
+FORMULAS
+For constant acceleration: v = u + at; s = ut + ½at²; v² = u² + 2as.
+WORKED EXAMPLE
+A particle starts at 4 m/s and accelerates at 2 m/s² for 3 s. Its final speed is 10 m/s and displacement is 4×3 + ½×2×9 = 21 m.
+COMMON MISTAKE
+These equations require constant acceleration. Use integration when acceleration depends on time or position.
+@@Physics|Motion In Two Dimensions|Vectors and projectiles
+CORE IDEAS
+Resolve vectors into independent perpendicular components. For an ideal projectile, horizontal acceleration is zero and vertical acceleration is downward g. The horizontal velocity remains constant.
+FORMULAS
+x = u cosθ t; y = u sinθ t − ½gt². For landing at launch height: T = 2u sinθ/g; R = u² sin2θ/g; H = u² sin²θ/(2g).
+WORKED EXAMPLE
+With u = 20 m/s, θ = 30° and g = 10 m/s², flight time is 2 s and range is 20√3 m.
+COMMON MISTAKE
+The standard range formula does not apply when launch and landing heights differ.
+@@Physics|Laws of Motion|Forces and friction
+CORE IDEAS
+Draw a free-body diagram for each body. Choose axes before resolving forces. Newton's second law applies to the net external force in an inertial frame.
+FORMULAS
+ΣF = ma; static friction satisfies |f| ≤ μsN; limiting static friction = μsN; kinetic friction = μkN.
+WORKED EXAMPLE
+A 2 kg block on a horizontal table has μk = 0.2. With g = 10 m/s², kinetic friction is 4 N. A horizontal applied force of 10 N then gives acceleration (10−4)/2 = 3 m/s².
+COMMON MISTAKE
+Static friction is not always μsN; it adjusts until the limiting value is reached.
+@@Physics|Work Power Energy|Energy methods
+CORE IDEAS
+The work done by the net force equals the change in kinetic energy. Mechanical energy is conserved when only conservative forces do work. Power describes the rate of doing work.
+FORMULAS
+Wnet = Δ(½mv²); gravitational potential near Earth = mgh; spring potential = ½kx²; instantaneous power = F·v.
+WORKED EXAMPLE
+A 1 kg body falls through 5 m from rest with negligible air resistance. For g = 10 m/s², it gains 50 J of kinetic energy and reaches 10 m/s.
+COMMON MISTAKE
+A force perpendicular to instantaneous displacement does no work, even if it changes the direction of motion.
+@@Physics|Rotational Motion|Torque and angular momentum
+CORE IDEAS
+Torque measures the turning effect of a force. The moment of inertia depends on the axis. Angular momentum is conserved about a point when the net external torque about that point vanishes.
+FORMULAS
+τ = r×F; τ = Iα about a fixed axis; L = Iω for fixed-axis rotation; Krot = ½Iω²; parallel-axis theorem: I = Icm + Md².
+WORKED EXAMPLE
+A uniform disc of mass 2 kg and radius 0.5 m has I = ½MR² = 0.25 kg m². At 4 rad/s, rotational energy is 2 J.
+COMMON MISTAKE
+Use the same axis when calculating torque, angular momentum and moment of inertia.
+@@Physics|Gravitation|Orbits and escape
+CORE IDEAS
+A circular satellite orbit uses gravity as the centripetal force. Gravitational potential energy is zero at infinite separation by convention and is negative for a bound pair.
+FORMULAS
+F = GMm/r²; U = −GMm/r; circular speed = √(GM/r); circular-orbit energy = −GMm/(2r); escape speed = √(2GM/r).
+WORKED EXAMPLE
+If the radius of a circular orbit becomes four times larger, speed becomes one-half and the orbital period becomes eight times larger.
+COMMON MISTAKE
+Use distance from Earth's centre, not height above the surface, in orbital formulas.
+@@Physics|Electrostatics|Electric field and potential
+CORE IDEAS
+Electric field is a vector; potential is a scalar. Fields add vectorially while potentials add algebraically. A positive test charge accelerates in the electric field direction.
+FORMULAS
+For a point charge: E = kq/r² radially; V = kq/r; potential energy of two charges = kq₁q₂/r. In a uniform field, the potential decreases along the field.
+WORKED EXAMPLE
+Two equal positive point charges placed symmetrically about the origin give zero net field at the origin but a positive potential there.
+COMMON MISTAKE
+A point with zero electric field need not have zero potential.
+@@Physics|Capacitance|Capacitor networks
+CORE IDEAS
+Capacitance relates stored charge to potential difference. Parallel capacitors share voltage; series capacitors carry equal charge magnitude when initially uncharged and connected in a simple series circuit.
+FORMULAS
+C = Q/V; parallel: Ceq = ΣC; series: 1/Ceq = Σ(1/C); U = ½CV² = Q²/(2C).
+WORKED EXAMPLE
+Capacitors of 2 μF and 3 μF in parallel give 5 μF. Across 10 V, they store a total charge of 50 μC and energy 250 μJ.
+COMMON MISTAKE
+Whether a battery remains connected changes how voltage, charge and energy respond to inserting a dielectric.
+@@Physics|Current Electricity|Ohm law and circuit power
+CORE IDEAS
+Current is charge flow per unit time. Resistances in series share current; resistances in parallel share voltage. An ideal ammeter has negligible resistance and an ideal voltmeter has very high resistance.
+FORMULAS
+V = IR; R = ρL/A; P = VI = I²R = V²/R for an ohmic resistor.
+WORKED EXAMPLE
+A 6 Ω and a 3 Ω resistor in parallel have equivalent resistance 2 Ω. A 12 V source supplies 6 A and 72 W.
+COMMON MISTAKE
+The voltage across a real cell's terminals is not always equal to its EMF because of internal resistance.
+@@Physics|Magnetic Effects of Current|Magnetic force
+CORE IDEAS
+A magnetic field exerts force on a moving charge perpendicular to its velocity and the field. It does no work on a point charge. A current-carrying conductor also experiences magnetic force.
+FORMULAS
+F = qv×B; for perpendicular motion, radius r = mv/(|q|B); force on a straight wire = Iℓ×B; long straight wire: B = μ₀I/(2πr).
+WORKED EXAMPLE
+If a charged particle's speed doubles in a fixed perpendicular field, its orbit radius doubles while its cyclotron angular frequency remains |q|B/m in the nonrelativistic limit.
+COMMON MISTAKE
+Reverse the direction given by the right-hand rule for a negative charge.
+@@Physics|Thermodynamics|Heat work and ideal gases
+CORE IDEAS
+State the work convention before using the first law. With W defined as work done by the gas, ΔU = Q−W. Internal energy of an ideal gas depends only on temperature.
+FORMULAS
+PV = nRT; isothermal ideal-gas expansion: ΔU = 0; reversible isothermal work W = nRT ln(V₂/V₁). Reversible adiabatic: PV^γ = constant.
+WORKED EXAMPLE
+If a gas absorbs 100 J of heat and does 40 J of work, its internal energy rises by 60 J.
+COMMON MISTAKE
+An isothermal process is not necessarily adiabatic. In an isothermal expansion an ideal gas may absorb heat while doing work.
+@@Physics|Ray Optics|Lenses and image formation
+CORE IDEAS
+Choose and consistently follow a sign convention. For a thin lens using the Cartesian convention, object distance to the left is negative and a real image on the right has positive image distance.
+FORMULAS
+1/f = 1/v − 1/u; magnification m = v/u; power P = 1/f when f is in metres. Powers of thin lenses in contact add.
+WORKED EXAMPLE
+For a convex lens with f = 10 cm and u = −30 cm, 1/v = 1/10−1/30 = 1/15, so v = 15 cm and m = −0.5.
+COMMON MISTAKE
+Do not mix the mirror equation and the lens equation or switch sign conventions part-way through.
+@@Physics|Wave Optics|Interference and polarisation
+CORE IDEAS
+Stable interference requires coherent sources. Bright fringes correspond to integer wavelength path differences; dark fringes correspond to odd half-wavelength differences for equal coherent sources.
+FORMULAS
+Young double-slit fringe spacing β = λD/d. Malus law: I = I₀cos²θ for initially plane-polarised light. An ideal polariser transmits half the intensity of unpolarised light.
+WORKED EXAMPLE
+Polarised light of intensity I₀ passes through an analyser at 60°. The transmitted intensity is I₀/4.
+COMMON MISTAKE
+Apply the initial half-intensity factor only when unpolarised light enters the first ideal polariser.
+@@Physics|Atomic Physics|Photoelectric effect and energy levels
+CORE IDEAS
+A photon transfers energy hν. Photoemission occurs only above a threshold frequency. Higher intensity increases photon count; it does not increase the maximum photoelectron energy at fixed frequency.
+FORMULAS
+Kmax = hν−φ = eVs; hydrogen-like energy levels En = −13.6Z²/n² eV; de Broglie wavelength λ = h/p.
+WORKED EXAMPLE
+A 5 eV photon incident on a surface of work function 2 eV gives maximum kinetic energy 3 eV and stopping potential 3 V.
+COMMON MISTAKE
+Convert eV to joules when combining energies with SI values of h or particle mass.
+@@Chemistry|Some Basic Concepts of Chemistry|Moles and limiting reagents
+CORE IDEAS
+Balance the equation before comparing reactant amounts. Convert each available reactant amount into the maximum product amount it can produce. The smallest value identifies the limiting reagent.
+FORMULAS
+n = m/M; number of particles = nNA; molarity = moles of solute/litres of solution.
+WORKED EXAMPLE
+For 2H₂ + O₂ → 2H₂O, 3 mol H₂ and 1 mol O₂ can produce 3 mol and 2 mol water respectively. Oxygen limits the reaction and 2 mol water forms, leaving 1 mol H₂.
+COMMON MISTAKE
+Compare stoichiometric mole ratios, not the masses of reactants directly.
+@@Chemistry|Structure of Atom|Quantum numbers and electronic structure
+CORE IDEAS
+An orbital is specified by n, l and ml. An electron also has spin quantum number ms. Pauli's principle allows at most two electrons per orbital with opposite spins.
+KEY RELATIONS
+For a shell n, l ranges from 0 to n−1. For a subshell l, ml ranges from −l to +l. A subshell contains 2l+1 orbitals and accommodates 2(2l+1) electrons.
+WORKED EXAMPLE
+A d subshell has l = 2, five orbitals and a maximum capacity of ten electrons.
+COMMON MISTAKE
+An orbital is not a classical circular trajectory. Distinguish orbital count from electron capacity.
+@@Chemistry|Chemical Bonding and Molecular Structure|Bonding geometry and molecular orbitals
+CORE IDEAS
+VSEPR uses electron domains around a central atom to predict geometry. Lone pairs affect molecular shape. Molecular orbital theory distinguishes bonding and antibonding electrons.
+FORMULA
+Bond order = (number of bonding electrons − number of antibonding electrons)/2. Unpaired electrons imply paramagnetism in the usual introductory molecular-orbital treatment.
+WORKED EXAMPLE
+Water has four electron domains around oxygen: two bonds and two lone pairs. The electron-domain arrangement is approximately tetrahedral, but the molecular shape is bent.
+COMMON MISTAKE
+Electron-domain geometry and molecular shape are different descriptions when lone pairs are present.
+@@Chemistry|Chemical Equilibrium|Equilibrium constants
+CORE IDEAS
+At equilibrium, forward and reverse rates are equal, but concentrations need not be equal. The reaction quotient Q is evaluated using the current composition and compared with K.
+FORMULA
+For aA+bB ⇌ cC+dD, Kc = [C]^c[D]^d/([A]^a[B]^b). Pure solids and liquids have unit activity and are omitted from the usual equilibrium expression.
+WORKED EXAMPLE
+For H₂+I₂ ⇌ 2HI, concentrations 0.2, 0.2 and 0.8 mol/L at equilibrium give Kc = 0.8²/(0.2×0.2) = 16.
+COMMON MISTAKE
+A catalyst changes how quickly equilibrium is reached, not the equilibrium constant at a given temperature.
+@@Chemistry|Ionic Equilibrium|Acids bases and buffers
+CORE IDEAS
+Acid-base calculations depend on dissociation strength and concentration. A buffer contains a weak acid and its conjugate base, or a weak base and its conjugate acid.
+FORMULAS
+pH = −log₁₀[H⁺]; at 25°C, Kw ≈ 10⁻¹⁴. For an appropriate weak-acid buffer, pH ≈ pKa + log₁₀([A⁻]/[HA]).
+WORKED EXAMPLE
+A buffer with equal concentrations of a weak acid and its conjugate base has pH approximately equal to pKa.
+COMMON MISTAKE
+The Henderson-Hasselbalch approximation is inappropriate after the buffer capacity has been exceeded or when dissociation corrections dominate.
+@@Chemistry|Thermodynamics (C)|Enthalpy entropy and Gibbs energy
+CORE IDEAS
+Enthalpy change describes heat transfer at constant pressure when only pressure-volume work is involved. Entropy measures the dispersal of energy and accessible microscopic states. Spontaneity depends on the system and surroundings.
+FORMULA
+At constant temperature and pressure: ΔG = ΔH−TΔS. A negative ΔG favours the forward process under the stated conditions.
+WORKED EXAMPLE
+If ΔH = 20 kJ/mol and ΔS = 100 J/(mol K), then at 300 K, ΔG = 20−30 = −10 kJ/mol.
+COMMON MISTAKE
+Convert entropy to compatible energy units before calculating TΔS. A spontaneous process need not be fast.
+@@Chemistry|Chemical Kinetics|Rate laws and half-life
+CORE IDEAS
+The rate law is determined experimentally and does not generally follow directly from the balanced overall equation. Reaction order is the sum of concentration exponents in the rate law.
+FORMULAS
+First order: ln([A]₀/[A]t) = kt; t½ = ln2/k. Arrhenius equation: k = Aexp(−Ea/RT).
+WORKED EXAMPLE
+A first-order reaction with k = 0.0693 min⁻¹ has half-life 10 min. After 20 min, one-quarter of the initial reactant remains.
+COMMON MISTAKE
+The concentration-independent half-life formula applies to first-order kinetics, not every reaction.
+@@Chemistry|Electrochemistry|Cells and electrolysis
+CORE IDEAS
+Oxidation occurs at the anode and reduction at the cathode in both galvanic and electrolytic cells. Electrode signs depend on the cell type.
+FORMULAS
+Ecell = Ecathode−Eanode when both are tabulated as reduction potentials. ΔG° = −nFE°. Electrolysis: deposited amount n(metal) = Q/(zF).
+WORKED EXAMPLE
+Passing one Faraday through a solution containing Cu²⁺ deposits one-half mole of copper when deposition is the only cathodic process.
+COMMON MISTAKE
+Do not multiply a standard electrode potential when multiplying a half-reaction; potential is an intensive quantity.
+@@Chemistry|Coordination Compounds|Ligands oxidation states and magnetism
+CORE IDEAS
+A ligand donates an electron pair to a central metal. Coordination number counts donor atoms directly bonded to the metal. Oxidation state follows from ligand charges and total complex charge.
+FORMULA
+For spin-only estimates, magnetic moment μ ≈ √[n(n+2)] BM, where n is the number of unpaired electrons.
+WORKED EXAMPLE
+In [Co(NH₃)₆]³⁺, ammonia is neutral, so cobalt is +3. The coordination number is six. Determining the spin state also requires the d-electron count and ligand-field information.
+COMMON MISTAKE
+The number of ligands need not equal the coordination number for multidentate ligands.
+@@Chemistry|General Organic Chemistry|Electronic effects and reaction reasoning
+CORE IDEAS
+Inductive effects act through sigma bonds; resonance involves delocalisation of electrons across suitable conjugated orbitals. Identify nucleophiles, electrophiles and the bonds changing in a reaction.
+METHOD
+First compare possible intermediates, then examine resonance, inductive effects, hyperconjugation, solvent and steric constraints. Use curved arrows from an electron pair or bond toward an electron-deficient site.
+WORKED EXAMPLE
+A resonance-stabilised carboxylate conjugate base helps explain why carboxylic acids are generally more acidic than comparable alcohols.
+COMMON MISTAKE
+Resonance structures are alternative drawings of one delocalised species, not separate molecules interconverting in equilibrium.
+@@Chemistry|Solutions|Colligative properties
+CORE IDEAS
+Colligative effects depend on the effective number of dissolved particles rather than their chemical identity in the ideal dilute limit. Association and dissociation alter particle count.
+FORMULAS
+ΔTb = iKb m; ΔTf = iKf m; osmotic pressure π = iCRT. Here m is molality and C is molarity.
+WORKED EXAMPLE
+A non-electrolyte solution of molality 0.1 mol/kg in water with Kf = 1.86 K kg/mol has freezing-point depression 0.186 K.
+COMMON MISTAKE
+Do not replace molality with molarity in freezing-point calculations. The van't Hoff factor need not be an integer in real solutions.
+@@Chemistry|Surface Chemistry|Adsorption and colloids
+CORE IDEAS
+Adsorption concentrates a substance at an interface. Physisorption is dominated by intermolecular forces, while chemisorption involves chemical bonding. Colloids have a dispersed phase and a dispersion medium.
+APPLICATION
+Greater surface area often increases adsorption capacity. The Tyndall effect is scattering of light by a colloidal dispersion when optical contrast is sufficient.
+WORKED EXAMPLE
+Powdered activated carbon exposes far more surface than an equal mass in a compact block, supporting its use as an adsorbent.
+COMMON MISTAKE
+Adsorption is a surface phenomenon; absorption refers to uptake into the bulk. Both can occur together.
+@@Mathematics|Quadratic Equation|Roots and coefficients
+CORE IDEAS
+A quadratic ax²+bx+c = 0 has roots related to its coefficients. The discriminant classifies real-root behaviour when the coefficients are real.
+FORMULAS
+α+β = −b/a; αβ = c/a; D = b²−4ac. Distinct real roots require D>0; a repeated real root requires D=0.
+WORKED EXAMPLE
+For x²−5x+6 = 0, roots are 2 and 3. Their squares sum to (α+β)²−2αβ = 25−12 = 13.
+COMMON MISTAKE
+Check that the coefficient of x² is nonzero before applying quadratic formulas.
+@@Mathematics|Complex Number|Modulus argument and geometry
+CORE IDEAS
+A complex number z=x+iy corresponds to a point in the plane. Its modulus is distance from the origin; its argument is an angle with a stated branch convention.
+FORMULAS
+|z| = √(x²+y²); z z̄ = |z|²; |z−a| is the distance between z and a. Multiplication adds arguments modulo 2π.
+WORKED EXAMPLE
+The locus |z−(2+i)| = 3 is a circle centred at (2,1) with radius 3.
+COMMON MISTAKE
+Principal arguments do not always add directly without adjustment back into the chosen interval.
+@@Mathematics|Functions|Domain range and mappings
+CORE IDEAS
+The domain lists permitted inputs; the codomain is specified in the definition; the range contains outputs actually attained. A function is injective if different inputs always give different outputs and surjective if its range equals its codomain.
+METHOD
+Check denominator restrictions, square-root conditions and logarithm arguments before manipulating expressions.
+WORKED EXAMPLE
+f(x)=x² from real numbers to nonnegative real numbers is onto but not one-to-one. Restricting the domain to nonnegative real numbers makes it bijective.
+COMMON MISTAKE
+A function's injectivity and surjectivity depend on its domain and codomain, not just its formula.
+@@Mathematics|Limits|Evaluating limits
+CORE IDEAS
+A limit describes behaviour near a point and may exist even when the function is undefined at that point. Algebraic simplification, standard limits and squeezing are useful methods.
+STANDARD LIMITS
+lim(x→0) sinx/x = 1 with x in radians; lim(x→0) (exp(x)−1)/x = 1.
+WORKED EXAMPLE
+lim(x→2) (x²−4)/(x−2) = lim(x→2)(x+2) = 4. Cancelling the factor is valid for nearby x≠2.
+COMMON MISTAKE
+The form 0/0 is indeterminate, not a numerical answer. Angle units matter in trigonometric limits.
+@@Mathematics|Application of Derivatives|Monotonicity and extrema
+CORE IDEAS
+The derivative gives instantaneous slope. A positive derivative throughout an interval implies increasing behaviour there. Candidate extrema occur at stationary points or points where differentiability fails; endpoints also matter on closed intervals.
+METHOD
+Find critical points, split the domain into intervals, inspect derivative signs and evaluate relevant endpoints.
+WORKED EXAMPLE
+For f(x)=x²−4x+1, f′(x)=2x−4. The derivative changes from negative to positive at x=2, giving a minimum f(2)=−3.
+COMMON MISTAKE
+A zero derivative alone does not prove a maximum or minimum; x³ has a stationary inflection at zero.
+@@Mathematics|Definite Integration|Integration and signed area
+CORE IDEAS
+An antiderivative reverses differentiation. A definite integral accumulates signed contributions. Geometric area requires accounting for portions below the axis.
+FORMULAS
+∫xⁿdx = x^(n+1)/(n+1)+C for n≠−1; ∫1/x dx = ln|x|+C. If F′=f, then ∫ₐᵇf(x)dx = F(b)−F(a).
+WORKED EXAMPLE
+∫₀²(x−1)dx = 0, but the geometric area between y=x−1 and the x-axis from 0 to 2 is 1.
+COMMON MISTAKE
+A zero integral need not mean zero area: positive and negative contributions can cancel.
+@@Mathematics|Differential Equations|Separable equations
+CORE IDEAS
+A differential equation relates a function to its derivatives. An initial condition selects a particular solution from a family. In a separable equation, variables can be grouped on opposite sides.
+METHOD
+For dy/dx = g(x)h(y), integrate dy/h(y) = g(x)dx where division is valid; separately check any solutions excluded by dividing by h(y).
+WORKED EXAMPLE
+dy/dx = 2xy gives ln|y| = x²+C for y≠0, so y=Aexp(x²). The solution y=0 is also included when A=0.
+COMMON MISTAKE
+Do not lose constant solutions when dividing by an expression involving y.
+@@Mathematics|Matrices|Matrix operations and inverses
+CORE IDEAS
+Matrix multiplication requires compatible dimensions and is generally noncommutative. A square matrix has an inverse exactly when its determinant is nonzero.
+FORMULA
+For A=[[a,b],[c,d]], det A = ad−bc and A⁻¹ = [[d,−b],[−c,a]]/(ad−bc), when ad−bc≠0.
+WORKED EXAMPLE
+For A=[[1,2],[3,4]], determinant is −2 and inverse is [[−2,1],[1.5,−0.5]]. Multiplication by A gives the identity.
+COMMON MISTAKE
+AB and BA can differ or one may be undefined. Cancellation of a matrix factor requires appropriate invertibility.
+@@Mathematics|Probability|Conditional probability and Bayes theorem
+CORE IDEAS
+Conditional probability updates an event probability after learning another event occurred. Independence means P(A∩B)=P(A)P(B), not that events cannot happen together.
+FORMULAS
+P(A|B)=P(A∩B)/P(B) for P(B)>0. Bayes: P(Ai|B)=P(B|Ai)P(Ai)/ΣjP(B|Aj)P(Aj).
+WORKED EXAMPLE
+Two equally likely boxes contain red-ball fractions 1/4 and 3/4. Given a red draw, the probability the second box was chosen is (3/4)/(1/4+3/4)=3/4.
+COMMON MISTAKE
+P(A|B) and P(B|A) are generally different.
+@@Mathematics|Permutation Combination|Counting selections and arrangements
+CORE IDEAS
+A permutation records order; a combination records selection without order. Use a product when independent stages are all required and a sum for mutually exclusive alternatives.
+FORMULAS
+nPr=n!/(n−r)!; nCr=n!/[r!(n−r)!].
+WORKED EXAMPLE
+Choose three students from five and appoint one of those three as captain. There are 5C3×3 = 30 outcomes.
+COMMON MISTAKE
+Check whether positions, roles or repetition make apparently identical selections distinct.
+@@Mathematics|Three Dimensional Geometry|Lines planes and distances
+CORE IDEAS
+A line is described by a point and direction vector. A plane is described by a point and a normal vector. Parallelism and perpendicularity can be checked using vector products and dot products.
+FORMULAS
+Plane: ax+by+cz+d=0 with normal (a,b,c). Distance of (x₀,y₀,z₀) from plane is |ax₀+by₀+cz₀+d|/√(a²+b²+c²).
+WORKED EXAMPLE
+The distance of (1,2,3) from x+2y+2z−2=0 is |1+4+6−2|/3=3.
+COMMON MISTAKE
+A line's direction vector is not the same as a plane's normal unless the line is perpendicular to the plane.
+@@Mathematics|Sequences and Series|Arithmetic and geometric progressions
+CORE IDEAS
+An arithmetic progression has a fixed difference; a geometric progression has a fixed ratio. Before summing a sequence, identify its pattern and indexing.
+FORMULAS
+AP: an=a+(n−1)d and Sn=n[2a+(n−1)d]/2. GP: Sn=a(1−rⁿ)/(1−r) for r≠1; infinite sum a/(1−r) requires |r|<1.
+WORKED EXAMPLE
+The first ten terms of the AP 3,7,11,... sum to 10[6+9×4]/2=210.
+COMMON MISTAKE
+The infinite geometric-sum formula is invalid when |r|≥1.
+@@Biology|The Living World|Taxonomy and scientific names
+CORE IDEAS
+Taxonomy includes identification, nomenclature and classification. A species is placed within nested categories such as genus, family, order, class, phylum or division, and kingdom.
+KEY DISTINCTION
+In a binomial name, the genus begins with a capital letter and the specific epithet with a lowercase letter. Scientific names are italicised in print; the two words are separately underlined when handwritten.
+WORKED EXAMPLE
+In Homo sapiens, Homo is the genus and sapiens is the specific epithet. Together they identify the species name.
+COMMON MISTAKE
+A specific epithet alone is not the full scientific name and may occur in different genera.
+@@Biology|Biological Classification|Viruses viroids and cellular organisms
+CORE IDEAS
+Bacteria are cellular prokaryotes. Viruses are acellular infectious entities that reproduce using host-cell machinery. Viroids are small infectious RNA agents without a protein coat.
+COMPARE
+A bacterium has cellular organisation, ribosomes and metabolism. A virus contains genetic material inside a protein capsid, with an envelope in some groups. Viroid structure is much simpler.
+WORKED EXAMPLE
+A question describing infectious naked RNA points toward a viroid rather than a conventional virus with a capsid.
+COMMON MISTAKE
+Do not treat viruses as autonomous cells or assume all viruses contain both DNA and RNA as their genetic material.
+@@Biology|Cell - The Unit of Life|Organelles and membrane transport
+CORE IDEAS
+The plasma membrane controls exchange between a cell and its surroundings. Eukaryotic cells contain membrane-bound organelles; prokaryotes lack a membrane-bound nucleus.
+COMPARE
+Mitochondria participate in aerobic energy metabolism; ribosomes synthesise proteins; the Golgi apparatus modifies and sorts cellular products. Chloroplasts perform photosynthesis in photosynthetic eukaryotes.
+WORKED EXAMPLE
+A cell that secretes large amounts of protein typically has substantial rough endoplasmic reticulum and an active Golgi apparatus.
+COMMON MISTAKE
+Ribosomes are not membrane-bound, and they occur in both prokaryotic and eukaryotic cells.
+@@Biology|Cell Cycle and Cell Division|Mitosis and meiosis
+CORE IDEAS
+DNA is replicated in S phase before division. Mitosis generally preserves chromosome number; meiosis has one DNA replication followed by two divisions and reduces chromosome number.
+KEY EVENTS
+Homologous chromosomes pair during prophase I of meiosis. Homologues separate in anaphase I, while sister chromatids separate in anaphase II.
+WORKED EXAMPLE
+A diploid cell with 2n=8 produces haploid meiotic products with n=4 chromosomes. Immediately after S phase the chromosome count remains 8, although the DNA amount has doubled.
+COMMON MISTAKE
+Count chromosomes by centromeres, and distinguish chromosome number from DNA content.
+@@Biology|Principles of Inheritance and Variation|Mendelian crosses
+CORE IDEAS
+Alleles segregate during gamete formation. Independent assortment applies to unlinked loci under the standard Mendelian assumptions. Dominance describes phenotype in a heterozygote, not the frequency or usefulness of an allele.
+CROSS
+For Aa×Aa with complete dominance, expected genotype ratio is 1 AA:2 Aa:1 aa and phenotype ratio is 3 dominant:1 recessive.
+WORKED EXAMPLE
+In a test cross Aa×aa, half the offspring are expected to be Aa and half aa, giving a 1:1 phenotypic ratio.
+COMMON MISTAKE
+Linkage, incomplete dominance and other mechanisms can change the familiar ratios.
+@@Biology|Molecular Basis of Inheritance|Replication transcription and translation
+CORE IDEAS
+DNA replication copies genetic information. Transcription makes RNA using a DNA template; translation uses an mRNA sequence to specify an amino-acid sequence.
+KEY DIRECTIONS
+DNA and RNA polymerases extend a new strand in the 5′→3′ direction. The genetic code is read as successive mRNA codons during translation.
+WORKED EXAMPLE
+For a DNA template segment 3′-TAC-5′, the corresponding RNA segment is 5′-AUG-3′, which can serve as a start codon in an appropriate context.
+COMMON MISTAKE
+A template strand and a coding strand have different relationships to the RNA sequence. State which strand is given.
+@@Biology|Photosynthesis in Higher Plants|Light reactions and carbon fixation
+CORE IDEAS
+Light reactions convert light energy into chemical forms and release oxygen from water. Carbon fixation incorporates carbon dioxide into organic molecules through linked biochemical reactions.
+KEY DISTINCTION
+ATP and reducing power produced by light reactions support carbon assimilation. C3 and C4 plants differ in the first stable products and spatial organisation of initial carbon fixation.
+WORKED EXAMPLE
+In a tracing experiment, oxygen released during photosynthesis originates from water rather than directly from carbon dioxide.
+COMMON MISTAKE
+Calling carbon fixation a dark reaction does not mean it occurs only at night; it depends on products and regulation associated with light reactions.
+@@Biology|Human Health and Diseases|Immunity and infectious disease
+CORE IDEAS
+Innate immunity provides broad early defences. Adaptive immunity includes antigen-specific responses and memory. B cells can give rise to antibody-secreting plasma cells; T cells have several regulatory and effector roles.
+COMPARE
+A vaccine prepares an adaptive response without requiring the full natural disease course. An antibiotic acts against susceptible bacteria and does not directly cure a viral infection.
+WORKED EXAMPLE
+A faster, stronger response on re-exposure to an antigen illustrates immunological memory.
+COMMON MISTAKE
+An infectious disease's pathogen, vector and transmission route are distinct concepts. For malaria, distinguish Plasmodium from its mosquito vector.
+@@Biology|Human Reproduction|Gametogenesis and fertilisation
+CORE IDEAS
+Meiosis produces haploid gametes. Fertilisation restores diploidy when haploid gamete nuclei combine. Development proceeds through cleavage and later differentiation.
+KEY DISTINCTION
+Spermatogenesis yields multiple functional sperm from a primary spermatocyte, while oogenesis partitions most cytoplasm into one large functional product and polar bodies.
+WORKED EXAMPLE
+In humans, normal gametes contain 23 chromosomes; a typical zygote formed by their union contains 46.
+COMMON MISTAKE
+Do not confuse ovulation, fertilisation and implantation: they are different events at different sites and times.
+@@Biology|Body Fluids and Circulation|The cardiac cycle
+CORE IDEAS
+The heart generates pressure differences that move blood. Valves limit reverse flow. Pulmonary circulation links the heart and lungs; systemic circulation links the heart and other tissues.
+KEY RELATION
+Cardiac output = heart rate × stroke volume.
+WORKED EXAMPLE
+A heart rate of 70 beats/min and stroke volume 70 mL/beat give an output of 4900 mL/min, or 4.9 L/min.
+COMMON MISTAKE
+Arteries carry blood away from the heart and veins carry blood toward it. Oxygen content does not define whether a vessel is an artery or vein.
+@@Biology|Biotechnology - Principles and Processes|Recombinant DNA and PCR
+CORE IDEAS
+Recombinant DNA methods combine and propagate selected DNA sequences. A vector carries an insert into a suitable host. Restriction enzymes recognise specific sequences; DNA ligase joins compatible DNA ends.
+PCR CYCLE
+Denaturation separates DNA strands, annealing allows primers to bind, and extension uses a DNA polymerase to copy the target.
+WORKED EXAMPLE
+Under ideal doubling, one target molecule becomes 2¹⁰=1024 copies after ten PCR cycles. Real reactions can be less efficient.
+COMMON MISTAKE
+PCR amplifies DNA without requiring whole-cell reproduction. Primer design and target specificity still matter.
+@@Biology|Ecosystem|Energy flow and trophic levels
+CORE IDEAS
+Producers capture energy; consumers obtain it through feeding. Energy flows through ecosystems and is dissipated as heat, while nutrients cycle between organisms and their surroundings.
+KEY DISTINCTION
+Net primary productivity is gross primary productivity minus producer respiration. An ecological energy pyramid is upright because usable energy decreases across trophic transfers.
+WORKED EXAMPLE
+If producers make 1000 units of gross production and respire 400, net primary production is 600 units available for growth and other transfers.
+COMMON MISTAKE
+A rule-of-thumb transfer efficiency is not a universal fixed value for every organism or ecosystem.
+@@Biology|Biodiversity and its Conservation|Conservation approaches
+CORE IDEAS
+Biodiversity includes variation within species, between species and across ecosystems. Habitat loss, overexploitation, invasive species and other pressures can reduce biodiversity.
+COMPARE
+In situ conservation protects populations within their habitats. Ex situ conservation protects selected organisms or genetic resources outside their natural habitats, such as seed banks.
+WORKED EXAMPLE
+A protected forest reserve is an in situ approach; a seed bank preserving crop varieties is an ex situ approach.
+COMMON MISTAKE
+A high number of individuals of one species does not by itself imply high species diversity.

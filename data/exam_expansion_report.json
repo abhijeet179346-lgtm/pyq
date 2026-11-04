@@ -1,0 +1,47 @@
+{
+  "jee-main": {
+    "added": 494,
+    "subject_counts": {
+      "Chemistry": 170,
+      "Mathematics": 164,
+      "Physics": 160
+    },
+    "rejected": {
+      "wrong_exam_or_no_paper": 27465,
+      "incomplete_options_or_key": 1736,
+      "incomplete_text": 39,
+      "visual_dependency": 3799
+    },
+    "fallback_taxonomy": 161
+  },
+  "neet": {
+    "added": 494,
+    "subject_counts": {
+      "Biology": 190,
+      "Chemistry": 158,
+      "Physics": 146
+    },
+    "rejected": {
+      "wrong_exam_or_no_paper": 37856,
+      "visual_dependency": 1468,
+      "incomplete_options_or_key": 24,
+      "incomplete_text": 87
+    },
+    "fallback_taxonomy": 160
+  },
+  "jee-advanced": {
+    "added": 412,
+    "subject_counts": {
+      "Chemistry": 135,
+      "Mathematics": 173,
+      "Physics": 104
+    },
+    "rejected": {
+      "incomplete_options_or_key": 85,
+      "visual_dependency": 506,
+      "wrong_exam_or_no_paper": 181,
+      "incomplete_text": 1
+    },
+    "fallback_taxonomy": 49
+  }
+}

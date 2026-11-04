@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Import questions</title>
+<style>body{font:16px system-ui;max-width:1100px;margin:2rem auto;padding:0 1rem;color:#18202b}table{border-collapse:collapse;width:100%;margin:1rem 0}th,td{border:1px solid #ccd3dc;padding:.55rem;text-align:left;vertical-align:top}.error{color:#a11919}.ok{color:#17633a}button,a.button{padding:.6rem .9rem;border:0;border-radius:4px;background:#1759a6;color:white;text-decoration:none;cursor:pointer}input{margin:1rem 0}</style></head>
+<body>
+<h1>Import institute questions</h1>
+<p>CSV imports create draft practice questions. Check the preview, resolve every row error, then commit.</p>
+<p><a class="button" href="{% url 'question_csv_template' %}">Download CSV template</a></p>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}{{ form.as_p }}<button type="submit">Validate and preview</button></form>
+{% if errors %}<h2>Validation issues</h2><ul>{% for error in errors %}<li class="error">{{ error }}</li>{% endfor %}</ul>{% endif %}{% if import_batch %}<p>Import report: <a href="{% url 'admin:imports_importbatch_change' import_batch.pk %}">view saved report #{{ import_batch.pk }}</a></p>{% endif %}
+{% if preview %}<h2>Preview ({{ preview|length }} rows)</h2><table><thead><tr><th>CSV row</th><th>Question</th><th>Subject</th><th>Chapter</th><th>Topic</th><th>Errors</th></tr></thead><tbody>{% for row in preview %}<tr><td>{{ row.line }}</td><td>{{ row.stem }}</td><td>{{ row.subject }}</td><td>{{ row.chapter }}</td><td>{{ row.topic }}</td><td>{% if row.errors %}<span class="error">{{ row.errors|join:"; " }}</span>{% else %}<span class="ok">Ready</span>{% endif %}</td></tr>{% endfor %}</tbody></table>{% endif %}
+{% if can_commit %}<form method="post" action="{% url 'commit_question_csv' %}">{% csrf_token %}<input type="hidden" name="token" value="{{ token }}"><button type="submit">Commit {{ preview|length }} questions as drafts</button></form>{% endif %}
+</body></html>

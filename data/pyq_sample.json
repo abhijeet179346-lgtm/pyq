@@ -1,0 +1,3758 @@
+{
+  "description": "100 actual PYQs: 18 concise source-checked restatements and 82 JEEBench MCQs.",
+  "rights_note": "Original papers retain their respective copyrights. These locally evaluated short restatements do not assert an open redistribution licence.",
+  "questions": [
+    {
+      "exam": "jee-main",
+      "year": 2020,
+      "sitting": "6 September, Shift 2",
+      "source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "source_page": 2,
+      "subject": "Physics",
+      "chapter": "Motion in a Plane",
+      "topic": "Relative motion",
+      "question_number": 3,
+      "stem": "Ground-frame rain is vertical. It appears at 60° above horizontal for car speed v, and 45° for (1+β)v. Estimate β.",
+      "options": [
+        {
+          "id": "1",
+          "text": "0.50"
+        },
+        {
+          "id": "2",
+          "text": "0.73"
+        },
+        {
+          "id": "3",
+          "text": "0.37"
+        },
+        {
+          "id": "4",
+          "text": "0.41"
+        }
+      ],
+      "answer": "2",
+      "solution": "Vertical rain speed=√3v; β=√3−1≈0.73.",
+      "answer_source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Rain and moving observers"
+    },
+    {
+      "exam": "jee-main",
+      "year": 2020,
+      "sitting": "6 September, Shift 2",
+      "source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "source_page": 3,
+      "subject": "Physics",
+      "chapter": "Ray Optics",
+      "topic": "Refraction through lenses",
+      "question_number": 5,
+      "stem": "An equal-radius biconvex lens has power P and radii R. Same-material plano-convex power=1.5P: find its curved radius.",
+      "options": [
+        {
+          "id": "1",
+          "text": "R/3"
+        },
+        {
+          "id": "2",
+          "text": "3R/2"
+        },
+        {
+          "id": "3",
+          "text": "R/2"
+        },
+        {
+          "id": "4",
+          "text": "2R"
+        }
+      ],
+      "answer": "1",
+      "solution": "P=2(μ−1)/R; 1.5P=(μ−1)/r gives r=R/3.",
+      "answer_source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Lens maker formula"
+    },
+    {
+      "exam": "jee-main",
+      "year": 2020,
+      "sitting": "6 September, Shift 2",
+      "source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "source_page": 3,
+      "subject": "Physics",
+      "chapter": "Current Electricity",
+      "topic": "Electrical measurements",
+      "question_number": 6,
+      "stem": "For an Ohm-law measurement, choose the correct ammeter/voltmeter connections.",
+      "options": [
+        {
+          "id": "1",
+          "text": "Series / parallel"
+        },
+        {
+          "id": "2",
+          "text": "Series / series"
+        },
+        {
+          "id": "3",
+          "text": "Parallel / parallel"
+        },
+        {
+          "id": "4",
+          "text": "Parallel / series"
+        }
+      ],
+      "answer": "1",
+      "solution": "Current measurement requires series connection; voltage measurement requires parallel connection.",
+      "answer_source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Ammeter and voltmeter connections"
+    },
+    {
+      "exam": "jee-main",
+      "year": 2020,
+      "sitting": "6 September, Shift 2",
+      "source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "source_page": 7,
+      "subject": "Physics",
+      "chapter": "Dual Nature of Matter",
+      "topic": "Matter waves",
+      "question_number": 13,
+      "stem": "Find λ for N₂ at rms speed: T=400K, m=4.64×10⁻²⁶kg, k=1.38×10⁻²³J/K, h=6.63×10⁻³⁴Js.",
+      "options": [
+        {
+          "id": "1",
+          "text": "0.44 Å"
+        },
+        {
+          "id": "2",
+          "text": "0.34 Å"
+        },
+        {
+          "id": "3",
+          "text": "0.20 Å"
+        },
+        {
+          "id": "4",
+          "text": "0.24 Å"
+        }
+      ],
+      "answer": "4",
+      "solution": "λ=h/√(3mkT)≈2.39×10⁻¹¹m=0.24Å.",
+      "answer_source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "question_type": "single_correct",
+      "subtopic": "de Broglie wavelength"
+    },
+    {
+      "exam": "jee-main",
+      "year": 2020,
+      "sitting": "6 September, Shift 2",
+      "source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "source_page": 11,
+      "subject": "Physics",
+      "chapter": "Wave Optics",
+      "topic": "Interference",
+      "question_number": 21,
+      "stem": "YDSE intensity at path difference λ is K; at λ/6 it is nK/12. Find n.",
+      "options": [],
+      "answer": "9",
+      "solution": "I/K=cos²(π/6)=3/4=n/12.",
+      "answer_source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "question_type": "integer",
+      "subtopic": "Young double-slit intensity"
+    },
+    {
+      "exam": "jee-main",
+      "year": 2020,
+      "sitting": "6 September, Shift 2",
+      "source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "source_page": 11,
+      "subject": "Physics",
+      "chapter": "System of Particles",
+      "topic": "Centre of mass",
+      "question_number": 22,
+      "stem": "A uniform solid hemisphere has R=8cm. Find its centre-of-mass distance from the flat-face centre, in cm.",
+      "options": [],
+      "answer": "3",
+      "solution": "Distance=3R/8=3cm.",
+      "answer_source_url": "https://cdn1.byjus.com/wp-content/uploads/2020/10/jee-main-2020-question-paper-physics-september-6-shift-2.pdf",
+      "question_type": "integer",
+      "subtopic": "Uniform solid hemisphere"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2024,
+      "sitting": "Paper 1",
+      "source_url": "https://jeeadv.ac.in/past_qps/2024_1_English.pdf",
+      "source_page": 1,
+      "subject": "Mathematics",
+      "chapter": "Probability",
+      "topic": "Conditional probability",
+      "question_number": 2,
+      "stem": "True/false quiz: known answers are correct; guesses are random. Given P(guessed | correct)=1/6, find P(known).",
+      "options": [
+        {
+          "id": "A",
+          "text": "1/12"
+        },
+        {
+          "id": "B",
+          "text": "1/7"
+        },
+        {
+          "id": "C",
+          "text": "5/7"
+        },
+        {
+          "id": "D",
+          "text": "5/12"
+        }
+      ],
+      "answer": "C",
+      "solution": "For known fraction p, (1−p)/(1+p)=1/6; p=5/7.",
+      "answer_source_url": "https://previousyearquestions.app/papers/jee-advanced/2024/answer-key-paper-1.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Bayes theorem"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2024,
+      "sitting": "Paper 1",
+      "source_url": "https://jeeadv.ac.in/past_qps/2024_1_English.pdf",
+      "source_page": 11,
+      "subject": "Physics",
+      "chapter": "Oscillations",
+      "topic": "Simple harmonic motion",
+      "question_number": 4,
+      "stem": "For m=5kg, F=(−20x+10)N, x(0)=1m, v(0)=0, find (position,momentum) at t=π/4s.",
+      "options": [
+        {
+          "id": "A",
+          "text": "(−0.5m,5kg·m/s)"
+        },
+        {
+          "id": "B",
+          "text": "(0.5m,0)"
+        },
+        {
+          "id": "C",
+          "text": "(0.5m,−5kg·m/s)"
+        },
+        {
+          "id": "D",
+          "text": "(−1m,5kg·m/s)"
+        }
+      ],
+      "answer": "C",
+      "solution": "x=0.5+0.5cos(2t); p=−5sin(2t).",
+      "answer_source_url": "https://previousyearquestions.app/papers/jee-advanced/2024/answer-key-paper-1.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Shifted equilibrium"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2024,
+      "sitting": "Paper 1",
+      "source_url": "https://jeeadv.ac.in/past_qps/2024_1_English.pdf",
+      "source_page": 14,
+      "subject": "Physics",
+      "chapter": "Thermal Properties",
+      "topic": "Calorimetry",
+      "question_number": 8,
+      "stem": "Specific heat C=kT. Heating 1kg from −73°C to 27°C needs nk. Find n (0K=−273°C).",
+      "options": [],
+      "answer": "25000",
+      "solution": "Q/k=(300²−200²)/2=25000.",
+      "answer_source_url": "https://previousyearquestions.app/papers/jee-advanced/2024/answer-key-paper-1.pdf",
+      "question_type": "integer",
+      "subtopic": "Temperature-dependent heat capacity"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2024,
+      "sitting": "Paper 1",
+      "source_url": "https://jeeadv.ac.in/past_qps/2024_1_English.pdf",
+      "source_page": 14,
+      "subject": "Physics",
+      "chapter": "Wave Optics",
+      "topic": "Polarisation",
+      "question_number": 10,
+      "stem": "Initially IA/IB=2 for unpolarised light. Two polarisers, axes 45° apart, precede B. Find the new ratio.",
+      "options": [],
+      "answer": "8",
+      "solution": "Transmission=(1/2)cos²45°=1/4; ratio=8.",
+      "answer_source_url": "https://previousyearquestions.app/papers/jee-advanced/2024/answer-key-paper-1.pdf",
+      "question_type": "integer",
+      "subtopic": "Malus law"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2024,
+      "sitting": "Paper 1",
+      "source_url": "https://jeeadv.ac.in/past_qps/2024_1_English.pdf",
+      "source_page": 19,
+      "subject": "Chemistry",
+      "chapter": "States of Matter",
+      "topic": "Kinetic theory of gases",
+      "question_number": 1,
+      "stem": "In fixed volume at 300K, 10g X gives 2atm; adding 80g Y raises pressure to 6atm. Find vrms(X):vrms(Y).",
+      "options": [
+        {
+          "id": "A",
+          "text": "2√2:√3"
+        },
+        {
+          "id": "B",
+          "text": "2√2:1"
+        },
+        {
+          "id": "C",
+          "text": "1:2"
+        },
+        {
+          "id": "D",
+          "text": "2:1"
+        }
+      ],
+      "answer": "D",
+      "solution": "nY/nX=2; MY/MX=4; speed ratio=√4=2.",
+      "answer_source_url": "https://previousyearquestions.app/papers/jee-advanced/2024/answer-key-paper-1.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Gas mixtures and molecular speeds"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2024,
+      "sitting": "Paper 1",
+      "source_url": "https://jeeadv.ac.in/past_qps/2024_1_English.pdf",
+      "source_page": 21,
+      "subject": "Chemistry",
+      "chapter": "Structure of Atom",
+      "topic": "Atomic models",
+      "question_number": 5,
+      "stem": "Select the valid atomic-electron statements.",
+      "options": [
+        {
+          "id": "A",
+          "text": "Uncertainty excludes definite trajectories"
+        },
+        {
+          "id": "B",
+          "text": "Bound 2s energy lies below free-electron energy"
+        },
+        {
+          "id": "C",
+          "text": "Bohr n=1 minimises energy"
+        },
+        {
+          "id": "D",
+          "text": "Bohr speed increases with n"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "solution": "A–C hold; Bohr speed instead scales as 1/n.",
+      "answer_source_url": "https://previousyearquestions.app/papers/jee-advanced/2024/answer-key-paper-1.pdf",
+      "question_type": "multi_correct",
+      "subtopic": "Bohr model and quantum states"
+    },
+    {
+      "exam": "neet",
+      "year": 2020,
+      "sitting": "13 September, Set G2",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021667.pdf",
+      "source_page": 2,
+      "subject": "Biology",
+      "chapter": "Biological Classification",
+      "topic": "Viruses and subviral agents",
+      "question_number": 3,
+      "stem": "Which composition describes a viroid?",
+      "options": [
+        {
+          "id": "1",
+          "text": "RNA, no protein coat"
+        },
+        {
+          "id": "2",
+          "text": "DNA, protein coat"
+        },
+        {
+          "id": "3",
+          "text": "DNA, no protein coat"
+        },
+        {
+          "id": "4",
+          "text": "RNA, protein coat"
+        }
+      ],
+      "answer": "1",
+      "solution": "Viroids are infectious, uncoated RNA molecules.",
+      "answer_source_url": "https://www.vedantu.com/content-files-downloadable/neet/neet-2020-answer-key.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Viroid composition"
+    },
+    {
+      "exam": "neet",
+      "year": 2020,
+      "sitting": "13 September, Set G2",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021667.pdf",
+      "source_page": 2,
+      "subject": "Biology",
+      "chapter": "Principles of Inheritance",
+      "topic": "Chromosomal inheritance",
+      "question_number": 5,
+      "stem": "Who experimentally validated chromosomal inheritance theory?",
+      "options": [
+        {
+          "id": "1",
+          "text": "Sutton"
+        },
+        {
+          "id": "2",
+          "text": "Boveri"
+        },
+        {
+          "id": "3",
+          "text": "Morgan"
+        },
+        {
+          "id": "4",
+          "text": "Mendel"
+        }
+      ],
+      "answer": "3",
+      "solution": "Morgan demonstrated chromosome-linked inheritance using Drosophila.",
+      "answer_source_url": "https://www.vedantu.com/content-files-downloadable/neet/neet-2020-answer-key.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Experimental evidence"
+    },
+    {
+      "exam": "neet",
+      "year": 2020,
+      "sitting": "13 September, Set G2",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021667.pdf",
+      "source_page": 2,
+      "subject": "Biology",
+      "chapter": "Human Health and Disease",
+      "topic": "Infectious diseases",
+      "question_number": 9,
+      "stem": "Identify the Plasmodium stage entering a human during infection.",
+      "options": [
+        {
+          "id": "1",
+          "text": "Sporozoites"
+        },
+        {
+          "id": "2",
+          "text": "Female gametocytes"
+        },
+        {
+          "id": "3",
+          "text": "Male gametocytes"
+        },
+        {
+          "id": "4",
+          "text": "Trophozoites"
+        }
+      ],
+      "answer": "1",
+      "solution": "The mosquito inoculates sporozoites during feeding.",
+      "answer_source_url": "https://www.vedantu.com/content-files-downloadable/neet/neet-2020-answer-key.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Malaria life cycle"
+    },
+    {
+      "exam": "neet",
+      "year": 2020,
+      "sitting": "13 September, Set G2",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021667.pdf",
+      "source_page": 13,
+      "subject": "Physics",
+      "chapter": "Semiconductor Electronics",
+      "topic": "PN junction diode",
+      "question_number": 104,
+      "stem": "Which bias widens a p–n depletion layer?",
+      "options": [
+        {
+          "id": "1",
+          "text": "Reverse only"
+        },
+        {
+          "id": "2",
+          "text": "Both directions"
+        },
+        {
+          "id": "3",
+          "text": "Increased forward current"
+        },
+        {
+          "id": "4",
+          "text": "Forward only"
+        }
+      ],
+      "answer": "1",
+      "solution": "Reverse bias pulls majority carriers away from the junction.",
+      "answer_source_url": "https://www.vedantu.com/content-files-downloadable/neet/neet-2020-answer-key.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Reverse bias and depletion layer"
+    },
+    {
+      "exam": "neet",
+      "year": 2020,
+      "sitting": "13 September, Set G2",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021667.pdf",
+      "source_page": 13,
+      "subject": "Physics",
+      "chapter": "Mechanical Properties of Fluids",
+      "topic": "Surface tension",
+      "question_number": 105,
+      "stem": "A water capillary of radius r holds 5g above reservoir level. For radius 2r, find the raised mass.",
+      "options": [
+        {
+          "id": "1",
+          "text": "5g"
+        },
+        {
+          "id": "2",
+          "text": "10g"
+        },
+        {
+          "id": "3",
+          "text": "20g"
+        },
+        {
+          "id": "4",
+          "text": "2.5g"
+        }
+      ],
+      "answer": "2",
+      "solution": "Height∝1/r; mass∝r²h∝r; doubling r gives 10g.",
+      "answer_source_url": "https://www.vedantu.com/content-files-downloadable/neet/neet-2020-answer-key.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Capillary rise and liquid mass"
+    },
+    {
+      "exam": "neet",
+      "year": 2020,
+      "sitting": "13 September, Set G2",
+      "source_url": "https://cdnbbsr.s3waas.gov.in/s37bc1ec1d9c3426357e69acd5bf320061/uploads/2022/02/2022021667.pdf",
+      "source_page": 13,
+      "subject": "Physics",
+      "chapter": "Nuclei",
+      "topic": "Nuclear energy",
+      "question_number": 106,
+      "stem": "Calculate the rest-energy equivalent of 0.5g.",
+      "options": [
+        {
+          "id": "1",
+          "text": "4.5×10¹³J"
+        },
+        {
+          "id": "2",
+          "text": "1.5×10¹³J"
+        },
+        {
+          "id": "3",
+          "text": "0.5×10¹³J"
+        },
+        {
+          "id": "4",
+          "text": "4.5×10¹⁶J"
+        }
+      ],
+      "answer": "1",
+      "solution": "E=mc²=0.0005×(3×10⁸)²=4.5×10¹³J.",
+      "answer_source_url": "https://www.vedantu.com/content-files-downloadable/neet/neet-2020-answer-key.pdf",
+      "question_type": "single_correct",
+      "subtopic": "Mass-energy equivalence"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Thermodynamics",
+      "topic": "Entropy",
+      "question_number": 20,
+      "stem": "One mole of an ideal gas at $300 \\mathrm{~K}$ in thermal contact with surroundings expands isothermally from $1.0 \\mathrm{~L}$ to $2.0 \\mathrm{~L}$ against a constant pressure of $3.0 \\mathrm{~atm}$. In this process, the change in entropy of surroundings $\\left(\\Delta S_{\\text {surr }}\\right)$ in $\\mathrm{J} \\mathrm{K}^{-1}$ is\n\n(1 $\\mathrm{L} \\operatorname{atm}=101.3 \\mathrm{~J})$",
+      "options": [
+        {
+          "id": "A",
+          "text": "5.763"
+        },
+        {
+          "id": "B",
+          "text": "1.013"
+        },
+        {
+          "id": "C",
+          "text": "-1.013"
+        },
+        {
+          "id": "D",
+          "text": "-5.763"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / chem / 20",
+      "subtopic": "Entropy change of surroundings"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "P Block Elements",
+      "topic": "Nitrogen compounds",
+      "question_number": 19,
+      "stem": "The compound(s) which generate(s) $\\mathrm{N}_{2}$ gas upon thermal decomposition below $300^{\\circ} \\mathrm{C}$ is (are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{NH}_{4} \\mathrm{NO}_{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\left(\\mathrm{NH}_{4}\\right)_{2} \\mathrm{Cr}_{2} \\mathrm{O}_{7}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{Ba}\\left(\\mathrm{N}_{3}\\right)_{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\mathrm{Mg}_{3} \\mathrm{~N}_{2}$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / chem / 19",
+      "subtopic": "Thermal decomposition"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Practical Chemistry",
+      "topic": "Qualitative analysis",
+      "question_number": 19,
+      "stem": "The green colour produced in the borax bead test of a chromium(III) salt is due to",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{Cr}\\left(\\mathrm{BO}_{2}\\right)_{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\mathrm{Cr}_{2}\\left(\\mathrm{~B}_{4} \\mathrm{O}_{7}\\right)_{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{Cr}_{2} \\mathrm{O}_{3}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\mathrm{CrB}$"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / chem / 19",
+      "subtopic": "Borax bead test"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Hydrogen",
+      "topic": "Peroxides and superoxides",
+      "question_number": 20,
+      "stem": "Which of the following liberates $\\mathrm{O}_{2}$ upon hydrolysis?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{Pb}_{3} \\mathrm{O}_{4}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\mathrm{KO}_{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{Na}_{2} \\mathrm{O}_{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\mathrm{Li}_{2} \\mathrm{O}_{2}$"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / chem / 20",
+      "subtopic": "Hydrolysis and oxygen evolution"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Coordination Compounds",
+      "topic": "Bonding and magnetism",
+      "question_number": 22,
+      "stem": "The calculated spin only magnetic moments of $\\left[\\mathrm{Cr}\\left(\\mathrm{NH}_{3}\\right)_{6}\\right]^{3+}$ and $\\left[\\mathrm{CuF}_{6}\\right]^{3-}$ in $\\mathrm{BM}$, respectively, are\n\n(Atomic numbers of $\\mathrm{Cr}$ and $\\mathrm{Cu}$ are 24 and 29, respectively)",
+      "options": [
+        {
+          "id": "A",
+          "text": "3.87 and 2.84"
+        },
+        {
+          "id": "B",
+          "text": "4.90 and 1.73"
+        },
+        {
+          "id": "C",
+          "text": "3.87 and 1.73"
+        },
+        {
+          "id": "D",
+          "text": "4.90 and 2.84"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / chem / 22",
+      "subtopic": "Spin-only magnetic moment"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Chemical Bonding",
+      "topic": "Molecular orbital theory",
+      "question_number": 45,
+      "stem": "For diatomic molecules, the correct statement(s) about the molecular orbitals formed by the overlap of two $2 p_{z}$ orbitals is(are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\sigma$ orbital has a total of two nodal planes."
+        },
+        {
+          "id": "B",
+          "text": "$\\sigma^{*}$ orbital has one node in the $x z$-plane containing the molecular axis."
+        },
+        {
+          "id": "C",
+          "text": "$\\pi$ orbital has one node in the plane which is perpendicular to the molecular axis and goes through the center of the molecule."
+        },
+        {
+          "id": "D",
+          "text": "$\\pi^{*}$ orbital has one node in the $x y$-plane containing the molecular axis."
+        }
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / chem / 45",
+      "subtopic": "Overlap of p orbitals"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "General Principles of Metallurgy",
+      "topic": "Extraction processes",
+      "question_number": 35,
+      "stem": "The correct statement(s) related to processes involved in the extraction of metals is(are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Roasting of Malachite produces Cuprite."
+        },
+        {
+          "id": "B",
+          "text": "Calcination of Calamine produces Zincite."
+        },
+        {
+          "id": "C",
+          "text": "Copper pyrites is heated with silica in a reverberatory furnace to remove iron."
+        },
+        {
+          "id": "D",
+          "text": "Impure silver is treated with aqueous KCN in the presence of oxygen followed by reduction with zinc metal."
+        }
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: B, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / chem / 35",
+      "subtopic": "Reduction and refining"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Quadratic Equations",
+      "topic": "Roots and coefficients",
+      "question_number": 37,
+      "stem": "Let $-\\frac{\\pi}{6}<\\theta<-\\frac{\\pi}{12}$. Suppose $\\alpha_{1}$ and $\\beta_{1}$ are the roots of the equation $x^{2}-2 x \\sec \\theta+1=0$ and $\\alpha_{2}$ and $\\beta_{2}$ are the roots of the equation $x^{2}+2 x \\tan \\theta-1=0$. If $\\alpha_{1}>\\beta_{1}$ and $\\alpha_{2}>\\beta_{2}$, then $\\alpha_{1}+\\beta_{2}$ equals",
+      "options": [
+        {
+          "id": "A",
+          "text": "$2(\\sec \\theta-\\tan \\theta)$"
+        },
+        {
+          "id": "B",
+          "text": "$2 \\sec \\theta$"
+        },
+        {
+          "id": "C",
+          "text": "$-2 \\tan \\theta$"
+        },
+        {
+          "id": "D",
+          "text": "0"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / math / 37",
+      "subtopic": "Trigonometric coefficients"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Complex Numbers",
+      "topic": "Polar representation",
+      "question_number": 37,
+      "stem": "For a non-zero complex number $z$, let $\\arg (z)$ denote the principal argument with $-\\pi<\\arg (z) \\leq \\pi$. Then, which of the following statement(s) is (are) FALSE?\n\n\\end{itemize}",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\arg (-1-i)=\\frac{\\pi}{4}$, where $i=\\sqrt{-1}$"
+        },
+        {
+          "id": "B",
+          "text": "The function $f: \\mathbb{R} \\rightarrow(-\\pi, \\pi]$, defined by $f(t)=\\arg (-1+i t)$ for all $t \\in \\mathbb{R}$, is continuous at all points of $\\mathbb{R}$, where $i=\\sqrt{-1}$"
+        },
+        {
+          "id": "C",
+          "text": "For any two non-zero complex numbers $z_{1}$ and $z_{2}$,\n\n\\[\n\\arg \\left(\\frac{z_{1}}{z_{2}}\\right)-\\arg \\left(z_{1}\\right)+\\arg \\left(z_{2}\\right)\n\\]\n\nis an integer multiple of $2 \\pi$"
+        },
+        {
+          "id": "D",
+          "text": "For any three given distinct complex numbers $z_{1}, z_{2}$ and $z_{3}$, the locus of the point $z$ satisfying the condition\n\n\\[\n\\arg \\left(\\frac{\\left(z-z_{1}\\right)\\left(z_{2}-z_{3}\\right)}{\\left(z-z_{3}\\right)\\left(z_{2}-z_{1}\\right)}\\right)=\\pi\n\\]\n\nlies on a straight line"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / math / 37",
+      "subtopic": "Principal argument identities"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Complex Numbers",
+      "topic": "Geometry of complex numbers",
+      "question_number": 37,
+      "stem": "Let $S$ be the set of all complex numbers $Z$ satisfying $|z-2+i| \\geq \\sqrt{5}$. If the complex number $Z_{0}$ is such that $\\frac{1}{\\left|Z_{0}-1\\right|}$ is the maximum of the set $\\left\\{\\frac{1}{|z-1|}: z \\in S\\right\\}$, then the principal argument of $\\frac{4-z_{0}-\\overline{z_{0}}}{Z_{0}-\\overline{z_{0}}+2 i}$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$-\\frac{\\pi}{2}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{\\pi}{4}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{\\pi}{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{3 \\pi}{4}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / math / 37",
+      "subtopic": "Modulus loci and extremal distance"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Quadratic Equations",
+      "topic": "Roots and coefficients",
+      "question_number": 37,
+      "stem": "Suppose $a, b$ denote the distinct real roots of the quadratic polynomial $x^{2}+20 x-2020$ and suppose $c, d$ denote the distinct complex roots of the quadratic polynomial $x^{2}-20 x+2020$. Then the value of\n\n\\[\na c(a-c)+a d(a-d)+b c(b-c)+b d(b-d)\n\\]\n\nis",
+      "options": [
+        {
+          "id": "A",
+          "text": "0"
+        },
+        {
+          "id": "B",
+          "text": "8000"
+        },
+        {
+          "id": "C",
+          "text": "8080"
+        },
+        {
+          "id": "D",
+          "text": "16000"
+        }
+      ],
+      "answer": "D",
+      "solution": "Dataset answer key: D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / math / 37",
+      "subtopic": "Symmetric expressions in roots"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Coordinate Geometry",
+      "topic": "Circles and triangles",
+      "question_number": 37,
+      "stem": "Consider a triangle $\\Delta$ whose two sides lie on the $x$-axis and the line $x+y+1=0$. If the orthocenter of $\\Delta$ is $(1,1)$, then the equation of the circle passing through the vertices of the triangle $\\Delta$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$x^{2}+y^{2}-3 x+y=0$"
+        },
+        {
+          "id": "B",
+          "text": "$x^{2}+y^{2}+x+3 y=0$"
+        },
+        {
+          "id": "C",
+          "text": "$x^{2}+y^{2}+2 y-1=0$"
+        },
+        {
+          "id": "D",
+          "text": "$x^{2}+y^{2}+x+y=0$"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / math / 37",
+      "subtopic": "Orthocentre and circumcircle"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Integral Calculus",
+      "topic": "Definite integration",
+      "question_number": 9,
+      "stem": "Consider the equation\n\n\\[\n\\int_{1}^{e} \\frac{\\left(\\log _{\\mathrm{e}} x\\right)^{1 / 2}}{x\\left(a-\\left(\\log _{\\mathrm{e}} x\\right)^{3 / 2}\\right)^{2}} d x=1, \\quad a \\in(-\\infty, 0) \\cup(1, \\infty) .\n\\]\n\nWhich of the following statements is/are TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "No $a$ satisfies the above equation"
+        },
+        {
+          "id": "B",
+          "text": "An integer $a$ satisfies the above equation"
+        },
+        {
+          "id": "C",
+          "text": "An irrational number $a$ satisfies the above equation"
+        },
+        {
+          "id": "D",
+          "text": "More than one $a$ satisfy the above equation"
+        }
+      ],
+      "answer": [
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / math / 9",
+      "subtopic": "Substitution and parameter equations"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Sets and Functions",
+      "topic": "Mappings",
+      "question_number": 1,
+      "stem": "Let $S=(0,1) \\cup(1,2) \\cup(3,4)$ and $T=\\{0,1,2,3\\}$. Then which of the following statements is(are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There are infinitely many functions from $S$ to $T$"
+        },
+        {
+          "id": "B",
+          "text": "There are infinitely many strictly increasing functions from $S$ to $T$"
+        },
+        {
+          "id": "C",
+          "text": "The number of continuous functions from $S$ to $T$ is at most 120"
+        },
+        {
+          "id": "D",
+          "text": "Every continuous function from $S$ to $T$ is differentiable"
+        }
+      ],
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / math / 1",
+      "subtopic": "Injective and surjective functions"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Rotational Motion",
+      "topic": "Equilibrium of rigid bodies",
+      "question_number": 2,
+      "stem": "A uniform wooden stick of mass $1.6 \\mathrm{~kg}$ and length $l$ rests in an inclined manner on a smooth, vertical wall of height $h(<l)$ such that a small portion of the stick extends beyond the wall. The reaction force of the wall on the stick is perpendicular to the stick. The stick makes an angle of $30^{\\circ}$ with the wall and the bottom of the stick is on a rough floor. The reaction of the wall on the stick is equal in magnitude to the reaction of the floor on the stick. The ratio $h / l$ and the frictional force $f$ at the bottom of the stick are\n\n$\\left(g=10 \\mathrm{~ms} \\mathrm{~s}^{2}\\right)$",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{h}{l}=\\frac{\\sqrt{3}}{16}, f=\\frac{16 \\sqrt{3}}{3} \\mathrm{~N}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{h}{l}=\\frac{3}{16}, f=\\frac{16 \\sqrt{3}}{3} \\mathrm{~N}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{h}{l}=\\frac{3 \\sqrt{3}}{16}, f=\\frac{8 \\sqrt{3}}{3} \\mathrm{~N}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{h}{l}=\\frac{3 \\sqrt{3}}{16}, f=\\frac{16 \\sqrt{3}}{3} \\mathrm{~N}$"
+        }
+      ],
+      "answer": "D",
+      "solution": "Dataset answer key: D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / phy / 2",
+      "subtopic": "Rod against a smooth wall"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Circular Motion",
+      "topic": "Central forces",
+      "question_number": 1,
+      "stem": "The potential energy of a particle of mass $m$ at a distance $r$ from a fixed point $O$ is given by $V(r)=k r^{2} / 2$, where $k$ is a positive constant of appropriate dimensions. This particle is moving in a circular orbit of radius $R$ about the point $O$. If $v$ is the speed of the particle and $L$ is the magnitude of its angular momentum about $O$, which of the following statements is (are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$v=\\sqrt{\\frac{k}{2 m}} R$"
+        },
+        {
+          "id": "B",
+          "text": "$v=\\sqrt{\\frac{k}{m}} R$"
+        },
+        {
+          "id": "C",
+          "text": "$L=\\sqrt{m k} R^{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$L=\\sqrt{\\frac{m k}{2}} R^{2}$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / phy / 1",
+      "subtopic": "Potential energy and angular momentum"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Gravitation",
+      "topic": "Spherical mass distributions",
+      "question_number": 1,
+      "stem": "Consider a spherical gaseous cloud of mass density $\\rho(r)$ in free space where $r$ is the radial distance from its center. The gaseous cloud is made of particles of equal mass $m$ moving in circular orbits about the common center with the same kinetic energy $K$. The force acting on the particles is their mutual gravitational force. If $\\rho(r)$ is constant in time, the particle number density $n(r)=\\rho(r) / m$ is\n\n[ $G$ is universal gravitational constant]",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{K}{2 \\pi r^{2} m^{2} G}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{K}{\\pi r^{2} m^{2} G}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{3 K}{\\pi r^{2} m^{2} G}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{K}{6 \\pi r^{2} m^{2} G}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / phy / 1",
+      "subtopic": "Density profile of orbiting particles"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Atoms",
+      "topic": "Bohr quantisation",
+      "question_number": 7,
+      "stem": "A particle of mass $m$ moves in circular orbits with potential energy $V(r)=F r$, where $F$ is a positive constant and $r$ is its distance from the origin. Its energies are calculated using the Bohr model. If the radius of the particle's orbit is denoted by $R$ and its speed and energy are denoted by $v$ and $E$, respectively, then for the $n^{\\text {th }}$ orbit (here $h$ is the Planck's constant)",
+      "options": [
+        {
+          "id": "A",
+          "text": "$R \\propto n^{1 / 3}$ and $v \\propto n^{2 / 3}$"
+        },
+        {
+          "id": "B",
+          "text": "$R \\propto n^{2 / 3}$ and $\\mathrm{v} \\propto n^{1 / 3}$"
+        },
+        {
+          "id": "C",
+          "text": "$E=\\frac{3}{2}\\left(\\frac{n^{2} h^{2} F^{2}}{4 \\pi^{2} m}\\right)^{1 / 3}$"
+        },
+        {
+          "id": "D",
+          "text": "$E=2\\left(\\frac{n^{2} h^{2} F^{2}}{4 \\pi^{2} m}\\right)^{1 / 3}$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / phy / 7",
+      "subtopic": "Orbits in a linear potential"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Nuclei",
+      "topic": "Radioactive decay",
+      "question_number": 4,
+      "stem": "A heavy nucleus $Q$ of half-life 20 minutes undergoes alpha-decay with probability of $60 \\%$ and beta-decay with probability of $40 \\%$. Initially, the number of $Q$ nuclei is 1000. The number of alpha-decays of $Q$ in the first one hour is",
+      "options": [
+        {
+          "id": "A",
+          "text": "50"
+        },
+        {
+          "id": "B",
+          "text": "75"
+        },
+        {
+          "id": "C",
+          "text": "350"
+        },
+        {
+          "id": "D",
+          "text": "525"
+        }
+      ],
+      "answer": "D",
+      "solution": "Dataset answer key: D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / phy / 4",
+      "subtopic": "Branching decay probabilities"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Nuclei",
+      "topic": "Nuclear binding energy",
+      "question_number": 32,
+      "stem": "The binding energy of nucleons in a nucleus can be affected by the pairwise Coulomb repulsion. Assume that all nucleons are uniformly distributed inside the nucleus. Let the binding energy of a proton be $E_{b}^{p}$ and the binding energy of a neutron be $E_{b}^{n}$ in the nucleus.\n\nWhich of the following statement(s) is(are) correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$E_{b}^{p}-E_{b}^{n}$ is proportional to $Z(Z-1)$ where $Z$ is the atomic number of the nucleus."
+        },
+        {
+          "id": "B",
+          "text": "$E_{b}^{p}-E_{b}^{n}$ is proportional to $A^{-\\frac{1}{3}}$ where $A$ is the mass number of the nucleus."
+        },
+        {
+          "id": "C",
+          "text": "$E_{b}^{p}-E_{b}^{n}$ is positive."
+        },
+        {
+          "id": "D",
+          "text": "$E_{b}^{p}$ increases if the nucleus undergoes a beta decay emitting a positron."
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / phy / 32",
+      "subtopic": "Coulomb contribution"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Rotational Motion",
+      "topic": "Collisions with rigid bodies",
+      "question_number": 21,
+      "stem": "A bar of mass $M=1.00 \\mathrm{~kg}$ and length $L=0.20 \\mathrm{~m}$ is lying on a horizontal frictionless surface. One end of the bar is pivoted at a point about which it is free to rotate. A small mass $m=0.10 \\mathrm{~kg}$ is moving on the same horizontal surface with $5.00 \\mathrm{~m} \\mathrm{~s}^{-1}$ speed on a path perpendicular to the bar. It hits the bar at a distance $L / 2$ from the pivoted end and returns back on the same path with speed $\\mathrm{v}$. After this elastic collision, the bar rotates with an angular velocity $\\omega$. Which of the following statement is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\omega=6.98 \\mathrm{rad} \\mathrm{s}^{-1}$ and $\\mathrm{v}=4.30 \\mathrm{~m} \\mathrm{~s}^{-1}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\omega=3.75 \\mathrm{rad} \\mathrm{s}^{-1}$ and $\\mathrm{v}=4.30 \\mathrm{~m} \\mathrm{~s}^{-1}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\omega=3.75 \\mathrm{rad} \\mathrm{s}^{-1}$ and $\\mathrm{v}=10.0 \\mathrm{~m} \\mathrm{~s}^{-1}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\omega=6.80 \\mathrm{rad} \\mathrm{s}^{-1}$ and $\\mathrm{v}=4.10 \\mathrm{~m} \\mathrm{~s}^{-1}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / phy / 21",
+      "subtopic": "Angular momentum and elastic impact"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Periodic Classification",
+      "topic": "Periodic trends",
+      "question_number": 21,
+      "stem": "The increasing order of atomic radii of the following Group 13 elements is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{Al}<\\mathrm{Ga}<\\mathrm{In}<\\mathrm{Tl}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\mathrm{Ga}<\\mathrm{Al}<\\mathrm{In}<\\mathrm{Tl}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{Al}<\\mathrm{In}<\\mathrm{Ga}<\\mathrm{Tl}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\mathrm{Al}<\\mathrm{Ga}<\\mathrm{Tl}<\\mathrm{In}$"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / chem / 21",
+      "subtopic": "Atomic radii in group 13"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Coordination Compounds",
+      "topic": "Metal carbonyls",
+      "question_number": 20,
+      "stem": "The correct statement(s) regarding the binary transition metal carbonyl compounds is (are) (Atomic numbers: $\\mathrm{Fe}=26, \\mathrm{Ni}=28$ )",
+      "options": [
+        {
+          "id": "A",
+          "text": "Total number of valence shell electrons at metal centre in $\\mathrm{Fe}(\\mathrm{CO})_{5}$ or $\\mathrm{Ni}(\\mathrm{CO})_{4}$ is 16"
+        },
+        {
+          "id": "B",
+          "text": "These are predominantly low spin in nature"
+        },
+        {
+          "id": "C",
+          "text": "Metal-carbon bond strengthens when the oxidation state of the metal is lowered"
+        },
+        {
+          "id": "D",
+          "text": "The carbonyl C-O bond weakens when the oxidation state of the metal is increased"
+        }
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / chem / 20",
+      "subtopic": "Bonding and electron count"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "General Principles of Metallurgy",
+      "topic": "Ores and minerals",
+      "question_number": 20,
+      "stem": "Calamine, malachite, magnetite and cryolite, respectively, are",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{ZnSO}_{4}, \\mathrm{CuCO}_{3}, \\mathrm{Fe}_{2} \\mathrm{O}_{3}, \\mathrm{AlF}_{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\mathrm{ZnSO}_{4}, \\mathrm{Cu}(\\mathrm{OH})_{2}, \\mathrm{Fe}_{3} \\mathrm{O}_{4}, \\mathrm{Na}_{3} \\mathrm{AlF}_{6}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{ZnCO}_{3}, \\mathrm{CuCO}_{3} \\cdot \\mathrm{Cu}(\\mathrm{OH})_{2}, \\mathrm{Fe}_{3} \\mathrm{O}_{4}, \\mathrm{Na}_{3} \\mathrm{AlF}_{6}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\mathrm{ZnCO}_{3}, \\mathrm{CuCO}_{3}, \\mathrm{Fe}_{2} \\mathrm{O}_{3}, \\mathrm{Na}_{3} \\mathrm{AlF}_{6}$"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / chem / 20",
+      "subtopic": "Ore identification"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Practical Chemistry",
+      "topic": "Qualitative analysis",
+      "question_number": 21,
+      "stem": "A colorless aqueous solution contains nitrates of two metals, $\\mathbf{X}$ and $\\mathbf{Y}$. When it was added to an aqueous solution of $\\mathrm{NaCl}$, a white precipitate was formed. This precipitate was found to be partly soluble in hot water to give a residue $\\mathbf{P}$ and a solution $\\mathbf{Q}$. The residue $\\mathbf{P}$ was soluble in aq. $\\mathrm{NH}_{3}$ and also in excess sodium thiosulfate. The hot solution $\\mathbf{Q}$ gave a yellow precipitate with KI. The metals $\\mathbf{X}$ and $\\mathbf{Y}$, respectively, are",
+      "options": [
+        {
+          "id": "A",
+          "text": "Ag and $\\mathrm{Pb}$"
+        },
+        {
+          "id": "B",
+          "text": "Ag and Cd"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{Cd}$ and $\\mathrm{Pb}$"
+        },
+        {
+          "id": "D",
+          "text": "Cd and Zn"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / chem / 21",
+      "subtopic": "Group I cation separation"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Surface Chemistry",
+      "topic": "Colloids",
+      "question_number": 31,
+      "stem": "The correct statement(s) related to colloids is(are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The process of precipitating colloidal sol by an electrolyte is called peptization."
+        },
+        {
+          "id": "B",
+          "text": "Colloidal solution freezes at higher temperature than the true solution at the same concentration."
+        },
+        {
+          "id": "C",
+          "text": "Surfactants form micelle above critical micelle concentration (CMC). CMC depends on temperature."
+        },
+        {
+          "id": "D",
+          "text": "Micelles are macromolecular colloids."
+        }
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / chem / 31",
+      "subtopic": "Properties of colloidal systems"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Surface Chemistry",
+      "topic": "Adsorption",
+      "question_number": 46,
+      "stem": "The correct option(s) related to adsorption processes is(are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "Chemisorption results in a unimolecular layer."
+        },
+        {
+          "id": "B",
+          "text": "The enthalpy change during physisorption is in the range of 100 to $140 \\mathrm{~kJ} \\mathrm{~mol}^{-1}$."
+        },
+        {
+          "id": "C",
+          "text": "Chemisorption is an endothermic process."
+        },
+        {
+          "id": "D",
+          "text": "Lowering the temperature favors physisorption processes."
+        }
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / chem / 46",
+      "subtopic": "Physical and chemical adsorption"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Electrochemistry",
+      "topic": "Conductance",
+      "question_number": 39,
+      "stem": "Plotting $1 / \\Lambda_{\\mathrm{m}}$ against $\\mathrm{c} \\Lambda_{\\mathrm{m}}$ for aqueous solutions of a monobasic weak acid (HX) resulted in a straight line with y-axis intercept of $\\mathrm{P}$ and slope of $\\mathrm{S}$. The ratio $\\mathrm{P} / \\mathrm{S}$ is\n\n\n\n$\\left[\\Lambda_{\\mathrm{m}}=\\right.$ molar conductivity\n\n\n\n$\\Lambda_{\\mathrm{m}}^{\\mathrm{o}}=$ limiting molar conductivity\n\n\n\n$\\mathrm{c}=$ molar concentration\n\n\n\n$\\mathrm{K}_{\\mathrm{a}}=$ dissociation constant of $\\mathrm{HX}$ ]",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{K}_{\\mathrm{a}} \\Lambda_{\\mathrm{m}}^{\\mathrm{o}}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\mathrm{K}_{\\mathrm{a}} \\Lambda_{\\mathrm{m}}^{\\mathrm{o}} / 2$"
+        },
+        {
+          "id": "C",
+          "text": "$2 \\mathrm{~K}_{\\mathrm{a}} \\Lambda_{\\mathrm{m}}^{\\mathrm{o}}$"
+        },
+        {
+          "id": "D",
+          "text": "$1 /\\left(\\mathrm{K}_{\\mathrm{a}} \\Lambda_{\\mathrm{m}}^{\\mathrm{o}}\\right)$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / chem / 39",
+      "subtopic": "Weak electrolyte dissociation"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Permutations and Combinations",
+      "topic": "Selection and arrangement",
+      "question_number": 38,
+      "stem": "A debate club consists of 6 girls and 4 boys. A team of 4 members is to be selected from this club including the selection of a captain (from among these 4 members) for the team. If the team has to include at most one boy, then the number of ways of selecting the team is",
+      "options": [
+        {
+          "id": "A",
+          "text": "380"
+        },
+        {
+          "id": "B",
+          "text": "320"
+        },
+        {
+          "id": "C",
+          "text": "260"
+        },
+        {
+          "id": "D",
+          "text": "95"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / math / 38",
+      "subtopic": "Teams with a captain"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Trigonometry",
+      "topic": "Properties of triangles",
+      "question_number": 38,
+      "stem": "In a triangle $P Q R$, let $\\angle P Q R=30^{\\circ}$ and the sides $P Q$ and $Q R$ have lengths $10 \\sqrt{3}$ and 10 , respectively. Then, which of the following statement(s) is (are) TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\angle Q P R=45^{\\circ}$"
+        },
+        {
+          "id": "B",
+          "text": "The area of the triangle $P Q R$ is $25 \\sqrt{3}$ and $\\angle Q R P=120^{\\circ}$"
+        },
+        {
+          "id": "C",
+          "text": "The radius of the incircle of the triangle $P Q R$ is $10 \\sqrt{3}-15$"
+        },
+        {
+          "id": "D",
+          "text": "The area of the circumcircle of the triangle $P Q R$ is $100 \\pi$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: B, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / math / 38",
+      "subtopic": "Sine rule and triangle area"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Coordinate Geometry",
+      "topic": "Circles",
+      "question_number": 39,
+      "stem": "A line $y=m x+1$ intersects the circle $(x-3)^{2}+(y+2)^{2}=25$ at the points $P$ and $Q$. If the midpoint of the line segment $P Q$ has $x$-coordinate $-\\frac{3}{5}$, then which one of the following options is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$-3 \\leq m<-1$"
+        },
+        {
+          "id": "B",
+          "text": "$2 \\leq m<4$"
+        },
+        {
+          "id": "C",
+          "text": "$4 \\leq m<6$"
+        },
+        {
+          "id": "D",
+          "text": "$6 \\leq m<8$"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / math / 39",
+      "subtopic": "Chord midpoint and line slope"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Sets and Functions",
+      "topic": "Mappings",
+      "question_number": 38,
+      "stem": "If the function $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ is defined by $f(x)=|x|(x-\\sin x)$, then which of the following statements is TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$f$ is one-one, but NOT onto"
+        },
+        {
+          "id": "B",
+          "text": "$f$ is onto, but NOT one-one"
+        },
+        {
+          "id": "C",
+          "text": "$f$ is BOTH one-one and onto"
+        },
+        {
+          "id": "D",
+          "text": "$f$ is NEITHER one-one NOR onto"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / math / 38",
+      "subtopic": "Injectivity and surjectivity of real functions"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Integral Calculus",
+      "topic": "Area under curves",
+      "question_number": 38,
+      "stem": "The area of the region\n\n\\[\n\\left\\{(x, y): 0 \\leq x \\leq \\frac{9}{4}, \\quad 0 \\leq y \\leq 1, \\quad x \\geq 3 y, \\quad x+y \\geq 2\\right\\}\n\\]\n\nis",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{11}{32}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{35}{96}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{37}{96}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{13}{32}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / math / 38",
+      "subtopic": "Regions bounded by linear inequalities"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Sequences and Series",
+      "topic": "Arithmetic progressions",
+      "question_number": 10,
+      "stem": "Let $a_{1}, a_{2}, a_{3}, \\ldots$ be an arithmetic progression with $a_{1}=7$ and common difference 8 . Let $T_{1}, T_{2}, T_{3}, \\ldots$ be such that $T_{1}=3$ and $T_{n+1}-T_{n}=a_{n}$ for $n \\geq 1$. Then, which of the following is/are TRUE ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$T_{20}=1604$"
+        },
+        {
+          "id": "B",
+          "text": "$\\sum_{k=1}^{20} T_{k}=10510$"
+        },
+        {
+          "id": "C",
+          "text": "$T_{30}=3454$"
+        },
+        {
+          "id": "D",
+          "text": "$\\sum_{k=1}^{30} T_{k}=35610$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / math / 10",
+      "subtopic": "Recurrences and finite sums"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Coordinate Geometry",
+      "topic": "Conic sections",
+      "question_number": 2,
+      "stem": "Let $T_{1}$ and $T_{2}$ be two distinct common tangents to the ellipse $E: \\frac{x^{2}}{6}+\\frac{y^{2}}{3}=1$ and the parabola $P: y^{2}=12 x$. Suppose that the tangent $T_{1}$ touches $P$ and $E$ at the points $A_{1}$ and $A_{2}$, respectively and the tangent $T_{2}$ touches $P$ and $E$ at the points $A_{4}$ and $A_{3}$, respectively. Then which of the following statements is(are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The area of the quadrilateral $A_{1} A_{2} A_{3} A_{4}$ is 35 square units"
+        },
+        {
+          "id": "B",
+          "text": "The area of the quadrilateral $A_{1} A_{2} A_{3} A_{4}$ is 36 square units"
+        },
+        {
+          "id": "C",
+          "text": "The tangents $T_{1}$ and $T_{2}$ meet the $x$-axis at the point $(-3,0)$"
+        },
+        {
+          "id": "D",
+          "text": "The tangents $T_{1}$ and $T_{2}$ meet the $x$-axis at the point $(-6,0)$"
+        }
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / math / 2",
+      "subtopic": "Common tangents to ellipse and parabola"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Atoms",
+      "topic": "Hydrogen-like atoms",
+      "question_number": 6,
+      "stem": "Highly excited states for hydrogen-like atoms (also called Rydberg states) with nuclear charge $Z e$ are defined by their principal quantum number $n$, where $n \\gg 1$. Which of the following statement(s) is(are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Relative change in the radii of two consecutive orbitals does not depend on $Z$"
+        },
+        {
+          "id": "B",
+          "text": "Relative change in the radii of two consecutive orbitals varies as $1 / n$"
+        },
+        {
+          "id": "C",
+          "text": "Relative change in the energy of two consecutive orbitals varies as $1 / n^{3}$"
+        },
+        {
+          "id": "D",
+          "text": "Relative change in the angular momenta of two consecutive orbitals varies as $1 / n$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / phy / 6",
+      "subtopic": "Rydberg states and orbital scaling"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Rotational Motion",
+      "topic": "Torque and angular momentum",
+      "question_number": 2,
+      "stem": "Consider a body of mass $1.0 \\mathrm{~kg}$ at rest at the origin at time $t=0$. A force $\\vec{F}=(\\alpha t \\hat{i}+\\beta \\hat{j})$ is applied on the body, where $\\alpha=1.0 \\mathrm{Ns}^{-1}$ and $\\beta=1.0 \\mathrm{~N}$. The torque acting on the body about the origin at time $t=1.0 \\mathrm{~s}$ is $\\vec{\\tau}$. Which of the following statements is (are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$|\\vec{\\tau}|=\\frac{1}{3} N m$"
+        },
+        {
+          "id": "B",
+          "text": "The torque $\\vec{\\tau}$ is in the direction of the unit vector $+\\hat{k}$"
+        },
+        {
+          "id": "C",
+          "text": "The velocity of the body at $t=1 s$ is $\\vec{v}=\\frac{1}{2}(\\hat{i}+2 \\hat{j}) m s^{-1}$"
+        },
+        {
+          "id": "D",
+          "text": "The magnitude of displacement of the body at $t=1 s$ is $\\frac{1}{6} m$"
+        }
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / phy / 2",
+      "subtopic": "Time-dependent forces"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Electrostatics",
+      "topic": "Charged spherical shells",
+      "question_number": 2,
+      "stem": "A thin spherical insulating shell of radius $R$ carries a uniformly distributed charge such that the potential at its surface is $V_{0}$. A hole with a small area $\\alpha 4 \\pi R^{2}(\\alpha \\ll 1)$ is made on the shell without affecting the rest of the shell. Which one of the following statements is correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The potential at the center of the shell is reduced by $2 \\alpha V_{0}$"
+        },
+        {
+          "id": "B",
+          "text": "The magnitude of electric field at the center of the shell is reduced by $\\frac{\\alpha V_{0}}{2 R}$"
+        },
+        {
+          "id": "C",
+          "text": "The ratio of the potential at the center of the shell to that of the point at $\\frac{1}{2} R$ from center towards the hole will be $\\frac{1-\\alpha}{1-2 \\alpha}$"
+        },
+        {
+          "id": "D",
+          "text": "The magnitude of electric field at a point, located on a line passing through the hole and shell's center, on a distance $2 R$ from the center of the spherical shell will be reduced by $\\frac{\\alpha V_{0}}{2 R}$"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / phy / 2",
+      "subtopic": "Small aperture in a charged shell"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Thermal Properties",
+      "topic": "Thermal radiation",
+      "question_number": 8,
+      "stem": "The filament of a light bulb has surface area $64 \\mathrm{~mm}^{2}$. The filament can be considered as a black body at temperature $2500 \\mathrm{~K}$ emitting radiation like a point source when viewed from far. At night the light bulb is observed from a distance of $100 \\mathrm{~m}$. Assume the pupil of the eyes of the observer to be circular with radius $3 \\mathrm{~mm}$. Then\n\n(Take Stefan-Boltzmann constant $=5.67 \\times 10^{-8} \\mathrm{Wm}^{-2} \\mathrm{~K}^{-4}$, Wien's displacement constant $=$ $2.90 \\times 10^{-3} \\mathrm{~m}-\\mathrm{K}$, Planck's constant $=6.63 \\times 10^{-34} \\mathrm{Js}$, speed of light in vacuum $=3.00 \\times$ $\\left.10^{8} \\mathrm{~ms}^{-1}\\right)$",
+      "options": [
+        {
+          "id": "A",
+          "text": "power radiated by the filament is in the range $642 \\mathrm{~W}$ to $645 \\mathrm{~W}$"
+        },
+        {
+          "id": "B",
+          "text": "radiated power entering into one eye of the observer is in the range $3.15 \\times 10^{-8} \\mathrm{~W}$ to\n\n\\[\n3.25 \\times 10^{-8} \\mathrm{~W}\n\\]"
+        },
+        {
+          "id": "C",
+          "text": "the wavelength corresponding to the maximum intensity of light is $1160 \\mathrm{~nm}$"
+        },
+        {
+          "id": "D",
+          "text": "taking the average wavelength of emitted radiation to be $1740 \\mathrm{~nm}$, the total number of photons entering per second into one eye of the observer is in the range $2.75 \\times 10^{11}$ to $2.85 \\times 10^{11}$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: B, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / phy / 8",
+      "subtopic": "Stefan-Boltzmann and Wien laws"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Rotational Motion",
+      "topic": "Torque and angular momentum",
+      "question_number": 13,
+      "stem": "A particle of mass $M=0.2 \\mathrm{~kg}$ is initially at rest in the $x y$-plane at a point $(x=-l$, $y=-h)$, where $l=10 \\mathrm{~m}$ and $h=1 \\mathrm{~m}$. The particle is accelerated at time $t=0$ with a constant acceleration $a=10 \\mathrm{~m} / \\mathrm{s}^{2}$ along the positive $x$-direction. Its angular momentum and torque with respect to the origin, in SI units, are represented by $\\vec{L}$ and $\\vec{\\tau}$, respectively. $\\hat{i}, \\hat{j}$ and $\\hat{k}$ are unit vectors along the positive $x, y$ and $z$-directions, respectively. If $\\hat{k}=\\hat{i} \\times \\hat{j}$ then which of the following statement(s) is(are) correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The particle arrives at the point $(x=l, y=-h)$ at time $t=2 \\mathrm{~s}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\vec{\\tau}=2 \\hat{k}$ when the particle passes through the point $(x=l, y=-h)$"
+        },
+        {
+          "id": "C",
+          "text": "$\\vec{L}=4 \\hat{k}$ when the particle passes through the point $(x=l, y=-h)$"
+        },
+        {
+          "id": "D",
+          "text": "$\\vec{\\tau}=\\hat{k}$ when the particle passes through the point $(x=0, y=-h)$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / phy / 13",
+      "subtopic": "Accelerated particle about an origin"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Thermodynamics",
+      "topic": "First law",
+      "question_number": 35,
+      "stem": "List I describes thermodynamic processes in four different systems. List II gives the magnitudes (either exactly or as a close approximation) of possible changes in the internal energy of the system due to the process.\nList-I\n(I) $10^{-3} \\mathrm{~kg}$ of water at $100^{\\circ} \\mathrm{C}$ is converted to steam at the same temperature, at a pressure of $10^5 \\mathrm{~Pa}$. The volume of the system changes from $10^{-6} \\mathrm{~m}^3$ to $10^{-3} \\mathrm{~m}^3$ in the process. Latent heat of water $=2250 \\mathrm{~kJ} / \\mathrm{kg}$.\n(II) 0.2 moles of a rigid diatomic ideal gas with volume $V$ at temperature $500 \\mathrm{~K}$ undergoes an isobaric expansion to volume $3 \\mathrm{~V}$. Assume $R=8.0 \\mathrm{~J} \\mathrm{~mol}^{-1} \\mathrm{~K}^{-1}$.\n(III) One mole of a monatomic ideal gas is compressed adiabatically from volume $V=\\frac{1}{3} m^3$ and pressure $2 \\mathrm{kPa}$ to volume $\\frac{V}{8}$.\n(IV) Three moles of a diatomic ideal gas whose molecules can vibrate, is given $9 \\mathrm{~kJ}$ of heat and undergoes isobaric expansion.\n\nList-II\n(P) $2 \\mathrm{~kJ}$\n(Q) $7 \\mathrm{~kJ}$\n(R) $4 \\mathrm{~kJ}$\n(S) $5 \\mathrm{~kJ}$\n(T) $3 \\mathrm{~kJ}$\n\nWhich one of the following options is correct?\\",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{I} \\rightarrow \\mathrm{T}$, II $\\rightarrow$ R, III $\\rightarrow \\mathrm{S}$, IV $\\rightarrow$ Q,"
+        },
+        {
+          "id": "B",
+          "text": "I $\\rightarrow \\mathrm{S}$, II $\\rightarrow$ P, III $\\rightarrow \\mathrm{T}$, IV $\\rightarrow$ P,"
+        },
+        {
+          "id": "C",
+          "text": "I $\\rightarrow$ P, II $\\rightarrow$ R, III $\\rightarrow$ T, IV $\\rightarrow$ Q."
+        },
+        {
+          "id": "D",
+          "text": "I $\\rightarrow$ Q, II $\\rightarrow$ R, III $\\rightarrow \\mathrm{S}$, IV $\\rightarrow \\mathrm{T}$,"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / phy / 35",
+      "subtopic": "Internal energy changes"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Thermodynamics",
+      "topic": "Ideal gas processes",
+      "question_number": 23,
+      "stem": "One mole of an ideal gas expands adiabatically from an initial state $\\left(T_{\\mathrm{A}}, V_{0}\\right)$ to final state $\\left(T_{\\mathrm{f}}, 5 V_{0}\\right)$. Another mole of the same gas expands isothermally from a different initial state $\\left(T_{\\mathrm{B}}, V_{0}\\right)$ to the same final state $\\left(T_{\\mathrm{f}}, 5 V_{0}\\right)$. The ratio of the specific heats at constant pressure and constant volume of this ideal gas is $\\gamma$. What is the ratio $T_{\\mathrm{A}} / T_{\\mathrm{B}}$ ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$5^{\\gamma-1}$"
+        },
+        {
+          "id": "B",
+          "text": "$5^{1-\\gamma}$"
+        },
+        {
+          "id": "C",
+          "text": "$5^{\\gamma}$"
+        },
+        {
+          "id": "D",
+          "text": "$5^{1+\\gamma}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / phy / 23",
+      "subtopic": "Adiabatic and isothermal expansion"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Coordination Compounds",
+      "topic": "Bonding and magnetism",
+      "question_number": 22,
+      "stem": "Among $[\\mathrm{Ni(CO)}_{4}]$, $[\\mathrm{NiCl}_{4}]^{2-}$, $[\\mathrm{Co(NH_3)_{4}Cl_2}]\\mathrm{Cl}$, $\\mathrm{Na_3}[\\mathrm{CoF_6}]$, $\\mathrm{Na_2O_2}$ and $\\mathrm{CsO_2}$ number of paramagnetic compounds is",
+      "options": [
+        {
+          "id": "A",
+          "text": "2"
+        },
+        {
+          "id": "B",
+          "text": "3"
+        },
+        {
+          "id": "C",
+          "text": "4"
+        },
+        {
+          "id": "D",
+          "text": "5"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / chem / 22",
+      "subtopic": "Paramagnetic compounds"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "P Block Elements",
+      "topic": "Group 15 compounds",
+      "question_number": 21,
+      "stem": "Based on the compounds of group 15 elements, the correct statement(s) is (are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\mathrm{Bi}_{2} \\mathrm{O}_{5}$ is more basic than $\\mathrm{N}_{2} \\mathrm{O}_{5}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\mathrm{NF}_{3}$ is more covalent than $\\mathrm{BiF}_{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{PH}_{3}$ boils at lower temperature than $\\mathrm{NH}_{3}$"
+        },
+        {
+          "id": "D",
+          "text": "The $\\mathrm{N}-\\mathrm{N}$ single bond is stronger than the $\\mathrm{P}-\\mathrm{P}$ single bond"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / chem / 21",
+      "subtopic": "Bonding and chemical properties"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "P Block Elements",
+      "topic": "Group 14 compounds",
+      "question_number": 23,
+      "stem": "A tin chloride $\\mathrm{Q}$ undergoes the following reactions (not balanced)\n\n$\\mathrm{Q}+\\mathrm{Cl}^{-} \\rightarrow \\mathrm{X}$\n\n$\\mathrm{Q}+\\mathrm{Me}_{3} \\mathrm{~N} \\rightarrow \\mathrm{Y}$\n\n$\\mathbf{Q}+\\mathrm{CuCl}_{2} \\rightarrow \\mathbf{Z}+\\mathrm{CuCl}$\n\n$\\mathrm{X}$ is a monoanion having pyramidal geometry. Both $\\mathrm{Y}$ and $\\mathrm{Z}$ are neutral compounds.\n\nChoose the correct option(s)",
+      "options": [
+        {
+          "id": "A",
+          "text": "The central atom in $\\mathrm{X}$ is $s p^{3}$ hybridized"
+        },
+        {
+          "id": "B",
+          "text": "There is a coordinate bond in $\\mathrm{Y}$"
+        },
+        {
+          "id": "C",
+          "text": "The oxidation state of the central atom in $\\mathrm{Z}$ is +2"
+        },
+        {
+          "id": "D",
+          "text": "The central atom in $\\mathrm{Z}$ has one lone pair of electrons"
+        }
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "solution": "Dataset answer key: A, B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / chem / 23",
+      "subtopic": "Tin chlorides and coordination"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Thermodynamics",
+      "topic": "Pressure-volume work",
+      "question_number": 25,
+      "stem": "In thermodynamics, the $P-V$ work done is given by\n\n\\[\nw=-\\int d V P_{\\mathrm{ext}}\n\\]\n\nFor a system undergoing a particular process, the work done is,\n\nThis equation is applicable to a\n\n\\[\nw=-\\int d V\\left(\\frac{R T}{V-b}-\\frac{a}{V^{2}}\\right)\n\\]",
+      "options": [
+        {
+          "id": "A",
+          "text": "system that satisfies the van der Waals equation of state."
+        },
+        {
+          "id": "B",
+          "text": "process that is reversible and isothermal."
+        },
+        {
+          "id": "C",
+          "text": "process that is reversible and adiabatic."
+        },
+        {
+          "id": "D",
+          "text": "process that is irreversible and at constant pressure."
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / chem / 25",
+      "subtopic": "Reversible real-gas expansion"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "General Principles of Metallurgy",
+      "topic": "Extraction processes",
+      "question_number": 33,
+      "stem": "The correct statement(s) related to the metal extraction processes is(are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "A mixture of $\\mathrm{PbS}$ and $\\mathrm{PbO}$ undergoes self-reduction to produce $\\mathrm{Pb}$ and $\\mathrm{SO}_{2}$."
+        },
+        {
+          "id": "B",
+          "text": "In the extraction process of copper from copper pyrites, silica is added to produce copper silicate."
+        },
+        {
+          "id": "C",
+          "text": "Partial oxidation of sulphide ore of copper by roasting, followed by self-reduction produces blister copper."
+        },
+        {
+          "id": "D",
+          "text": "In cyanide process, zinc powder is utilized to precipitate gold from $\\mathrm{Na}\\left[\\mathrm{Au}(\\mathrm{CN})_{2}\\right]$."
+        }
+      ],
+      "answer": [
+        "A",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / chem / 33",
+      "subtopic": "Self-reduction and roasting"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "General Principles of Metallurgy",
+      "topic": "Aluminium extraction",
+      "question_number": 47,
+      "stem": "The electrochemical extraction of aluminum from bauxite ore involves",
+      "options": [
+        {
+          "id": "A",
+          "text": "the reaction of $\\mathrm{Al}_{2} \\mathrm{O}_{3}$ with coke (C) at a temperature $>2500^{\\circ} \\mathrm{C}$."
+        },
+        {
+          "id": "B",
+          "text": "the neutralization of aluminate solution by passing $\\mathrm{CO}_{2}$ gas to precipitate hydrated alumina $\\left(\\mathrm{Al}_{2} \\mathrm{O}_{3} \\cdot 3 \\mathrm{H}_{2} \\mathrm{O}\\right)$."
+        },
+        {
+          "id": "C",
+          "text": "the dissolution of $\\mathrm{Al}_{2} \\mathrm{O}_{3}$ in hot aqueous $\\mathrm{NaOH}$."
+        },
+        {
+          "id": "D",
+          "text": "the electrolysis of $\\mathrm{Al}_{2} \\mathrm{O}_{3}$ mixed with $\\mathrm{Na}_{3} \\mathrm{AlF}_{6}$ to give $\\mathrm{Al}$ and $\\mathrm{CO}_{2}$."
+        }
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: B, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / chem / 47",
+      "subtopic": "Hall-Heroult process"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Equilibrium",
+      "topic": "Ionic equilibrium",
+      "question_number": 40,
+      "stem": "On decreasing the $p \\mathrm{H}$ from 7 to 2, the solubility of a sparingly soluble salt (MX) of a weak acid (HX) increased from $10^{-4} \\mathrm{~mol} \\mathrm{~L}^{-1}$ to $10^{-3} \\mathrm{~mol} \\mathrm{~L}^{-1}$. The $p\\mathrm{~K}_{\\mathrm{a}}$ of $\\mathrm{HX}$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "3"
+        },
+        {
+          "id": "B",
+          "text": "4"
+        },
+        {
+          "id": "C",
+          "text": "5"
+        },
+        {
+          "id": "D",
+          "text": "2"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / chem / 40",
+      "subtopic": "Solubility and acid dissociation"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Trigonometry",
+      "topic": "Trigonometric equations",
+      "question_number": 39,
+      "stem": "Let $S=\\left\\{x \\in(-\\pi, \\pi): x \\neq 0, \\pm \\frac{\\pi}{2}\\right\\}$. The sum of all distinct solutions of the equation $\\sqrt{3} \\sec x+\\operatorname{cosec} x+2(\\tan x-\\cot x)=0$ in the set $S$ is equal to",
+      "options": [
+        {
+          "id": "A",
+          "text": "$-\\frac{7 \\pi}{9}$"
+        },
+        {
+          "id": "B",
+          "text": "$-\\frac{2 \\pi}{9}$"
+        },
+        {
+          "id": "C",
+          "text": "0"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{5 \\pi}{9}$"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / math / 39",
+      "subtopic": "Solutions in a restricted interval"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Three Dimensional Geometry",
+      "topic": "Lines and planes",
+      "question_number": 39,
+      "stem": "Let $P_{1}: 2 x+y-z=3$ and $P_{2}: x+2 y+z=2$ be two planes. Then, which of the following statement(s) is (are) TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The line of intersection of $P_{1}$ and $P_{2}$ has direction ratios $1,2,-1$"
+        },
+        {
+          "id": "B",
+          "text": "The line\n\n\\[\n\\frac{3 x-4}{9}=\\frac{1-3 y}{9}=\\frac{z}{3}\n\\]\n\nis perpendicular to the line of intersection of $P_{1}$ and $P_{2}$"
+        },
+        {
+          "id": "C",
+          "text": "The acute angle between $P_{1}$ and $P_{2}$ is $60^{\\circ}$"
+        },
+        {
+          "id": "D",
+          "text": "If $P_{3}$ is the plane passing through the point $(4,2,-2)$ and perpendicular to the line of intersection of $P_{1}$ and $P_{2}$, then the distance of the point $(2,1,1)$ from the plane $P_{3}$ is $\\frac{2}{\\sqrt{3}}$"
+        }
+      ],
+      "answer": [
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / math / 39",
+      "subtopic": "Intersection of planes"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Integral Calculus",
+      "topic": "Area under curves",
+      "question_number": 40,
+      "stem": "The area of the region $\\left\\{(x, y): x y \\leq 8,1 \\leq y \\leq x^{2}\\right\\}$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$16 \\log _{e} 2-\\frac{14}{3}$"
+        },
+        {
+          "id": "B",
+          "text": "$8 \\log _{e} 2-\\frac{14}{3}$"
+        },
+        {
+          "id": "C",
+          "text": "$16 \\log _{e} 2-6$"
+        },
+        {
+          "id": "D",
+          "text": "$8 \\log _{e} 2-\\frac{7}{3}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / math / 40",
+      "subtopic": "Regions bounded by hyperbola and parabola"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Integral Calculus",
+      "topic": "Area under curves",
+      "question_number": 39,
+      "stem": "Let the functions $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ and $g: \\mathbb{R} \\rightarrow \\mathbb{R}$ be defined by\n\n\\[\nf(x)=e^{x-1}-e^{-|x-1|} \\quad \\text { and } \\quad g(x)=\\frac{1}{2}\\left(e^{x-1}+e^{1-x}\\right)\n\\]\n\nThen the area of the region in the first quadrant bounded by the curves $y=f(x), y=g(x)$ and $x=0$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$(2-\\sqrt{3})+\\frac{1}{2}\\left(e-e^{-1}\\right)$"
+        },
+        {
+          "id": "B",
+          "text": "$(2+\\sqrt{3})+\\frac{1}{2}\\left(e-e^{-1}\\right)$"
+        },
+        {
+          "id": "C",
+          "text": "$(2-\\sqrt{3})+\\frac{1}{2}\\left(e+e^{-1}\\right)$"
+        },
+        {
+          "id": "D",
+          "text": "$(2+\\sqrt{3})+\\frac{1}{2}\\left(e+e^{-1}\\right)$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / math / 39",
+      "subtopic": "Exponential curves and bounded regions"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Probability",
+      "topic": "Conditional probability",
+      "question_number": 39,
+      "stem": "Consider three sets $E_{1}=\\{1,2,3\\}, F_{1}=\\{1,3,4\\}$ and $G_{1}=\\{2,3,4,5\\}$. Two elements are chosen at random, without replacement, from the set $E_{1}$, and let $S_{1}$ denote the set of these chosen elements. Let $E_{2}=E_{1}-S_{1}$ and $F_{2}=F_{1} \\cup S_{1}$. Now two elements are chosen at random, without replacement, from the set $F_{2}$ and let $S_{2}$ denote the set of these chosen elements.\n\nLet $G_{2}=G_{1} \\cup S_{2}$. Finally, two elements are chosen at random, without replacement, from the set $G_{2}$ and let $S_{3}$ denote the set of these chosen elements.\n\nLet $E_{3}=E_{2} \\cup S_{3}$. Given that $E_{1}=E_{3}$, let $p$ be the conditional probability of the event $S_{1}=\\{1,2\\}$. Then the value of $p$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{5}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{3}{5}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{2}{5}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / math / 39",
+      "subtopic": "Sequential sampling without replacement"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Three Dimensional Geometry",
+      "topic": "Lines and planes",
+      "question_number": 12,
+      "stem": "Let $S$ be the reflection of a point $Q$ with respect to the plane given by\n\n\\[\n\\vec{r}=-(t+p) \\hat{i}+t \\hat{j}+(1+p) \\hat{k}\n\\]\n\nwhere $t, p$ are real parameters and $\\hat{i}, \\hat{j}, \\hat{k}$ are the unit vectors along the three positive coordinate axes. If the position vectors of $Q$ and $S$ are $10 \\hat{i}+15 \\hat{j}+20 \\hat{k}$ and $\\alpha \\hat{i}+\\beta \\hat{j}+\\gamma \\hat{k}$ respectively, then which of the following is/are TRUE ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$3(\\alpha+\\beta)=-101$"
+        },
+        {
+          "id": "B",
+          "text": "$3(\\beta+\\gamma)=-71$"
+        },
+        {
+          "id": "C",
+          "text": "$3(\\gamma+\\alpha)=-86$"
+        },
+        {
+          "id": "D",
+          "text": "$3(\\alpha+\\beta+\\gamma)=-121$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, B, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / math / 12",
+      "subtopic": "Reflection of a point in a plane"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Integral Calculus",
+      "topic": "Area under curves",
+      "question_number": 3,
+      "stem": "Let $f:[0,1] \\rightarrow[0,1]$ be the function defined by $f(x)=\\frac{x^{3}}{3}-x^{2}+\\frac{5}{9} x+\\frac{17}{36}$. Consider the square region $S=[0,1] \\times[0,1]$. Let $G=\\{(x, y) \\in S: y>f(x)\\}$ be called the green region and $R=\\{(x, y) \\in S: y<f(x)\\}$ be called the red region. Let $L_{h}=\\{(x, h) \\in S: x \\in[0,1]\\}$ be the horizontal line drawn at a height $h \\in[0,1]$. Then which of the following statements is(are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There exists an $h \\in\\left[\\frac{1}{4}, \\frac{2}{3}\\right]$ such that the area of the green region above the line $L_{h}$ equals the area of the green region below the line $L_{h}$"
+        },
+        {
+          "id": "B",
+          "text": "There exists an $h \\in\\left[\\frac{1}{4}, \\frac{2}{3}\\right]$ such that the area of the red region above the line $L_{h}$ equals the area of the red region below the line $L_{h}$"
+        },
+        {
+          "id": "C",
+          "text": "There exists an $h \\in\\left[\\frac{1}{4}, \\frac{2}{3}\\right]$ such that the area of the green region above the line $L_{h}$ equals the area of the red region below the line $L_{h}$"
+        },
+        {
+          "id": "D",
+          "text": "There exists an $h \\in\\left[\\frac{1}{4}, \\frac{2}{3}\\right]$ such that the area of the red region above the line $L_{h}$ equals the area of the green region below the line $L_{h}$"
+        }
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: B, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / math / 3",
+      "subtopic": "Regions cut by a horizontal line"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Thermal Properties",
+      "topic": "Thermal radiation",
+      "question_number": 8,
+      "stem": "An incandescent bulb has a thin filament of tungsten that is heated to high temperature by passing an electric current. The hot filament emits black-body radiation. The filament is observed to break up at random locations after a sufficiently long time of operation due to non-uniform evaporation of tungsten from the filament. If the bulb is powered at constant voltage, which of the following statement(s) is(are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The temperature distribution over the filament is uniform"
+        },
+        {
+          "id": "B",
+          "text": "The resistance over small sections of the filament decreases with time"
+        },
+        {
+          "id": "C",
+          "text": "The filament emits more light at higher band of frequencies before it breaks up"
+        },
+        {
+          "id": "D",
+          "text": "The filament consumes less electrical power towards the end of the life of the bulb"
+        }
+      ],
+      "answer": [
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / phy / 8",
+      "subtopic": "Filament temperature and evaporation"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Mechanical Properties of Fluids",
+      "topic": "Surface tension",
+      "question_number": 3,
+      "stem": "A uniform capillary tube of inner radius $r$ is dipped vertically into a beaker filled with water. The water rises to a height $h$ in the capillary tube above the water surface in the beaker. The surface tension of water is $\\sigma$. The angle of contact between water and the wall of the capillary tube is $\\theta$. Ignore the mass of water in the meniscus. Which of the following statements is (are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "For a given material of the capillary tube, $h$ decreases with increase in $r$"
+        },
+        {
+          "id": "B",
+          "text": "For a given material of the capillary tube, $h$ is independent of $\\sigma$"
+        },
+        {
+          "id": "C",
+          "text": "If this experiment is performed in a lift going up with a constant acceleration, then $h$ decreases"
+        },
+        {
+          "id": "D",
+          "text": "$h$ is proportional to contact angle $\\theta$"
+        }
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / phy / 3",
+      "subtopic": "Capillary rise and contact angle"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Thermal Properties",
+      "topic": "Calorimetry",
+      "question_number": 3,
+      "stem": "A current carrying wire heats a metal rod. The wire provides a constant power $(P)$ to the rod. The metal rod is enclosed in an insulated container. It is observed that the temperature $(T)$ in the metal rod changes with time $(t)$ as\n\n\\[\nT(t)=T_{0}\\left(1+\\beta t^{\\frac{1}{4}}\\right)\n\\]\n\nwhere $\\beta$ is a constant with appropriate dimension while $T_{0}$ is a constant with dimension of temperature. The heat capacity of the metal is,",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{4 P\\left(T(t)-T_{0}\\right)^{3}}{\\beta^{4} T_{0}^{4}}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{4 P\\left(T(t)-T_{0}\\right)^{4}}{\\beta^{4} T_{0}^{5}}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{4 P\\left(T(t)-T_{0}\\right)^{2}}{\\beta^{4} T_{0}^{3}}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{4 P\\left(T(t)-T_{0}\\right)}{\\beta^{4} T_{0}^{2}}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / phy / 3",
+      "subtopic": "Heat capacity from heating rate"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Units and Measurements",
+      "topic": "Dimensional analysis",
+      "question_number": 9,
+      "stem": "Sometimes it is convenient to construct a system of units so that all quantities can be expressed in terms of only one physical quantity. In one such system, dimensions of different quantities are given in terms of a quantity $X$ as follows: [position $]=\\left[X^{\\alpha}\\right]$; [speed $]=\\left[X^{\\beta}\\right]$; [acceleration $]=\\left[X^{p}\\right]$; $[$ linear momentum $]=\\left[X^{q}\\right] ;$ force $]=\\left[X^{r}\\right]$. Then",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\alpha+p=2 \\beta$"
+        },
+        {
+          "id": "B",
+          "text": "$p+q-r=\\beta$"
+        },
+        {
+          "id": "C",
+          "text": "$p-q+r=\\alpha$"
+        },
+        {
+          "id": "D",
+          "text": "$p+q+r=\\beta$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "solution": "Dataset answer key: A, B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / phy / 9",
+      "subtopic": "Alternative systems of dimensions"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Atoms",
+      "topic": "Atomic spectra",
+      "question_number": 14,
+      "stem": "Which of the following statement(s) is(are) correct about the spectrum of hydrogen atom?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The ratio of the longest wavelength to the shortest wavelength in Balmer series is $9 / 5$"
+        },
+        {
+          "id": "B",
+          "text": "There is an overlap between the wavelength ranges of Balmer and Paschen series"
+        },
+        {
+          "id": "C",
+          "text": "The wavelengths of Lyman series are given by $\\left(1+\\frac{1}{m^{2}}\\right) \\lambda_{0}$, where $\\lambda_{0}$ is the shortest wavelength of Lyman series and $m$ is an integer"
+        },
+        {
+          "id": "D",
+          "text": "The wavelength ranges of Lyman and Balmer series do not overlap"
+        }
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / phy / 14",
+      "subtopic": "Hydrogen emission spectrum"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 2",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Thermodynamics",
+      "topic": "Ideal gas processes",
+      "question_number": 29,
+      "stem": "A bubble has surface tension $S$. The ideal gas inside the bubble has ratio of specific heats $\\gamma=$ $\\frac{5}{3}$. The bubble is exposed to the atmosphere and it always retains its spherical shape. When the atmospheric pressure is $P_{a 1}$, the radius of the bubble is found to be $r_{1}$ and the temperature of the enclosed gas is $T_{1}$. When the atmospheric pressure is $P_{a 2}$, the radius of the bubble and the temperature of the enclosed gas are $r_{2}$ and $T_{2}$, respectively.\n\nWhich of the following statement(s) is(are) correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "If the surface of the bubble is a perfect heat insulator, then $\\left(\\frac{r_{1}}{r_{2}}\\right)^{5}=\\frac{P_{a 2}+\\frac{2 S}{r_{2}}}{P_{a 1}+\\frac{2 S}{r_{1}}}$."
+        },
+        {
+          "id": "B",
+          "text": "If the surface of the bubble is a perfect heat insulator, then the total internal energy of the bubble including its surface energy does not change with the external atmospheric pressure."
+        },
+        {
+          "id": "C",
+          "text": "If the surface of the bubble is a perfect heat conductor and the change in atmospheric temperature is negligible, then $\\left(\\frac{r_{1}}{r_{2}}\\right)^{3}=\\frac{P_{a 2}+\\frac{4 S}{r_{2}}}{P_{a 1}+\\frac{4 S}{r_{1}}}$."
+        },
+        {
+          "id": "D",
+          "text": "If the surface of the bubble is a perfect heat insulator, then $\\left(\\frac{T_{2}}{T_{1}}\\right)^{\\frac{5}{2}}=\\frac{P_{a 2}+\\frac{4 S}{r_{2}}}{P_{a 1}+\\frac{4 S}{r_{1}}}$."
+        }
+      ],
+      "answer": [
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 2 / phy / 29",
+      "subtopic": "Gas bubble and surface tension"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Gravitation",
+      "topic": "Satellites",
+      "question_number": 24,
+      "stem": "Two satellites $\\mathrm{P}$ and $\\mathrm{Q}$ are moving in different circular orbits around the Earth (radius $R$ ). The heights of $\\mathrm{P}$ and $\\mathrm{Q}$ from the Earth surface are $h_{\\mathrm{P}}$ and $h_{\\mathrm{Q}}$, respectively, where $h_{\\mathrm{P}}=R / 3$. The accelerations of $\\mathrm{P}$ and $\\mathrm{Q}$ due to Earth's gravity are $g_{\\mathrm{P}}$ and $g_{\\mathrm{Q}}$, respectively. If $g_{\\mathrm{P}} / g_{\\mathrm{Q}}=36 / 25$, what is the value of $h_{\\mathrm{Q}}$ ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$3 R / 5$"
+        },
+        {
+          "id": "B",
+          "text": "$R / 6$"
+        },
+        {
+          "id": "C",
+          "text": "$6 R / 5$"
+        },
+        {
+          "id": "D",
+          "text": "$5 R / 6$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / phy / 24",
+      "subtopic": "Orbital radius and gravitational acceleration"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Polymers",
+      "topic": "Natural rubber",
+      "question_number": 23,
+      "stem": "On complete hydrogenation, natural rubber produces",
+      "options": [
+        {
+          "id": "A",
+          "text": "ethylene-propylene copolymer"
+        },
+        {
+          "id": "B",
+          "text": "vulcanised rubber"
+        },
+        {
+          "id": "C",
+          "text": "polypropylene"
+        },
+        {
+          "id": "D",
+          "text": "polybutylene"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / chem / 23",
+      "subtopic": "Hydrogenation of polyisoprene"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 2",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Coordination Compounds",
+      "topic": "Isomerism",
+      "question_number": 19,
+      "stem": "The correct option(s) regarding the complex $\\left[\\mathrm{Co}(\\mathrm{en})\\left(\\mathrm{NH}_{3}\\right)_{3}\\left(\\mathrm{H}_{2} \\mathrm{O}\\right)\\right]^{3+}$ (en $=\\mathrm{H}_{2} \\mathrm{NCH}_{2} \\mathrm{CH}_{2} \\mathrm{NH}_{2}$ ) is (are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "It has two geometrical isomers"
+        },
+        {
+          "id": "B",
+          "text": "It will have three geometrical isomers if bidentate 'en' is replaced by two cyanide ligands"
+        },
+        {
+          "id": "C",
+          "text": "It is paramagnetic"
+        },
+        {
+          "id": "D",
+          "text": "It absorbs light at longer wavelength as compared to $\\left[\\mathrm{Co}(\\mathrm{en})\\left(\\mathrm{NH}_{3}\\right)_{4}\\right]^{3+}$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 2 / chem / 19",
+      "subtopic": "Chelating ligands and stereoisomers"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "D and F Block Elements",
+      "topic": "Manganese compounds",
+      "question_number": 24,
+      "stem": "Fusion of $\\mathrm{MnO}_{2}$ with $\\mathrm{KOH}$ in presence of $\\mathrm{O}_{2}$ produces a salt W. Alkaline solution of $\\mathbf{W}$ upon electrolytic oxidation yields another salt $\\mathrm{X}$. The manganese containing ions present in $\\mathbf{W}$ and $\\mathbf{X}$, respectively, are $\\mathbf{Y}$ and $\\mathbf{Z}$. Correct statement(s) is(are)",
+      "options": [
+        {
+          "id": "A",
+          "text": "In aqueous acidic solution, $\\mathrm{Y}$ undergoes disproportionation reaction to give $\\mathrm{Z}$ and $\\mathrm{MnO}_{2}$"
+        },
+        {
+          "id": "B",
+          "text": "Both $\\mathrm{Y}$ and $\\mathrm{Z}$ are coloured and have tetrahedral shape"
+        },
+        {
+          "id": "C",
+          "text": "$\\mathrm{Y}$ is diamagnetic in nature while $\\mathrm{Z}$ is paramagnetic"
+        },
+        {
+          "id": "D",
+          "text": "In both $\\mathrm{Y}$ and $\\mathrm{Z}, \\pi$-bonding occurs between $p$-orbitals of oxygen and $d$-orbitals of manganese"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / chem / 24",
+      "subtopic": "Manganate and permanganate"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Coordination Compounds",
+      "topic": "Bonding and isomerism",
+      "question_number": 28,
+      "stem": "Choose the correct statement(s) among the following:",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\left[\\mathrm{FeCl}_{4}\\right]^{-}$has tetrahedral geometry."
+        },
+        {
+          "id": "B",
+          "text": "$\\left[\\mathrm{Co}(\\mathrm{en})\\left(\\mathrm{NH}_{3}\\right)_{2} \\mathrm{Cl}_{2}\\right]^{+}$has 2 geometrical isomers."
+        },
+        {
+          "id": "C",
+          "text": "$\\left[\\mathrm{FeCl}_{4}\\right]^{-}$has higher spin-only magnetic moment than $\\left[\\mathrm{Co}(\\mathrm{en})\\left(\\mathrm{NH}_{3}\\right)_{2} \\mathrm{Cl}_{2}\\right]^{+}$."
+        },
+        {
+          "id": "D",
+          "text": "The cobalt ion in $\\left[\\mathrm{Co}(\\mathrm{en})\\left(\\mathrm{NH}_{3}\\right)_{2} \\mathrm{Cl}_{2}\\right]^{+}$has $\\mathrm{sp}^{3} d^{2}$ hybridization."
+        }
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / chem / 28",
+      "subtopic": "Geometry hybridisation and magnetism"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 2",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Chemical Kinetics",
+      "topic": "Integrated rate laws",
+      "question_number": 21,
+      "stem": "For the following reaction\n\n$2 \\mathbf{X}+\\mathbf{Y} \\stackrel{k}{\\rightarrow} \\mathbf{P}$\n\nthe rate of reaction is $\\frac{d[\\mathbf{P}]}{d t}=k[\\mathbf{X}]$. Two moles of $\\mathbf{X}$ are mixed with one mole of $\\mathbf{Y}$ to make 1.0 L of solution. At $50 \\mathrm{~s}, 0.5$ mole of $\\mathbf{Y}$ is left in the reaction mixture. The correct statement(s) about the reaction is(are)\n\n$($ Use $: \\ln 2=0.693)$",
+      "options": [
+        {
+          "id": "A",
+          "text": "The rate constant, $k$, of the reaction is $13.86 \\times 10^{-4} \\mathrm{~s}^{-1}$."
+        },
+        {
+          "id": "B",
+          "text": "Half-life of $\\mathbf{X}$ is $50 \\mathrm{~s}$."
+        },
+        {
+          "id": "C",
+          "text": "At $50 \\mathrm{~s},-\\frac{d[\\mathbf{X}]}{d t}=13.86 \\times 10^{-3} \\mathrm{~mol} \\mathrm{~L}^{-1} \\mathrm{~s}^{-1}$."
+        },
+        {
+          "id": "D",
+          "text": "At $100 \\mathrm{~s},-\\frac{d[\\mathrm{Y}]}{d t}=3.46 \\times 10^{-3} \\mathrm{~mol} \\mathrm{~L}^{-1} \\mathrm{~s}^{-1}$."
+        }
+      ],
+      "answer": [
+        "B",
+        "C",
+        "D"
+      ],
+      "solution": "Dataset answer key: B, C, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 2 / chem / 21",
+      "subtopic": "First-order kinetics and stoichiometry"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "P Block Elements",
+      "topic": "Nitric acid",
+      "question_number": 48,
+      "stem": "The treatment of galena with $\\mathrm{HNO}_{3}$ produces a gas that is",
+      "options": [
+        {
+          "id": "A",
+          "text": "paramagnetic"
+        },
+        {
+          "id": "B",
+          "text": "bent in geometry"
+        },
+        {
+          "id": "C",
+          "text": "an acidic oxide"
+        },
+        {
+          "id": "D",
+          "text": "colorless"
+        }
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / chem / 48",
+      "subtopic": "Oxidation of metal sulphides"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 2",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Chemistry",
+      "chapter": "Surface Chemistry",
+      "topic": "Colloids",
+      "question_number": 36,
+      "stem": "Consider the following statements related to colloids.\n\n\n\n(I) Lyophobic colloids are not formed by simple mixing of dispersed phase and dispersion medium.\n\n\n\n(II) For emulsions, both the dispersed phase and the dispersion medium are liquid.\n\n\n\n(III) Micelles are produced by dissolving a surfactant in any solvent at any temperature.\n\n\n\n(IV) Tyndall effect can be observed from a colloidal solution with dispersed phase having the same refractive index as that of the dispersion medium.\n\n\n\nThe option with the correct set of statements is",
+      "options": [
+        {
+          "id": "A",
+          "text": "(I) and (II)"
+        },
+        {
+          "id": "B",
+          "text": "(II) and (III)"
+        },
+        {
+          "id": "C",
+          "text": "(III) and (IV)"
+        },
+        {
+          "id": "D",
+          "text": "(II) and (IV)"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 2 / chem / 36",
+      "subtopic": "Micelles emulsions and Tyndall effect"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Probability",
+      "topic": "Conditional probability",
+      "question_number": 40,
+      "stem": "A computer producing factory has only two plants $T_{1}$ and $T_{2}$. Plant $T_{1}$ produces $20 \\%$ and plant $T_{2}$ produces $80 \\%$ of the total computers produced. $7 \\%$ of computers produced in the factory turn out to be defective. It is known that\n\n$P$ (computer turns out to be defective given that it is produced in plant $T_{1}$ )\n\n$=10 P\\left(\\right.$ computer turns out to be defective given that it is produced in plant $\\left.T_{2}\\right)$,\n\nwhere $P(E)$ denotes the probability of an event $E$. A computer produced in the factory is randomly selected and it does not turn out to be defective. Then the probability that it is produced in plant $T_{2}$ is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{36}{73}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{47}{79}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{78}{93}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{75}{83}$"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / math / 40",
+      "subtopic": "Bayes theorem in manufacturing"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Differential Calculus",
+      "topic": "Applications of derivatives",
+      "question_number": 40,
+      "stem": "For every twice differentiable function $f: \\mathbb{R} \\rightarrow[-2,2]$ with $(f(0))^{2}+\\left(f^{\\prime}(0)\\right)^{2}=85$, which of the following statement(s) is (are) TRUE?",
+      "options": [
+        {
+          "id": "A",
+          "text": "There exist $r, s \\in \\mathbb{R}$, where $r<s$, such that $f$ is one-one on the open interval $(r, s)$"
+        },
+        {
+          "id": "B",
+          "text": "There exists $x_{0} \\in(-4,0)$ such that $\\left|f^{\\prime}\\left(x_{0}\\right)\\right| \\leq 1$"
+        },
+        {
+          "id": "C",
+          "text": "$\\lim _{x \\rightarrow \\infty} f(x)=1$"
+        },
+        {
+          "id": "D",
+          "text": "There exists $\\alpha \\in(-4,4)$ such that $f(\\alpha)+f^{\\prime \\prime}(\\alpha)=0$ and $f^{\\prime}(\\alpha) \\neq 0$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / math / 40",
+      "subtopic": "Bounded functions and derivative constraints"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Probability",
+      "topic": "Conditional probability",
+      "question_number": 43,
+      "stem": "There are three bags $B_{1}, B_{2}$ and $B_{3}$. The bag $B_{1}$ contains 5 red and 5 green balls, $B_{2}$ contains 3 red and 5 green balls, and $B_{3}$ contains 5 red and 3 green balls. Bags $B_{1}, B_{2}$ and $B_{3}$ have probabilities $\\frac{3}{10}, \\frac{3}{10}$ and $\\frac{4}{10}$ respectively of being chosen. A bag is selected at random and a ball is chosen at random from the bag. Then which of the following options is/are correct?",
+      "options": [
+        {
+          "id": "A",
+          "text": "Probability that the chosen ball is green, given that the selected bag is $B_{3}$, equals $\\frac{3}{8}$"
+        },
+        {
+          "id": "B",
+          "text": "Probability that the chosen ball is green equals $\\frac{39}{80}$"
+        },
+        {
+          "id": "C",
+          "text": "Probability that the selected bag is $B_{3}$, given that the chosen ball is green, equals $\\frac{5}{13}$"
+        },
+        {
+          "id": "D",
+          "text": "Probability that the selected bag is $B_{3}$ and the chosen ball is green equals $\\frac{3}{10}$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "solution": "Dataset answer key: A, B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / math / 43",
+      "subtopic": "Bayes theorem with multiple bags"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Coordinate Geometry",
+      "topic": "Conic sections",
+      "question_number": 40,
+      "stem": "Let $a, b$ and $\\lambda$ be positive real numbers. Suppose $P$ is an end point of the latus rectum of the parabola $y^{2}=4 \\lambda x$, and suppose the ellipse $\\frac{x^{2}}{a^{2}}+\\frac{y^{2}}{b^{2}}=1$ passes through the point $P$. If the tangents to the parabola and the ellipse at the point $P$ are perpendicular to each other, then the eccentricity of the ellipse is",
+      "options": [
+        {
+          "id": "A",
+          "text": "$\\frac{1}{\\sqrt{2}}$"
+        },
+        {
+          "id": "B",
+          "text": "$\\frac{1}{2}$"
+        },
+        {
+          "id": "C",
+          "text": "$\\frac{1}{3}$"
+        },
+        {
+          "id": "D",
+          "text": "$\\frac{2}{5}$"
+        }
+      ],
+      "answer": "A",
+      "solution": "Dataset answer key: A. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 1 / math / 40",
+      "subtopic": "Perpendicular tangents to ellipse and parabola"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Sets and Functions",
+      "topic": "Real functions",
+      "question_number": 48,
+      "stem": "Let $f: \\mathbb{R} \\rightarrow \\mathbb{R}$ be defined by\n\n\\[\nf(x)=\\frac{x^{2}-3 x-6}{x^{2}+2 x+4}\n\\]\n\nThen which of the following statements is (are) TRUE ?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$f$ is decreasing in the interval $(-2,-1)$"
+        },
+        {
+          "id": "B",
+          "text": "$f$ is increasing in the interval $(1,2)$"
+        },
+        {
+          "id": "C",
+          "text": "$f$ is onto"
+        },
+        {
+          "id": "D",
+          "text": "Range of $f$ is $\\left[-\\frac{3}{2}, 2\\right]$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B"
+      ],
+      "solution": "Dataset answer key: A, B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 1 / math / 48",
+      "subtopic": "Range and properties of rational functions"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2022,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Trigonometry",
+      "topic": "Trigonometric equations",
+      "question_number": 15,
+      "stem": "Consider the following lists:\nList-I\n(I) $\\left\\{x \\in\\left[-\\frac{2 \\pi}{3}, \\frac{2 \\pi}{3}\\right]: \\cos x+\\sin x=1\\right\\}$\n(II) $\\left\\{x \\in\\left[-\\frac{5 \\pi}{18}, \\frac{5 \\pi}{18}\\right]: \\sqrt{3} \\tan 3 x=1\\right\\}$\n(III) $\\left\\{x \\in\\left[-\\frac{6 \\pi}{5}, \\frac{6 \\pi}{5}\\right]: 2 \\cos (2 x)=\\sqrt{3}\\right\\}$\n(IV) $\\left\\{x \\in\\left[-\\frac{7 \\pi}{4}, \\frac{7 \\pi}{4}\\right]: \\sin x-\\cos x=1\\right\\}$\n\nList-II\n(P) has two elements\n(Q) has three elements\n(R) has four elements\n(S) has five elements\n(T) has six elements\n\nThe correct option is:",
+      "options": [
+        {
+          "id": "A",
+          "text": "(I) $\\rightarrow$ (P); (II) $\\rightarrow$ (S); (III) $\\rightarrow$ (P); (IV) $\\rightarrow$ (S)"
+        },
+        {
+          "id": "B",
+          "text": "(I) $\\rightarrow$ (P); (II) $\\rightarrow$ (P); (III) $\\rightarrow$ (T); (IV) $\\rightarrow$ (R)"
+        },
+        {
+          "id": "C",
+          "text": "(I) $\\rightarrow$ (Q); (II) $\\rightarrow$ (P); (III) $\\rightarrow$ (T); (IV) $\\rightarrow$ (S)"
+        },
+        {
+          "id": "D",
+          "text": "(I) $\\rightarrow$ (Q); (II) $\\rightarrow$ (S); (III) $\\rightarrow$ (P); (IV) $\\rightarrow$ (R)"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2022 Paper 1 / math / 15",
+      "subtopic": "Counting solutions in intervals"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2023,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Mathematics",
+      "chapter": "Limits and Continuity",
+      "topic": "Limits",
+      "question_number": 4,
+      "stem": "Let $f:(0,1) \\rightarrow \\mathbb{R}$ be the function defined as $f(x)=\\sqrt{n}$ if $x \\in\\left[\\frac{1}{n+1}, \\frac{1}{n}\\right)$ where $n \\in \\mathbb{N}$. Let $g:(0,1) \\rightarrow \\mathbb{R}$ be a function such that $\\int_{x^{2}}^{x} \\sqrt{\\frac{1-t}{t}} d t<g(x)<2 \\sqrt{x}$ for all $x \\in(0,1)$. Then $\\lim _{x \\rightarrow 0} f(x) g(x)$",
+      "options": [
+        {
+          "id": "A",
+          "text": "does NOT exist"
+        },
+        {
+          "id": "B",
+          "text": "is equal to 1"
+        },
+        {
+          "id": "C",
+          "text": "is equal to 2"
+        },
+        {
+          "id": "D",
+          "text": "is equal to 3"
+        }
+      ],
+      "answer": "C",
+      "solution": "Dataset answer key: C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2023 Paper 1 / math / 4",
+      "subtopic": "Squeeze theorem with an integral bound"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2016,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Ray Optics",
+      "topic": "Refraction through lenses",
+      "question_number": 9,
+      "stem": "A plano-convex lens is made of a material of refractive index $n$. When a small object is placed $30 \\mathrm{~cm}$ away in front of the curved surface of the lens, an image of double the size of the object is produced. Due to reflection from the convex surface of the lens, another faint image is observed at a distance of $10 \\mathrm{~cm}$ away from the lens. Which of the following statement(s) is(are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "The refractive index of the lens is 2.5"
+        },
+        {
+          "id": "B",
+          "text": "The radius of curvature of the convex surface is $45 \\mathrm{~cm}$"
+        },
+        {
+          "id": "C",
+          "text": "The faint image is erect and real"
+        },
+        {
+          "id": "D",
+          "text": "The focal length of the lens is $20 \\mathrm{~cm}$"
+        }
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2016 Paper 1 / phy / 9",
+      "subtopic": "Lens images and surface reflection"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2018,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Moving Charges and Magnetism",
+      "topic": "Magnetic fields",
+      "question_number": 5,
+      "stem": "Two infinitely long straight wires lie in the $x y$-plane along the lines $x= \\pm R$. The wire located at $x=+R$ carries a constant current $I_{1}$ and the wire located at $x=-R$ carries a constant current $I_{2}$. A circular loop of radius $R$ is suspended with its centre at $(0,0, \\sqrt{3} R)$ and in a plane parallel to the $x y$-plane. This loop carries a constant current $I$ in the clockwise direction as seen from above the loop. The current in the wire is taken to be positive if it is in the $+\\hat{j}$ direction. Which of the following statements regarding the magnetic field $\\vec{B}$ is (are) true?",
+      "options": [
+        {
+          "id": "A",
+          "text": "If $I_{1}=I_{2}$, then $\\vec{B}$ cannot be equal to zero at the origin $(0,0,0)$"
+        },
+        {
+          "id": "B",
+          "text": "If $I_{1}>0$ and $I_{2}<0$, then $\\vec{B}$ can be equal to zero at the origin $(0,0,0)$"
+        },
+        {
+          "id": "C",
+          "text": "If $I_{1}<0$ and $I_{2}>0$, then $\\vec{B}$ can be equal to zero at the origin $(0,0,0)$"
+        },
+        {
+          "id": "D",
+          "text": "If $I_{1}=I_{2}$, then the $z$-component of the magnetic field at the centre of the loop is $\\left(-\\frac{\\mu_{0} I}{2 R}\\right)$"
+        }
+      ],
+      "answer": [
+        "A",
+        "B",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, B, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2018 Paper 1 / phy / 5",
+      "subtopic": "Superposition of wires and current loops"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2019,
+      "sitting": "Paper 1",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Nuclei",
+      "topic": "Radioactive decay",
+      "question_number": 4,
+      "stem": "In a radioactive sample, ${ }_{19}^{40} \\mathrm{~K}$ nuclei either decay into stable ${ }_{20}^{40} \\mathrm{Ca}$ nuclei with decay constant $4.5 \\times 10^{-10}$ per year or into stable ${ }_{18}^{40} \\mathrm{Ar}$ nuclei with decay constant $0.5 \\times 10^{-10}$ per year. Given that in this sample all the stable ${ }_{20}^{40} \\mathrm{Ca}$ and ${ }_{18}^{40} \\mathrm{Ar}$ nuclei are produced by the ${ }_{19}^{40} \\mathrm{~K}$ nuclei only. In time $t \\times 10^{9}$ years, if the ratio of the sum of stable ${ }_{20}^{40} \\mathrm{Ca}$ and ${ }_{18}^{40} \\mathrm{Ar}$ nuclei to the radioactive ${ }_{19}^{40} \\mathrm{~K}$ nuclei is 99 , the value of $t$ will be,\n\n[Given: $\\ln 10=2.3]$",
+      "options": [
+        {
+          "id": "A",
+          "text": "1.15"
+        },
+        {
+          "id": "B",
+          "text": "9.2"
+        },
+        {
+          "id": "C",
+          "text": "2.3"
+        },
+        {
+          "id": "D",
+          "text": "4.6"
+        }
+      ],
+      "answer": "B",
+      "solution": "Dataset answer key: B. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "single_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2019 Paper 1 / phy / 4",
+      "subtopic": "Competing decay constants"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2020,
+      "sitting": "Paper 2",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Dual Nature of Matter",
+      "topic": "X-rays",
+      "question_number": 10,
+      "stem": "In an X-ray tube, electrons emitted from a filament (cathode) carrying current I hit a target (anode) at a distance $d$ from the cathode. The target is kept at a potential $V$ higher than the cathode resulting in emission of continuous and characteristic X-rays. If the filament current $I$ is decreased to $\\frac{I}{2}$, the potential difference $V$ is increased to $2 V$, and the separation distance $d$ is reduced to $\\frac{d}{2}$, then",
+      "options": [
+        {
+          "id": "A",
+          "text": "the cut-off wavelength will reduce to half, and the wavelengths of the characteristic $\\mathrm{X}$-rays will remain the same"
+        },
+        {
+          "id": "B",
+          "text": "the cut-off wavelength as well as the wavelengths of the characteristic X-rays will remain the same"
+        },
+        {
+          "id": "C",
+          "text": "the cut-off wavelength will reduce to half, and the intensities of all the $\\mathrm{X}$-rays will decrease"
+        },
+        {
+          "id": "D",
+          "text": "the cut-off wavelength will become two times larger, and the intensity of all the X-rays will decrease"
+        }
+      ],
+      "answer": [
+        "A",
+        "C"
+      ],
+      "solution": "Dataset answer key: A, C. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2020 Paper 2 / phy / 10",
+      "subtopic": "Cutoff wavelength and intensity"
+    },
+    {
+      "exam": "jee-advanced",
+      "year": 2021,
+      "sitting": "Paper 2",
+      "source_url": "https://github.com/dair-iitd/jeebench/blob/main/data.zip",
+      "source_page": null,
+      "subject": "Physics",
+      "chapter": "Waves",
+      "topic": "Sound waves",
+      "question_number": 2,
+      "stem": "A source, approaching with speed $u$ towards the open end of a stationary pipe of length $L$, is emitting a sound of frequency $f_{s}$. The farther end of the pipe is closed. The speed of sound in air is $v$ and $f_{0}$ is the fundamental frequency of the pipe. For which of the following combination(s) of $u$ and $f_{s}$, will the sound reaching the pipe lead to a resonance?",
+      "options": [
+        {
+          "id": "A",
+          "text": "$u=0.8 v$ and $f_{s}=f_{0}$"
+        },
+        {
+          "id": "B",
+          "text": "$u=0.8 v$ and $f_{s}=2 f_{0}$"
+        },
+        {
+          "id": "C",
+          "text": "$u=0.8 v$ and $f_{s}=0.5 f_{0}$"
+        },
+        {
+          "id": "D",
+          "text": "$u=0.5 v$ and $f_{s}=1.5 f_{0}$"
+        }
+      ],
+      "answer": [
+        "A",
+        "D"
+      ],
+      "solution": "Dataset answer key: A, D. A worked solution has not yet been added.",
+      "answer_source_url": "https://github.com/dair-iitd/jeebench",
+      "question_type": "multi_correct",
+      "license": "JEEBench dataset (MIT), DAIR IIT Delhi, 2023; original exam rights retained.",
+      "source_record": "JEE Adv 2021 Paper 2 / phy / 2",
+      "subtopic": "Doppler effect and pipe resonance"
+    }
+  ],
+  "taxonomy_note": "Editorial chapter/topic/subtopic classification for the imported questions; not a complete official examination syllabus."
+}

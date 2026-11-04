@@ -1,0 +1,160 @@
+from django.contrib import admin
+from apps.tenancy.features import is_enabled
+from apps.audit.models import AuditEvent
+from apps.learning.models import TeacherSubjectAssignment
+from .models import ContentReport, Question, QuestionConceptTag, QuestionRevision
+
+
+class TenantScopedAdmin(admin.ModelAdmin):
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if request.user.is_superuser: return qs
+        if getattr(request.user, "tenant_id", None) is None: return qs.none()
+        return qs.filter(tenant_id=getattr(request.user, "tenant_id", None))
+
+    def save_model(self, request, obj, form, change):
+        before = {}
+        previous = None
+        if change:
+            previous = Question.objects.get(pk=obj.pk)
+            before = {"stem": previous.stem, "options": previous.options, "answer": previous.answer,
+                      "solution": previous.solution, "difficulty": previous.difficulty,
+                      "topic_id": previous.topic_id, "subtopic_id": previous.subtopic_id, "status": previous.status, "version": previous.version}
+        if not request.user.is_superuser:
+            obj.tenant_id = getattr(request.user, "tenant_id", None)
+            obj.kind = Question.Kind.PRACTICE
+            obj.paper = None
+            if not is_enabled(request.user.tenant, "tenant_question_bank"):
+                from django.core.exceptions import PermissionDenied
+                raise PermissionDenied("Tenant question bank is disabled.")
+            if obj.ai_generated and obj.status == Question.Status.PUBLISHED:
+                obj.reviewed_by = request.user
+        if change:
+            obj.version = previous.version + 1
+        else:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
+        if previous:
+            QuestionRevision.objects.create(question=obj, version=previous.version, snapshot=before, edited_by=request.user)
+        AuditEvent.objects.create(tenant=obj.tenant, actor=request.user, action="question_saved",
+                                  object_type="Question", object_id=str(obj.pk), before=before,
+                                  after={"stem": obj.stem, "options": obj.options, "answer": obj.answer,
+                                         "solution": obj.solution, "difficulty": obj.difficulty,
+                                         "topic_id": obj.topic_id, "subtopic_id": obj.subtopic_id, "status": obj.status, "version": obj.version})
+
+    def get_readonly_fields(self, request, obj=None):
+        fields = list(super().get_readonly_fields(request, obj))
+        if not request.user.is_superuser:
+            fields += ["kind", "paper", "version", "ai_generated", "reviewed_by", "source_scan_id", "source_page", "figure_paths"]
+        return fields
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "tenant" and not request.user.is_superuser:
+            from apps.tenancy.models import Tenant
+            kwargs["queryset"] = Tenant.objects.filter(pk=getattr(request.user, "tenant_id", None))
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def has_delete_permission(self, request, obj=None): return False
+
+    def _tenant_editor(self, request, obj=None):
+        return (request.user.is_superuser or
+                (getattr(request.user, "role", None) in ("tenant_admin", "teacher") and getattr(request.user, "tenant_id", None) is not None
+                 and (obj is None or obj.tenant_id == getattr(request.user, "tenant_id", None))
+                 and is_enabled(request.user.tenant, "tenant_question_bank")))
+
+    def has_view_permission(self, request, obj=None): return self._tenant_editor(request, obj)
+    def has_add_permission(self, request): return self._tenant_editor(request)
+    def has_change_permission(self, request, obj=None): return self._tenant_editor(request, obj)
+
+
+class QuestionMaterialLinkInline(admin.TabularInline):
+    from apps.materials.models import QuestionMaterialLink
+    model=QuestionMaterialLink
+    extra=0
+    def has_view_permission(self,request,obj=None):
+        return request.user.is_superuser or (getattr(request.user,'role',None) in ('tenant_admin','teacher') and is_enabled(request.user.tenant,'study_material') and (obj is None or obj.tenant_id==request.user.tenant_id))
+    def has_add_permission(self,request,obj=None):return self.has_view_permission(request,obj)
+    def has_change_permission(self,request,obj=None):return self.has_view_permission(request,obj)
+    def has_delete_permission(self,request,obj=None):return self.has_view_permission(request,obj)
+    def formfield_for_foreignkey(self,db_field,request,**kwargs):
+        if db_field.name=='section':
+            from apps.materials.models import MaterialSection
+            from django.db.models import Q
+            queryset=MaterialSection.objects.filter(active=True,document__active=True)
+            if not request.user.is_superuser:queryset=queryset.filter(Q(document__tenant_id=request.user.tenant_id)|Q(document__tenant__isnull=True))
+            kwargs['queryset']=queryset
+        return super().formfield_for_foreignkey(db_field,request,**kwargs)
+
+
+@admin.register(Question)
+class QuestionAdmin(TenantScopedAdmin):
+    inlines=[QuestionMaterialLinkInline]
+    list_display = ("id", "kind", "tenant", "question_type", "topic", "subtopic", "difficulty", "status", "ai_generated", "version")
+    list_filter = ("kind", "status", "question_type", "difficulty", "tenant", "paper__exam", "paper__year", "topic__chapter__subject", "topic__chapter", "topic", "subtopic")
+    search_fields = ("stem", "source", "topic__name", "subtopic__name", "tags")
+    readonly_fields = ("version", "created_at", "updated_at")
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        if not request.user.is_superuser and getattr(request.user, "tenant_id", None):
+            qs = qs.filter(kind=Question.Kind.PRACTICE)
+            if getattr(request.user, "role", None) == "teacher":
+                subject_ids = TeacherSubjectAssignment.objects.filter(tenant_id=getattr(request.user, "tenant_id", None),
+                    teacher=request.user).values_list("subject_id", flat=True)
+                qs = qs.filter(topic__chapter__subject_id__in=subject_ids)
+        return qs
+
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if not request.user.is_superuser and getattr(request.user, "role", None) == "teacher" and db_field.name == "topic":
+            subject_ids = TeacherSubjectAssignment.objects.filter(tenant_id=getattr(request.user, "tenant_id", None),
+                teacher=request.user).values_list("subject_id", flat=True)
+            from apps.catalog.models import Topic
+            kwargs["queryset"] = Topic.objects.filter(chapter__subject_id__in=subject_ids)
+        if not request.user.is_superuser and getattr(request.user, "role", None) == "teacher" and db_field.name == "subtopic":
+            from apps.catalog.models import Subtopic
+            subject_ids = TeacherSubjectAssignment.objects.filter(tenant_id=getattr(request.user, "tenant_id", None), teacher=request.user).values_list("subject_id", flat=True)
+            kwargs["queryset"] = Subtopic.objects.filter(topic__chapter__subject_id__in=subject_ids)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
+    def has_module_permission(self, request):
+        return request.user.is_superuser or bool(getattr(request.user, "tenant_id", None) and is_enabled(request.user.tenant, "tenant_question_bank"))
+
+
+@admin.register(QuestionRevision)
+class QuestionRevisionAdmin(admin.ModelAdmin):
+    list_display = ("question", "version", "edited_by", "created_at")
+    readonly_fields = ("question", "version", "snapshot", "edited_by", "created_at")
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs if request.user.is_superuser else qs.filter(question__tenant_id=getattr(request.user, "tenant_id", None))
+    def has_add_permission(self, request): return False
+    def has_change_permission(self, request, obj=None): return False
+    def has_delete_permission(self, request, obj=None): return False
+    def has_view_permission(self, request, obj=None):
+        return request.user.is_superuser or bool(getattr(request.user, "tenant_id", None) and
+            (obj is None or obj.question.tenant_id == getattr(request.user, "tenant_id", None)))
+
+
+class PlatformOnlyAdmin(admin.ModelAdmin):
+    def has_module_permission(self, request): return request.user.is_superuser
+    def has_view_permission(self, request, obj=None): return request.user.is_superuser
+    def has_add_permission(self, request): return request.user.is_superuser
+    def has_change_permission(self, request, obj=None): return request.user.is_superuser
+    def has_delete_permission(self, request, obj=None): return request.user.is_superuser
+
+
+admin.site.register(QuestionConceptTag, PlatformOnlyAdmin)
+
+
+@admin.register(ContentReport)
+class ContentReportAdmin(admin.ModelAdmin):
+    list_display = ("question", "tenant", "reporter", "created_at")
+    readonly_fields = ("question", "tenant", "reporter", "reason", "created_at")
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        return qs if request.user.is_superuser else qs.filter(tenant_id=getattr(request.user, "tenant_id", None))
+    def has_module_permission(self, request):
+        return request.user.is_superuser or bool(getattr(request.user, "role", None) in ("tenant_admin", "teacher") and is_enabled(request.user.tenant, "question_reporting"))
+    def has_add_permission(self, request): return False
+    def has_change_permission(self, request, obj=None): return False
+    def has_delete_permission(self, request, obj=None): return request.user.is_superuser

@@ -1,0 +1,26 @@
+[
+  {
+    "file": "search_MAIN.parquet",
+    "download_url": "https://huggingface.co/datasets/datavorous/entrance-exam-dataset/resolve/main/search_MAIN.parquet",
+    "sha256": "57bb22cca5a06651bde59e5f1be164eca1cbfa52cd223f0ee91dbccacbb5f224",
+    "bytes": 32555872,
+    "dataset_license": "CC BY 4.0",
+    "attribution": "datavorous/entrance-exam-dataset"
+  },
+  {
+    "file": "search_NEET.parquet",
+    "download_url": "https://huggingface.co/datasets/datavorous/entrance-exam-dataset/resolve/main/search_NEET.parquet",
+    "sha256": "cd465d8c89c29a56e20e959553d9c59e58d11c339918c6723c96e7664e8e2ed5",
+    "bytes": 29694424,
+    "dataset_license": "CC BY 4.0",
+    "attribution": "datavorous/entrance-exam-dataset"
+  },
+  {
+    "file": "search_ADVANCED.parquet",
+    "download_url": "https://huggingface.co/datasets/datavorous/entrance-exam-dataset/resolve/main/search_ADVANCED.parquet",
+    "sha256": "352b6d0afe2f011908d6cf9707adc4801df6c577af87a103826a66a46b3a2d2c",
+    "bytes": 800510,
+    "dataset_license": "CC BY 4.0",
+    "attribution": "datavorous/entrance-exam-dataset"
+  }
+]
