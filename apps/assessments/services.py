@@ -70,7 +70,6 @@ def start_or_resume(assignment, student, *, integrity_enabled=False):
         option_orders = {}
         for question in assignment.template.sections.values_list("test_questions__question_id", flat=True):
             if question:
-                from apps.content.models import Question
                 q = Question.objects.filter(pk=question).first()
                 if q and q.options:
                     order = list(range(len(q.options)))
