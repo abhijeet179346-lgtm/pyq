@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ assignment.title }}</title>
+<head><link rel="icon" href="/static/portal/favicon.svg" type="image/svg+xml"><link rel="icon" href="/static/portal/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/static/portal/apple-touch-icon.png"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ assignment.title }}</title>
 <style>body{font:16px system-ui;max-width:980px;margin:2rem auto;padding:0 1rem;color:#18202b}.q{border-top:1px solid #ccd3dc;padding:1rem 0}.stem{white-space:pre-wrap;line-height:1.55}label{display:block;padding:.4rem}button{padding:.65rem 1rem;margin:.4rem;background:#1759a6;color:white;border:0;cursor:pointer}#clock{font-size:1.25rem;font-weight:700}.palette span{display:inline-block;border:1px solid #8994a0;padding:.3rem;margin:.2rem}</style></head>
 <body><h1>{{ assignment.title }}</h1><p>{{ section.name }} · section {{ section.order|add:1 }} · {{ question_count }} questions</p><p>Time remaining: <span id="clock">--:--</span></p>
 <p class="palette">Palette: numbered boxes are answered (green), marked for review (amber), or not answered.</p>

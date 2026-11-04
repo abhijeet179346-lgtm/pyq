@@ -1,0 +1,16 @@
+[Unit]
+Description=PYQ Vault (gunicorn)
+After=network.target
+
+[Service]
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/opt/pyq/app
+Environment=DJANGO_SETTINGS_MODULE=config.settings.base
+# 2 workers fit in ~1 GB RAM; long timeout for admin PDF/Excel processing.
+ExecStart=/opt/pyq/venv/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8000 --workers 2 --timeout 180 --access-logfile - --error-logfile -
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
