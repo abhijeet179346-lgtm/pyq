@@ -79,8 +79,12 @@ class DesignTokenTests(SimpleTestCase):
             path = STATIC / name
             if not path.exists():
                 continue
-            raw = [c for c in re.findall(r"#[0-9a-fA-F]{3,8}\b", path.read_text()) if not allowed.fullmatch(c)]
+            css = path.read_text()
+            raw = [c for c in re.findall(r"#[0-9a-fA-F]{3,8}\b", css) if not allowed.fullmatch(c)]
             self.assertEqual(raw, [], f"{name} has hard-coded colours; add a token in tokens.css instead")
+            # Named colours don't follow the theme either (e.g. background:white stays white in dark mode).
+            named = re.findall(r"(?:color|background(?:-color)?|border(?:-[a-z]+)?|outline|fill|stroke)\s*:[^;}]*\b(white|black|gray|grey|silver)\b", css)
+            self.assertEqual(named, [], f"{name} uses named colours; use tokens instead")
 
     def test_no_text_smaller_than_12px(self):
         for name in ("app.css", "vault.css", "academic-blue.css", "ui.css", "exam.css"):
