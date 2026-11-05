@@ -18,12 +18,17 @@ class PlatformPortalTests(TestCase):
         cls.student = User.objects.create_user(username="student", email="student@example.test",
             password=cls.password, tenant=cls.tenant, email_verified_at=timezone.now())
 
-    def test_superuser_signin_goes_to_admin_instead_of_learner_dashboard(self):
+    def test_superuser_can_use_learner_pages_and_admin(self):
+        from apps.features.models import FeatureEntitlement
+        FeatureEntitlement.objects.update_or_create(tenant=Tenant.objects.get(is_master=True), key="tests",
+                                                    defaults={"entitled": True, "enabled_override": True})
         client = Client(HTTP_HOST="localhost")
         response = client.post("/login/", {"email": self.user.email, "password": self.password}, follow=True)
-        self.assertContains(response, "Site administration")
-        self.assertEqual(response.request["PATH_INFO"], "/admin/")
+        self.assertEqual(response.request["PATH_INFO"], "/")
+        self.assertContains(response, 'class="vault-admin-link" href="/admin/"')
         self.assertNotContains(response, "Enter your access code")
+        for path in ("/practice/", "/practice/tests/", "/library/", "/progress/"):
+            self.assertEqual(client.get(path).status_code, 200, path)
         self.assertEqual(client.get("/admin/").status_code, 200)
 
     def test_superuser_can_sign_in_on_institute_subdomain(self):

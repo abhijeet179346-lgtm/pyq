@@ -89,3 +89,5 @@ button:disabled,.btn[aria-disabled=true]{cursor:not-allowed;opacity:.55}
 .skip-link:focus{top:12px;color:var(--on-accent)}
 main:focus{outline:none}
 @media (pointer:coarse){.exam-palette .chip .chip-shape{height:44px}.result-chip{min-width:44px;height:44px}.exam-zoom button,.exam-icon-btn{min-height:44px}}
+.vault-admin-link{font-size:13px;font-weight:700;padding:6px 12px;border-radius:8px;border:1px solid var(--line-strong);color:var(--ink);text-decoration:none}
+.vault-admin-link:hover{background:var(--accent-soft);color:var(--accent-text);text-decoration:none}

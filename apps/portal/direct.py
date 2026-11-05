@@ -27,10 +27,12 @@ from .practice_selection import selection
 def _direct_user(request, feature=None):
     if not getattr(request, "is_core_domain", False):
         raise Http404()
-    if not request.user.is_authenticated or not request.user.email_verified or request.user.is_superuser:
+    if not request.user.is_authenticated or not request.user.email_verified:
         raise PermissionDenied("Sign in with a verified learner account.")
     tenant = getattr(request, "tenant", None)
-    if tenant is None or not tenant.is_master or tenant.status != "active" or request.user.tenant_id != tenant.pk:
+    # Platform admins can use the learner pages too, as members of the core (master) tenant.
+    member = request.user.tenant_id == getattr(tenant, "pk", None) or (request.user.is_superuser and request.user.tenant_id is None)
+    if tenant is None or not tenant.is_master or tenant.status != "active" or not member:
         raise PermissionDenied("Sign in with an active core-platform account.")
     if feature and not is_enabled(tenant, feature):
         raise PermissionDenied("This feature is disabled for the core platform.")

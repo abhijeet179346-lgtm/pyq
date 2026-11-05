@@ -36,7 +36,7 @@ class PortalLoginView(LoginView):
                 return target
             from django.urls import reverse
             return reverse("verify_email")
-        if self.request.user.is_superuser:
+        if self.request.user.is_superuser and not getattr(self.request, "is_core_domain", False):
             return "/admin/"
         return super().get_success_url()
 
@@ -67,8 +67,6 @@ def home(request):
         if not getattr(request, "is_core_domain", False):
             raise Http404("Institute not found.")
         if request.user.is_authenticated:
-            if request.user.is_superuser:
-                return redirect("admin:index")
             return direct.dashboard(request)
         return render(request, "portal/login.html", {"form": CombinedAccessForm(request), "next": ""})
     if not request.user.is_authenticated:
