@@ -1,4 +1,4 @@
-<!doctype html><html><head><link rel="stylesheet" href="/static/portal/tokens.css"><link rel="stylesheet" href="/static/portal/ui.css"><link rel="icon" href="/static/portal/favicon.svg" type="image/svg+xml"><link rel="icon" href="/static/portal/favicon.ico" sizes="any"><link rel="apple-touch-icon" href="/static/portal/apple-touch-icon.png"><meta charset="utf-8"><title>Scan imports</title></head><body>
+{% load static %}<!doctype html><html><head><link rel="stylesheet" href="{% static 'portal/tokens.css' %}"><link rel="stylesheet" href="{% static 'portal/ui.css' %}"><link rel="icon" href="{% static 'portal/favicon.svg' %}" type="image/svg+xml"><link rel="icon" href="{% static 'portal/favicon.ico' %}" sizes="any"><link rel="apple-touch-icon" href="{% static 'portal/apple-touch-icon.png' %}"><meta charset="utf-8"><title>Scan imports</title></head><body>
 <h1>Scanned material import</h1>
 <p>Upload a licensed coaching sheet. Extraction runs in the background management command and every result stays a draft until a human approves it.</p>
 {% for message in messages %}<p>{{ message }}</p>{% endfor %}
