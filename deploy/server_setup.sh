@@ -2,7 +2,7 @@
 # One-time setup for Amazon Linux 2023 (run as ec2-user, needs sudo). Idempotent.
 # Public repo: pulls over HTTPS, no key needed. Private repo: REPO=git@github.com:... and add
 # ~/.ssh/pyq_deploy.pub (created on first run) to the repo as a read-only deploy key.
-#   PUBLIC_HOST=65.1.100.164 bash server_setup.sh
+#   PUBLIC_HOST=35.77.200.154 DOMAIN=pyqnet.com bash server_setup.sh
 set -euo pipefail
 
 PUBLIC_HOST=${PUBLIC_HOST:?Set PUBLIC_HOST to the server IP or domain}
