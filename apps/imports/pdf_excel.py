@@ -10,6 +10,7 @@ import re
 import pymupdf as fitz
 from django.utils import timezone
 
+from .answer_keys import apply_answer_key, is_answer_key_page, parse_answer_key
 from .models import ContentJob
 
 ROW_KEYS = ['option_a', 'option_b', 'option_c', 'option_d', 'answer', 'solution', 'subject', 'chapter',
@@ -208,6 +209,47 @@ def _ocr_pages(job, pdf, indexes):
     return results
 
 
+def destination_values(job):
+    """Exam/subject/year chosen at upload, pre-filled into extracted rows for the review workbook."""
+    from .excel_services import pyq_destination
+    values = {}
+    if job.target_exam_id:
+        values.update(exam=job.target_exam.slug, kind='PYQ' if pyq_destination(job) else 'PRACTICE')
+    if job.target_subject_id:
+        values['subject'] = job.target_subject.name
+    if job.year:
+        values['year'] = str(job.year)
+    return values
+
+
+def _pdf_text(field):
+    field.open('rb')
+    try:
+        with fitz.open(stream=field.read(), filetype='pdf') as pdf:
+            if pdf.is_encrypted:
+                raise ValueError('The answer-key PDF is password-protected; unlock it before upload.')
+            return '\n'.join(page_text(page) for page in pdf)
+    finally:
+        field.close()
+
+
+def finish_answer_key(job):
+    """Apply answers from the in-paper key pages and/or the separate answer-key PDF."""
+    key = {}
+    if job.answer_key:
+        try:
+            key.update(parse_answer_key(_pdf_text(job.answer_key)))
+        except Exception as exc:
+            job.answer_key_summary = f'Could not read the answer-key PDF: {str(exc)[:200]}'
+            return
+    for page in job.pages:
+        if page.get('answer_key'):
+            for number, answer in parse_answer_key(page.get('text', '')).items():
+                key.setdefault(number, answer)
+    if key or job.answer_key:
+        job.answer_key_summary = apply_answer_key(job.rows, key)[:500]
+
+
 def process_pdf_chunk(job, page_batch=15, ocr_page_limit=3):
     """Process the next batch of pages. Scanned pages are OCR'd, at most ``ocr_page_limit`` per call."""
     if job.kind != 'pdf':
@@ -238,7 +280,14 @@ def process_pdf_chunk(job, page_batch=15, ocr_page_limit=3):
                 scanned.append(index)
             texts[index] = text
         ocr = _ocr_pages(job, pdf, scanned) if scanned else {}
+        destination = destination_values(job)
         for index in range(job.next_page, stop):
+            previous_key = bool(job.pages and job.pages[-1].get('answer_key'))
+            if index not in ocr and is_answer_key_page(texts[index], previous_key):
+                job.pages.append({'page': index + 1, 'text': texts[index], 'answer_key': True,
+                                  'warnings': 'Answer-key page: used to fill answers, not read as questions.'})
+                job.next_page = index + 1
+                continue
             if index in ocr:
                 rows, text, warning = ocr[index]
                 text = text or texts[index]
@@ -246,13 +295,18 @@ def process_pdf_chunk(job, page_batch=15, ocr_page_limit=3):
                 text = texts[index]
                 rows = split_questions(text, index + 1, job)
                 warning = 'Question segmentation is heuristic; check source page.'
+            for row in rows:
+                row.update({key: value for key, value in destination.items() if not row.get(key)})
             job.rows.extend(rows)
             job.pages.append({'page': index + 1, 'text': text, 'warnings': warning})
             job.next_page = index + 1
         pdf.close()
         job.status = 'review' if job.next_page >= job.page_count else 'queued'
+        if job.status == 'review':
+            finish_answer_key(job)
         job.errors = []
-        job.save(update_fields=['page_count', 'next_page', 'rows', 'pages', 'status', 'errors', 'updated_at'])
+        job.save(update_fields=['page_count', 'next_page', 'rows', 'pages', 'status', 'errors', 'answer_key_summary',
+                                'updated_at'])
     except Exception as exc:
         job.status = 'failed'
         job.errors = [str(exc)[:1000]]

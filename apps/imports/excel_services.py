@@ -34,6 +34,17 @@ def exam_for(row):
     hint=f' Did you mean "{close[0]}"?' if close else ''
     raise ValueError(f'Unknown exam "{value}".{hint} Valid exams: {", ".join(slugs) or "none"}. Platform admins add new exams with an Exams import.')
 
+def pyq_destination(job):
+    """Global PYQs come only from platform admins uploading for the master tenant.
+    Any other exam-targeted upload stays private to the job's tenant."""
+    return bool(job.initiated_by and job.initiated_by.is_superuser and job.tenant.is_master)
+
+
+def exam_enabled_for(tenant, exam):
+    from apps.features.models import TenantExam
+    return exam.active and TenantExam.objects.filter(tenant=tenant, exam=exam, enabled=True).exists()
+
+
 def question_row(row):
     required(row,'stem','answer','question_type','subject')
     kind=row['question_type'];options=[{'id':key,'text':row['option_'+key.lower()]} for key in 'ABCD' if row.get('option_'+key.lower())]
@@ -82,13 +93,24 @@ def apply_rows(job,rows,preview=False,images=None):
                         row[field] = repair_text(row[field])
                 if job.kind == 'questions':
                     if job.target_exam_id:
-                        if row.get('kind', '').strip().upper() not in ('', 'PYQ'):
-                            raise ValueError('A selected exam destination requires PYQ rows with a year. Practice rows have no exam paper.')
-                        row['kind'] = 'PYQ'
                         supplied = row.get('exam', '').strip()
                         if supplied and exam_for(row).pk != job.target_exam_id:
                             raise ValueError('Workbook exam does not match the selected destination exam.')
-                        row['exam'] = job.target_exam.slug
+                        if not row.get('year') and job.year:
+                            row['year'] = str(job.year)
+                        if pyq_destination(job):
+                            if row.get('kind', '').strip().upper() not in ('', 'PYQ'):
+                                raise ValueError('A selected exam destination requires PYQ rows with a year. Practice rows have no exam paper.')
+                            row['kind'] = 'PYQ'
+                            row['exam'] = job.target_exam.slug
+                        else:
+                            # Institute upload: a private question for this tenant, tagged with the exam and year.
+                            if not exam_enabled_for(job.tenant, job.target_exam):
+                                raise ValueError(f'{job.target_exam.name} is not enabled for {job.tenant}.')
+                            row['kind'] = 'PRACTICE'
+                            row['exam'] = ''
+                            extra = [job.target_exam.name] + ([row['year']] if row.get('year') else [])
+                            row['tags'] = ','.join(filter(None, [row.get('tags', '')] + extra))
                     if job.target_subject_id:
                         supplied = row.get('subject', '').strip()
                         if supplied and supplied.casefold() != job.target_subject.name.casefold():

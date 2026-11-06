@@ -1,0 +1,82 @@
+{% extends 'admin/base_site.html' %}
+{% block breadcrumbs %}<div class="breadcrumbs"><a href="{% url 'admin:index' %}">Home</a> › <a href="{% url 'admin:imports_contentjob_changelist' %}">Content jobs</a> › Upload questions</div>{% endblock %}
+{% block content %}
+<style>
+.up-wrap{max-width:860px}
+.up-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:16px 0}
+.up-field{display:flex;flex-direction:column;gap:6px}
+.up-field label{font-weight:600}
+.up-field select,.up-field input[type=text],.up-field input[type=number]{width:100%;box-sizing:border-box;padding:6px}
+.up-field .help{color:var(--body-quiet-color);font-size:12px}
+.up-field .errorlist{margin:0}
+.up-box{padding:18px;border:1px solid var(--hairline-color);border-radius:8px;margin:16px 0}
+.up-box h2{margin-top:0}
+.up-actions{margin-top:18px}
+.up-recent{width:100%;margin-top:8px}
+.up-recent td,.up-recent th{padding:6px 8px}
+#answer-key-row[hidden]{display:none}
+</style>
+<div class="up-wrap">
+<p>Choose the exam and subject, then upload a PDF question paper or an Excel workbook. Only the subjects of the selected exam can be chosen.
+PDFs are read into a review workbook first: check it, fill in chapter and topic, then upload the corrected workbook here with the same exam and subject to import the questions as drafts.</p>
+{% if form.non_field_errors %}<ul class="errorlist">{% for e in form.non_field_errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
+{% if form.tenant.is_hidden %}{{ form.tenant }}{% endif %}
+<div class="up-box"><h2>1. Where the questions go</h2>
+<div class="up-steps">
+{% if not form.tenant.is_hidden %}<div class="up-field">{{ form.tenant.label_tag }}{{ form.tenant }}{{ form.tenant.errors }}<span class="help">Master tenant + platform admin = global PYQs. Any other institute = questions private to that institute.</span></div>{% endif %}
+<div class="up-field">{{ form.exam.label_tag }}{{ form.exam }}{{ form.exam.errors }}</div>
+<div class="up-field">{{ form.subject.label_tag }}{{ form.subject }}{{ form.subject.errors }}<span class="help" id="subject-help">Choose an exam first.</span></div>
+<div class="up-field">{{ form.year.label_tag }}{{ form.year }}{{ form.year.errors }}<span class="help">{{ form.year.help_text }}</span></div>
+</div></div>
+<div class="up-box"><h2>2. Files</h2>
+<div class="up-field">{{ form.file.label_tag }}{{ form.file }}{{ form.file.errors }}<span class="help">{{ form.file.help_text }} <a href="{% url 'admin:contentjob_template' 'questions' %}">Excel template</a></span></div>
+<div class="up-field" id="answer-key-row" style="margin-top:14px">{{ form.answer_key.label_tag }}{{ form.answer_key }}{{ form.answer_key.errors }}<span class="help">{{ form.answer_key.help_text }} Answers are matched by question number; nothing is guessed.</span></div>
+<div class="up-field" id="ocr-row" style="margin-top:14px"><label>{{ form.use_ocr }} {{ form.use_ocr.label }}</label><span class="help">{{ form.use_ocr.help_text }}</span></div>
+</div>
+<div class="up-box"><h2>3. Source and rights</h2>
+<div class="up-steps">
+<div class="up-field">{{ form.source.label_tag }}{{ form.source }}{{ form.source.errors }}<span class="help">{{ form.source.help_text }}</span></div>
+<div class="up-field">{{ form.license.label_tag }}{{ form.license }}{{ form.license.errors }}<span class="help">{{ form.license.help_text }}</span></div>
+</div></div>
+<div class="up-actions"><button type="submit" class="button default">Upload and process</button></div>
+</form>
+
+<div class="up-box"><h2>Recent uploads</h2>
+{% if recent %}<table class="up-recent"><thead><tr><th>#</th><th>Institute</th><th>Exam / subject</th><th>Type</th><th>Status</th><th>Created</th><th></th></tr></thead><tbody>
+{% for job in recent %}<tr><td>{{ job.pk }}</td><td>{{ job.tenant }}</td><td>{{ job.target_exam|default:'—' }} / {{ job.target_subject|default:'—' }}{% if job.year %} · {{ job.year }}{% endif %}</td><td>{% if job.kind == 'pdf' %}PDF{% if job.answer_key %} + key{% endif %}{% else %}Excel{% endif %}</td><td>{{ job.get_status_display }}{% if job.created_count %} · {{ job.created_count }} created{% endif %}</td><td>{{ job.created_at|date:'d M H:i' }}</td><td><a href="{% url 'admin:contentjob_review' job.pk %}">Review →</a></td></tr>{% endfor %}
+</tbody></table>{% else %}<p>No uploads yet.</p>{% endif %}
+</div>
+</div>
+{{ exam_subjects|json_script:'exam-subjects' }}
+<script>
+(function () {
+  var map = JSON.parse(document.getElementById('exam-subjects').textContent);
+  var exam = document.getElementById('id_exam'), subject = document.getElementById('id_subject');
+  var help = document.getElementById('subject-help'), file = document.getElementById('id_file');
+  var keyRow = document.getElementById('answer-key-row'), ocrRow = document.getElementById('ocr-row');
+  function fillSubjects() {
+    var chosen = subject.value, list = map[exam.value] || [];
+    subject.innerHTML = '';
+    var blank = document.createElement('option');
+    blank.value = ''; blank.textContent = list.length ? 'Choose a subject' : (exam.value ? 'This exam has no subjects' : 'Choose an exam first');
+    subject.appendChild(blank);
+    list.forEach(function (item) {
+      var o = document.createElement('option');
+      o.value = item[0]; o.textContent = item[1]; if (String(item[0]) === chosen) o.selected = true;
+      subject.appendChild(o);
+    });
+    subject.disabled = !list.length;
+    help.textContent = exam.value ? (list.length + ' subject' + (list.length === 1 ? '' : 's') + ' in this exam.') : 'Choose an exam first.';
+  }
+  function toggleFileOptions() {
+    var name = (file.files[0] && file.files[0].name || '').toLowerCase();
+    var isPdf = !name || name.slice(-4) === '.pdf';
+    keyRow.hidden = !isPdf; ocrRow.hidden = !isPdf;
+  }
+  exam.addEventListener('change', fillSubjects);
+  file.addEventListener('change', toggleFileOptions);
+  fillSubjects(); toggleFileOptions();
+})();
+</script>
+{% endblock %}

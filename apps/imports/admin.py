@@ -48,10 +48,17 @@ class ContentJobForm(forms.ModelForm):
     def clean(self):
         data=super().clean();file=data.get('file');kind=data.get('kind')
         exam=data.get('target_exam');subject=data.get('target_subject')
-        if kind=='questions' and bool(exam)!=bool(subject):
+        if kind in ('questions','pdf') and bool(exam)!=bool(subject):
             raise forms.ValidationError('Choose both a destination exam and subject, or leave both blank for a mixed workbook.')
-        if kind=='questions' and exam and subject and not exam.subjects.filter(pk=subject.pk).exists():
+        if kind in ('questions','pdf') and exam and subject and not exam.subjects.filter(pk=subject.pk).exists():
             raise forms.ValidationError('This subject is not enabled for the selected exam. Update the exam in admin first.')
+        tenant=data.get('tenant')
+        if exam and tenant and not (tenant.is_master and getattr(self,'user_is_superuser',False)):
+            from .excel_services import exam_enabled_for
+            if not exam_enabled_for(tenant,exam):raise forms.ValidationError(f'{exam} is not enabled for {tenant}.')
+        key=data.get('answer_key')
+        if key and (kind!='pdf' or not key.name.lower().endswith('.pdf')):
+            raise forms.ValidationError('A separate answer key must be a PDF and is only used with a PDF upload.')
         if file:
             name=file.name.lower()
             if kind=='pdf':allowed,limit=('.pdf',),100
@@ -91,17 +98,49 @@ class ContentJobAdmin(admin.ModelAdmin):
         return queryset if request.user.is_superuser else queryset.filter(tenant_id=getattr(request.user,'tenant_id',None))
     def get_readonly_fields(self,request,obj=None):
         fields=list(self.readonly_fields)
-        if obj:fields+=['file','kind','tenant','source','license','use_ocr','target_exam','target_subject']
+        if obj:fields+=['file','kind','tenant','source','license','use_ocr','target_exam','target_subject','answer_key','year']
+        fields.append('answer_key_summary')
         return fields
+    def get_form(self,request,obj=None,**kwargs):
+        form=super().get_form(request,obj,**kwargs)
+        form.user_is_superuser=request.user.is_superuser
+        return form
     def formfield_for_foreignkey(self,db_field,request,**kwargs):
         if db_field.name=='tenant' and not request.user.is_superuser:kwargs['queryset']=Tenant.objects.filter(pk=getattr(request.user,'tenant_id',None))
+        if db_field.name=='target_exam' and not request.user.is_superuser:
+            from .upload_dashboard import exams_for
+            kwargs['queryset']=exams_for(request.user)
         return super().formfield_for_foreignkey(db_field,request,**kwargs)
     def save_model(self,request,obj,form,change):
         if not job_allowed(request.user,obj.tenant,obj.kind,obj.use_ocr):raise PermissionDenied('This upload is not enabled for this tenant. Vision OCR also requires the scan_import feature.')
         if not change:obj.initiated_by=request.user
         super().save_model(request,obj,form,change)
     def get_urls(self):
-        return [path('<int:job_id>/review/',self.admin_site.admin_view(self.review_view),name='contentjob_review'),path('<int:job_id>/download/',self.admin_site.admin_view(self.download_view),name='contentjob_download'),path('template/<str:kind>/',self.admin_site.admin_view(self.template_view),name='contentjob_template')]+super().get_urls()
+        return [path('upload/',self.admin_site.admin_view(self.upload_view),name='contentjob_upload'),path('<int:job_id>/review/',self.admin_site.admin_view(self.review_view),name='contentjob_review'),path('<int:job_id>/download/',self.admin_site.admin_view(self.download_view),name='contentjob_download'),path('template/<str:kind>/',self.admin_site.admin_view(self.template_view),name='contentjob_template')]+super().get_urls()
+    def upload_view(self,request):
+        """Upload dashboard: institute -> exam -> subject -> PDF/Excel (+ answer key), then process and review."""
+        from django.shortcuts import redirect,render
+        from .job_services import process_job
+        from .upload_dashboard import QuestionUploadForm
+        if not self.has_add_permission(request):raise PermissionDenied()
+        initial={key:request.GET[key] for key in ('tenant','exam','subject','year','source','license') if request.GET.get(key)}
+        form=QuestionUploadForm(request.POST or None,request.FILES or None,user=request.user,initial=initial)
+        if request.method=='POST' and form.is_valid():
+            data=form.cleaned_data;kind=form.kind()
+            if not job_allowed(request.user,data['tenant'],kind,data['use_ocr']):
+                form.add_error(None,'Question uploads are not enabled for this institute (bulk question import). Vision OCR also needs scan import.')
+            else:
+                job=ContentJob.objects.create(tenant=data['tenant'],initiated_by=request.user,kind=kind,target_exam=data['exam'],
+                    target_subject=data['subject'],year=data['year'],file=data['file'],answer_key=data.get('answer_key') or '',
+                    source=data['source'],license=data['license'],use_ocr=data['use_ocr'])
+                process_job(job);job.refresh_from_db()
+                self.message_user(request,('PDF pages processed. Review the extracted questions, then download the review workbook.' if kind=='pdf'
+                    else 'Workbook checked. Review the rows and import them.') if job.status!='failed' else 'The upload has problems; see the errors below.',
+                    level='success' if job.status!='failed' else 'error')
+                return redirect('admin:contentjob_review',job_id=job.pk)
+        recent=self.get_queryset(request).filter(kind__in=['questions','pdf']).select_related('tenant','target_exam','target_subject').order_by('-created_at')[:15]
+        return render(request,'admin/imports/contentjob/upload.html',{**self.admin_site.each_context(request),'opts':self.model._meta,
+            'title':'Upload questions','form':form,'exam_subjects':form.exam_subjects(),'recent':recent})
     def review_link(self,obj):
         if not obj or not obj.pk:return 'Save this upload to open its processing and review page.'
         return format_html('<a href="{}">Process &amp; review →</a>',reverse('admin:contentjob_review',args=[obj.pk]))
