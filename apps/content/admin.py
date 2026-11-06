@@ -110,6 +110,8 @@ class QuestionAdminForm(forms.ModelForm):
         widget=MultipleImageInput(attrs={"accept": "image/png,image/jpeg,image/webp,image/gif"}))
     remove_figures = forms.TypedMultipleChoiceField(required=False, coerce=int, label="Remove images",
         widget=forms.CheckboxSelectMultiple)
+    figure_order = forms.CharField(required=False, label="Image order",
+        help_text="Existing image numbers in display order, separated by commas. Removed images may be omitted.")
 
     class Meta:
         model = Question
@@ -119,8 +121,33 @@ class QuestionAdminForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         paths = self.instance.figure_paths if self.instance and self.instance.pk else []
         self.fields["remove_figures"].choices = [(index, f"Image {index + 1}") for index in range(len(paths))]
+        if paths:
+            self.fields['figure_order'].initial = ', '.join(str(index + 1) for index in range(len(paths)))
         if not paths:
             self.fields["remove_figures"].widget = forms.HiddenInput()
+            self.fields['figure_order'].widget = forms.HiddenInput()
+
+    def clean(self):
+        data = super().clean()
+        paths = self.instance.figure_paths or [] if self.instance.pk else []
+        removed = set(data.get('remove_figures') or [])
+        raw = (data.get('figure_order') or '').strip()
+        if raw:
+            try:
+                order = [int(part.strip()) - 1 for part in raw.split(',')]
+            except ValueError:
+                self.add_error('figure_order', 'Use comma-separated image numbers.')
+                return data
+            expected = set(range(len(paths))) - removed
+            if len(order) == len(paths) and set(order) == set(range(len(paths))):
+                order = [index for index in order if index not in removed]
+            if set(order) != expected or len(order) != len(expected):
+                self.add_error('figure_order', 'List every image you are keeping exactly once.')
+            else:
+                data['parsed_figure_order'] = order
+        else:
+            data['parsed_figure_order'] = [index for index in range(len(paths)) if index not in removed]
+        return data
 
     def clean_add_figures(self):
         from .figures import MAX_FIGURES, clean_image
@@ -171,8 +198,9 @@ class QuestionAdmin(TenantScopedAdmin):
         from .figures import store
         removed = set(form.cleaned_data.get("remove_figures") or [])
         added = form.cleaned_data.get("add_figures") or []
-        if removed or added:
-            paths = [p for index, p in enumerate(obj.figure_paths or []) if index not in removed]
+        order = form.cleaned_data.get('parsed_figure_order', [])
+        if removed or added or order != list(range(len(obj.figure_paths or []))):
+            paths = [obj.figure_paths[index] for index in order]
             paths += [store(data, extension, obj.pk) for data, extension in added]
             Question.objects.filter(pk=obj.pk).update(figure_paths=paths)
             obj.figure_paths = paths

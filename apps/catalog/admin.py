@@ -25,5 +25,15 @@ class SubtopicAdmin(PlatformCatalogAdmin):
     autocomplete_fields = ("topic",)
 
 
-for model in (Exam, Subject, Chapter, Paper):
+@admin.register(Exam)
+class ExamAdmin(PlatformCatalogAdmin):
+    list_display = ("name", "slug", "active", "subject_names")
+    filter_horizontal = ("subjects",)
+
+    @admin.display(description="Subjects")
+    def subject_names(self, obj):
+        return ", ".join(obj.subjects.values_list("name", flat=True))
+
+
+for model in (Subject, Chapter, Paper):
     admin.site.register(model, PlatformCatalogAdmin)

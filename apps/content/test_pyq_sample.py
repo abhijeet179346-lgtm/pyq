@@ -14,6 +14,10 @@ from apps.portal.models import DirectPracticeAttempt
 
 
 class RealPYQSampleTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command('seed_exam_catalog', stdout=io.StringIO())
+
     def test_dry_run_does_not_persist_sample(self):
         call_command("import_pyq_sample", dry_run=True, stdout=io.StringIO())
         self.assertEqual(Question.objects.count(), 0)

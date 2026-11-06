@@ -6,7 +6,7 @@ import mimetypes
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
-from django.db.models import Q
+from django.db.models import Q, F
 from django.http import FileResponse, HttpResponse, Http404
 from django.core.files.storage import default_storage
 from django.shortcuts import get_object_or_404, redirect, render
@@ -101,7 +101,8 @@ def practice_home(request):
     if is_enabled(tenant, "global_pyq_bank"):
         enabled_exams = TenantExam.objects.filter(tenant=tenant, enabled=True, exam__active=True).values_list("exam_id", flat=True)
         visible |= Q(kind=Question.Kind.PYQ, tenant__isnull=True, paper__exam_id__in=enabled_exams)
-    questions = Question.objects.filter(visible, status=Question.Status.PUBLISHED).select_related("topic__chapter__subject", "paper__exam", "subtopic")
+    valid_subject = Q(kind=Question.Kind.PRACTICE) | Q(paper__exam__subjects=F('topic__chapter__subject_id'))
+    questions = Question.objects.filter(visible & valid_subject, status=Question.Status.PUBLISHED).select_related("topic__chapter__subject", "paper__exam", "subtopic")
     if request.user.role == "teacher":
         subjects = TeacherSubjectAssignment.objects.filter(tenant=tenant, teacher=request.user).values_list("subject_id", flat=True)
         questions = questions.filter(topic__chapter__subject_id__in=subjects)
@@ -146,7 +147,8 @@ def practice_question(request, question_id):
             raise PermissionDenied("Tenant questions are unavailable.")
     elif question.tenant_id is None:
         if (question.kind != Question.Kind.PYQ or not is_enabled(tenant, "global_pyq_bank") or
-                not TenantExam.objects.filter(tenant=tenant, exam_id=question.paper.exam_id, enabled=True).exists()):
+                not TenantExam.objects.filter(tenant=tenant, exam_id=question.paper.exam_id, enabled=True).exists() or
+                not question.paper.exam.subjects.filter(pk=question.topic.chapter.subject_id).exists()):
             raise PermissionDenied("Global PYQs are unavailable.")
     else:
         raise PermissionDenied("Question belongs to another institute.")
@@ -182,7 +184,7 @@ def practice_question(request, question_id):
         feedback = {"correct": correct, "selected": selected}
     return render(request, "learning/practice_question.html", {
         "question": question, "options": option_pairs(question), "feedback": feedback, "tenant": tenant,
-        "figure_urls": [reverse("question_figure_image", args=[question.pk, index]) for index in range(len(question.figure_paths or []))] if question.tenant_id == tenant.pk else [],
+        "figure_urls": [reverse("question_figure_image", args=[question.pk, index]) for index in range(len(question.figure_paths or []))],
         "selected_batch": selected_batch, "available_batches": available_batches,
         "mistake_tutor_enabled": is_enabled(tenant, "ai_tutor_mistake"),
         "mistake_attempt_id": practice_attempt.pk if request.method == "POST" else None,
@@ -230,9 +232,9 @@ def question_source_image(request, question_id):
         raise PermissionDenied("Question source images are unavailable.")
     question = get_object_or_404(Question, pk=question_id, tenant=tenant,
         status=Question.Status.PUBLISHED, source_scan_id__isnull=False, source_page__isnull=False)
-    if request.user.role == "student" and not BatchEnrollment.objects.filter(student=request.user, tenant=tenant, active=True).exists():
+    if not request.user.is_superuser and request.user.role == "student" and not BatchEnrollment.objects.filter(student=request.user, tenant=tenant, active=True).exists():
         raise PermissionDenied("You are not enrolled in an active batch.")
-    if request.user.role == "teacher" and not TeacherSubjectAssignment.objects.filter(
+    if not request.user.is_superuser and request.user.role == "teacher" and not TeacherSubjectAssignment.objects.filter(
             tenant=tenant, teacher=request.user, subject=question.topic.chapter.subject).exists():
         raise PermissionDenied("You are not assigned to this question's subject.")
     from apps.scans.models import ScanImport
@@ -250,20 +252,33 @@ def question_source_image(request, question_id):
 @require_http_methods(["GET"])
 def question_figure_image(request, question_id, figure_index):
     tenant = _tenant_user(request)
-    if not is_enabled(tenant, "practice") or not is_enabled(tenant, "tenant_question_bank"):
+    if not is_enabled(tenant, "practice"):
         raise PermissionDenied("Question figures are unavailable.")
-    question = get_object_or_404(Question, pk=question_id, tenant=tenant, status=Question.Status.PUBLISHED)
-    if request.user.role == "student" and not BatchEnrollment.objects.filter(student=request.user, tenant=tenant, active=True).exists():
+    question = get_object_or_404(Question.objects.select_related('paper__exam', 'topic__chapter__subject'),
+        pk=question_id, status=Question.Status.PUBLISHED)
+    if question.tenant_id == tenant.pk:
+        if question.kind != Question.Kind.PRACTICE or not is_enabled(tenant, 'tenant_question_bank'):
+            raise PermissionDenied('Question figures are unavailable.')
+    elif question.tenant_id is None and question.kind == Question.Kind.PYQ and question.paper_id:
+        if (not is_enabled(tenant, 'global_pyq_bank') or
+                not TenantExam.objects.filter(tenant=tenant, exam=question.paper.exam, enabled=True).exists() or
+                not question.paper.exam.subjects.filter(pk=question.topic.chapter.subject_id).exists()):
+            raise PermissionDenied('Question figures are unavailable.')
+    else:
+        raise PermissionDenied('Question figures are unavailable.')
+    if not request.user.is_superuser and request.user.role == "student" and not BatchEnrollment.objects.filter(student=request.user, tenant=tenant, active=True).exists():
         raise PermissionDenied("You are not enrolled in an active batch.")
-    if request.user.role == "teacher" and not TeacherSubjectAssignment.objects.filter(
+    if not request.user.is_superuser and request.user.role == "teacher" and not TeacherSubjectAssignment.objects.filter(
             tenant=tenant, teacher=request.user, subject=question.topic.chapter.subject).exists():
         raise PermissionDenied("You are not assigned to this question's subject.")
     if figure_index < 0 or figure_index >= len(question.figure_paths):
         raise Http404("Question figure not found.")
+    from apps.content.figures import content_type, open_figure
     path = question.figure_paths[figure_index]
-    if not default_storage.exists(path):
+    handle = open_figure(path)
+    if handle is None:
         raise Http404("Question figure not found.")
-    return FileResponse(default_storage.open(path, "rb"), content_type=mimetypes.guess_type(path)[0] or "image/png")
+    return FileResponse(handle, content_type=content_type(path))
 
 
 @login_required

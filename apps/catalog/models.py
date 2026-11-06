@@ -6,6 +6,7 @@ class Exam(models.Model):
     name = models.CharField(max_length=120, unique=True)
     slug = models.SlugField(unique=True)
     active = models.BooleanField(default=True)
+    subjects = models.ManyToManyField("Subject", related_name="exams", blank=True)
     def __str__(self): return self.name
 
 

@@ -27,6 +27,8 @@ class ContentJob(models.Model):
     tenant = models.ForeignKey('tenancy.Tenant',on_delete=models.CASCADE)
     initiated_by = models.ForeignKey(settings.AUTH_USER_MODEL,null=True,on_delete=models.SET_NULL)
     kind = models.CharField(max_length=20,choices=[('questions','Excel questions'),('exams','Excel exam catalogue'),('tests','Excel timed tests'),('materials','Excel study sections'),('pdf','PDF to Excel')])
+    target_exam = models.ForeignKey('catalog.Exam', null=True, blank=True, on_delete=models.PROTECT, related_name='+', help_text='For question uploads, choose the destination exam. Workbook rows must match if they also specify an exam.')
+    target_subject = models.ForeignKey('catalog.Subject', null=True, blank=True, on_delete=models.PROTECT, related_name='+', help_text='For question uploads, choose the destination subject. Workbook rows must match if they also specify a subject.')
     file = models.FileField(upload_to='content-jobs/%Y/%m/')
     status = models.CharField(max_length=20,default='queued',choices=[('queued','Queued'),('processing','Processing'),('review','Review required'),('completed','Completed'),('failed','Failed')])
     source = models.CharField(max_length=240,blank=True)

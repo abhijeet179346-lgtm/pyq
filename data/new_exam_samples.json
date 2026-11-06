@@ -1,0 +1,57 @@
+{
+  "questions": [
+    {
+      "exam": "comedk", "subject": "Physics", "chapter": "Current Electricity", "topic": "Galvanometer and shunt", "year": 2024,
+      "sitting": "Morning Shift", "question_number": 1, "section": "Physics · Adapted Q1", "question_type": "single_correct",
+      "stem": "A $90\\,\\Omega$ galvanometer has a $10\\,\\Omega$ shunt. What fraction of the total current flows through each branch?",
+      "options": [{"id": "A", "text": "$1/90$ through the galvanometer and $1/10$ through the shunt"}, {"id": "B", "text": "$1/10$ through the galvanometer and $1/90$ through the shunt"}, {"id": "C", "text": "$1/10$ through the galvanometer and $9/10$ through the shunt"}, {"id": "D", "text": "$9/10$ through the galvanometer and $1/10$ through the shunt"}],
+      "answer": "C", "solution": "The parallel branches have equal voltage, so $I_g/I_s=R_s/R_g=1/9$. Hence $I_g/I=1/10$ and $I_s/I=9/10$.",
+      "source_url": "https://www.collegebatch.com/exam-docs/COMEDK-2024-Question-Paper-with-Solution.pdf", "answer_source_url": "https://www.collegebatch.com/exam-docs/COMEDK-2024-Question-Paper-with-Solution.pdf", "source_page": 2,
+      "license": "Short adapted restatement for local evaluation; original rights retained.", "difficulty": 2
+    },
+    {
+      "exam": "comedk", "subject": "Physics", "chapter": "Motion in One Dimension", "topic": "Relative speed", "year": 2024,
+      "sitting": "Morning Shift", "question_number": 3, "section": "Physics · Adapted Q3", "question_type": "single_correct",
+      "stem": "Two objects separate at $6\\,\\mathrm{m/s}$ in the same direction and approach at $8\\,\\mathrm{m/s}$ when facing each other. Find their speeds.",
+      "options": [{"id": "A", "text": "$14$ and $2\\,\\mathrm{m/s}$"}, {"id": "B", "text": "$7$ and $1\\,\\mathrm{m/s}$"}, {"id": "C", "text": "$3.5$ and $2\\,\\mathrm{m/s}$"}, {"id": "D", "text": "$3.5$ and $1\\,\\mathrm{m/s}$"}],
+      "answer": "B", "solution": "Let the speeds be $u>v$. Then $u-v=6$ and $u+v=8$, giving $u=7$ and $v=1\\,\\mathrm{m/s}$.",
+      "source_url": "https://www.collegebatch.com/exam-docs/COMEDK-2024-Question-Paper-with-Solution.pdf", "answer_source_url": "https://www.collegebatch.com/exam-docs/COMEDK-2024-Question-Paper-with-Solution.pdf", "source_page": 3,
+      "license": "Short adapted restatement for local evaluation; original rights retained.", "difficulty": 2
+    },
+    {
+      "exam": "mht-cet", "subject": "Physics", "chapter": "Waves", "topic": "Wavelength and frequency", "year": 2024,
+      "sitting": "24 Apr Shift 1", "question_number": 3, "section": "Physics · Adapted Q3", "question_type": "integer",
+      "stem": "Eleven consecutive wave crests span $1\\,\\mathrm{m}$. If speed is $30\\,\\mathrm{m/s}$, find the frequency in hertz.",
+      "options": [], "answer": "300", "solution": "Eleven crests define ten wavelengths, so $\\lambda=1/10\\,\\mathrm{m}$. Then $f=v/\\lambda=30/0.1=300\\,\\mathrm{Hz}$.",
+      "source_url": "https://media.getmyuni.com/assets/downloadables/9c8e766b-cadc-4678-979e-02552b00e38d.pdf", "answer_source_url": "https://media.getmyuni.com/assets/downloadables/9c8e766b-cadc-4678-979e-02552b00e38d.pdf", "source_page": 1,
+      "license": "Short adapted restatement for local evaluation; original rights retained.", "difficulty": 2
+    },
+    {
+      "exam": "mht-cet", "subject": "Physics", "chapter": "Electrostatics", "topic": "Potential energy of charges", "year": 2024,
+      "sitting": "24 Apr Shift 1", "question_number": 6, "section": "Physics · Adapted Q6", "question_type": "single_correct",
+      "stem": "Three charges $+q$ occupy the vertices of an equilateral triangle of side $a$. What is their total potential energy?",
+      "options": [{"id": "A", "text": "$kq^2/a$"}, {"id": "B", "text": "$2kq^2/a$"}, {"id": "C", "text": "$3kq^2/a$"}, {"id": "D", "text": "$6kq^2/a$"}],
+      "answer": "C", "solution": "There are three pairs of charges, each separated by $a$ and contributing $kq^2/a$; the total is $3kq^2/a$.",
+      "source_url": "https://media.getmyuni.com/assets/downloadables/9c8e766b-cadc-4678-979e-02552b00e38d.pdf", "answer_source_url": "https://media.getmyuni.com/assets/downloadables/9c8e766b-cadc-4678-979e-02552b00e38d.pdf", "source_page": 1,
+      "license": "Short adapted restatement for local evaluation; original rights retained.", "difficulty": 2
+    },
+    {
+      "exam": "cuet-ug", "subject": "Physics", "chapter": "Electric Charges and Fields", "topic": "Quantization of charge", "year": 2024,
+      "sitting": "16 May · Physics · Booklet C", "question_number": 1, "section": "Physics · Adapted Q1", "question_type": "single_correct",
+      "stem": "Transfer of whole numbers of which particle demonstrates the quantization of electric charge?",
+      "options": [{"id": "A", "text": "Photons"}, {"id": "B", "text": "Nuclei"}, {"id": "C", "text": "Electrons"}, {"id": "D", "text": "Neutrons"}],
+      "answer": "C", "solution": "An electron carries one elementary charge $-e$; transferred charge is an integer multiple of $e$.",
+      "source_url": "https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/physics.pdf", "answer_source_url": "https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/physics.pdf",
+      "license": "Short adapted restatement for local evaluation; original rights retained.", "difficulty": 1
+    },
+    {
+      "exam": "cuet-ug", "subject": "Physics", "chapter": "Semiconductor Electronics", "topic": "Rectifiers", "year": 2024,
+      "sitting": "16 May · Physics · Booklet C", "question_number": 17, "section": "Physics · Adapted Q17", "question_type": "single_correct",
+      "stem": "A full-wave rectifier receives a $50\\,\\mathrm{Hz}$ AC input. What is the output frequency?",
+      "options": [{"id": "A", "text": "$50\\,\\mathrm{Hz}$"}, {"id": "B", "text": "$100\\,\\mathrm{Hz}$"}, {"id": "C", "text": "$25\\,\\mathrm{Hz}$"}, {"id": "D", "text": "$0\\,\\mathrm{Hz}$"}],
+      "answer": "B", "solution": "Full-wave rectification produces two pulses per input cycle, so $f_{\\mathrm{out}}=2f_{\\mathrm{in}}=100\\,\\mathrm{Hz}$.",
+      "source_url": "https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/physics.pdf", "answer_source_url": "https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/physics.pdf",
+      "license": "Short adapted restatement for local evaluation; original rights retained.", "difficulty": 1
+    }
+  ]
+}

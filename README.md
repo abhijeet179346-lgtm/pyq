@@ -11,6 +11,7 @@ python3 -m venv .venv
 python -m pip install -r requirements.txt
 python manage.py makemigrations accounts tenancy catalog content imports learning assessments features audit materials tutoring scans
 python manage.py migrate
+python manage.py seed_exam_catalog
 python manage.py createsuperuser
 python manage.py bootstrap_pilot --tenant-name "Demo Institute" --tenant-slug demo --admin-email admin@example.test
 python manage.py runserver 127.0.0.1:8000
@@ -23,6 +24,14 @@ For provider-backed AI workflows, set `OPENAI_API_KEY`; optionally set `OPENAI_B
 Optional semantic retrieval requires `PINECONE_API_KEY`, `PINECONE_INDEX_HOST`, and an OpenAI-compatible embedding endpoint/model (`PYQ_EMBEDDING_MODEL`, default `text-embedding-3-small`). Create a Pinecone index with the embedding model’s vector dimension, then run `python manage.py index_material_vectors --tenant <id>`. Without Pinecone configuration, the tutor uses tenant-first lexical retrieval. Pinecone namespaces separate tenant and global material records.
 
 ## Phase 0 — content foundation
+
+### Exam subjects, question uploads and math
+
+`python manage.py seed_exam_catalog` creates JEE Main, JEE Advanced, NEET, COMEDK, MHT-CET and CUET UG with initial subjects. It preserves later admin changes. A platform superuser can edit an exam's subjects in **Catalog → Exams**. Removing a subject hides its existing PYQs from learner practice; imports and question publishing reject new mismatched exam/subject pairs. Enable an exam for each tenant under **Tenant exams**. The seed command enables COMEDK, MHT-CET and CUET UG for the master tenant. `python manage.py import_new_exam_samples --tenant master` adds two short, sourced, adapted evaluation questions to each new exam; replace these with reviewed licensed papers before broad use.
+
+For a single exam/subject upload, open **Imports → Content jobs → Add**, choose **Excel questions**, select a destination exam and subject, and upload an `.xlsx` file. The workbook may omit its `exam` and `subject` cells; any supplied values must match the selected destination. These rows are global PYQs and need a real `year`, source and rights information. A mixed workbook can leave both selectors blank and supply exam/subject on every row. A `.zip` containing one workbook and named image files attaches diagrams through the `images` column. Admin can preview, remove and reorder each question's images.
+
+Use `$...$` for inline LaTeX and `$$...$$` for display equations in stems, options and solutions. Learner question and test pages render them with the bundled MathJax. `python manage.py repair_question_math` previews conservative repairs to old encoding errors and bare LaTeX tables; `--apply` writes revisions and repaired text. Flattened OCR equations cannot be reconstructed reliably from plain text and need comparison with their source paper.
 
 ### Main application
 

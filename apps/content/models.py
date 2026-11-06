@@ -68,6 +68,10 @@ class Question(models.Model):
             errors["difficulty"] = "Difficulty must be between 1 and 5."
         if self.topic_id and self.topic.chapter.subject_id is None:
             errors["topic"] = "Topic must belong to a valid chapter and subject."
+        if self.kind == self.Kind.PYQ and self.paper_id and self.topic_id:
+            exam = self.paper.exam
+            if not exam.subjects.filter(pk=self.topic.chapter.subject_id).exists():
+                errors["topic"] = f"{self.topic.chapter.subject} is not enabled for {exam}. Edit the exam's subjects in admin."
         if self.status == self.Status.PUBLISHED and not self.topic_id:
             errors["topic"] = "Published questions must be assigned to a topic."
         if errors:

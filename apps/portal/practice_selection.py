@@ -4,8 +4,8 @@ from django.http import Http404
 from apps.catalog.browsing import taxonomy_filters
 
 
-def selection(visible, params):
-    queryset, taxonomy = taxonomy_filters(visible, params)
+def selection(visible, params, allowed_subjects=None):
+    queryset, taxonomy = taxonomy_filters(visible, params, allowed_subjects)
     tree = {}
     for row in queryset.values('id', 'topic__chapter_id', 'topic__chapter__name', 'topic_id', 'topic__name', 'subtopic_id', 'subtopic__name'):
         if row['topic__chapter_id'] is None:

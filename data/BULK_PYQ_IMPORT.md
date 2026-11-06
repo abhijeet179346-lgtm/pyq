@@ -1,0 +1,22 @@
+# 2024 bulk PYQ import
+
+The 2024 bulk batch adds 381 source-linked questions through ten admin Content Jobs (#8–17). The quality pass published 286: COMEDK 137, CUET UG 94, and MHT-CET 55. The other 95 remain drafts for closer editorial review. Existing JEE Main, JEE Advanced, and NEET banks already contain 501 published questions each.
+
+A second MHT-CET 2024 shift-paper batch adds 353 source-linked **drafts** through admin Content Jobs #18–20: Physics 108, Chemistry 225, and Mathematics 20. The MHT-CET bank now has 61 published questions and 374 drafts. The combined new import across the three smaller exams is 734 questions, of which 286 were published and 448 remain drafts.
+
+| Exam | Downloadable paper and answer sources | Imported | Published |
+| --- | --- | ---: | ---: |
+| COMEDK | [PracBee 2024 shift papers](https://hive.pracbee.com/comedk/previous-year-question-papers/2024), with answer metadata on each subject page and PDF download links | 200 | 137 |
+| CUET UG | [Resonance 2024 Biology](https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/biology.pdf), [Chemistry](https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/chemistry.pdf), [Physics](https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/physics.pdf), [Mathematics](https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/mathematics.pdf), and [General Test](https://www.resonance.ac.in/answer-key-solutions/cuet/2024/solutions/General-Test-v1.pdf) solved PDFs | 105 | 94 |
+| MHT-CET | [2024 PCM paper with worked answers](https://blog-itm.itmlive.in/blog/content/files/2026/01/MHT-CET-2024-PCM-Question-Paper-With-Answer-Key.pdf) | 76 | 55 |
+| MHT-CET additional shifts | [PracBee 2024 shift papers](https://hive.pracbee.com/mht-cet/previous-year-question-papers/2024) | 353 | 0; subject review needed |
+
+`bulk_pyq_batch.json` is the source-linked dataset. Each row carries the original question number in its source ID, exam, year, paper, subject, answer, and URL. PDF rows also carry a page number. `admin_import_workbooks/bulk-2024-*.xlsx` are the upload-ready Excel workbooks. The app's own `workbook_bytes` function creates them, so their columns match the admin importer exactly.
+
+Run `python manage.py shell < scripts/import_bulk_pyqs.py` from the project root to create workbooks and submit new rows through the admin add, process, and commit pages. Re-running skips rows already in the bank. Run `python manage.py shell < scripts/publish_bulk_pyqs.py` to repeat the recorded structural screen and publication selection. `bulk_pyq_published_ids.json` records those source IDs. Questions needing figures, passages, broken equation extraction, or missing answer options were excluded from the batch. The publishing screen favors short, self-contained questions and excludes near duplicates; it is not a substitute for independent subject review of every answer.
+
+The publisher answer keys are transcribed, with two evident CUET errors excluded before import: Biology Q16 and General Test Q8. Other publisher answers were not independently checked one by one. Bulk rows use a `2024 Past Paper` chapter and `Source-based questions` topic so no specific chapter is asserted from automatic extraction; editors can refine them in admin. Worked solutions are left blank where the source explanation could not be safely extracted. Original examination and publisher rights remain with their owners.
+
+The additional MHT-CET batch uses `mht_cet_pracbee_candidates.json`, `mht_cet_shift_import.json`, and `admin_import_workbooks/mht-cet-2024-pracbee-shift-papers-draft.xlsx`. `scripts/collect_mht_cet_pracbee.py` collects candidates from the public shift pages, rejecting missing images, missing answer metadata, and damaged expressions. `python manage.py shell < scripts/import_mht_cet_shift_pyqs.py` screens near duplicates, writes the review workbook, and imports each subject through the admin upload, process, and commit flow. Re-running is safe: already imported rows are skipped.
+
+**Editorial caution:** At least one answer in the PracBee shift metadata is evidently wrong (the Curie-temperature question). The 353 new rows therefore stay as drafts until a subject editor checks their answers against a dependable key or independently solves them. The source transcription also contains occasional spelling mistakes. Do not bulk publish this second batch on the basis of the source answer alone.

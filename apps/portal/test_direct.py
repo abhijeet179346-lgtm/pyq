@@ -22,6 +22,7 @@ class DirectLearnerTests(TestCase):
         cls.tenant = Tenant.objects.create(name="Private Institute", slug="private")
         exam = Exam.objects.create(name="Direct exam", slug="direct-exam")
         subject = Subject.objects.create(name="Physics", slug="physics")
+        exam.subjects.add(subject)
         chapter = Chapter.objects.create(subject=subject, name="Mechanics")
         cls.topic = Topic.objects.create(chapter=chapter, name="Force")
         TenantExam.objects.create(tenant=cls.user.tenant, exam=exam, enabled=True)
@@ -48,6 +49,12 @@ class DirectLearnerTests(TestCase):
         self.assertNotContains(response, "Enter your access code")
         self.assertNotContains(response, "Manage institutes")
         self.assertNotContains(response, '/admin/')
+
+    def test_removing_exam_subject_hides_existing_question(self):
+        self.question.paper.exam.subjects.clear()
+        response = self.client.get(f'/practice/?exam={self.question.paper.exam_id}&view=browse')
+        self.assertNotContains(response, self.question.stem)
+        self.assertEqual(self.client.get(f'/practice/questions/{self.question.pk}/').status_code, 404)
         self.assertTrue(self.user.tenant.is_master)
 
     def test_direct_bank_only_shows_published_global_pyqs(self):

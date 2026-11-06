@@ -3,7 +3,7 @@ from django.db.models import Count
 from django.http import Http404
 
 
-def taxonomy_filters(visible, params):
+def taxonomy_filters(visible, params, allowed_subjects=None):
     queryset = visible
     subject = params.get("subject", "").strip()
     selected = {key: params.get(key, "").strip() for key in ("chapter", "topic", "subtopic")}
@@ -28,7 +28,8 @@ def taxonomy_filters(visible, params):
         if subject and subject not in (name, str(item.topic.chapter.subject_id)):
             raise Http404("This selection belongs to a different subject.")
         subject = name
-    subjects = list(visible.order_by("topic__chapter__subject__name").values_list("topic__chapter__subject__name", flat=True).distinct())
+    subjects = (list(allowed_subjects) if allowed_subjects is not None else
+                list(visible.order_by("topic__chapter__subject__name").values_list("topic__chapter__subject__name", flat=True).distinct()))
     if subject:
         if subject.isascii() and subject.isdecimal() and len(subject) <= 18:
             row = visible.filter(topic__chapter__subject_id=int(subject)).first()

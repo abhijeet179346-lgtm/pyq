@@ -22,6 +22,7 @@ class PracticeTests(TestCase):
         TenantExam.objects.create(tenant=cls.master, exam=cls.exam, enabled=True)
         paper = Paper.objects.create(exam=cls.exam, year=2024)
         subject = Subject.objects.create(name="Physics", slug="physics-p")
+        cls.exam.subjects.add(subject)
         cls.topic = Topic.objects.create(chapter=Chapter.objects.create(subject=subject, name="Mechanics"), name="Force")
         options = [{"id": "A", "text": "First"}, {"id": "B", "text": "Second"}]
         cls.questions = [Question.objects.create(kind="PYQ", paper=paper, topic=cls.topic, stem=f"Practice stem {i}", options=options,
@@ -143,6 +144,7 @@ class CustomTestBuilderTests(TestCase):
         TenantExam.objects.create(tenant=cls.master, exam=cls.exam, enabled=True)
         paper = Paper.objects.create(exam=cls.exam, year=2023)
         topic = Topic.objects.create(chapter=Chapter.objects.create(subject=Subject.objects.create(name="Maths", slug="maths-c"), name="Algebra"), name="Roots")
+        cls.exam.subjects.add(topic.chapter.subject)
         options = [{"id": "A", "text": "2"}, {"id": "B", "text": "3"}]
         common = dict(kind="PYQ", paper=paper, topic=topic, source="Fixture", license="Fixture", status="published")
         cls.single = Question.objects.create(stem="Custom single", options=options, answer="B", **common)

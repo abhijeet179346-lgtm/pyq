@@ -26,6 +26,7 @@ class MasterTenantTests(TestCase):
         TenantExam.objects.create(tenant=cls.master, exam=cls.exam, enabled=True)
         paper = Paper.objects.create(exam=cls.exam, year=2024)
         subject = Subject.objects.create(slug="master-physics", name="Master physics")
+        cls.exam.subjects.add(subject)
         chapter = Chapter.objects.create(subject=subject, name="Mechanics")
         cls.topic = Topic.objects.create(chapter=chapter, name="Forces")
         common = dict(topic=cls.topic, answer="A", options=["First", "Second"],

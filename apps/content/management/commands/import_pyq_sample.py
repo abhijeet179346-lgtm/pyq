@@ -9,6 +9,7 @@ from django.utils.text import slugify
 from apps.audit.models import AuditEvent
 from apps.catalog.models import Chapter, Exam, Paper, Subject, Topic, Subtopic
 from apps.content.models import ConceptTag, Question, QuestionConceptTag, QuestionRevision
+from apps.content.math_text import repair_text
 from apps.features.models import TenantExam
 from apps.tenancy.models import Tenant
 
@@ -33,7 +34,7 @@ class Command(BaseCommand):
             tenant = Tenant.objects.filter(slug=options["tenant"]).first()
             if tenant is None:
                 raise CommandError("Unknown tenant slug.")
-        exam_names = {"jee-main": "JEE Main", "jee-advanced": "JEE Advanced", "neet": "NEET"}
+        exam_names = {"jee-main": "JEE Main", "jee-advanced": "JEE Advanced", "neet": "NEET", "comedk": "COMEDK", "mht-cet": "MHT-CET", "cuet-ug": "CUET UG"}
         created = skipped = updated = 0
         counts = {}
         for row in payload["questions"]:
@@ -41,6 +42,8 @@ class Command(BaseCommand):
                 raise CommandError("Unknown exam in sample file.")
             exam, _ = Exam.objects.get_or_create(slug=row["exam"], defaults={"name": exam_names[row["exam"]]})
             subject, _ = Subject.objects.get_or_create(slug=slugify(row["subject"]), defaults={"name": row["subject"]})
+            if not exam.subjects.filter(pk=subject.pk).exists():
+                raise CommandError(f'{subject.name} is not enabled for {exam.name}. Update the exam in admin.')
             chapter, _ = Chapter.objects.get_or_create(subject=subject, name=row["chapter"])
             topic, _ = Topic.objects.get_or_create(chapter=chapter, name=row["topic"])
             subtopic = None
@@ -71,9 +74,11 @@ class Command(BaseCommand):
                     skipped += 1
             else:
                 answer = json.dumps(row["answer"]) if isinstance(row["answer"], list) else row["answer"]
+                answer_options = [{**item, 'text': repair_text(item.get('text', ''))} if isinstance(item, dict) else repair_text(item)
+                           for item in row["options"]]
                 question = Question(tenant=None, kind=Question.Kind.PYQ, paper=paper, section=section,
-                    question_type=row["question_type"], stem=row["stem"], options=row["options"], answer=answer,
-                    solution=row["solution"] + "\n\nAnswer reference: " + row["answer_source_url"],
+                    question_type=row["question_type"], stem=repair_text(row["stem"]), options=answer_options, answer=answer,
+                    solution=repair_text(row["solution"]) + "\n\nAnswer reference: " + row["answer_source_url"],
                     topic=topic, subtopic=subtopic, source=source, source_page=row.get("source_page"),
                     license=row.get("license", "Short PYQ restatement; original copyright retained; local evaluation sample."),
                     difficulty=row.get("difficulty", 4 if row["exam"] == "jee-advanced" else 2),

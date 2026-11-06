@@ -39,6 +39,7 @@ class FigureTests(TestCase):
         TenantExam.objects.create(tenant=cls.master, exam=cls.exam, enabled=True)
         cls.paper = Paper.objects.create(exam=cls.exam, year=2024)
         subject = Subject.objects.create(name="Optics", slug="optics")
+        cls.exam.subjects.add(subject)
         cls.topic = Topic.objects.create(chapter=Chapter.objects.create(subject=subject, name="Rays"), name="Mirrors")
         cls.question = Question.objects.create(kind="PYQ", paper=cls.paper, topic=cls.topic, stem="Use the ray diagram",
             options=[{"id": "A", "text": "x"}, {"id": "B", "text": "y"}], answer="A", source="Fixture", license="Fixture",
@@ -88,6 +89,14 @@ class FigureTests(TestCase):
         self.question.refresh_from_db()
         self.assertEqual(len(self.question.figure_paths), 1)
 
+    def test_admin_reorders_images(self):
+        client = self.attach(png(), png((0, 0, 200)))
+        first, second = self.question.figure_paths
+        response = self.admin_save(client, self.question, figure_order='2, 1')
+        self.assertEqual(response.status_code, 302)
+        self.question.refresh_from_db()
+        self.assertEqual(self.question.figure_paths, [second, first])
+
     def test_admin_rejects_non_images(self):
         client = self.client_for(self.root)
         fake = SimpleUploadedFile("evil.png", b"<script>alert(1)</script>", content_type="image/png")
@@ -108,6 +117,12 @@ class FigureTests(TestCase):
         Question.objects.filter(pk=self.question.pk).update(status="draft")
         self.assertEqual(learner.get(url).status_code, 404)
         self.assertEqual(Client(HTTP_HOST="localhost").get(url).status_code, 302)
+
+    def test_global_pyq_figure_is_available_in_institute_practice_view(self):
+        self.attach(png())
+        admin_client = self.client_for(self.root)
+        response = admin_client.get(f'/learn/questions/{self.question.pk}/figures/0/')
+        self.assertEqual((response.status_code, response['Content-Type']), (200, 'image/png'))
 
     def test_timed_snapshot_copies_images_and_only_owner_can_view(self):
         self.attach(png())

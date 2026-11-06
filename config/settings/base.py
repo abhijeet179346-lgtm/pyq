@@ -53,7 +53,30 @@ TEMPLATES = [{
 }]
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
-DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3", "OPTIONS": {"timeout": 20}}}
+def database_from_url(url):
+    # postgres(ql)://user:password@host:port/name?sslmode=require
+    from urllib.parse import parse_qsl, unquote, urlsplit
+
+    parts = urlsplit(url)
+    if parts.scheme not in {"postgres", "postgresql"}:
+        raise ValueError(f"Unsupported DATABASE_URL scheme: {parts.scheme}")
+    options = dict(parse_qsl(parts.query))
+    options.setdefault("sslmode", os.environ.get("DATABASE_SSLMODE", "require"))
+    return {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": unquote(parts.path.lstrip("/")) or "postgres",
+        "USER": unquote(parts.username or ""),
+        "PASSWORD": unquote(parts.password or ""),
+        "HOST": parts.hostname or "",
+        "PORT": str(parts.port or 5432),
+        "CONN_MAX_AGE": int(os.environ.get("DATABASE_CONN_MAX_AGE", "60")),
+        "CONN_HEALTH_CHECKS": True,
+        "OPTIONS": options,
+    }
+
+
+SQLITE_DATABASE = {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3", "OPTIONS": {"timeout": 20}}
+DATABASES = {"default": database_from_url(os.environ["DATABASE_URL"]) if os.environ.get("DATABASE_URL") else SQLITE_DATABASE}
 AUTH_USER_MODEL = "accounts.User"
 AUTHENTICATION_BACKENDS = ["apps.accounts.backends.TenantAwareBackend"]
 AUTH_PASSWORD_VALIDATORS = [

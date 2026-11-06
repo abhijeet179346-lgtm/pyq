@@ -16,6 +16,7 @@ from openpyxl import load_workbook
 
 from apps.accounts.models import User
 from apps.catalog.models import Exam
+from apps.catalog.models import Subject
 from apps.content.models import Question
 from apps.features.models import FeatureEntitlement, TenantExam
 from apps.imports.models import ContentJob
@@ -50,6 +51,11 @@ class AdminUploadTests(TestCase):
         entitle(cls.institute, "bulk_question_import", "tests", "practice")
         cls.exams = {slug: Exam.objects.get_or_create(slug=slug, defaults={"name": name, "active": True})[0]
                      for slug, name in [("jee-main", "JEE Main"), ("jee-advanced", "JEE Advanced"), ("neet", "NEET")]}
+        subjects = {name: Subject.objects.get_or_create(name=name, defaults={'slug': name.lower()})[0]
+                    for name in ('Physics', 'Chemistry', 'Mathematics', 'Biology')}
+        for slug, exam in cls.exams.items():
+            exam.subjects.add(*(subjects[name] for name in (('Physics', 'Chemistry', 'Biology') if slug == 'neet'
+                                                        else ('Physics', 'Chemistry', 'Mathematics'))))
         cls.root = User.objects.create_superuser(username="root", email="root@example.test",
             password="Root-upload-password-27", email_verified_at=timezone.now())
         cls.inst_admin = User.objects.create_user(username="instadmin", email="admin@inst.example.test",
@@ -90,6 +96,42 @@ class AdminUploadTests(TestCase):
             response = client.get(f"/admin/imports/contentjob/template/{kind}/")
             self.assertEqual(response.status_code, 200, kind)
             self.assertEqual(response["Content-Type"], XLSX)
+
+    def test_selected_exam_and_subject_fill_missing_workbook_columns(self):
+        client = self.client_for(self.root)
+        row = q(source_id='selected-destination', stem='Solve $x^2=4$.', source_page='7')
+        response, job = self.upload(client, self.master, 'questions', 'selected.xlsx',
+            workbook_bytes('questions', [row]), target_exam=self.exams['jee-main'].pk,
+            target_subject=next(s.pk for s in self.exams['jee-main'].subjects.all() if s.name == 'Mathematics'))
+        self.assertEqual(response.status_code, 302)
+        self.process(client, job)
+        self.assertEqual(job.status, 'review', job.errors)
+        self.commit(client, job)
+        self.assertEqual(job.status, 'completed', job.errors)
+        question = Question.objects.get(section='Excel · selected-destination')
+        self.assertEqual((question.paper.exam.slug, question.topic.chapter.subject.name), ('jee-main', 'Mathematics'))
+        self.assertEqual(question.source_page, 7)
+
+    def test_selected_destination_rejects_wrong_subject(self):
+        client = self.client_for(self.root)
+        row = q(source_id='wrong-subject', subject='Biology', stem='Wrong destination')
+        response, job = self.upload(client, self.master, 'questions', 'wrong.xlsx',
+            workbook_bytes('questions', [row]), target_exam=self.exams['jee-main'].pk,
+            target_subject=next(s.pk for s in self.exams['jee-main'].subjects.all() if s.name == 'Physics'))
+        self.assertEqual(response.status_code, 302)
+        self.process(client, job)
+        self.assertEqual(job.status, 'failed')
+        self.assertIn('does not match', job.errors[0])
+
+    def test_jee_main_biology_row_is_rejected(self):
+        client = self.client_for(self.root)
+        row = q(source_id='bad-biology', exam='jee-main', subject='Biology', stem='Wrong exam subject')
+        response, job = self.upload(client, self.master, 'questions', 'wrong-subject.xlsx',
+            workbook_bytes('questions', [row]))
+        self.assertEqual(response.status_code, 302)
+        self.process(client, job)
+        self.assertEqual(job.status, 'failed')
+        self.assertIn('not enabled for JEE Main', job.errors[0])
 
     def test_superuser_excel_pyqs_segregated_by_exam_and_subject(self):
         rows = [

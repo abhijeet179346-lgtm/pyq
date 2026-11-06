@@ -47,18 +47,22 @@ def questions(tenant):
             visible |= Q(tenant__isnull=True, kind=Question.Kind.PYQ, paper__exam_id__in=exams)
         if is_enabled(tenant, "tenant_question_bank"):
             visible |= Q(tenant=tenant, kind=Question.Kind.PRACTICE)
-    return Question.objects.filter(visible, status=Question.Status.PUBLISHED).select_related("topic__chapter__subject", "paper__exam", "subtopic")
+    valid_subject = Q(kind=Question.Kind.PRACTICE) | Q(paper__exam__subjects=F('topic__chapter__subject_id'))
+    return Question.objects.filter(visible & valid_subject, status=Question.Status.PUBLISHED).select_related("topic__chapter__subject", "paper__exam", "subtopic")
 
 
 def exam_cards(tenant):
     counts = dict(questions(tenant).values("paper__exam_id").annotate(total=Count("id")).values_list("paper__exam_id", "total"))
     exams = list(Exam.objects.filter(active=True, tenantexam__tenant=tenant, tenantexam__enabled=True))
-    order = {"jee-main": 0, "neet": 1, "jee-advanced": 2}
+    order = {"jee-main": 0, "neet": 1, "jee-advanced": 2, "comedk": 3, "mht-cet": 4, "cuet-ug": 5}
     exams.sort(key=lambda exam: (order.get(exam.slug, 3), exam.name))
     descriptions = {
         "jee-main": ("Joint Entrance Examination (Main)", "Build speed and accuracy with shift-wise previous-year problems.", "Engineering"),
         "neet": ("National Eligibility cum Entrance Test", "Strengthen Biology, Physics and Chemistry for your medical entrance.", "Medical"),
         "jee-advanced": ("Joint Entrance Examination (Advanced)", "Take on conceptual, numerical and multiple-correct challenges.", "Engineering"),
+        "comedk": ("COMEDK", "Practise questions by subject and topic.", "Engineering"),
+        "mht-cet": ("MHT-CET", "Practise questions by subject and topic.", "Entrance exam"),
+        "cuet-ug": ("Common University Entrance Test (UG)", "Choose a subject and practise previous-year questions.", "University entrance"),
     }
     for exam in exams:
         exam.question_count = counts.get(exam.pk, 0)
@@ -98,8 +102,11 @@ def question_bank(request):
     queryset = questions(tenant)
     queryset = queryset.filter(kind=Question.Kind.PRACTICE) if selected.pk == "practice" else queryset.filter(paper__exam=selected)
     years = queryset.exclude(paper__isnull=True).values_list("paper__year", flat=True).distinct().order_by("-paper__year")
-    subject_cards = list(queryset.values("topic__chapter__subject__name").annotate(total=Count("id")).order_by("topic__chapter__subject__name"))
-    queryset, context = selection(queryset, request.GET)
+    counts = dict(queryset.values("topic__chapter__subject__name").annotate(total=Count("id")).values_list("topic__chapter__subject__name", "total"))
+    configured_subjects = (list(selected.subjects.order_by('name').values_list('name', flat=True))
+                           if selected.pk != 'practice' else sorted(counts))
+    subject_cards = [{'topic__chapter__subject__name': name, 'total': counts.get(name, 0)} for name in configured_subjects]
+    queryset, context = selection(queryset, request.GET, configured_subjects)
     params = request.GET.copy()
     params.pop("page", None)
     return render(request, "portal/direct_bank.html", {
@@ -130,7 +137,8 @@ def start_practice(request):
         raise Http404("Exam unavailable.")
     visible = questions(tenant)
     visible = visible.filter(kind=Question.Kind.PRACTICE) if exam.pk == "practice" else visible.filter(paper__exam=exam)
-    queryset, context = selection(visible, request.POST)
+    allowed_subjects = list(exam.subjects.values_list('name', flat=True)) if exam.pk != 'practice' else None
+    queryset, context = selection(visible, request.POST, allowed_subjects)
     params = request.POST.copy()
     for key in list(params):
         if key not in PRACTICE_KEYS:

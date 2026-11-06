@@ -47,6 +47,11 @@ class ContentJobForm(forms.ModelForm):
         fields='__all__'
     def clean(self):
         data=super().clean();file=data.get('file');kind=data.get('kind')
+        exam=data.get('target_exam');subject=data.get('target_subject')
+        if kind=='questions' and bool(exam)!=bool(subject):
+            raise forms.ValidationError('Choose both a destination exam and subject, or leave both blank for a mixed workbook.')
+        if kind=='questions' and exam and subject and not exam.subjects.filter(pk=subject.pk).exists():
+            raise forms.ValidationError('This subject is not enabled for the selected exam. Update the exam in admin first.')
         if file:
             name=file.name.lower()
             if kind=='pdf':allowed,limit=('.pdf',),100
@@ -86,7 +91,7 @@ class ContentJobAdmin(admin.ModelAdmin):
         return queryset if request.user.is_superuser else queryset.filter(tenant_id=getattr(request.user,'tenant_id',None))
     def get_readonly_fields(self,request,obj=None):
         fields=list(self.readonly_fields)
-        if obj:fields+=['file','kind','tenant','source','license','use_ocr']
+        if obj:fields+=['file','kind','tenant','source','license','use_ocr','target_exam','target_subject']
         return fields
     def formfield_for_foreignkey(self,db_field,request,**kwargs):
         if db_field.name=='tenant' and not request.user.is_superuser:kwargs['queryset']=Tenant.objects.filter(pk=getattr(request.user,'tenant_id',None))
@@ -136,7 +141,7 @@ class ContentJobAdmin(admin.ModelAdmin):
     def template_view(self,request,kind):
         if kind not in COLUMNS or kind=='pdf':raise PermissionDenied()
         samples={
-            'questions':[{'source_id':'example-001','kind':'PRACTICE','exam':'jee-advanced','subject':'Physics','chapter':'Units and Measurements','topic':'Dimensional analysis','subtopic':'Units and dimensions','difficulty':1,'question_type':'single_correct','stem':'What is the SI unit of force?','option_a':'newton','option_b':'joule','option_c':'watt','option_d':'pascal','answer':'A','solution':'Force is measured in newtons.','source':'Original example','license':'Original educational example'}],
+            'questions':[{'source_id':'example-001','kind':'PYQ','exam':'jee-advanced','year':'2024','subject':'Physics','chapter':'Units and Measurements','topic':'Dimensional analysis','subtopic':'Units and dimensions','difficulty':1,'question_type':'single_correct','stem':'Illustrative format only: What is the SI unit of force?','option_a':'newton','option_b':'joule','option_c':'watt','option_d':'pascal','answer':'A','solution':'Force is measured in newtons. Replace this row with a verified previous-year question.','source':'Replace with original paper URL','license':'Replace with source rights'}],
             'exams':[{'exam':'example-exam','name':'Example Exam','active':'false'}],
             'tests':[{'test_name':'Example physics test','exam':'jee-advanced','duration_minutes':30,'subject':'Physics','chapter':'Units and Measurements','topic':'Dimensional analysis','section':'Single correct','source_id':'test-example-001','question_type':'single_correct','stem':'What is the SI unit of force?','option_a':'newton','option_b':'joule','option_c':'watt','option_d':'pascal','answer':'A','correct_marks':3,'incorrect_marks':-1,'unanswered_marks':0,'partial_credit':'false','source':'Original example','license':'Original educational example'}],
             'materials':[{'document':'Example physics notes','exam':'jee-advanced','subject':'Physics','chapter':'Units and Measurements','topic':'Dimensional analysis','title':'Force and units','body':'The SI unit of force is the newton: one newton accelerates one kilogram at one metre per second squared.','page_reference':'1','source':'Original example','license':'Original educational example'}]}

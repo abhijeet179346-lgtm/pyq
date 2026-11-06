@@ -1,0 +1,5084 @@
+[
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Physics",
+    "number": 32,
+    "stem": "The acceleration of a moving body can be found from",
+    "options": [
+      "area under velocity - time graph.",
+      "area under distance - time graph.",
+      "slope of the velocity - time graph.",
+      "slope of the distance - time graph."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Physics",
+    "number": 36,
+    "stem": "The telescopes, for a given wavelength, the objectives with large aperture are used for",
+    "options": [
+      "greater magnification.",
+      "greater resolution.",
+      "reducing lens aberration.",
+      "ease of manufacture."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "In semiconductors at room temperature,",
+    "options": [
+      "the valence band is completely filled.",
+      "the conduction band is completely empty.",
+      "the conduction band is partially filled and the valence band is partially empty.",
+      "the valence band is completely filled and conduction band is partially empty."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Physics",
+    "number": 45,
+    "stem": "In a Young's double slit experiment, the source is white light. One of the holes is covered by a red filter and another by a blue filter. In this case",
+    "options": [
+      "there shall be alternative interference fringes of red and blue.",
+      "there shall be interference fringes for red distinct from that for blue.",
+      "there shall be no interference fringes.",
+      "there shall be interference fringes for red mixing with one for blue."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Physics",
+    "number": 48,
+    "stem": "An air column in a closed organ pipe vibrating in unison with a fork, produces second overtone. The vibrating air column has",
+    "options": [
+      "three nodes and two antinodes.",
+      "three nodes and three antinodes.",
+      "four nodes and three antinodes.",
+      "three nodes and four antinodes."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Physics",
+    "number": 49,
+    "stem": "A wire under tension 225 N produces 6 beats per second when it is tuned with a fork. When the tension changes to 256 N , it is again tuned with the same tuning fork, the number of beats remain unchanged. The frequency of tuning fork will be",
+    "options": [
+      "256 Hz",
+      "186 Hz",
+      "225 Hz",
+      "280 Hz"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 1,
+    "stem": "What is the name of tert-butyl alcohol according to carbinol system?",
+    "options": [
+      "Methyl carbinol",
+      "Ethyl carbinol",
+      "Propyl carbinol",
+      "Trimethyl carbinol"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 6,
+    "stem": "Identify false statement from following.",
+    "options": [
+      "Cellulose is constituent of cell wall in animal cells.",
+      "Starch is common constituent of food grains.",
+      "Lactose is constituent of milk.",
+      "Animals store polysaccharides in their body in the form of glycogen."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 9,
+    "stem": "Which from following compounds is obtained when acyl chloride is hydrolysed with water?",
+    "options": [
+      "Alcohols",
+      "Carboxylic acids",
+      "Aldehydes",
+      "Esters"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 14,
+    "stem": "Which of the following isomers has highest boiling point?",
+    "options": [
+      "tert-Butylamine",
+      "Ethyldimethylamine",
+      "Diethylamine",
+      "n-Butylamine"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Which from following complexes contains only neutral ligands in it?",
+    "options": [
+      "Pentaammineaquacobalt(III) chloride",
+      "Triamminetrithiocyanatorhodium(III)",
+      "Bis(ethylenediamine) dithiocyanatoplatinum(IV)",
+      "Triamminetrinitrocobalt(III)"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 18,
+    "stem": "What is the total number of unpaired electrons in an element placed at period-4 and group-12 either in excited or at ground state?",
+    "options": [
+      "Zero",
+      "One",
+      "Two",
+      "Three"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 19,
+    "stem": "Which element from following exhibits lowest number of different oxidation states?",
+    "options": [
+      "Sc",
+      "Cu",
+      "Ti",
+      "Zn"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 23,
+    "stem": "Which of the following compounds is obtained by using Swartz reaction?",
+    "options": [
+      "Alkyl iodides",
+      "Alkyl bromides",
+      "Alkyl chlorides",
+      "Alkyl fluorides"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 24,
+    "stem": "Identify the product obtained when methyl bromide reacts with sodium tert-butoxide.",
+    "options": [
+      "Isobutylene and methanol",
+      "1-Methoxybutane",
+      "2-Methoxybutane",
+      "2-Methoxy-2-methylpropane"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 26,
+    "stem": "Which of the following is NOT obtained when a mixture of bromoethane and 1-bromopropane is treated with sodium metal in dry ether?",
+    "options": [
+      "Propane",
+      "Butane",
+      "Pentane",
+      "Hexane"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 30,
+    "stem": "What is the number of moles of carbon atoms present in n mole molecules of an alkane if it exhibits five structural isomers?",
+    "options": [
+      "4n",
+      "3n",
+      "5n",
+      "6n"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 33,
+    "stem": "Identify an example of solution that consists of solid as solute and liquid as solvent.",
+    "options": [
+      "Sea water",
+      "Bronze",
+      "Carbonated water",
+      "Chloroform in nitrogen"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Which among the following polymers is obtained by ring opening polymerization process?",
+    "options": [
+      "Polyacrylonitrile",
+      "Nylon 6,6",
+      "Nylon 6",
+      "Terylene"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 40,
+    "stem": "Which element from following is used in photoelectric cells?",
+    "options": [
+      "Li",
+      "Be",
+      "Cs",
+      "Mg"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 46,
+    "stem": "Which from following techniques is used for preliminary confirmation of nanoparticles?",
+    "options": [
+      "UV-visible spectroscopy",
+      "X ray diffraction",
+      "Scanning electron microscopy",
+      "Transmission electron microscopy"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Chemistry",
+    "number": 49,
+    "stem": "Which among the following is NOT an intensive property?",
+    "options": [
+      "Internal energy",
+      "Viscosity",
+      "Surface tension",
+      "Specific heat"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Mathematics",
+    "number": 28,
+    "stem": "If statement I : If the work is not finished on time, the contractor is in trouble. statement II : Either the work is finished on time or the contractor is in trouble. then",
+    "options": [
+      "statement II is negation of statement I.",
+      "statement II is converse of statement I.",
+      "statement II and statement I are equivalent.",
+      "statement II is an inverse of statement I."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Mathematics",
+    "number": 30,
+    "stem": "If 3 books on Physics, 2 books on Chemistry and 4 books on Mathematics are to be arranged on a shelf so that all the Physics books are together and all the Mathematics books are together, then the number of such arrangements is",
+    "options": [
+      "576",
+      "288",
+      "3456",
+      "1152"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "2nd-may-morning",
+    "subject": "Mathematics",
+    "number": 35,
+    "stem": "The mean of 100 observations is 50 and their standard deviation is 5 , then the sum of all squares of all the observations is",
+    "options": [
+      "252500",
+      "250500",
+      "250000",
+      "255000"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 2,
+    "stem": "The magnetic energy in an inductor changes from maximum value to minimum value in 5 ms . When connected to an a.c. source, the frequency of the source is",
+    "options": [
+      "50 Hz",
+      "200 Hz",
+      "500 Hz",
+      "20 Hz"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 3,
+    "stem": "The core used in transformer and other electromagnetic devices is laminated to",
+    "options": [
+      "increase the magnetic field.",
+      "increase the level of magnetic saturation of the core.",
+      "reduce the residual magnetism in the core.",
+      "reduce eddy current."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 18,
+    "stem": "Which of the following statement is correct?",
+    "options": [
+      "Electric lines of force originate from a -vely charged object and terminate on a +vely charged object.",
+      "The electric line of force do not pass through an insulator but can pass through a conductor.",
+      "The electric line of force do not intersect each other.",
+      "Electric intensity is small in a region where the lines of force are crowded."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 27,
+    "stem": "The first operation involved in a carnot cycle is",
+    "options": [
+      "isothermal expansion.",
+      "adiabatic expansion.",
+      "isothermal compression.",
+      "adiabatic compression."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 28,
+    "stem": "The average translational kinetic energy of nitrogen (molar mass 28) molecules at a particular temperature is 0.042 eV . The translational kinetic energy of oxygen molecules (molar mass 32) in eV at double the temperature is",
+    "options": [
+      "0.021",
+      "0.048",
+      "0.056",
+      "0.084"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 31,
+    "stem": "A ferromagnetic material is heated above its curie temperature. The correct statement from the following is that",
+    "options": [
+      "ferromagnetic domains are perfectly arranged.",
+      "ferromagnetic domains become random.",
+      "ferromagnetic domains are not influenced.",
+      "ferromagnetic material changes itself into diamagnetic material."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "The potential barrier in p-n junction diode is due to",
+    "options": [
+      "depletion of positive charges near the junction.",
+      "accumulation of positive charges near the junction.",
+      "depletion of negative charges near the junction.",
+      "accumulation of positive and negative charges near the junction."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 44,
+    "stem": "A diffraction pattern is obtained using a beam of red light. If red light is replaced by blue light then",
+    "options": [
+      "no change in diffraction pattern.",
+      "diffraction bands become narrow and crowded together.",
+      "diffraction bands become broader and farther apart.",
+      "bands disappear."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Physics",
+    "number": 49,
+    "stem": "In a vibrating string with fixed ends the waves are of type",
+    "options": [
+      "stationary longitudinal.",
+      "stationary transverse.",
+      "progressive transverse.",
+      "progressive longitudinal."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Which of the following is a pair of dihydric phenols?",
+    "options": [
+      "Resorcinol and pyrogallol",
+      "Quinol and phloroglucinol",
+      "Phloroglucinol and pyrogallol",
+      "Cetechol and Quinol"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Chemistry",
+    "number": 9,
+    "stem": "Which of the following is a tricarboxylic acid?",
+    "options": [
+      "Propionic acid",
+      "Oxalic acid",
+      "Malonic acid",
+      "Citric acid"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Chemistry",
+    "number": 14,
+    "stem": "Which among the following has highest basic strength?",
+    "options": [
+      "Ammonia",
+      "Ethylamine",
+      "Diethylamine",
+      "Triethylamine"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Chemistry",
+    "number": 18,
+    "stem": "Which from following is NOT a lanthonoid element?",
+    "options": [
+      "Pm",
+      "Er",
+      "Yb",
+      "Hf"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Chemistry",
+    "number": 22,
+    "stem": "Calculate the quantity of electricity required to liberate 0.1 mole of chlorine gas during electrolysis of molten sodium chloride.",
+    "options": [
+      "9665 C",
+      "19300 C",
+      "14500 C",
+      "96500 C"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "2nd-may-evening",
+    "subject": "Mathematics",
+    "number": 30,
+    "stem": "Number of different nine digit numbers, that can be formed from the digits in the number 223355888 by rearranging its digits, so that the odd digits occupy even positions, is",
+    "options": [
+      "16",
+      "40",
+      "60",
+      "180"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-2nd-may-evening-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Physics",
+    "number": 13,
+    "stem": "In an a. c. generator, when the plane of the coil is perpendicular to the magnetic field",
+    "options": [
+      "magnetic flux is zero and induced e.m.f. is maximum.",
+      "magnetic flux is maximum and induced e.m.f. is zero.",
+      "both magnetic flux and induced e.m.f. are maximum.",
+      "both magnetic flux and induced e.m.f. are zero."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Physics",
+    "number": 26,
+    "stem": "A diatomic ideal gas is used in Carnot engine as a working substance. If during the adiabatic expansion part of the cycle, the volume of the gas increases from V to 32 V , the efficiency of the engine is",
+    "options": [
+      "0.25",
+      "0.50",
+      "0.75",
+      "0.90"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Physics",
+    "number": 45,
+    "stem": "When wavefronts pass from denser medium to rarer medium, the width of the wavefront",
+    "options": [
+      "increases.",
+      "may increase or decrease.",
+      "decreases.",
+      "remains unchanged."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 3,
+    "stem": "Which of the following compounds does not undergo haloform reaction?",
+    "options": [
+      "Ethanal",
+      "Propanal",
+      "Propanone",
+      "Butanone"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 8,
+    "stem": "Identify essential amino acid from following.",
+    "options": [
+      "Glutamic acid",
+      "Proline",
+      "Cysteine",
+      "Histidine"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 12,
+    "stem": "What time is required for 100 g of reactant to reduce to 25 g in a first order reaction having half life 5760 year?",
+    "options": [
+      "4760 year",
+      "8640.26 year",
+      "2880.15 year",
+      "11526.48 year"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 15,
+    "stem": "Which of the following does not have intermolecular hydrogen bonding?",
+    "options": [
+      "Cyclohexylamine",
+      "Allylamine",
+      "Trimethylamine",
+      "Diphenylamine"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 19,
+    "stem": "What is the number of electrons present in 3d orbital of Ti in +2 state?",
+    "options": [
+      "Zero",
+      "One",
+      "Two",
+      "Three"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 32,
+    "stem": "Which from following properties is NOT identical for Enantiomers?",
+    "options": [
+      "Melting point",
+      "Density",
+      "Refractive index",
+      "Sign of optical rotation"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 33,
+    "stem": "What is IUPAC name of propylene glycerol?",
+    "options": [
+      "Propane-1,2-diol",
+      "Propane-1,3-diol",
+      "Propene-1,2,3-triol",
+      "Propane-1,2,3-triol"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 39,
+    "stem": "Identify homopolymer from following.",
+    "options": [
+      "Polycarbonate",
+      "Buna-N",
+      "Glyptal",
+      "Thermocol"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Chemistry",
+    "number": 49,
+    "stem": "What is the value of standard enthalpy of formation of dihydrogen?",
+    "options": [
+      "436.4 kJ",
+      "0 kJ",
+      "100.3 kJ",
+      "200.5 kJ"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Mathematics",
+    "number": 2,
+    "stem": "If the half life of substance is 5 years, then the total amount of the substance left after 15 years, when initial amount is 64 gms is",
+    "options": [
+      "6 gm",
+      "8 gm",
+      "10 gm",
+      "12 gm"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/mathematics"
+  },
+  {
+    "shift": "3rd-may-morning",
+    "subject": "Mathematics",
+    "number": 27,
+    "stem": "The number of four letter words that can be formed using letters of the word BARRACK",
+    "options": [
+      "120",
+      "264",
+      "270",
+      "144"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 2,
+    "stem": "A transformer is used to set up an alternating e.m.f. of 220 V to 4.4 kV to transmit 6.6 kW of power. The primary coil has 1000 turns. The current rating of the secondary coil is (Transformer is ideal)",
+    "options": [
+      "0.8 A",
+      "1.2 A",
+      "1.5 A",
+      "1.8 A"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 7,
+    "stem": "A parallel plate capacitor is charged and then isolated. If the separation between the plates is increased, which one of the following statement is NOT correct?",
+    "options": [
+      "Charge remains constant after it is isolated.",
+      "Potential difference across the plates decreases.",
+      "Potential difference across the plates increases.",
+      "Capacitance of capacitor decreases."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 12,
+    "stem": "The frequency of incident light falling on a photosensitive material is doubled, the K.E. of the emitted photoelectrons will be",
+    "options": [
+      "unchanged.",
+      "two times its initial value.",
+      "more than two times its initial value.",
+      "less than two times its initial value."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 13,
+    "stem": "When the electron orbiting in hydrogen atom in its ground state moves to the third excited state, the de-Broglie wavelength associated with it",
+    "options": [
+      "becomes zero.",
+      "remains unchanged.",
+      "will decrease.",
+      "will increase."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 28,
+    "stem": "A monoatomic gas is heated at constant pressure. The percentage of total heat used for doing external work is",
+    "options": [
+      "30%",
+      "40%",
+      "50%",
+      "60%"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "Which one of the following statements is true? A p-type semiconductor is doped with",
+    "options": [
+      "trivalent impurity and electrons are majority carriers.",
+      "pentavalent impurity and electrons are minority carriers.",
+      "pentavalent impurity and holes are minority carriers.",
+      "trivalent impurity and holes are majority carriers."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 41,
+    "stem": "The period of a simple pendulum gets doubled when",
+    "options": [
+      "its length is doubled.",
+      "its length is made four times.",
+      "its length is made half.",
+      "the mass of the bob is doubled."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Physics",
+    "number": 47,
+    "stem": "The end correction of resonance tube is 1 cm. If the shortest length resonating with a tuning fork is 15 cm , the next resonating length will be",
+    "options": [
+      "35 cm",
+      "40 cm",
+      "47 cm",
+      "64 cm"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 1,
+    "stem": "Identify the compound having highest solubility in water from following?",
+    "options": [
+      "Phenol",
+      "tert-Butyl alcohol",
+      "o-Nitrophenol",
+      "p-Nitrophenol"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 3,
+    "stem": "What type of information is collected using FTIR fourier transform infrared spectroscopy?",
+    "options": [
+      "Morphology of nanomaterial",
+      "Absorption of functional group",
+      "Geometry of particles",
+      "Particle size"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "What is the number of moles of N atoms and number of moles of O atoms respectively present in one mole of uracil?",
+    "options": [
+      "1 and 5",
+      "1 and 3",
+      "2 and 3",
+      "2 and 2"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 10,
+    "stem": "Which from following is NOT a dicarboxylic acid?",
+    "options": [
+      "Citric acid",
+      "Oxalic acid",
+      "Malonic acid",
+      "Glutaric acid"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 11,
+    "stem": "Which from following compounds is NOT a mono carboxylic acid?",
+    "options": [
+      "Phthalic acid",
+      "Salicylic acid",
+      "o-toluic acid",
+      "Benzoic acid"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 15,
+    "stem": "Half life of a zero order reaction is directly proportional to ___________",
+    "options": [
+      "temperature",
+      "rate constant",
+      "amount of product formed",
+      "initial concentration of reactant"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 22,
+    "stem": "Which from following lanthanoids exhibits no effective magnetic moment in +3 state?",
+    "options": [
+      "Ce",
+      "La",
+      "Gd",
+      "Eu"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 23,
+    "stem": "Identify the element having smallest ionic size in +3 state from following.",
+    "options": [
+      "Nd",
+      "Sm",
+      "Ho",
+      "Lu"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 31,
+    "stem": "Which from following has highest boiling point?",
+    "options": [
+      "2-methoxy propane",
+      "n-butane",
+      "2-methylbutane",
+      "n-pentane"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 32,
+    "stem": "Calculate pH of 0.002 M KOH solution.",
+    "options": [
+      "10.4",
+      "11.3",
+      "12.4",
+      "13.2"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 41,
+    "stem": "Which of the following does not react with cold or hot water?",
+    "options": [
+      "Ba",
+      "Ca",
+      "Sr",
+      "Be"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 42,
+    "stem": "Which from the following statements is NOT true regarding crystalline solid?",
+    "options": [
+      "There is a regularity and periodicity in arrangement of constituent particles.",
+      "It is isotropic.",
+      "It melts at definite temperature.",
+      "It has different magnitudes for refractive index in every direction."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 45,
+    "stem": "\"A given compound always contains the same proportion of elements\" is a statement of -",
+    "options": [
+      "Law of combining volumes of gases",
+      "Law of conservation of mass",
+      "Law of multiple proportions",
+      "Law of definite proportions"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Which is NOT an example of macromolecular colloid?",
+    "options": [
+      "Protein",
+      "Polythene",
+      "Nylon",
+      "Soap"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "3rd-may-evening",
+    "subject": "Chemistry",
+    "number": 49,
+    "stem": "Which of the following statements is appropriate as per first law of thermodynamics?",
+    "options": [
+      "Energy of the system remains constant.",
+      "Energy of the surrounding remains constant.",
+      "Entropy of the universe remains constant.",
+      "Energy of the universe remains constant."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-3rd-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 2,
+    "stem": "In LCR series circuit if the frequency is increased, the impedance of the circuit",
+    "options": [
+      "increases",
+      "decreases",
+      "either increases or decreases",
+      "first decreases then become minimum and then increases."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 26,
+    "stem": "Two rods of same length & material transfer a given amount of heat in 12 s when they are joined end to end. But when they are joined length wise parallel to each other they will transfer same amount of heat in same condition in time",
+    "options": [
+      "24 s",
+      "3 s",
+      "1.5 s",
+      "48 s"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 29,
+    "stem": "Which of the following person is in an inertial frame of reference?",
+    "options": [
+      "A pilot in an aeroplane which is taking off.",
+      "A child revolving in a merry-go-round.",
+      "A driver in a bus which is moving with constant velocity.",
+      "A man in a train which is slowing down to stop."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 33,
+    "stem": "A person is observing a bacteria through a compound microscope. For better analysis and to improve the resolving power he should",
+    "options": [
+      "increase the wavelength of light.",
+      "increase the refractive index of the medium between the object and objective lens.",
+      "decrease the focal length of the eye-piece.",
+      "decrease the diameter of the objective lens."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 35,
+    "stem": "Focal length of objective of an astronomical telescope is 1.5 m . Under normal adjustment, length of telescope is 1.56 m . Focal length of the eyepiece is",
+    "options": [
+      "0.06 m",
+      "1.04 m",
+      "2.34 m",
+      "3.06 m"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 36,
+    "stem": "A ray of light is incident normally on a glass slab to thickness 5 cm and refractive index 1.6. The time taken to travel by a ray from source of light to surface of slab is same as to travel through glass slab. The distance of source from the surface is",
+    "options": [
+      "5 cm",
+      "8 cm",
+      "12 cm",
+      "24 cm"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Physics",
+    "number": 40,
+    "stem": "A semiconductor device X is connected in series with a battery and a resistor. The current of 10 mA is found to pass through the circuit. If the terminals of X are connected in reverse manner, the current drops to almost zero. X may be",
+    "options": [
+      "a zener diode",
+      "a p-n junction diode",
+      "an intrinsic semiconductor",
+      "an extrinsic semiconductor"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 3,
+    "stem": "Identify the product obtained when ethers are dissolved in cold concentrated sulphuric acid.",
+    "options": [
+      "Alkanols",
+      "Alkanoic acids",
+      "Alkyl hydrogen sulphate",
+      "Oxonium salts"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Which of the following compounds when treated with ammoniacal silver nitrate exhibits silver mirror test?",
+    "options": [
+      "Ethanol",
+      "Ethanal",
+      "Ethoxyethane",
+      "Ethanoic acid"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 6,
+    "stem": "Which of the following statements is correct regarding isobars?",
+    "options": [
+      "These have same number of neutrons.",
+      "These are the atoms of different elements.",
+      "These have same atomic number.",
+      "These have different mass number."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 9,
+    "stem": "Which from following compounds is used to prepare adipic acid using enzymes in green technology developed by Drath and Frost?",
+    "options": [
+      "Ribose",
+      "Glucose",
+      "Ribulose",
+      "Benzene"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 10,
+    "stem": "Which from following statements is CORRECT about saccharic acid?",
+    "options": [
+      "It contains two carboxyl and four hydroxyl groups.",
+      "It contains one carboxyl group and five hydroxyl groups.",
+      "It contains two carboxyl groups and five hydroxyl groups.",
+      "It contains three carboxyl and two hydroxyl groups."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Identify neutral sphere complex from following.",
+    "options": [
+      "Pentaamminecobalt(III) sulphate",
+      "Potassiumtrioxalatoaluminate(III)",
+      "Diamminedichloroplatinum(II)",
+      "Potassiumhexacyanoferrate(III)"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 17,
+    "stem": "Identify a ligand having two donor atoms but uses a pair of electrons of either donor atom to form coordinate bond.",
+    "options": [
+      "Aqua",
+      "Ethylenediamine",
+      "Sulphato",
+      "Nitrito"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 19,
+    "stem": "Which pair of elements from following has halt filled d-orbital in observed electronic configuration?",
+    "options": [
+      "Cu and Mn",
+      "Mn and Cr",
+      "Zn and Co",
+      "Cu and Zn"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 28,
+    "stem": "Which from following pairs of compounds exhibits metamerism?",
+    "options": [
+      "But-2-ene and But-1-ene",
+      "Methoxymethane and Ethanol",
+      "Ethoxyethane and Methoxypropane",
+      "Butane and 2-Methylpropane"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 29,
+    "stem": "Which of the following alkenes does NOT exhibit cis-trans isomerism?",
+    "options": [
+      "But-1-ene",
+      "But-2-ene",
+      "3,4-Dimethylhex-3-ene",
+      "Pent-2-ene"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 30,
+    "stem": "Identify the chiral molecule from following.",
+    "options": [
+      "2-Iodopropane",
+      "2-Iodo-2-methylbutane",
+      "2-Iodo-3-methylbutane",
+      "3-Iodopentane"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 32,
+    "stem": "What is IUPAC name of Ethylmethylisopropylamine?",
+    "options": [
+      "N -Methyl-N-isopropylethanamine",
+      "N -Ethyl-N-methyl propan-1-amine",
+      "N-Ethyl-N-methylpropan-2-amine",
+      "N -Ethyl- N -isopropylmethanamine"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 33,
+    "stem": "What is IUPAC name of Acrylic acid?",
+    "options": [
+      "Propanoic acid",
+      "Prop-2-enoic acid",
+      "2-Methylpropanoic acid",
+      "2-Hydroxypropanoic acid"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Identify a mineral of zinc from following.",
+    "options": [
+      "Siderite",
+      "Calamine",
+      "Chalcocite",
+      "Limonite"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Identify the element having lowest first ionization enthalpy.",
+    "options": [
+      "Po",
+      "Te",
+      "Br",
+      "Kr"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 39,
+    "stem": "What is the value of electronegativity of oxygen?",
+    "options": [
+      "4.0",
+      "3.5",
+      "2.48",
+      "3.2"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 40,
+    "stem": "Which from following statements about neoprene is false?",
+    "options": [
+      "It is a copolymer and polymerization occurs in presence of MgO .",
+      "It is a synthetic rubber.",
+      "It is used to prepare hose pipes for transport of gasoline.",
+      "The monomer involved in its preparation is unsaturated."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 43,
+    "stem": "Which of the following colours is developed when alkali metal is dissolved in liquid ammonia?",
+    "options": [
+      "dark red",
+      "violet",
+      "deep blue",
+      "green"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 44,
+    "stem": "Calculate the radius of metal atom if it forms bec unit cell having edge length 530 pm.",
+    "options": [
+      "229.5 pm",
+      "187.4 pm",
+      "459.0 pm",
+      "265.2 pm"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 46,
+    "stem": "Calculate the volume of gas at 1.25 atmosphere, if volume occupied by gas at 1 atmosphere and at same temperature is 25 mL .",
+    "options": [
+      "15 mL",
+      "20 mL",
+      "25 mL",
+      "35 mL"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-morning",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Which from following statements is NOT true about lyophilic colloids?",
+    "options": [
+      "The particles of dispersed phase have greater affinity for the dispersion medium.",
+      "These are reversible.",
+      "These are self stabilized.",
+      "Coagulation occurs even by adding very small amount of electrolytes."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Physics",
+    "number": 14,
+    "stem": "A spherical rubber balloon carries a charge, uniformly distributed over the surface. As the balloon is blown up and increases in size, the total electric flux coming out the surface",
+    "options": [
+      "becomes zero",
+      "decreases",
+      "increases",
+      "remains unchanged"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Physics",
+    "number": 24,
+    "stem": "A real gas behaves as an ideal gas at",
+    "options": [
+      "low pressure and low temperature.",
+      "low pressure and high temperature.",
+      "high pressure and low temperature.",
+      "high pressure and high temperature."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Physics",
+    "number": 26,
+    "stem": "A pergect gas of volume 5 litre is compressed isothermally to volume of 1 litre. The r.m.s. speed of the molecules will",
+    "options": [
+      "increase by 10 times",
+      "decrease by 10 times",
+      "increase by 5 times",
+      "remain unchanged"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Physics",
+    "number": 38,
+    "stem": "The depletion layer in p-n junction region is caused by",
+    "options": [
+      "drift of electrons.",
+      "migration of impurity ions.",
+      "diffusion of charge carries.",
+      "drift of holes."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Crotonyl alcohol is an example of",
+    "options": [
+      "Allylic alcohol",
+      "Benzylic alcohol",
+      "Vinylic alcohol",
+      "Polyhydric alcohol"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 5,
+    "stem": "Identify the orbital having lowest energy from following.",
+    "options": [
+      "2p",
+      "3s",
+      "3d",
+      "4p"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Identify basic amino acid from following.",
+    "options": [
+      "Tryptophan",
+      "Threonine",
+      "Phenylalanine",
+      "Histidine"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 8,
+    "stem": "Which among the following is a pair of monocarboxylic acids?",
+    "options": [
+      "Malonic acid and propionic acid",
+      "Valeric acid and succinic acid",
+      "Acetic acid and adipic acid",
+      "Butyric acid and caproic acid"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 13,
+    "stem": "What is the half life of a first order reaction if time required to decrease concentration of reactant from 0.8 M to 0.2 M is 12 hour?",
+    "options": [
+      "1.5 hour",
+      "3 hour",
+      "6 hour",
+      "12 hour"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 17,
+    "stem": "Which from following ligands is able to form linkage isomers?",
+    "options": [
+      "Aqua",
+      "Ammine",
+      "Iodo",
+      "Nitro"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 18,
+    "stem": "Which from following properties of lanthanoids is NOT true?",
+    "options": [
+      "These are bad conductors of heat and electricity.",
+      "These are soft metals.",
+      "Coordination number is usually greater than six.",
+      "These are strongly paramagnetic."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 19,
+    "stem": "Which element from following has half filled If orbital at observed ground state?",
+    "options": [
+      "Gd",
+      "Sm",
+      "Nd",
+      "Ho"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "Which from following salts is NOT derived from weak acid and weak base?",
+    "options": [
+      "Ammonium fluoride",
+      "Ammonium cyanide",
+      "Ammonium acetate",
+      "Ammonium chloride"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 30,
+    "stem": "Which among the following is NOT a pair of isomers?",
+    "options": [
+      "Butan-2-ol and 2-Methylpropanol",
+      "Butan-1-ol and 1-Methoxypropane",
+      "1-Methoxypropane and Ethoxyethane",
+      "Methoxyethane and Ethoxyethane"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 32,
+    "stem": "Which of the following is IUPAC name of hydroquinone?",
+    "options": [
+      "Benzene-1, 2-diol",
+      "Benzene-1, 3-diol",
+      "Benzene-1, 4-diol",
+      "Benzene-1,3,5-triol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Which of the following elements belongs to first group and fifth period of periodic table?",
+    "options": [
+      "Rubidium",
+      "Strontium",
+      "Caesium",
+      "Barium"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Identify thermoplastic polymer from following.",
+    "options": [
+      "Urea formaldehyde resin",
+      "Bakelite",
+      "Polythene",
+      "Buna-N"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 39,
+    "stem": "Which from following is a copolymer?",
+    "options": [
+      "Nylon 6",
+      "Nylon 6,6",
+      "Polythene",
+      "Buna -S"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Identify a zero dimensional nano structure from following",
+    "options": [
+      "Nanorods",
+      "Nanoparticles",
+      "Thin films",
+      "Fibres"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "4th-may-evening",
+    "subject": "Chemistry",
+    "number": 48,
+    "stem": "Which from the following defines enthalpy of a system?",
+    "options": [
+      "Ratio of pressure to volume",
+      "Product of pressure and volume",
+      "Internal energy (U) + PV",
+      "Internal energy (U) - PV"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-4th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 1,
+    "stem": "Average power associated with an ideal inductor and ideal capacitor over a complete cycle of a.c. is respectively",
+    "options": [
+      "zero, one",
+      "one, zero",
+      "zero, zero",
+      "one, one"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 3,
+    "stem": "When a capacitor is connected in series LR circuit, the alternating current flowing in the circuit",
+    "options": [
+      "is zero.",
+      "increases.",
+      "decreases.",
+      "remain constant."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 4,
+    "stem": "When a hydrogen atom is raised from the ground state to the excited state",
+    "options": [
+      "potential energy increases and K.E. decreases.",
+      "potential energy decreases and K.E. increases.",
+      "both K.E. and potential energy will increase.",
+      "both K.E. and potential energy decreases."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 8,
+    "stem": "The function of dielectric in a capacitor is",
+    "options": [
+      "to reduce the effective potential on plates.",
+      "to increase the effective potential on plates.",
+      "to decrease the capacitance.",
+      "to reduce the plate area of capacitor."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 23,
+    "stem": "Three identical metal spheres (of same surface area) have red, black and white colors and they are heated up to same temperature. They are allowed to cool. Arrange them from maximum rate of cooling to minimum rate of cooling",
+    "options": [
+      "black, red, white",
+      "white, red, black,",
+      "red, black, white",
+      "red, white, black"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 27,
+    "stem": "The internal energy of a gas will increase when it",
+    "options": [
+      "expands adiabatically.",
+      "is compressed adiabatically.",
+      "expands isothermally.",
+      "is compressed isothermally."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 30,
+    "stem": "The magnetic induction due to an ideal solenoid is independent of",
+    "options": [
+      "total number of turns of the wire.",
+      "length of the solenoid.",
+      "radius of the wire.",
+      "current carried by the wire."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 45,
+    "stem": "Out of the following musical instruments, which is 'NOT' a percussion instrument?",
+    "options": [
+      "Daphali",
+      "Sambal",
+      "Cymbals",
+      "Clarinet"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Physics",
+    "number": 46,
+    "stem": "A tuning fork of frequency 340 Hz is vibrated just above a tube of 120 cm height. Water is slowly poured in the tube. What is the minimum height of water necessary for resonance?",
+    "options": [
+      "45 cm",
+      "30 cm",
+      "35 cm",
+      "25 cm"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 3,
+    "stem": "Identify the test from following so that aldehyde when boiled with ammoniacal silver nitrate solution deposts silver.",
+    "options": [
+      "Schiff's test",
+      "Tollen's test",
+      "Gehling test",
+      "Iodoform test"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Which of the following rules states that it is impossible to determine simultaneously the exact position and exact momentum of an electron?",
+    "options": [
+      "Aufbau's principle",
+      "de Broglie's hypothesis",
+      "Heisenberg uncertainty principle",
+      "Pauli's exclusion principle"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 8,
+    "stem": "Identify fibrous protein from following.",
+    "options": [
+      "Legumelin",
+      "Serum albumin",
+      "Myosin",
+      "Insulin"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 10,
+    "stem": "Which among the following forces of attraction is developed between polar and non polar molecules?",
+    "options": [
+      "Dipole-induced dipole interaction",
+      "Ion-dipole interaction",
+      "Dipole-dipole interaction",
+      "van der Waals forces"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 17,
+    "stem": "The major product formed in carbylamine reaction is",
+    "options": [
+      "Alkyl halide",
+      "Alkyl cyanide",
+      "Nitroalkane",
+      "Alkyl isocyanide"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 19,
+    "stem": "Which from following coordinate complexes is a heteroleptic complex?",
+    "options": [
+      "Pentacarbonyliron(0)",
+      "Triamminetrinitrocobalt(III)",
+      "Tetraamminecopper(II) ion",
+      "Tetracyanonickelate(II) ion"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 22,
+    "stem": "Which from following elements belongs to the actinoids?",
+    "options": [
+      "Cm",
+      "Pm",
+      "Tm",
+      "Sm"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 25,
+    "stem": "Which of the following solvents reduces the environmental pollution?",
+    "options": [
+      "Water",
+      "Dichloromethane",
+      "Trichloromethane",
+      "Tetrachloromethane"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 26,
+    "stem": "Which among the following reactions is used for the preparation of alkyl fluorides?",
+    "options": [
+      "Finkelstein reaction",
+      "Swartz reaction",
+      "Fittig reaction",
+      "Wurtz reaction"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "Which from following reactions is not possible for benzene due to reversible nature?",
+    "options": [
+      "Hydrogenation",
+      "Chlorination",
+      "Bromination",
+      "Iodination"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 39,
+    "stem": "Identify biodegradable polymer from following.",
+    "options": [
+      "Teflon",
+      "PHBV",
+      "LDP",
+      "Polyacrylonitrile"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "What type of colloid is milk?",
+    "options": [
+      "Solid in liquid",
+      "Liquid in solid",
+      "Liquid in Liquid",
+      "Gas in liquid"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Mathematics",
+    "number": 10,
+    "stem": "The population of a town increases at a rate proportional to the population at that time. If the population increases from 40 thousand to 80 thousand in 40 years, then the population in another 40 years will be",
+    "options": [
+      "180000",
+      "128000",
+      "160000",
+      "256000"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/mathematics"
+  },
+  {
+    "shift": "9th-may-morning",
+    "subject": "Mathematics",
+    "number": 28,
+    "stem": "In a class of 300 students, every student reads 5 news papers and every news paper is read by 60 students. Then the number of newspapers is",
+    "options": [
+      "at least 30",
+      "at most 20",
+      "exactly 25",
+      "exactly 10"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 1,
+    "stem": "When a capacitor is connected in series LR circuit, the alternating current flowing in the circuit",
+    "options": [
+      "is zero.",
+      "remains constant.",
+      "increases.",
+      "decreases."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 3,
+    "stem": "The spectral series observed for hydrogen atom found in visible region is",
+    "options": [
+      "Lyman",
+      "Balmer",
+      "Paschen",
+      "Brackett"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 9,
+    "stem": "Two identical galvanometers are converted into voltmeter and millivoltmeter. As compared to the series resistance of voltmeter, the series resistance of millivoltmeter will be",
+    "options": [
+      "equal",
+      "more",
+      "less",
+      "zero"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 15,
+    "stem": "Two coils of self-inductance 25 mH and 9 mH are placed close together such that the effective flux in one coil is completely linked with the other The mutual inductance between these coils is",
+    "options": [
+      "34 mH",
+      "16 mH",
+      "15 mH",
+      "6 mH"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 28,
+    "stem": "The temperature of a liquid falls from 365 K to 359 K in 3 minutes. The time during which temperature of this liquid falls from 342 K to 338 K is [Let the room temperature be 296 K ]",
+    "options": [
+      "6 min",
+      "4 min",
+      "3 min",
+      "2 min"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 36,
+    "stem": "An astronomical telescope has a large aperture to",
+    "options": [
+      "have high resolution.",
+      "have low dispersion.",
+      "increase the span of observation.",
+      "have large wavelength."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "In the working of photodiode, the reverse current depends on",
+    "options": [
+      "concentration of majority carriers.",
+      "concentration of minority carriers.",
+      "applied voltage.",
+      "recombination of holes and electrons."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 44,
+    "stem": "The fringe width in an interference pattern is ' X '. The distance between the sixth dark fringe from one side of central bright band to the fourth bright fringe on other side is",
+    "options": [
+      "1.5 X",
+      "2 X",
+      "5.5 X",
+      "9.5 X"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 48,
+    "stem": "A string of mass 0.2 Kg is under a tension of 2.5 N . The length of the string is 2 m. A transverse wave starts from one end of the string. The time taken by the wave to reach the other end is",
+    "options": [
+      "0.2 s",
+      "0.4 s",
+      "0.6 s",
+      "0.8 s"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Physics",
+    "number": 49,
+    "stem": "A stationary wave is formed having 3 nodes along the length of the string 90 cm . The wavelength of the wave is",
+    "options": [
+      "60 cm",
+      "75 cm",
+      "90 cm",
+      "30 cm"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 3,
+    "stem": "What is the name of isobutyl alcohol according to carbinol system?",
+    "options": [
+      "Ethyl methyl carbinol",
+      "Isobutyl carbinol",
+      "Isopropyl carbinol",
+      "Diethyl carbinol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "What type of following forces is present ethylene glycol?",
+    "options": [
+      "Dipole-induced dipole",
+      "Dipole-dipole",
+      "Dispersion forces",
+      "Intramolecular hydrogen bonding"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 6,
+    "stem": "What type of following compounds is obtained in first step of Wolf-Kishner reduction of carbonyl compounds?",
+    "options": [
+      "Carboxylic Acids",
+      "Alcohols",
+      "Hydrazones",
+      "Alkenes"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Which parameter is indicated by the number of waves passing through a given point in one second?",
+    "options": [
+      "Wavelength",
+      "Frequency",
+      "Wave number",
+      "Amplitude"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 9,
+    "stem": "Which from following is NOT a globular protein?",
+    "options": [
+      "Myosin",
+      "Insulin",
+      "Egg albumin",
+      "Legumelin"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 15,
+    "stem": "Which is the most commonly used refrigerant Freon-12?",
+    "options": [
+      "Monochloromonofluoromethane",
+      "Dichlorodifluoromethane",
+      "Chlorodifluoromethane",
+      "Dichlorofluoromethane"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 17,
+    "stem": "Which of the following amines undergoes acylation reaction?",
+    "options": [
+      "Ethyldimethylamine",
+      "N -Methylaniline",
+      "N, N-Dimethylmethanamine",
+      "N, N-Dimethylaniline"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 20,
+    "stem": "What is the highest oxidation state of third row transition elements?",
+    "options": [
+      "+5",
+      "+6",
+      "+7",
+      "+8"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 21,
+    "stem": "Which element from following in +2 state exhibits highest magnetic moment?",
+    "options": [
+      "Fe",
+      "Cr",
+      "Mn",
+      "Ni"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "Identify the products obtained in the ozonolysis of propene.",
+    "options": [
+      "Methanol and Ethanol",
+      "Methanal and Ethanol",
+      "Methanal and Ethanal",
+      "Methanol and Ethanal"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 30,
+    "stem": "Which from following buffers is used to maintain the pH of human blood naturally?",
+    "options": [
+      "Hydrogen cyanide and sodium cyanide",
+      "Copper hydroxide and copper chloride",
+      "Carbonic acid and salt of carbonic acid",
+      "Ammonium hydroxide and ammonium chloride"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 31,
+    "stem": "Which among the following is NOT a true statement regarding enantiomers?",
+    "options": [
+      "Enantiomers have identical refractive index.",
+      "Enantiomers have same chemical properties.",
+      "Enantiomers are superimposable mirror images of each other.",
+      "Enantiomers have equal but opposite optical rotation."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Which from following polymers is grouped under elastomers?",
+    "options": [
+      "Buna-S",
+      "Nylon 6,6",
+      "Terylene",
+      "Polythene"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Identify the polymer used to obtain LCD screen from following.",
+    "options": [
+      "Polyacrylamide",
+      "Buna-N",
+      "Polycarbonate",
+      "Perspex"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 39,
+    "stem": "Which from following polymers is believed to leach human carcinogen in to food when used as household plastic?",
+    "options": [
+      "LDPE",
+      "PP",
+      "PS",
+      "PET"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 41,
+    "stem": "Which of the following elements does not react with water to form metal hydroxide?",
+    "options": [
+      "Mg",
+      "Ca",
+      "Be",
+      "Sr"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Chemistry",
+    "number": 48,
+    "stem": "Identify the factor from following on which heat of reaction does not depend.",
+    "options": [
+      "Physical states of reactants and products.",
+      "Total number of steps in which reaction occurs.",
+      "Temperature of the reaction.",
+      "Whether the reaction is carried out at constant pressure or constant volume."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Mathematics",
+    "number": 24,
+    "stem": "Negation of the statement ' Horses have wings if and only if crows have tails. ' is",
+    "options": [
+      "Horses have wings but crows do not have tails. or crows have tails but horses do not have wings.",
+      "Horses do not have wings if and only if crows do not have tails.",
+      "Horses do not have wings and crows have tails. or Horses have wings and crows have tails.",
+      "Horses do not have wings and crows do not have tails."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/mathematics"
+  },
+  {
+    "shift": "9th-may-evening",
+    "subject": "Mathematics",
+    "number": 27,
+    "stem": "Consider a group of 5 boys and 7 girls. The number of different teams, consisting of 2 boys and 3 girls that can be formed from this group if there are two specific girls A and B , who refuse to be the members of the same team, is",
+    "options": [
+      "350",
+      "300",
+      "200",
+      "500"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-9th-may-evening-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Physics",
+    "number": 8,
+    "stem": "For a particle in uniform circular motion",
+    "options": [
+      "linear velocity always radial to the circular path, without change in its magnitude",
+      "linear velocity always tangential to the circular path, without change in its magnitude",
+      "linear acceleration always tangential to the circular path",
+      "linear acceleration always along the axis of the circular path"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Physics",
+    "number": 11,
+    "stem": "If the potential difference used to accelerate electrons is increased four times, by what factor does the de-Broglie wavelength associated with the electrons change?",
+    "options": [
+      "Wavelength increased two times",
+      "Wavelength decreased to half",
+      "Wavelength increased four times",
+      "Wavelength remains the same"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Physics",
+    "number": 12,
+    "stem": "In photoelectric effect, the photocurrent",
+    "options": [
+      "decreases with increase in frequency of incident photon.",
+      "increases with increase in frequency of incident photon.",
+      "does not depend on the frequency of photon but depends only on the intensity of incident light.",
+      "depends both on intensity and frequency of incident radiation."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Physics",
+    "number": 31,
+    "stem": "Simple microscope is used to see the object first in blue light and then a red light. Due to the change from blue to red light, its magnifying power",
+    "options": [
+      "decreases",
+      "increases",
+      "remains same",
+      "first increases and then decreases"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Physics",
+    "number": 36,
+    "stem": "In the block diagram of simple rectifier circuit, from a variable a.c. voltage, constant d.c. voltage is obtained. The correct order of operation is",
+    "options": [
+      "voltage regulator, diode rectifier, filter.",
+      "diode rectifier, voltage regulator, filter.",
+      "diode rectifier, filter, voltage regulator.",
+      "filter, voltage regulator, diode rectifier."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Physics",
+    "number": 47,
+    "stem": "When the string is stretched between two rigid supports, under certain tension and vibrated",
+    "options": [
+      "antinodes at both ends and at least one node in between",
+      "Nodes at both ends and at least one antinode in between",
+      "Nodes at both ends and no antinode in between",
+      "antinodes at both ends and no node in between"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 1,
+    "stem": "Which of the following ethers is gaseous at room temperature?",
+    "options": [
+      "1-Methoxypropane",
+      "1-Ethoxypropane",
+      "Methoxyethane",
+      "Ethoxyethane"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Which from following compounds is a trihydric alcohol?",
+    "options": [
+      "Quinol",
+      "Catechol",
+      "Propylene glycerol",
+      "Resorcinol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Which from following is NOT a dihydric compound?",
+    "options": [
+      "Crotonyl alcohol",
+      "Resorcinol",
+      "Ethylene glycol",
+      "Quinol"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 11,
+    "stem": "What is the shape of bromine pentafluoride?",
+    "options": [
+      "Trigonal pyramidal",
+      "Square pyramidal",
+      "Square planar",
+      "Distorted octahedral"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 12,
+    "stem": "Which of the following is NOT true about order of a reaction?",
+    "options": [
+      "It is sum of power of concentration terms in rate law equation.",
+      "It may be integer, fraction or zero.",
+      "It is theoretical quantity",
+      "It is experimentally determined quantity."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 20,
+    "stem": "Which element from following has completely filled f-orbital in observed and expected electronic configuration?",
+    "options": [
+      "Sm",
+      "Pr",
+      "Lu",
+      "Dy"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 24,
+    "stem": "Which of the following substances conducts electricity?",
+    "options": [
+      "Diamond",
+      "Sulphur (solid)",
+      "Molten NaCl",
+      "Crystalline NaCl"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 35,
+    "stem": "What type of solution the alloy is?",
+    "options": [
+      "Solid in liquid",
+      "Gas in liquid",
+      "Solid in gas",
+      "Solid in solid"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 42,
+    "stem": "In an ionic solid equal number of cations and anions are missing from their regular positions in the crystal lattice creating vacancies is called-",
+    "options": [
+      "Vacancy defect",
+      "Self interstitial defect",
+      "Schottky defect",
+      "Frenkel defect"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 46,
+    "stem": "Identify the instrument used to find the structure of surface of material.",
+    "options": [
+      "Scanning electron microscope",
+      "X ray difractometer",
+      "Transmission electron microscope",
+      "UV-visible spectrophotometer"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "What type of colloid is the soap lather?",
+    "options": [
+      "Solid sol",
+      "Emulsion",
+      "Foam",
+      "Aerosol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Chemistry",
+    "number": 50,
+    "stem": "Which from following statements is true about internal energy?",
+    "options": [
+      "It increases with increase in temperature.",
+      "It decreases with increase in temperature.",
+      "Remain constant on changing temperature.",
+      "It is not a state function."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-morning",
+    "subject": "Mathematics",
+    "number": 36,
+    "stem": "Mean and variance of six observations are 6 and 12 respectively. If each observation is multiplied by 3, then new variance of the resulting observations is",
+    "options": [
+      "288",
+      "36",
+      "18",
+      "108"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Physics",
+    "number": 4,
+    "stem": "A transformer has 120 turns in the primary coil and carries 5 A current. Input power is one kilowatt. To have 560 V output, the number of turns in secondary coil will be",
+    "options": [
+      "168",
+      "200",
+      "336",
+      "400"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Physics",
+    "number": 16,
+    "stem": "If a unit charge is taken from one point to another point over an equipotential surface, then",
+    "options": [
+      "work is done on the charge.",
+      "work is done by the charge.",
+      "work done on the charge is constantly increasing.",
+      "work done to move a charge is zero."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Physics",
+    "number": 30,
+    "stem": "Which one of the following is 'NOT' a contact force?",
+    "options": [
+      "Force of friction.",
+      "Normal reaction.",
+      "Gravitational force.",
+      "Viscous force."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Physics",
+    "number": 36,
+    "stem": "In compound microscope, the focal length and the aperture of the objective used is respectively",
+    "options": [
+      "large and large",
+      "large and small.",
+      "small and large.",
+      "small and small."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Physics",
+    "number": 38,
+    "stem": "In semiconductors at room temperature,",
+    "options": [
+      "the valence band is completely filled and the conduction band partially filled.",
+      "the valence band is completely filled.",
+      "the conduction band is completely filled.",
+      "the valence band is partially empty and the conduction band partially filled."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Physics",
+    "number": 50,
+    "stem": "The end correction for the vibrations of air column in a tube of circular cross-section will be more if the tube is",
+    "options": [
+      "reduced in length.",
+      "increased in length.",
+      "made thinner.",
+      "widened."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Which of the following is a tertiary allylic alcohol?",
+    "options": [
+      "Prop-2-en-1-ol",
+      "But-3-en-2-ol",
+      "2-methylprop-2-en-1-ol",
+      "2-methylbut-3-en-2-ol"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Identify an aldehyde used in margarine and in food for its buttery odour.",
+    "options": [
+      "Benzaldehyde",
+      "Butyraldehyde",
+      "Cinnamaldehyde",
+      "Oxaldehyde"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Identify acidic amino acid from following (represented by using three letter symbols).",
+    "options": [
+      "Arg",
+      "Asp",
+      "Asn",
+      "Ala"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 12,
+    "stem": "Which from following decides the rate of multistep reaction?",
+    "options": [
+      "rate of slowest step.",
+      "rate of fastest step.",
+      "average rate of various steps.",
+      "instantaneous rate of fast step."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 13,
+    "stem": "Identify the source of linen from following:",
+    "options": [
+      "Flax plant",
+      "Cotton plant",
+      "Cane plant",
+      "Rubber plant"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Identify a complex having monodentate ligand from following :",
+    "options": [
+      "Tetracyanonickelate(II) ion",
+      "Potassium trioxalatoaluminate(III)",
+      "Trioxalatocobaltate(III) ion",
+      "bis(ethylenediamine)dithiocyanato platinum(IV)"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 17,
+    "stem": "Which element from following does NOT exhibit magnetic moment in +2 state?",
+    "options": [
+      "Mn",
+      "Co",
+      "Fe",
+      "Zn"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 24,
+    "stem": "Identify the major product formed in the bromination of 2-Methylpropane.",
+    "options": [
+      "1-Bromopropane",
+      "2-Bromopropane",
+      "1-Bromo-2-methylpropane",
+      "2-Bromo-2-methylpropane"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 26,
+    "stem": "Which of the following is NOT obtained when a mixture of methyl bromide and ethyl bromide is treated with sodium metal in presence of dry ether?",
+    "options": [
+      "Ethane",
+      "Propane",
+      "Butane",
+      "Pentane"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "Which of the following is not a property of hydrogen peroxide?",
+    "options": [
+      "It is immiscible in water.",
+      "It is pale blue coloured liquid in pure state.",
+      "It's strength is explained in volume unit.",
+      "It is mild oxidising as well reducing agent."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 31,
+    "stem": "What is the number of chiral carbon atoms in threose?",
+    "options": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Which from following elements is NOT a member of group 16 from periodic table?",
+    "options": [
+      "Tellurium",
+      "Selenium",
+      "Polonium",
+      "Astatine"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 40,
+    "stem": "Which from following statements is NOT correct about thermoplastic polymers?",
+    "options": [
+      "These are softened on heating.",
+      "Intermolecular forces involved in these are moderately strong intermediate between elastomers and fibres.",
+      "These possess extensive cross linking by covalent bonds.",
+      "These are easily moulded."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Which from following statements is NOT true about absorption?",
+    "options": [
+      "Concentration of absorbate is uniform throughout the bulk of the absorbent.",
+      "It is independent of temperature and pressure.",
+      "It is not accompanied by evolution or absorption of heat.",
+      "It depends on surface area."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "10th-may-evening",
+    "subject": "Mathematics",
+    "number": 29,
+    "stem": "The converse of \"If 3 is a prime number, then 3 is odd.\" is",
+    "options": [
+      "If 3 is odd then it is a prime number.",
+      "If 3 is not a prime number then 3 is even.",
+      "If 3 is a prime number then 3 is even.",
+      "If 3 is not a prime number then 3 is not odd."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-10th-may-evening-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 3,
+    "stem": "With gradual increase in frequency of an a.c. supply, the impedance of an LCR series circuit",
+    "options": [
+      "increases.",
+      "decreases.",
+      "remains constant",
+      "first decreases, becomes minimum and then increases."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 12,
+    "stem": "When the number of turns in a coil is doubled without any change in the length of the coil, its self-inductance",
+    "options": [
+      "becomes 4 times.",
+      "becomes 2 times.",
+      "gets halved.",
+      "remains unchanged."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 36,
+    "stem": "When the same monochromatic ray of light travels through glass slab and through water, the number of waves in glass slab of thickness 5 cm is same as in water column of height 6 cm . If refractive index of glass is 1.56 , then refractive index of water is",
+    "options": [
+      "1.28",
+      "1.29",
+      "1.30",
+      "1.32"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 40,
+    "stem": "A p-n junction diode cannot be used",
+    "options": [
+      "as a rectifier.",
+      "for converting light energy to electrical energy.",
+      "for getting light radiation.",
+      "for increasing the amplitude of an a.c. signal."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 48,
+    "stem": "At the poles of earth, a stretched wire of a given length vibrates in unison with a tuning fork. At the equator of earth, for same setting, to produce resonance with same fork, the vibrating length of wire",
+    "options": [
+      "should be decreased.",
+      "should be increased.",
+      "should be same.",
+      "should be three times the original."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 49,
+    "stem": "With what velocity an observer should move relative to a stationary source so that a sound of triple the frequency of source is heard by an observer?",
+    "options": [
+      "Same as velocity of sound towards the source.",
+      "Same as velocity of sound away from the source.",
+      "Half the velocity of sound towards the source.",
+      "Twice the velocity of sound towards the source."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Physics",
+    "number": 50,
+    "stem": "For a particle moving in vertical circle, the total energy at different positions along the path [The motion is under gravity]",
+    "options": [
+      "may increase or decrease.",
+      "decreases.",
+      "is conserved.",
+      "increases."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Identify the product obtained when excess of benzoyl chloride is treated with dimethyl cadmium.",
+    "options": [
+      "Acetophenone",
+      "Benzoic acid",
+      "Benzophenone",
+      "Benzaldehyde"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Identify fibrous protein from following.",
+    "options": [
+      "Legumelin",
+      "Myosin",
+      "Insulin",
+      "Serum albumin"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 8,
+    "stem": "Which from following compounds is obtained when glucose is heated with HI for longer time?",
+    "options": [
+      "Glucose cyanohydrin",
+      "Glucose oxime",
+      "n-Hexane",
+      "Saccharic acid"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Which compound from following contains N atom in its ring?",
+    "options": [
+      "Furan",
+      "Thiophene",
+      "THF",
+      "Pyrrole"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 22,
+    "stem": "Which element from following exhibits highest number of various different possible oxidation states?",
+    "options": [
+      "Fe",
+      "Cr",
+      "Mn",
+      "Ni"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 25,
+    "stem": "Which of the following element is used in photoelectric cell?",
+    "options": [
+      "Beryllium",
+      "Caesium",
+      "Liquid sodium",
+      "Calcium"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 28,
+    "stem": "Which among the following has lowest boiling point?",
+    "options": [
+      "Chloromethane",
+      "Bromomethane",
+      "Dibromomethane",
+      "Tribromomethane"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 29,
+    "stem": "Which from following compounds is used to prepare a refrigerant R-22?",
+    "options": [
+      "Monochloromethane",
+      "Dichloromethane",
+      "Trichloromethane",
+      "Tetrachloromethane"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 36,
+    "stem": "Vapour pressure of a pure solvent is 550 mm of Hg . By addition of a non volatile solute it decreases to 510 mm of Hg . Calculate the mole fraction of solute in solution.",
+    "options": [
+      "0.215",
+      "0.072",
+      "0.610",
+      "0.512"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Which among the following P-block elements forms colourless and odourless hydride?",
+    "options": [
+      "Oxygen",
+      "Nitrogen",
+      "Sulphur",
+      "Selenium"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 40,
+    "stem": "Which from following polymers needs dihydric alcohol and aromatic dicarboxylic acid for its synthesis?",
+    "options": [
+      "Nylon 6",
+      "Dacron",
+      "Bakelite",
+      "Polyacrylamide"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 41,
+    "stem": "Which from following polymer contains este linkage?",
+    "options": [
+      "Nylon 6",
+      "Polyacrylonitrile",
+      "Teflon",
+      "PHBV"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 43,
+    "stem": "n-type of semiconductor is formed when",
+    "options": [
+      "Silicon doped with phosphorous",
+      "Silicon doped with boron",
+      "Germanium doped with boron",
+      "Germanium doped with aluminium"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Chemistry",
+    "number": 49,
+    "stem": "Which among the following pair of properties are intensive?",
+    "options": [
+      "surface tension and viscosity",
+      "mass and temperature",
+      "internal energy and boiling point",
+      "heat capacity and specific heat"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Mathematics",
+    "number": 11,
+    "stem": "The bacteria increase at the rate proportional to the number of bacteria present. If the original number N doubles in 8 hours, then the number of bacteria in 24 hours will be",
+    "options": [
+      "8 N",
+      "16 N",
+      "32 N",
+      "64 N"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/mathematics"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Mathematics",
+    "number": 29,
+    "stem": "_________ numbers greater than a million can be formed with the digits 2, 3, 0, 3, 4, 2, 3.",
+    "options": [
+      "60",
+      "420",
+      "360",
+      "120"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "11th-may-morning",
+    "subject": "Mathematics",
+    "number": 31,
+    "stem": "The probability that a person who undergoes a bypass surgery will recover is 0.6 . the probability that of the six patients who undergo similar operations, half of them will recover is __________.",
+    "options": [
+      "0.2762",
+      "0.1852",
+      "0.2074",
+      "0.7235"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 9,
+    "stem": "Kirchhoff's second law is based on the law of conservation of",
+    "options": [
+      "charge",
+      "energy",
+      "momentum",
+      "inter conversion of mass into energy"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 13,
+    "stem": "The number of turns in the primary of a transformer are 1000 and in secondary 3000. If 80 V a.c. is applied to the primary, the potential difference per turn of the secondary coil is",
+    "options": [
+      "0.02 V",
+      "0.04 V",
+      "0.08 V",
+      "0.16 V"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 34,
+    "stem": "Critical angle of light passing from glass to air is minimum for wavelength of",
+    "options": [
+      "red colour",
+      "yellow colour",
+      "green colour",
+      "blue colour"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 38,
+    "stem": "When n-p-n junction transistor is used as an amplifier in common emitter mode,",
+    "options": [
+      "the input impedance is high and the output impedance is low.",
+      "the base emitter junction is reverse biased.",
+      "input signal is applied between the base and emitter and output is obtained between collector and emitter.",
+      "the input voltage and output voltage are in phase."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 46,
+    "stem": "How is the interference pattern affected when violet light replaces sodium light?",
+    "options": [
+      "The fringes become brighter.",
+      "The fringes become faint.",
+      "Fringewidth decreases.",
+      "Fringewidth increases."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 48,
+    "stem": "Which of the following statements is NOT true?",
+    "options": [
+      "Sound wave travels in a straight line.",
+      "Sound is propagated as waves.",
+      "Sound can travel through vacuum.",
+      "Sound is a form of energy."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Physics",
+    "number": 49,
+    "stem": "If the two waves of same amplitude, having frequencies 340 Hz and 335 Hz , are moving in same direction, then the time interval between two successive maxima formed (in second) is",
+    "options": [
+      "0.1",
+      "0.2",
+      "0.3",
+      "0.5"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Which from following statements is NOT correct regarding Bohr model?",
+    "options": [
+      "It failed to account for finer details of hydrogen spectrum.",
+      "It is unable to explain atomic spectrum other than hydrogen.",
+      "It explains Zeeman effect.",
+      "It failed to explain ability of atoms to form molecules by chemical bonds."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 5,
+    "stem": "Identify the orbital having highest energy from following:",
+    "options": [
+      "2p",
+      "3s",
+      "3d",
+      "4p"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 12,
+    "stem": "Which of the following compounds is NOT obtained at any stage of Gabriel phthalimide synthesis?",
+    "options": [
+      "Potassium salt of phthalimide",
+      "N -alkyl phthalimide",
+      "Phthalic acid",
+      "Primary amine"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 15,
+    "stem": "What type of ligand is the oxalate ion?",
+    "options": [
+      "Monodentate",
+      "Bidentate",
+      "Ambidentate",
+      "Hexadentate"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Which element from following is the last element of 5d-transition series?",
+    "options": [
+      "Hg",
+      "Cd",
+      "In",
+      "Ag"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 20,
+    "stem": "Which of the following cannot be used as standard solution for determination of cell constant of conductivity cell?",
+    "options": [
+      "1 M KCl",
+      "0.1 M KCl",
+      "0.01 M KCl",
+      "Saturated KCl"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 21,
+    "stem": "Which among the following is benzylic halide?",
+    "options": [
+      "Bromobenzene",
+      "Bromophenyl methane",
+      "4-Bromotoluene",
+      "1-Bromo-2-phenylethane"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 23,
+    "stem": "Identify the product of ozonolysis of but-2-ene from following:",
+    "options": [
+      "Acetone and formaldehyde",
+      "Acetaldehyde and formaldehyde",
+      "Acetone",
+      "Acetaldehyde"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 29,
+    "stem": "Identify the correct pair of molecule and the heteroatom present in it respectively from following:",
+    "options": [
+      "Furan-S",
+      "Pyrrole-N",
+      "Thiophene-O",
+      "Piperidine-S"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 30,
+    "stem": "The common name of Benzene-1, 2, 3-triol is",
+    "options": [
+      "Phloroglucinol",
+      "Pyrogallol",
+      "Quinol",
+      "Catechol"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 34,
+    "stem": "In a solution, mole fraction of solute is 0.2 , when lowering in vapour pressure is 10 mm Hg . To get lowering of vapour pressure of 20 mm Hg , mole fraction of solute in solution is",
+    "options": [
+      "0.2",
+      "0.4",
+      "0.6",
+      "0.8"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 35,
+    "stem": "Which among the following minerals contains radioactive element in it?",
+    "options": [
+      "Cleveite",
+      "Carnallite",
+      "Chile salt petre",
+      "Baryte"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Which among following polymers is used to manufacture water pipes?",
+    "options": [
+      "Polycarbonate",
+      "PVC",
+      "Buna-N",
+      "Polyacrylamide"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Which from following polymers contain - CO - NH - linkage in it?",
+    "options": [
+      "Urea formaldehyde resin",
+      "Glyptal",
+      "Polycarbonate",
+      "Thermacol"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 41,
+    "stem": "Which among the following is an example of one dimensional nanostructure?",
+    "options": [
+      "Nano rings",
+      "Nano tubes",
+      "Layers and coatings",
+      "Quantum dots"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 42,
+    "stem": "What type of unit cell from following is common to all seven types of crystal systems?",
+    "options": [
+      "Simple",
+      "Body-centred",
+      "Face-centred",
+      "Base-centred"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 43,
+    "stem": "Identify the instrument used to find crystal structure from following :",
+    "options": [
+      "X-ray diffractometer",
+      "UV-Visible spectrophotometer",
+      "Scanning electron microscope",
+      "Transmission electron microscope"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 44,
+    "stem": "What is atomic radius of an element if it crystallises in BCC structure with edge length of unit cell 287 pm?",
+    "options": [
+      "124 pm",
+      "131 pm",
+      "137 pm",
+      "174 pm"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Which among the following is an example of emulsion?",
+    "options": [
+      "Foam rubber",
+      "Froth",
+      "Gelatin",
+      "Hair cream"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Chemistry",
+    "number": 48,
+    "stem": "Identify the process from following such that volume of system remains constant.",
+    "options": [
+      "adiabatic process",
+      "isochoric process",
+      "isothermal process",
+      "isobaric process"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Mathematics",
+    "number": 25,
+    "stem": "Contrapositive of the statement 'If two numbers are not equal, then their squares are not equal', is",
+    "options": [
+      "If the squares of two numbers are not equal, then the numbers are equal.",
+      "If the squares of two numbers are equal, then the numbers are not equal.",
+      "If the squares of two numbers are equal, then the numbers are equal.",
+      "If the squares of two numbers are not equal, then the numbers are not equal."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/mathematics"
+  },
+  {
+    "shift": "11th-may-evening",
+    "subject": "Mathematics",
+    "number": 28,
+    "stem": "The number of arrangements, of the letters of the word MANAMA in which two M's do not appear adjacent, is",
+    "options": [
+      "40",
+      "60",
+      "80",
+      "100"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-11th-may-evening-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 10,
+    "stem": "Electrons are accelerated through a potential difference of 16 kV . If the potential difference is increased to 64 kV , then de-Broglie wavelength associated with electron will",
+    "options": [
+      "remain same.",
+      "becomes half.",
+      "becomes four time.",
+      "becomes quarter."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 12,
+    "stem": "When the number of turns in a coil are made 3 times without any change in the length of the coil, its self inductance becomes",
+    "options": [
+      "(9) times",
+      "two times",
+      "three times",
+      "four times"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 16,
+    "stem": "If a unit positive charge is shifted from a region of low potential to a region of high potential, then the electric potential energy of the system",
+    "options": [
+      "increases.",
+      "decreases.",
+      "does not change.",
+      "is zero."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 33,
+    "stem": "For a ray of light, the critical angle is minimum, when it travels from",
+    "options": [
+      "glass to air",
+      "air to glass",
+      "glass to water",
+      "water to glass"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "In an extrinsic n-type semiconductor, the free electrons donated by the impurity atoms occupy energy levels in",
+    "options": [
+      "the conduction band.",
+      "the valance band.",
+      "the band gap and are close to conduction band.",
+      "the band gap and are close to valance band."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 45,
+    "stem": "In double slit experiment, instead of taking slits of equal widths, one slit is made twice as wide as the other. Then in interference pattern",
+    "options": [
+      "the intensity of the maxima decreases and the minima has zero intensity.",
+      "the intensity of maxima decreases and that of the minima increases.",
+      "the intensity of the maxima increases and the minima has zero intensity.",
+      "the intensities of both the maxima and the minima increase."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Physics",
+    "number": 49,
+    "stem": "When a sonometer wire vibrates in third overtone there are",
+    "options": [
+      "4 nodes and 3 antinodes.",
+      "6 nodes and 5 antinodes.",
+      "5 nodes and 4 antinodes.",
+      "4 nodes and 5 antinodes."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Ethers when dissolved in cold concentrated sulfuric acid forms,",
+    "options": [
+      "Alkanols",
+      "Alkanoic acids",
+      "Alkyl hydrogen sulphate",
+      "Oxonium salts"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Aldol condensation reaction is",
+    "options": [
+      "Electrophilic substitution",
+      "Nucleophilic substitution",
+      "Electrophilic addition-elimination reaction",
+      "Nucleophilic addition-elimination reaction"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 11,
+    "stem": "Which of the following molecules is an example of sp hybridization?",
+    "options": [
+      "Methane",
+      "Acetylene",
+      "Ethylene",
+      "Ammonia"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 13,
+    "stem": "Which among the following statements is NOT true about rate constant?",
+    "options": [
+      "It is independent of concentration.",
+      "It varies with temperature.",
+      "For unit concentration it is equal to rate of reaction.",
+      "It is directly proportional to the product of concentrations of reacting species."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Which of the following is a primary amine?",
+    "options": [
+      "N-methyl methanamine",
+      "Phenyl methanamine",
+      "N-phenyl benzenamine",
+      "N-methyl benzenamine"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 29,
+    "stem": "What is the number of chiral carbon atoms present in 2-chloro-3,4-dimethylhexane?",
+    "options": [
+      "One",
+      "Two",
+      "Three",
+      "Four"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 35,
+    "stem": "Which from following is a mineral of copper?",
+    "options": [
+      "Chalcopyrite",
+      "Zincite",
+      "Limonite",
+      "Siderite"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Identify the alloy used for construction of gas turbine engines.",
+    "options": [
+      "Nichrome",
+      "Bronze",
+      "Stainless steel",
+      "Cupra-nickel"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Which from following polymers (trade name) is used to obtain paints?",
+    "options": [
+      "Glyptal",
+      "Polycarbonate",
+      "Perspexe",
+      "PVC"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 41,
+    "stem": "Which from following compounds is obtained as by product in synthesis of sodium carbonate by Solvay process?",
+    "options": [
+      "Ammonium carbonate",
+      "Sodium bicarbonate",
+      "Calcium Chloride",
+      "Ammonium Chloride"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Identify dispersed phase and dispersion medium in fog respectively.",
+    "options": [
+      "liquid and gas.",
+      "gas and liquid.",
+      "solid and gas.",
+      "gas and solid."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Chemistry",
+    "number": 49,
+    "stem": "Under similar conditions enthalpy of freezing is exactly opposite to",
+    "options": [
+      "enthalpy of fusion",
+      "enthalpy of vaporization",
+      "enthalpy of solution",
+      "enthalpy of atomization"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Mathematics",
+    "number": 2,
+    "stem": "Twenty meters of wire is available for fencing off a flower-bed in the form of a circular sector. Then the maximum area (in sq.m) of the flowerbed is",
+    "options": [
+      "30",
+      "12.5",
+      "25",
+      "10"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/mathematics"
+  },
+  {
+    "shift": "15th-may-morning",
+    "subject": "Mathematics",
+    "number": 25,
+    "stem": "Contrapositive of the statement. 'If two numbers are equal, then their squares are equal' is",
+    "options": [
+      "If the squares of two numbers are equal, then the numbers are not equal.",
+      "If the squares of two numbers are not equal, then the numbers are equal.",
+      "If the squares of two numbers are not equal, then the numbers are not equal.",
+      "If the squares of two numbers are equal, then the numbers are equal."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-morning-shift/subjects/mathematics"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 2,
+    "stem": "The core used in transformers are laminated to",
+    "options": [
+      "increase the magnetic field.",
+      "increase the level of the magnetic saturation of the core.",
+      "reduce the residual magnetism in the core.",
+      "reduce eddy current losses in the core."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 10,
+    "stem": "A particle is moving in a circle with uniform speed. It has constant",
+    "options": [
+      "velocity.",
+      "acceleration.",
+      "kinetic energy.",
+      "displacement."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 11,
+    "stem": "A galvanometer may be converted into ammeter or a voltmeter. In which of the following cases the resistance of the device so obtained will be the largest?",
+    "options": [
+      "Ammeter of range 1 A",
+      "Ammeter of range 10 A",
+      "Voltmeter of range 1 V",
+      "Voltmeter of range 10 V"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 22,
+    "stem": "The viscous force between two liquid layers is",
+    "options": [
+      "radial.",
+      "normal to the liquid surface.",
+      "tangential to the liquid surface.",
+      "neither purely tangential nor purely normal."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 28,
+    "stem": "The absolute temperature of a gas is determined by",
+    "options": [
+      "the average momentum of the molecule.",
+      "the velocity of sound in the gas.",
+      "the number of molecules in the gas.",
+      "the mean square velocity of the molecules."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 38,
+    "stem": "For detecting light intensity we use",
+    "options": [
+      "photodiode in reverse bias.",
+      "photodiode in forwarded bias.",
+      "LED in reverse bias.",
+      "LED in forward bias."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "A p-n junction diode as a rectifier converts",
+    "options": [
+      "a.c. to d.c.",
+      "d.c. to a.c.",
+      "high voltage to low voltage.",
+      "low voltage to high voltage."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 43,
+    "stem": "A plate of refractive index 1.6 is introduced in the path of light from one of the slits in Young's double slit experiment then",
+    "options": [
+      "the fringe width towards the side of the plate will decrease.",
+      "the central maximum will shift towards this side",
+      "number of fringes seen will decrease.",
+      "interference pattern will disappear."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Physics",
+    "number": 46,
+    "stem": "The end correction for the vibrations of air column in a tube of circular cross-section will be more if the tube is",
+    "options": [
+      "reduced in length.",
+      "increased in length.",
+      "made thinner.",
+      "widened."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 1,
+    "stem": "According to carbinol system tert-butyl alcohol is named as",
+    "options": [
+      "methyl carbinol",
+      "ethyl carbinol",
+      "propyl carbinol",
+      "trimethyl carbinol"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Phenol on heating with zinc dust forms",
+    "options": [
+      "Benzoquinone",
+      "Cyclohexazne",
+      "Benzene",
+      "Cyclohexanol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Which of the following is a simple ketone?",
+    "options": [
+      "Acetophenone",
+      "Butanone",
+      "Benzophenone",
+      "Pentan-2-one"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Identify the correct statement about glucose from following.",
+    "options": [
+      "It is aldohexose.",
+      "It is nonreducing sugar.",
+      "It contains three chiral carbon atoms.",
+      "Its ring structure is hemiketal."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 16,
+    "stem": "Which among the following properties is NOT exhibited by transition elements?",
+    "options": [
+      "These are generally hard.",
+      "These form alloys with other metals.",
+      "These do not conduct heat.",
+      "These are malleable and ductile."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 21,
+    "stem": "Which of the following is vinylic halide?",
+    "options": [
+      "Haloalkane",
+      "Haloalkene",
+      "Haloakyne",
+      "Haloarene"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "Acidic buffer solution is prepared by mixing proportionate quantity of",
+    "options": [
+      "strong acid and its salt with weak base.",
+      "strong base and its salt with weak acid.",
+      "weak acid and its salt with strong base.",
+      "weak base and its salt with strong acid."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 29,
+    "stem": "Which of the following alkenes does NOT exhibit cis-trans isomerism?",
+    "options": [
+      "But-1-ene",
+      "But-2-ene",
+      "3,4-Dimethylhex-3-ene",
+      "Pent-2-ene"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 30,
+    "stem": "Which of the following compounds contains S atom in its ring?",
+    "options": [
+      "Nitromethane",
+      "Pyran",
+      "Furan",
+      "Thiophene"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 32,
+    "stem": "Carbonated water is an example of a solution of",
+    "options": [
+      "Gas in liquid",
+      "Gas in solid",
+      "Gas in gas",
+      "Solid in gas"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 34,
+    "stem": "Which of the following alloys is used in construction of outer fuselage of ultra-high speed air craft?",
+    "options": [
+      "Nichrome",
+      "Cupra-nickel",
+      "Stainless steel",
+      "Bronze"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 35,
+    "stem": "Which group element from following achieves noble gas configuration after gaining two electrons?",
+    "options": [
+      "Group-14",
+      "Group-15",
+      "Group-16",
+      "Group-13"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Which from following is semisynthetic polymer?",
+    "options": [
+      "Dacron",
+      "Nylon 6",
+      "Wool",
+      "Cellulose nitrate"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 38,
+    "stem": "Identify the polymer used to obtain disposable cups and plates.",
+    "options": [
+      "LDPE",
+      "Polypropylene",
+      "HDPE",
+      "Polystyrene"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 41,
+    "stem": "Beryllium shows diagonal relationship with",
+    "options": [
+      "Na",
+      "Mg",
+      "Al",
+      "Si"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Chemistry",
+    "number": 48,
+    "stem": "Find the constant external pressure required to expand a gas from 2.5 L to 4.5 L if amount of work done is 500 J at 298 K ?",
+    "options": [
+      "1 bar",
+      "1.5 bar",
+      "2.0 bar",
+      "2.5 bar"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "15th-may-evening",
+    "subject": "Mathematics",
+    "number": 33,
+    "stem": "There are 3 sections in a question paper and each section contains 5 questions. A candidate has to answer a total of 5 questions, choosing at least one question from each section. Then the number of ways, in which the candidate can choose the questions, is",
+    "options": [
+      "750",
+      "1500",
+      "2255",
+      "2250"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-15th-may-evening-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 2,
+    "stem": "An electric lamp connected in series with a capacitor and an a.c. source is glowing with certain brightness. On increasing the value of capacitance the brightness of the lamp",
+    "options": [
+      "is increased.",
+      "is decreased.",
+      "remains the same.",
+      "becomes zero."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 5,
+    "stem": "When an electron orbiting in hydrogen atom in its ground state jumps to higher excited state, the de-Broglie wavelength associated with it",
+    "options": [
+      "will become zero.",
+      "will remain same.",
+      "will decrease.",
+      "will increase."
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 9,
+    "stem": "In case of system of two-particles of different masses, the centre of mass lies",
+    "options": [
+      "at the mid-point of line joining the two particles.",
+      "on the line joining the two particles.",
+      "at one end of the line joining the two particles.",
+      "on the line perpendicular to the line joining the two particles."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 18,
+    "stem": "When the dielectric is placed in an external electric field, the electric field inside the dielectric is",
+    "options": [
+      "less than the external electric field.",
+      "larger than the external electric field.",
+      "equal to the external electric field.",
+      "equal to or greater than external electric field."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 19,
+    "stem": "In most liquids, with rise in temperature, surface tension of a liquid",
+    "options": [
+      "first decreases and then increases.",
+      "increases.",
+      "decreases.",
+      "remains unchanged."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 31,
+    "stem": "The materials having negative magnetic susceptibility are",
+    "options": [
+      "both paramagnetic and ferromagnetic.",
+      "paramagnetic.",
+      "diamagnetic.",
+      "ferromagnetic."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Physics",
+    "number": 33,
+    "stem": "The magnetic induction along the axis of a toroidal solenoid is independent of",
+    "options": [
+      "number of turns per unit length.",
+      "current passing through it.",
+      "radius of the toroidal solenoid.",
+      "permeability"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 1,
+    "stem": "Which among the following has the highest melting point?",
+    "options": [
+      "Phenol",
+      "p-Cresol",
+      "p-Nitrophenol",
+      "o-Nitrophenol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 4,
+    "stem": "Identify acidic amino acid from following (represented by using three letter symbols)",
+    "options": [
+      "Glu",
+      "Gly",
+      "Gln",
+      "Arg"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 5,
+    "stem": "What is the number of moles of oxygen and number of moles of N atoms respectively present in one mole thymine?",
+    "options": [
+      "2 and 2",
+      "1 and 5",
+      "1 and 3",
+      "2 and 3"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 6,
+    "stem": "Which among the following is NOT dicarboxylic acid?",
+    "options": [
+      "Adipic acid",
+      "Valeric acid",
+      "Glutaric acid",
+      "Malonic acid"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 11,
+    "stem": "Which of the following is true for a reaction as per coliision theory?",
+    "options": [
+      "Every collision between reactants leads to chemical reaction.",
+      "It may be expected that rate of reaction is equal to rate of collision.",
+      "For gas phase reactions, the number of collisions is far less compared to observed rate.",
+      "The colliding molecules do not need proper orientation."
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 15,
+    "stem": "Which from following complexes is having ambidentate ligand in it?",
+    "options": [
+      "Triamminetrinitrocobalt (III)",
+      "Pentacarbonyliron (0)",
+      "Tetraaminecopper (II) ion",
+      "Trioxalatocobaltate (III) ion"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 20,
+    "stem": "Which from the following concentrations of a weak electrolyte solution exhibits maximum molar conductivity?",
+    "options": [
+      "0.004 M",
+      "0.002 M",
+      "0.005 M",
+      "0.001 M"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 21,
+    "stem": "Which among the following has lowest boiling point?",
+    "options": [
+      "Chloromethane",
+      "Fluoromethane",
+      "Bromomethane",
+      "Iodomethane"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 24,
+    "stem": "What is the product of Hydroborationoxidation of but-1-ene?",
+    "options": [
+      "Butanal",
+      "Butanone",
+      "Butan-1-ol",
+      "Butan-2-ol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 25,
+    "stem": "Identify the product obtained when alkenes react with cold and dilute alkaline potassium permanganate.",
+    "options": [
+      "Alkanols",
+      "Glycols",
+      "Glycerols",
+      "Alkanoic acids"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 26,
+    "stem": "Which from following mixtures in water acts as a buffer?",
+    "options": [
+      "Acetic acid and sodium acetate",
+      "Acetic acid and ammonium chloride",
+      "Ammonium hydroxide and sodium chloride",
+      "Formic acid and acetic acid"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "Calculate the pH of 0.01 M sulphuric acid.",
+    "options": [
+      "1.699",
+      "2.00",
+      "0.699",
+      "3.398"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 29,
+    "stem": "Which of the following is NOT optically active compound?",
+    "options": [
+      "1,2-Diiodobutane",
+      "1,3-Diiodobutane",
+      "1,4-Diiodobutane",
+      "2,3-Diiodobutane"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 36,
+    "stem": "Which of the following elements belongs to second group and fifth period of periodic table?",
+    "options": [
+      "Rubidium",
+      "Strontium",
+      "Caesium",
+      "Barium"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Which from following polymers is used as substitute for wool?",
+    "options": [
+      "Teflon",
+      "LDP",
+      "Dacron",
+      "Polyacrylonitrile"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 42,
+    "stem": "What type of solid is the silica?",
+    "options": [
+      "Ionic",
+      "Molecular",
+      "Covalent",
+      "Metallic"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Identify one dimensional nanostructure from following.",
+    "options": [
+      "Nanowires",
+      "Nanoparticles",
+      "Thin films",
+      "Quantum dots"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-morning",
+    "subject": "Mathematics",
+    "number": 34,
+    "stem": "If the sum of the deviations of 50 observations from 30 is 50 , then the mean of these observations is",
+    "options": [
+      "30",
+      "50",
+      "51",
+      "31"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-morning-shift/subjects/mathematics/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 2,
+    "stem": "A light bulb connected in series with a capacitor and an a.c. source is glowing with a certain brightness. On reducing the capacity of capacitance and frequency of source, the brightness of the lamp (respectively)",
+    "options": [
+      "is reduced, is increased",
+      "is reduced, is reduced",
+      "is increased, is reduced",
+      "is increased, is increased"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 13,
+    "stem": "Two identical galvanometers are converted into an ammeter and into milliammeter. For the same current, the value of shunt of the ammeter as compared to that of milliammeter is",
+    "options": [
+      "less",
+      "equal",
+      "more",
+      "zero"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 16,
+    "stem": "A point source of light is used in a photoelectric effect. If the source is removed farther from the emitting metal, then the stopping potential will",
+    "options": [
+      "increase.",
+      "decrease.",
+      "remain constant.",
+      "either increase or decrease."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 21,
+    "stem": "On the surface of the liquid in equilibrium, molecules of the liquid possess",
+    "options": [
+      "maximum potential energy.",
+      "minimum potential energy.",
+      "maximum kinetic energy.",
+      "minimum kinetic energy."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 24,
+    "stem": "A boy weighs 72 N on the surface of earth. The gravitational force on a body due to earth at a height equal to half the radius of earth will be",
+    "options": [
+      "32 N",
+      "48 N",
+      "96 N",
+      "162 N"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 26,
+    "stem": "The first operation involved in a Carnot cycle is",
+    "options": [
+      "isothermal expansion.",
+      "adiabatic expansion.",
+      "isothermal compression.",
+      "adiabatic compression."
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Physics",
+    "number": 39,
+    "stem": "When a small amount of impurity atoms are added to semiconductor, then generally its resistivity",
+    "options": [
+      "may increase or decrease depending upon the percentage of doping.",
+      "increases.",
+      "decreases.",
+      "does not change."
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/physics/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 1,
+    "stem": "Which reagent is used in the conversion of phenol to picric acid?",
+    "options": [
+      "Nitric acid (dil.)",
+      "Nitrous acid (conc.)",
+      "Sulphuric acid (conc.)",
+      "Nitric acid (conc.) + Sulphuric acid (conc.)"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 2,
+    "stem": "Which of the following is allylic alcohol?",
+    "options": [
+      "But-1-en-1-ol",
+      "But-3-en-1-ol",
+      "But-2-en-1-ol",
+      "Butane-1,3-diol"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 5,
+    "stem": "Which of the following series of emission spectral lines for hydrogen observed in visible region?",
+    "options": [
+      "Paschen",
+      "Lyman",
+      "Pfund",
+      "Balmer"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 7,
+    "stem": "Which from following nitrogen bases of nucleic acids is derived from purine?",
+    "options": [
+      "Cytosine",
+      "Guanine",
+      "Uracil",
+      "Thymine"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 18,
+    "stem": "Which from following ligands is neutral?",
+    "options": [
+      "Ammine",
+      "Chloro",
+      "Sulphato",
+      "Nitrito"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 20,
+    "stem": "Identify an actinoid element from following.",
+    "options": [
+      "No",
+      "Mo",
+      "Co",
+      "Ce"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 26,
+    "stem": "Which of the following compounds is obtained by using Finkelstein reaction?",
+    "options": [
+      "Alkyl fluorides",
+      "Alkyl chlorides",
+      "Alkyl bromides",
+      "Alkyl iodides"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 27,
+    "stem": "What is the major product obtained when tert-butyl bromide is heated with silver fluoride?",
+    "options": [
+      "1-Fluoro-2-methylpropane",
+      "2-Fluoro-2-methylpropane",
+      "1-Flurobutane",
+      "2-Flurobutane"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 31,
+    "stem": "Identify chiral molecule from following:",
+    "options": [
+      "2-Bromopropane",
+      "2-Bromo-2-methylbutane",
+      "2-Bromo-3-methylbutane",
+      "3-Bromopentane"
+    ],
+    "answer": "C",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 33,
+    "stem": "Which from following compounds contains oxygen as a heteroatom?",
+    "options": [
+      "Furan",
+      "Pyridine",
+      "Thiophene",
+      "Piperidine"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 34,
+    "stem": "What type of solution is the iodine in air?",
+    "options": [
+      "Liquid in solid",
+      "Solid in gas",
+      "Solid in liquid",
+      "Liquid in gas"
+    ],
+    "answer": "B",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 37,
+    "stem": "Which from following polymers is classified as fibres?",
+    "options": [
+      "Polyesters",
+      "Vulcanized rubber",
+      "Polythene",
+      "Polyvinyls"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 46,
+    "stem": "Identify positively charged sol from the following.",
+    "options": [
+      "Haemoglobin",
+      "Gum",
+      "Gelatin",
+      "Cadmium sulfide"
+    ],
+    "answer": "A",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  },
+  {
+    "shift": "16th-may-evening",
+    "subject": "Chemistry",
+    "number": 47,
+    "stem": "Which from following is a largest size nanomaterial?",
+    "options": [
+      "Water (molecular level)",
+      "Glucose (molecular level)",
+      "Virus",
+      "Bacteria"
+    ],
+    "answer": "D",
+    "source": "https://hive.pracbee.com/mht-cet/papers/mht-cet-2024-16th-may-evening-shift/subjects/chemistry/page/2"
+  }
+]
