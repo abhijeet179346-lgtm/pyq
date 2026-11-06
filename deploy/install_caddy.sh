@@ -26,10 +26,14 @@ fi
 
 MAIN=$PUBLIC_HOST
 if [ -n "$DOMAIN" ]; then
-  if getent ahostsv4 "$DOMAIN" | awk '{print $1}' | sort -u | grep -qx "$PUBLIC_HOST"; then
+  # Every A record must point here: a leftover registrar "parking" record makes Let's Encrypt
+  # (and some visitors) reach the wrong server.
+  ips() { getent ahostsv4 "$1" | awk '{print $1}' | sort -u | tr '\n' ' '; }
+  if [ "$(ips "$DOMAIN")" = "$PUBLIC_HOST " ] && [ "$(ips "www.$DOMAIN")" = "$PUBLIC_HOST " ]; then
     MAIN=$DOMAIN
   else
-    echo "NOTE: $DOMAIN does not resolve to $PUBLIC_HOST yet; serving the IP. Re-run after updating DNS." >&2
+    echo "NOTE: $DOMAIN -> $(ips "$DOMAIN")/ www.$DOMAIN -> $(ips "www.$DOMAIN"); both must be only $PUBLIC_HOST." >&2
+    echo "      Serving the IP for now. Re-run with DOMAIN=$DOMAIN after fixing DNS." >&2
   fi
 fi
 
