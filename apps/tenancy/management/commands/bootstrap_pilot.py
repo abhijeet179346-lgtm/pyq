@@ -13,7 +13,7 @@ from apps.tenancy.models import Tenant
 
 
 class Command(BaseCommand):
-    help = "Create an initial PYQ Vault tenant, platform admin, tenant admin, and Phase 0 catalog seeds."
+    help = "Create an initial PYQNet tenant, platform admin, tenant admin, and Phase 0 catalog seeds."
 
     def add_arguments(self, parser):
         parser.add_argument("--tenant-name", required=True)

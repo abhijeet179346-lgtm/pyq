@@ -27,7 +27,7 @@ class Command(BaseCommand):
             topic=Topic.objects.filter(chapter=chapter).annotate(n=Count('questions')).order_by('-n','name').first()
             if topic is None:topic=Topic.objects.create(chapter=chapter,name='Revision essentials')
             doc,was_created=MaterialDocument.objects.get_or_create(tenant=None,source=f'pyq-vault:revision-notes:v1:{index}',defaults={
-                'title':f'{subject_name} · {title}', 'license':'Original PYQ Vault revision notes; educational use.', 'default_topic':topic})
+                'title':f'{subject_name} · {title}', 'license':'Original PYQNet revision notes; educational use.', 'default_topic':topic})
             doc.exams.set(Exam.objects.filter(slug__in=['neet'] if subject_name=='Biology' else ['jee-main','jee-advanced'] if subject_name=='Mathematics' else ['jee-main','jee-advanced','neet']))
             if was_created:
                 section=MaterialSection.objects.create(document=doc,title=title,body=body.strip(),topic=topic,order=1)

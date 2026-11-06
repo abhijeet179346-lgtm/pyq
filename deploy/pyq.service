@@ -1,5 +1,5 @@
 [Unit]
-Description=PYQ Vault (gunicorn)
+Description=PYQNet (gunicorn)
 After=network.target
 
 [Service]

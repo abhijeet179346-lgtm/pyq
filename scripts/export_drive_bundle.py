@@ -66,9 +66,9 @@ for (exam, subject, status), rows in sorted(grouped.items()):
     filename = f'{label}.xlsx'
     (folder / filename).write_bytes(workbook_bytes('questions', rows))
 
-readme = '''# PYQ Vault Google Drive upload bundle
+readme = '''# PYQNet Google Drive upload bundle
 
-The folder structure is `Exam/Subject/`. Each Excel workbook contains questions from the local PYQ Vault database, with source URLs, source page where available, answer, and LaTeX text preserved. Published items and drafts are in separate workbooks. Drafts need subject review before publication. Workbooks are formatted using the app's own question importer columns.
+The folder structure is `Exam/Subject/`. Each Excel workbook contains questions from the local PYQNet database, with source URLs, source page where available, answer, and LaTeX text preserved. Published items and drafts are in separate workbooks. Drafts need subject review before publication. Workbooks are formatted using the app's own question importer columns.
 
 Original question/paper source links are recorded in each row. The data includes web-sourced 2024 COMEDK, CUET UG, and MHT-CET material as well as the existing JEE Main, JEE Advanced, and NEET banks. Source answer keys have not all been independently verified; please review draft workbooks before use.
 

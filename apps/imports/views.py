@@ -92,7 +92,7 @@ def commit_question_csv(request):
 
 def question_csv_template(request):
     response = HttpResponse(content_type="text/csv; charset=utf-8")
-    response["Content-Disposition"] = 'attachment; filename="pyq-vault-question-template.csv"'
+    response["Content-Disposition"] = 'attachment; filename="pyqnet-question-template.csv"'
     writer = csv.writer(response)
     writer.writerow(["question_type", "stem", "options", "answer", "solution", "difficulty", "subject", "chapter", "topic", "source", "license"])
     writer.writerow(["single_correct", "What is $2+2$?", '["3", "4", "5", "6"]', "B", "Because two plus two is four.", 1, "Physics", "Mechanics", "Units", "Institute DPP 1", "Institute-owned"])

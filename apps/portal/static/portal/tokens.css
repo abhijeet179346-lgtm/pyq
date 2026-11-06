@@ -1,4 +1,4 @@
-/* PYQ Vault design tokens — the only place colours are defined.
+/* PYQNet design tokens — the only place colours are defined.
    Every text/background pair used by components is checked against WCAG AA
    by apps/portal/test_design_tokens.py. Change values here, then run the tests. */
 :root,[data-theme=light]{

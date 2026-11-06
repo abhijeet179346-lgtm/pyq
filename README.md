@@ -1,4 +1,4 @@
-# PYQ Vault — Django Phase 0–3 implementation
+# PYQNet — Django Phase 0–3 implementation
 
 Multi-tenant Django pilot for institute-branded PYQ practice, assignments, study materials, teacher review, and a quality-gated AI tutor. SQLite is the default database. Pinecone is optional; retrieval falls back to tenant-scoped lexical search. Each capability is controlled by a per-tenant entitlement and enable switch. AI features also require a passing, teacher-reviewed quality gate.
 
@@ -54,9 +54,9 @@ Local settings print verification messages in the server terminal. For inbox del
 
 ### Master tenant controls in admin
 
-Core-domain learners belong to the singleton **PYQ Vault — Master tenant**, identified by `is_master=True`. The core host resolves to this tenant; it is not exposed through a `master` institute subdomain. A migration moves existing non-staff, non-superuser core accounts into it. Newly created learner accounts without an explicit institute are assigned to it automatically. Platform superusers remain outside all tenants.
+Core-domain learners belong to the singleton **PYQNet — Master tenant**, identified by `is_master=True`. The core host resolves to this tenant; it is not exposed through a `master` institute subdomain. A migration moves existing non-staff, non-superuser core accounts into it. Newly created learner accounts without an explicit institute are assigned to it automatically. Platform superusers remain outside all tenants.
 
-Open **Tenancy → Tenants → PYQ Vault — Master tenant** in Django admin. Its edit page includes feature-entitlement and exam-setting rows. The same records can be managed under **Features → Feature entitlements** and **Tenant exams**. Disabling a feature blocks its core URL and removes its navigation/card. Disabled exams hide their PYQs; suspending the master tenant blocks its learner workspace. The master tenant's marker and slug are read-only and admin deletion is blocked.
+Open **Tenancy → Tenants → PYQNet — Master tenant** in Django admin. Its edit page includes feature-entitlement and exam-setting rows. The same records can be managed under **Features → Feature entitlements** and **Tenant exams**. Disabling a feature blocks its core URL and removes its navigation/card. Disabled exams hide their PYQs; suspending the master tenant blocks its learner workspace. The master tenant's marker and slug are read-only and admin deletion is blocked.
 
 Core users are listed under **Accounts → Users** with the master tenant selected. To supply core-only questions, create practice questions owned by the master tenant. Global PYQs remain global and are exposed only when their exam is enabled for the master tenant. For core-only study material, select the master tenant as document owner; shared global material can also be shown. Private institute content stays excluded. Core practice history is visible to platform administrators under **Portal → Direct practice attempts**. New exams need an explicit enabled Tenant Exam row; they are not automatically exposed. The migration enables the three already imported sample exams and common learning capabilities once, preserving subsequent admin edits.
 

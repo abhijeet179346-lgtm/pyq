@@ -40,8 +40,8 @@ def send_verification(user):
         user=user, email=user.email, password_fingerprint=password_fingerprint(user),
         expires_at=now + timedelta(hours=1))
     try:
-        sent = send_mail("Verify your email for PYQ Vault",
-            "Confirm your email address to continue to PYQ Vault.\n\n"
+        sent = send_mail("Verify your email for PYQNet",
+            "Confirm your email address to continue to PYQNet.\n\n"
             + link + "\n\nThis link expires in one hour. Sign in with the same account, then confirm your email. "
             "If you did not request this, ignore this message.",
             settings.DEFAULT_FROM_EMAIL, [user.email], fail_silently=False)

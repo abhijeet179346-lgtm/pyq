@@ -81,7 +81,7 @@ def access_code_export(request):
     for access, code in issued:
         writer.writerow([code, tenant.slug, access.batch.name, access.role, access.max_uses, access.expires_at or ""])
     response = HttpResponse("\ufeff" + output.getvalue(), content_type="text/csv; charset=utf-8")
-    response["Content-Disposition"] = 'attachment; filename="pyq-vault-access-codes.csv"'
+    response["Content-Disposition"] = 'attachment; filename="pyqnet-access-codes.csv"'
     return response
 
 
