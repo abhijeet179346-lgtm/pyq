@@ -1,13 +1,11 @@
-# Caddy terminates HTTPS and proxies to gunicorn. __PUBLIC_HOST__ is replaced at install time.
-# For a bare IP, Let's Encrypt issues only short-lived (~6 day) certificates; Caddy renews them
-# automatically. With a domain name the same profile works, or drop the tls block for 90-day certs.
-__PUBLIC_HOST__ {
-	tls {
-		issuer acme {
-			profile shortlived
-		}
-	}
+# Caddy terminates HTTPS and proxies to gunicorn. install_caddy.sh fills in the
+# placeholders and appends the site blocks (domain, www redirect, bare IP).
+{
+	# Browsers send no SNI when visiting a bare IP; serve the IP certificate then.
+	default_sni __PUBLIC_IP__
+}
 
+(app) {
 	request_body {
 		max_size 100MB # admin PDF uploads
 	}
@@ -31,5 +29,14 @@ __PUBLIC_HOST__ {
 	}
 	log {
 		output stderr
+	}
+}
+
+# Let's Encrypt issues IP-address certificates only on its short-lived (~6 day) profile.
+(ip_tls) {
+	tls {
+		issuer acme {
+			profile shortlived
+		}
 	}
 }

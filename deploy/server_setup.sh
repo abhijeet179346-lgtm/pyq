@@ -73,7 +73,7 @@ log "First deploy"
 bash $APP_DIR/deploy/deploy.sh
 
 log "HTTPS"
-PUBLIC_HOST=$PUBLIC_HOST bash $APP_DIR/deploy/install_caddy.sh
+PUBLIC_HOST=$PUBLIC_HOST DOMAIN=${DOMAIN:-} bash $APP_DIR/deploy/install_caddy.sh
 
 cd $APP_DIR
 if [ "$($APP_ROOT/venv/bin/python manage.py shell -c 'from apps.content.models import Question;print(Question.objects.count())' 2>/dev/null | tail -1)" = 0 ]; then
