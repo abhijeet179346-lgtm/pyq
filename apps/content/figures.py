@@ -1,6 +1,6 @@
 """Question images ("figures"): validation, storage and URLs.
 
-Images live in private media (never served directly by nginx). Every upload is opened with
+Images live in private media (never served directly by the web server). Every upload is opened with
 Pillow and re-encoded, which drops metadata and anything that is not image data.
 """
 import io

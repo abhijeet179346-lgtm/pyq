@@ -1,0 +1,35 @@
+# Caddy terminates HTTPS and proxies to gunicorn. __PUBLIC_HOST__ is replaced at install time.
+# For a bare IP, Let's Encrypt issues only short-lived (~6 day) certificates; Caddy renews them
+# automatically. With a domain name the same profile works, or drop the tls block for 90-day certs.
+__PUBLIC_HOST__ {
+	tls {
+		issuer acme {
+			profile shortlived
+		}
+	}
+
+	request_body {
+		max_size 100MB # admin PDF uploads
+	}
+	encode zstd gzip
+
+	handle_path /static/* {
+		root * /opt/pyq/app/staticfiles
+		header Cache-Control "public, max-age=604800"
+		file_server
+	}
+	# Private media is served only through authenticated Django views.
+	handle /private-media/* {
+		respond 404
+	}
+	handle {
+		reverse_proxy 127.0.0.1:8000 {
+			transport http {
+				read_timeout 180s
+			}
+		}
+	}
+	log {
+		output stderr
+	}
+}

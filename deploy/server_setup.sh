@@ -15,7 +15,7 @@ export DJANGO_SETTINGS_MODULE=config.settings.base
 log() { printf '\n==> %s\n' "$*"; }
 
 log "Packages"
-sudo dnf install -y -q $PYTHON $PYTHON-pip git nginx sqlite >/dev/null
+sudo dnf install -y -q $PYTHON $PYTHON-pip git sqlite >/dev/null
 
 if ! swapon --show | grep -q .; then
   log "Adding 1 GB swap (server has under 1 GB RAM)"
@@ -65,18 +65,15 @@ fi
 
 log "Services"
 sudo cp $APP_DIR/deploy/pyq.service /etc/systemd/system/pyq.service
-sed "s/__PUBLIC_HOST__/$PUBLIC_HOST/" $APP_DIR/deploy/nginx-pyq.conf | sudo tee /etc/nginx/conf.d/pyq.conf >/dev/null
 sudo systemctl daemon-reload
-sudo systemctl enable -q pyq nginx
-sudo nginx -t -q
-sudo systemctl start nginx
-if [ "$(getenforce 2>/dev/null || echo Disabled)" = Enforcing ]; then
-  sudo setsebool -P httpd_can_network_connect 1
-fi
-chmod 755 $APP_ROOT $APP_DIR   # nginx reads staticfiles
+sudo systemctl enable -q pyq
+chmod 755 $APP_ROOT $APP_DIR   # caddy reads staticfiles
 
 log "First deploy"
 bash $APP_DIR/deploy/deploy.sh
+
+log "HTTPS"
+PUBLIC_HOST=$PUBLIC_HOST bash $APP_DIR/deploy/install_caddy.sh
 
 cd $APP_DIR
 if [ "$($APP_ROOT/venv/bin/python manage.py shell -c 'from apps.content.models import Question;print(Question.objects.count())' 2>/dev/null | tail -1)" = 0 ]; then

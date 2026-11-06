@@ -88,6 +88,13 @@ LOGIN_REDIRECT_URL = "/"
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 X_FRAME_OPTIONS = "DENY"
+# Behind Caddy (HTTPS). gunicorn listens only on 127.0.0.1, so the proxy header can be trusted.
+if os.environ.get("DJANGO_HTTPS", "false").lower() == "true":
+    SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = int(os.environ.get("DJANGO_HSTS_SECONDS", "3600"))
+    SECURE_CONTENT_TYPE_NOSNIFF = True
 REST_FRAMEWORK = {"DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated"]}
 # Fingerprinted static file names (app.3f2a9c.css) so each deploy busts browser caches.
 STORAGES = {

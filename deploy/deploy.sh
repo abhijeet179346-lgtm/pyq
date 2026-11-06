@@ -42,11 +42,12 @@ log "Migrating and collecting static files"
 
 log "Restarting service"
 sudo systemctl restart pyq
-sudo systemctl reload nginx
+if systemctl is-active -q caddy; then sudo systemctl reload caddy; fi
 
 log "Health check"
 for _ in $(seq 1 20); do
-  code=$(curl -s -o /dev/null -w '%{http_code}' -H "Host: $(grep -E '^DJANGO_ALLOWED_HOSTS=' .env | cut -d= -f2 | cut -d, -f1)" http://127.0.0.1/login/ || true)
+  code=$(curl -s -o /dev/null -w '%{http_code}' -H "Host: $(grep -E '^DJANGO_ALLOWED_HOSTS=' .env | cut -d= -f2 | cut -d, -f1)" \
+    -H "X-Forwarded-Proto: https" http://127.0.0.1:8000/login/ || true)
   [ "$code" = 200 ] && { echo "OK: /login/ returned 200"; exit 0; }
   sleep 1
 done

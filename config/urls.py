@@ -3,7 +3,7 @@ from django.urls import include, path
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    # Browsers request /favicon.ico directly; nginx serves it in production.
+    # Browsers request /favicon.ico directly; this redirect covers it in every environment.
     path("favicon.ico", RedirectView.as_view(url="/static/portal/favicon.ico", permanent=True)),
     path("", include("apps.portal.urls")),
     path("admin/", admin.site.urls),
