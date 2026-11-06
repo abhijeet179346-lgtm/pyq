@@ -1,4 +1,7 @@
+from django import forms
 from django.contrib import admin
+from django.utils.html import format_html
+from apps.catalog.models import Exam
 from apps.audit.models import AuditEvent
 from apps.features.models import FeatureEntitlement, TenantExam, TenantSubscription
 from .models import Tenant
@@ -10,16 +13,69 @@ class FeatureEntitlementInline(admin.TabularInline):
     extra = 0
 
 
-class TenantExamInline(admin.TabularInline):
-    model = TenantExam
-    fields = ("exam", "enabled")
-    extra = 0
+class ExamChoiceField(forms.ModelMultipleChoiceField):
+    def label_from_instance(self, exam):
+        subjects = ", ".join(sorted(s.name for s in exam.subjects.all())) or "no subjects yet"
+        return f"{exam.name}  ({subjects})"
+
+
+class TenantAdminForm(forms.ModelForm):
+    exams = ExamChoiceField(
+        queryset=Exam.objects.filter(active=True).prefetch_related("subjects").order_by("name"),
+        widget=forms.CheckboxSelectMultiple, required=False, label="Enabled exams",
+        help_text="Tick the exams this institute can use. Its students see these exams' PYQs, and its admins "
+                  "can upload questions only for these exams (and only their subjects).")
+
+    class Meta:
+        model = Tenant
+        fields = "__all__"
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if self.instance.pk:
+            self.fields["exams"].initial = list(TenantExam.objects.filter(
+                tenant=self.instance, enabled=True).values_list("exam_id", flat=True))
 
 
 @admin.register(Tenant)
 class TenantAdmin(admin.ModelAdmin):
-    list_display = ("name", "slug", "is_master", "status", "display_name", "created_at")
-    inlines = (FeatureEntitlementInline, TenantExamInline)
+    form = TenantAdminForm
+    list_display = ("name", "slug", "is_master", "status", "display_name", "enabled_exams", "created_at")
+    inlines = (FeatureEntitlementInline,)
+    actions = ("enable_all_exams",)
+
+    @admin.display(description="Exams")
+    def enabled_exams(self, obj):
+        names = sorted(TenantExam.objects.filter(tenant=obj, enabled=True, exam__active=True)
+                       .values_list("exam__name", flat=True))
+        return ", ".join(names) if names else format_html('<span style="color:#ba2121">{}</span>', "None enabled")
+
+    @admin.action(description="Enable all active exams for the selected institutes")
+    def enable_all_exams(self, request, queryset):
+        exams = list(Exam.objects.filter(active=True))
+        for tenant in queryset:
+            for exam in exams:
+                TenantExam.objects.update_or_create(tenant=tenant, exam=exam,
+                                                    defaults={"enabled": True, "updated_by": request.user})
+            AuditEvent.objects.create(tenant=tenant, actor=request.user, action="tenant_exams_updated",
+                object_type="Tenant", object_id=str(tenant.pk), after={"enabled": sorted(e.name for e in exams)})
+        self.message_user(request, f"Enabled {len(exams)} exams for {queryset.count()} institute(s).")
+
+    def sync_exams(self, request, tenant, chosen):
+        chosen_ids = {exam.pk for exam in chosen}
+        before = sorted(TenantExam.objects.filter(tenant=tenant, enabled=True).values_list("exam__name", flat=True))
+        for exam in Exam.objects.filter(active=True):
+            enabled = exam.pk in chosen_ids
+            row = TenantExam.objects.filter(tenant=tenant, exam=exam).first()
+            if row is None and not enabled:
+                continue
+            if row is None or row.enabled != enabled:
+                TenantExam.objects.update_or_create(tenant=tenant, exam=exam,
+                                                    defaults={"enabled": enabled, "updated_by": request.user})
+        after = sorted(exam.name for exam in chosen)
+        if before != after:
+            AuditEvent.objects.create(tenant=tenant, actor=request.user, action="tenant_exams_updated",
+                object_type="Tenant", object_id=str(tenant.pk), before={"enabled": before}, after={"enabled": after})
     search_fields = ("name", "slug")
     list_filter = ("is_master", "status",)
     readonly_fields = ("is_master",)
@@ -32,6 +88,7 @@ class TenantAdmin(admin.ModelAdmin):
 
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
+        self.sync_exams(request, form.instance, form.cleaned_data.get("exams") or [])
         AuditEvent.objects.create(tenant=form.instance, actor=request.user,
             action="tenant_configuration_saved", object_type="Tenant", object_id=str(form.instance.pk),
             after={"name": form.instance.name, "is_master": form.instance.is_master, "status": form.instance.status})
