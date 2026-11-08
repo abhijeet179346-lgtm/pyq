@@ -68,7 +68,7 @@ class Question(models.Model):
 
     def refresh_fingerprint(self):
         from .fingerprint import question_fingerprint
-        self.fingerprint = question_fingerprint(self.stem, self.options)
+        self.fingerprint = question_fingerprint(self.stem, self.options, self.figure_paths)
         return self.fingerprint
 
     def duplicate(self):

@@ -185,6 +185,9 @@ def apply_rows(job,rows,preview=False,images=None):
                     question.exam=job.target_exam
                     question.source_year=int(row['year']) if str(row.get('year','')).isdigit() else None
                 # Duplicates are skipped (not errors) so one repeated question doesn't block the batch.
+                # Rows with images are compared by their image names (they get new files on import).
+                from .workbooks import image_names
+                question.figure_paths=image_names(row)
                 fingerprint=question.refresh_fingerprint()
                 scope=('paper',paper.pk) if paper else ('tenant',owner.pk if owner else None)
                 if fingerprint and (scope,fingerprint) in seen:

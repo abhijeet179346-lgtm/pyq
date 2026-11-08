@@ -13,9 +13,9 @@ def fingerprint_and_retire_duplicates(apps, schema_editor):
     from collections import defaultdict
     from apps.content.fingerprint import question_fingerprint
     Question = apps.get_model("content", "Question")
-    rows = list(Question.objects.only("id", "stem", "options", "paper_id", "tenant_id", "status"))
+    rows = list(Question.objects.only("id", "stem", "options", "figure_paths", "paper_id", "tenant_id", "status"))
     for q in rows:
-        q.fingerprint = question_fingerprint(q.stem, q.options)
+        q.fingerprint = question_fingerprint(q.stem, q.options, q.figure_paths)
     groups = defaultdict(list)
     for q in rows:
         if not q.fingerprint or q.status == "retired":

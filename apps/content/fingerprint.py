@@ -2,6 +2,9 @@
 
 Two questions share a fingerprint when their stem and options read the same after ignoring case,
 spacing, punctuation and LaTeX formatting noise, so re-uploads with cosmetic differences collide.
+Questions with figures also include their figure files: the text of a figure question ("Identify A
+in the reaction [See figure]") is often identical across different questions, so only questions
+sharing the same figure files are treated as the same.
 """
 import hashlib
 import re
@@ -24,9 +27,11 @@ def option_texts(options):
     return sorted(normalise(text) for text in texts if normalise(text))
 
 
-def question_fingerprint(stem, options=None):
+def question_fingerprint(stem, options=None, figures=None):
     stem = normalise(stem)
     if len(stem) < 12:
         return ''  # too short to compare reliably
     payload = stem + '\x1f' + '\x1e'.join(option_texts(options))
+    if figures:
+        payload += '\x1d' + '\x1e'.join(sorted(str(path) for path in figures))
     return hashlib.sha256(payload.encode()).hexdigest()

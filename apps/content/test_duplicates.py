@@ -154,3 +154,31 @@ class RetireMigrationTests(TestCase):
         published.refresh_from_db()
         self.assertEqual((draft.status, published.status), ('retired', 'published'))
         self.assertEqual(draft.fingerprint, published.fingerprint)
+
+
+class FigureQuestionTests(TestCase):
+    def setUp(self):
+        self.tenant = Tenant.objects.create(name='Fig Institute', slug='fig-inst')
+        subject = Subject.objects.get_or_create(name='Chemistry', defaults={'slug': 'chemistry'})[0]
+        self.topic = Topic.objects.create(chapter=Chapter.objects.create(subject=subject, name='Fig'), name='Fig')
+        self.base = dict(kind='PRACTICE', tenant=self.tenant, stem='The major product formed in the following reaction is: [See figure]',
+                         options=[{'id': k, 'text': '[See figure]'} for k in 'ABCD'], answer='A', topic=self.topic,
+                         source='s', license='l')
+
+    def test_same_text_different_figures_are_different_questions(self):
+        Question.objects.create(**self.base, figure_paths=['questions/a.png'])
+        Question.objects.create(**self.base, figure_paths=['questions/b.png'])  # no IntegrityError
+        with self.assertRaises(IntegrityError), transaction.atomic():
+            Question.objects.create(**self.base, figure_paths=['questions/a.png'])
+
+    def test_0008_restores_figure_questions_retired_by_text_match(self):
+        kept = Question.objects.create(**self.base, figure_paths=['questions/a.png'], status='published')
+        wrongly = Question.objects.create(**self.base, figure_paths=['questions/b.png'], status='retired')
+        real_dup = Question.objects.create(**self.base, figure_paths=['questions/a.png'], status='retired')
+        # Simulate 0006's text-only fingerprints.
+        text_only = question_fingerprint(self.base['stem'], self.base['options'])
+        Question.objects.filter(pk__in=[kept.pk, wrongly.pk, real_dup.pk]).update(fingerprint=text_only)
+        Question.objects.filter(pk=kept.pk).update(fingerprint=question_fingerprint(self.base['stem'], self.base['options'], ['questions/a.png']))
+        importlib.import_module('apps.content.migrations.0008_fingerprint_figures').refingerprint_and_restore(django_apps, None)
+        statuses = dict(Question.objects.filter(pk__in=[kept.pk, wrongly.pk, real_dup.pk]).values_list('pk', 'status'))
+        self.assertEqual((statuses[kept.pk], statuses[wrongly.pk], statuses[real_dup.pk]), ('published', 'published', 'retired'))
