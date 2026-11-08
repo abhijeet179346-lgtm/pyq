@@ -474,7 +474,8 @@ def _study_sections(tenant):
     enabled = TenantExam.objects.filter(tenant=tenant,enabled=True,exam__active=True).values_list("exam_id",flat=True)
     return MaterialSection.objects.filter(active=True,document__active=True).filter(
         Q(document__tenant=tenant)|Q(document__tenant__isnull=True)).filter(
-        Q(document__exams__isnull=True)|Q(document__exams__in=enabled)).select_related(
+        Q(document__exams__isnull=True)|Q(document__exams__in=enabled)).exclude(
+        topic__chapter__subject__name__iexact="Mathematics").select_related(
         "document","topic__chapter__subject").prefetch_related("document__exams", "topic__subtopics").distinct()
 
 
@@ -520,8 +521,18 @@ def library(request):
         for token in tokens:
             q_match |= Q(stem__icontains=token) | Q(topic__name__icontains=token) | Q(subtopic__name__icontains=token)
         if tokens:
-            visible_questions = list(visible_questions.filter(q_match).select_related(
-                "topic__chapter__subject", "subtopic", "paper__exam", "exam")[:30])
+            candidates = list(visible_questions.filter(q_match).select_related(
+                "topic__chapter__subject", "subtopic", "paper__exam", "exam")[:100])
+            minimum_overlap = 1 if len(tokens) == 1 else max(2, (len(tokens) + 1) // 2)
+            ranked_questions = []
+            for candidate in candidates:
+                searchable = " ".join((candidate.stem, candidate.topic.name if candidate.topic_id else "",
+                    candidate.subtopic.name if candidate.subtopic_id else "", " ".join(candidate.tags or []))).lower()
+                overlap = sum(token in searchable for token in tokens)
+                if overlap >= minimum_overlap:
+                    ranked_questions.append((overlap, candidate))
+            visible_questions = [question for _, question in sorted(ranked_questions,
+                key=lambda item: item[0], reverse=True)[:30]]
             question_ids = [question.pk for question in visible_questions]
             matched_sections = list(_study_sections(tenant).filter(
                 Q(topic__questions__in=question_ids) | Q(question_links__question_id__in=question_ids)

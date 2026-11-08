@@ -19,6 +19,17 @@ TITLES = {
     'leph2': ['Ray Optics and Optical Instruments', 'Wave Optics', 'Dual Nature of Radiation and Matter', 'Atoms', 'Nuclei', 'Semiconductor Electronics'],
     'lech1': ['Solutions', 'Electrochemistry', 'Chemical Kinetics', 'The d- and f-Block Elements', 'Coordination Compounds'],
     'lech2': ['Haloalkanes and Haloarenes', 'Alcohols, Phenols and Ethers', 'Aldehydes, Ketones and Carboxylic Acids', 'Amines', 'Biomolecules'],
+    'kebo1': ['The Living World', 'Biological Classification', 'Plant Kingdom', 'Animal Kingdom',
+              'Morphology of Flowering Plants', 'Anatomy of Flowering Plants', 'Structural Organisation in Animals',
+              'Cell: The Unit of Life', 'Biomolecules', 'Cell Cycle and Cell Division', 'Photosynthesis in Higher Plants',
+              'Respiration in Plants', 'Plant Growth and Development', 'Breathing and Exchange of Gases',
+              'Body Fluids and Circulation', 'Excretory Products and Their Elimination', 'Locomotion and Movement',
+              'Neural Control and Coordination', 'Chemical Coordination and Integration'],
+    'lebo1': ['Sexual Reproduction in Flowering Plants', 'Human Reproduction', 'Reproductive Health',
+              'Principles of Inheritance and Variation', 'Molecular Basis of Inheritance', 'Evolution',
+              'Human Health and Disease', 'Microbes in Human Welfare', 'Biotechnology: Principles and Processes',
+              'Biotechnology and its Applications', 'Organisms and Populations', 'Ecosystem',
+              'Biodiversity and Conservation'],
 }
 
 
@@ -28,7 +39,7 @@ def clean_text(text):
 
 
 class Command(BaseCommand):
-    help = 'Import NCERT Physics and Chemistry chapter PDFs as globally available study material.'
+    help = 'Import NCERT Physics, Chemistry and Biology chapter PDFs as globally available study material.'
 
     def add_arguments(self, parser):
         parser.add_argument('directory')
@@ -39,7 +50,7 @@ class Command(BaseCommand):
             raise CommandError('Textbook directory does not exist.')
         count = 0
         for path in sorted(root.rglob('*.pdf')):
-            match = re.fullmatch(r'([kl]e(?:ph|ch)[12])(\d\d)\.pdf', path.name, re.I)
+            match = re.fullmatch(r'([kl]e(?:ph|ch|bo)[12])(\d\d)\.pdf', path.name, re.I)
             if not match:
                 continue
             code, number = match.group(1).lower(), int(match.group(2))
@@ -48,7 +59,7 @@ class Command(BaseCommand):
                 self.stderr.write(f'Skipped unknown chapter: {path.name}')
                 continue
             grade = 11 if code[0] == 'k' else 12
-            subject_name = 'Physics' if code[2:4] == 'ph' else 'Chemistry'
+            subject_name = {'ph': 'Physics', 'ch': 'Chemistry', 'bo': 'Biology'}[code[2:4]]
             title = titles[number - 1]
             source = f'https://ncert.nic.in/textbook/pdf/{path.name}'
             existing = MaterialDocument.objects.filter(tenant__isnull=True, source=source).first()
