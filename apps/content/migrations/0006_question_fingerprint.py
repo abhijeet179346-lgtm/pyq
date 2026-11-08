@@ -47,11 +47,12 @@ class Migration(migrations.Migration):
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
+    # The index is added in 0007: Postgres can't build it in the same transaction as the data update below.
     operations = [
         migrations.AddField(
             model_name='question',
             name='fingerprint',
-            field=models.CharField(blank=True, db_index=True, editable=False, help_text='Hash of the normalised stem and options, used to block duplicates.', max_length=64),
+            field=models.CharField(blank=True, editable=False, help_text='Hash of the normalised stem and options, used to block duplicates.', max_length=64),
         ),
         migrations.RunPython(fingerprint_and_retire_duplicates, migrations.RunPython.noop),
     ]

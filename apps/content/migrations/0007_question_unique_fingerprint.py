@@ -6,6 +6,11 @@ class Migration(migrations.Migration):
     dependencies = [("content", "0006_question_fingerprint")]
 
     operations = [
+        migrations.AlterField(
+            model_name='question',
+            name='fingerprint',
+            field=models.CharField(blank=True, db_index=True, editable=False, help_text='Hash of the normalised stem and options, used to block duplicates.', max_length=64),
+        ),
         migrations.AddConstraint(
             model_name='question',
             constraint=models.UniqueConstraint(condition=models.Q(('paper__isnull', False), models.Q(('fingerprint', ''), _negated=True), models.Q(('status', 'retired'), _negated=True)), fields=('paper', 'fingerprint'), name='uniq_question_per_paper'),
