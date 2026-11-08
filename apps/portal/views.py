@@ -6,7 +6,7 @@ from django.db import IntegrityError
 from django.shortcuts import redirect
 from django.views.decorators.http import require_http_methods, require_POST
 from django.core.exceptions import PermissionDenied
-from django.http import Http404
+from django.http import Http404, JsonResponse
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views.decorators.http import require_GET
@@ -17,6 +17,33 @@ from . import direct
 from .forms import CombinedAccessForm, ActivationForm
 from .services import activate_account, workspace_ready, create_handoff, consume_handoff
 from .verification import send_verification, VerificationDeliveryError, valid_challenge, confirm_verification, password_fingerprint
+from .models import StudentFeedback
+
+
+@login_required
+@require_POST
+def submit_feedback(request):
+    tenant = direct._direct_user(request)
+    category = request.POST.get("category", "")
+    message = request.POST.get("message", "").strip()
+    if category not in StudentFeedback.Category.values:
+        return JsonResponse({"error": "Choose a problem or feedback."}, status=400)
+    if not message or len(message) > 2000:
+        return JsonResponse({"error": "Enter a message of up to 2,000 characters."}, status=400)
+    question_id = request.POST.get("question_id", "")
+    question = None
+    if question_id:
+        if not question_id.isascii() or not question_id.isdecimal() or len(question_id) > 18:
+            raise Http404()
+        question = get_object_or_404(direct.questions(tenant, request.user), pk=int(question_id))
+    raw_path = request.POST.get("page_path", "")
+    path = raw_path.split("?", 1)[0].split("#", 1)[0] if raw_path.startswith("/") and not raw_path.startswith("//") else ""
+    feedback = StudentFeedback.objects.create(tenant=tenant, reporter=request.user, category=category,
+                                              message=message, question=question, page_path=path[:255])
+    from .feedback_notifications import notify_feedback
+    sent = notify_feedback(feedback)
+    return JsonResponse({"notification_sent": sent, "message": "Thanks for letting us know." if sent else
+                         "Your feedback was saved, but the email alert could not be sent."})
 
 
 class PortalLoginView(LoginView):

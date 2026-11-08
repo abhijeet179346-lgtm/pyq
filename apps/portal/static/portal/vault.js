@@ -1,6 +1,10 @@
 (() => {
   document.querySelectorAll('.clear-selection').forEach((button) => {
-    button.addEventListener('click', () => button.closest('form').querySelectorAll('input[type=checkbox]').forEach((input) => { input.checked = false; }));
+    button.addEventListener('click', () => {
+      const form = button.closest('form');
+      form.querySelectorAll('.selection-tree input[type=checkbox]').forEach((input) => { input.checked = false; });
+      form.dispatchEvent(new Event('selectionchange'));
+    });
   });
   const button = document.querySelector('.theme-toggle');
   if (!button) return;

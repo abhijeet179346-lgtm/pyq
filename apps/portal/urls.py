@@ -5,6 +5,7 @@ from .views import home, PortalLoginView
 
 urlpatterns = [
     path("", home, name="portal_home"),
+    path("feedback/", views.submit_feedback, name="submit_feedback"),
     path("practice/start/", direct.start_practice, name="start_practice"),
     path("practice/sessions/<uuid:session_id>/<int:position>/", direct.practice_session, name="practice_session"),
     path("practice/sessions/<uuid:session_id>/", direct.practice_summary, name="practice_summary"),

@@ -126,6 +126,7 @@
 
   // Keyboard shortcuts
   document.addEventListener('keydown', (event) => {
+    if (document.querySelector('dialog[open]')) return;
     if (event.altKey || event.ctrlKey || event.metaKey || event.target.matches('input[type=text], textarea, select')) return;
     const key = event.key.toLowerCase();
     if (key === 'arrowright' && $('next-link')) location.href = $('next-link').href;

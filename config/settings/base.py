@@ -106,6 +106,9 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD", "")
 EMAIL_USE_TLS = os.environ.get("EMAIL_USE_TLS", "true").lower() == "true"
 EMAIL_USE_SSL = os.environ.get("EMAIL_USE_SSL", "false").lower() == "true"
 EMAIL_TIMEOUT = 15
+FEEDBACK_NOTIFICATION_RECIPIENTS = [address.strip() for address in os.environ.get("FEEDBACK_NOTIFICATION_RECIPIENTS", "").split(",") if address.strip()]
+FEEDBACK_EMAIL_BACKEND = os.environ.get("FEEDBACK_EMAIL_BACKEND", "")
+FEEDBACK_FROM_EMAIL = os.environ.get("FEEDBACK_FROM_EMAIL", EMAIL_HOST_USER or DEFAULT_FROM_EMAIL)
 REQUIRE_EMAIL_VERIFICATION = os.environ.get("REQUIRE_EMAIL_VERIFICATION", "true").lower() == "true"
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"

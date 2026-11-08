@@ -52,3 +52,27 @@ class PracticeBookmark(models.Model):
     class Meta:
         ordering = ["-created_at"]
         constraints = [models.UniqueConstraint(fields=["user", "question"], name="unique_practice_bookmark")]
+
+
+class StudentFeedback(models.Model):
+    class Category(models.TextChoices):
+        PROBLEM = "problem", "Problem"
+        FEEDBACK = "feedback", "Feedback"
+
+    class Status(models.TextChoices):
+        OPEN = "open", "Open"
+        RESOLVED = "resolved", "Resolved"
+
+    tenant = models.ForeignKey("tenancy.Tenant", on_delete=models.CASCADE, related_name="student_feedback")
+    reporter = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="student_feedback")
+    category = models.CharField(max_length=12, choices=Category.choices)
+    message = models.TextField(max_length=2000)
+    page_path = models.CharField(max_length=255, blank=True)
+    question = models.ForeignKey("content.Question", null=True, blank=True, on_delete=models.SET_NULL, related_name="student_feedback")
+    status = models.CharField(max_length=12, choices=Status.choices, default=Status.OPEN)
+    created_at = models.DateTimeField(auto_now_add=True)
+    notification_sent_at = models.DateTimeField(null=True, blank=True)
+
+    class Meta:
+        ordering = ["-created_at"]
+        indexes = [models.Index(fields=["tenant", "status", "created_at"])]

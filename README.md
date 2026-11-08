@@ -56,6 +56,8 @@ When `REQUIRE_EMAIL_VERIFICATION=true`, password accounts must verify their emai
 
 Verification is disabled by default in local settings and enabled by default in the base settings. Set `REQUIRE_EMAIL_VERIFICATION=true` locally to restore the verification flow; local settings print its messages in the server terminal. For inbox delivery, export `DJANGO_EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend`, `DEFAULT_FROM_EMAIL`, `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_HOST_USER`, and `EMAIL_HOST_PASSWORD`, with the TLS/SSL settings required by the provider. See `.env.example`; restart the server after changing deployment environment variables. No SMTP credentials are included in this repository.
 
+Student feedback is saved in the tenant's admin review queue and sends a notification to the comma-separated `FEEDBACK_NOTIFICATION_RECIPIENTS`. Configure `FEEDBACK_FROM_EMAIL`, the SMTP `EMAIL_*` settings, and optionally `FEEDBACK_EMAIL_BACKEND` when notifications need a different backend from other mail. If delivery fails, the feedback stays saved and an administrator can use the **Retry pending email notifications** action in the feedback list. Configure the environment on each deployed server and restart the application.
+
 ### Master tenant controls in admin
 
 Core-domain learners belong to the singleton **PYQNet — Master tenant**, identified by `is_master=True`. The core host resolves to this tenant; it is not exposed through a `master` institute subdomain. A migration moves existing non-staff, non-superuser core accounts into it. Newly created learner accounts without an explicit institute are assigned to it automatically. Platform superusers remain outside all tenants.
