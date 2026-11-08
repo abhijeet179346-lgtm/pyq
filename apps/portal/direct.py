@@ -497,9 +497,13 @@ def library(request):
         if not chapter.isascii() or not chapter.isdecimal() or len(chapter)>18:raise Http404("Invalid chapter.")
         sections=sections.filter(topic__chapter_id=int(chapter))
     query=request.GET.get("q", "").strip()
-    if query:sections=sections.filter(Q(title__icontains=query)|Q(body__icontains=query)|Q(topic__name__icontains=query))
+    if query:
+        from apps.materials.search import search_sections
+        sections = search_sections(sections, query[:300])
+    else:
+        sections = sections.order_by("topic__chapter__subject__name", "topic__chapter__name", "title")
     params=request.GET.copy();params.pop("page",None)
-    page=Paginator(sections.order_by("topic__chapter__subject__name","topic__chapter__name","title"),12).get_page(request.GET.get("page"))
+    page=Paginator(sections,12).get_page(request.GET.get("page"))
     return render(request,"portal/direct_library.html",{"page":page,"exams":exams,"subjects":subjects,"chapters":chapters,
         "selected_exam":exam,"selected_subject":subject,"selected_chapter":chapter,"search":query,"filter_query":params.urlencode()})
 

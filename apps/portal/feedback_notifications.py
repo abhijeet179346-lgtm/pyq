@@ -1,11 +1,36 @@
 """Send a notification for a saved student feedback item."""
 import logging
+from threading import Thread
 
 from django.conf import settings
 from django.core.mail import EmailMessage, get_connection
+from django.db import close_old_connections, transaction
 from django.utils import timezone
 
 logger = logging.getLogger(__name__)
+
+
+def queue_feedback_notification(feedback_id):
+    """Send after the report is committed, without blocking the request."""
+    def send():
+        from .models import StudentFeedback
+
+        close_old_connections()
+        try:
+            feedback = StudentFeedback.objects.select_related("tenant", "reporter").get(pk=feedback_id)
+            notify_feedback(feedback)
+        except Exception:
+            logger.exception("Could not process feedback notification %s", feedback_id)
+        finally:
+            close_old_connections()
+
+    def start():
+        try:
+            Thread(target=send, name=f"feedback-email-{feedback_id}", daemon=True).start()
+        except Exception:
+            logger.exception("Could not start feedback notification %s", feedback_id)
+
+    transaction.on_commit(start)
 
 
 def notify_feedback(feedback):

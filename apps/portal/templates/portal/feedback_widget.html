@@ -1,6 +1,7 @@
 {% load static %}
 <link rel="stylesheet" href="{% static 'portal/feedback.css' %}">
 <button type="button" class="feedback-launch" aria-haspopup="dialog" aria-controls="feedback-dialog"><span aria-hidden="true">✦</span> Feedback</button>
+<div class="feedback-confirmation" role="status" aria-live="polite" hidden></div>
 <dialog id="feedback-dialog" class="feedback-dialog" aria-labelledby="feedback-title">
   <div class="feedback-dialog-header"><div><p class="feedback-eyebrow">We're listening</p><h2 id="feedback-title">Share feedback</h2></div><button type="button" class="feedback-close" aria-label="Close feedback">×</button></div>
   <p class="feedback-intro">Found a problem or have an idea? Tell us what happened.</p>

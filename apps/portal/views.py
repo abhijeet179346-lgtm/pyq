@@ -40,10 +40,9 @@ def submit_feedback(request):
     path = raw_path.split("?", 1)[0].split("#", 1)[0] if raw_path.startswith("/") and not raw_path.startswith("//") else ""
     feedback = StudentFeedback.objects.create(tenant=tenant, reporter=request.user, category=category,
                                               message=message, question=question, page_path=path[:255])
-    from .feedback_notifications import notify_feedback
-    sent = notify_feedback(feedback)
-    return JsonResponse({"notification_sent": sent, "message": "Thanks for letting us know." if sent else
-                         "Your feedback was saved, but the email alert could not be sent."})
+    from .feedback_notifications import queue_feedback_notification
+    queue_feedback_notification(feedback.pk)
+    return JsonResponse({"message": "Thanks for letting us know."})
 
 
 class PortalLoginView(LoginView):

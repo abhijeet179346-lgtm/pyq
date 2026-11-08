@@ -1,0 +1,4 @@
+# Local only: rebuild the NCERT semantic index (python manage.py index_ncert_search).
+# The server runs the same model through ONNX Runtime (requirements.txt), not PyTorch.
+-r requirements.txt
+sentence-transformers>=3,<6

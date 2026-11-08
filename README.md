@@ -145,3 +145,16 @@ The active learner and login stylesheet is `academic-blue.css`: background `#F6F
 ## Timed tests and content administration
 
 Learners can generate full or subject timed tests from an enabled exam's question bank. The platform also supports server-timed attempts with autosave and partial marking, Excel admin imports, large PDF-to-Excel jobs, and study-section recommendations after mistakes. See [TIMED_TESTS_AND_CONTENT_ADMIN.md](TIMED_TESTS_AND_CONTENT_ADMIN.md) for formats, admin steps, limits, source attribution and OCR requirements.
+
+### NCERT library search
+
+The study library supports keyword and local semantic retrieval, then reranks the combined results. NCERT chapter imports are global and are visible to tenants with study material enabled. The original PDF is stored in `PYQ_MEDIA_ROOT` and linked from each extracted section. PDF extraction may not preserve all formulas or diagrams; use the source link for the original page.
+
+To set up a new environment, install `requirements.txt`, then download the model files from the pinned [all-MiniLM-L6-v2 model](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/1110a243fdf4706b3f48f1d95db1a4f5529b4d41) into `data/models/all-MiniLM-L6-v2/`: `config.json`, `tokenizer.json`, `tokenizer_config.json`, `vocab.txt`, `special_tokens_map.json`, and `model.safetensors`. Import the official chapter PDFs and build the index:
+
+```sh
+python manage.py import_ncert_textbooks /path/to/NCERT-Class-11-12-Physics-Chemistry
+python manage.py index_ncert_search
+```
+
+The import skips chapters already registered with their NCERT source URL. Rebuild the index after importing additional chapters or changing extracted sections. The index and model are local files, excluded from Git; provide them to every app server along with the source PDFs. Search falls back to keywords if the model or index is unavailable. The model runs locally and does not require an API key.

@@ -42,14 +42,18 @@ class StudentFeedbackTests(TestCase):
         self.client = Client(HTTP_HOST="feedback-school.localhost")
         self.client.force_login(self.student)
 
-    def test_feedback_is_saved_with_tenant_user_and_question(self):
+    @patch("apps.portal.feedback_notifications.queue_feedback_notification")
+    def test_feedback_is_saved_with_tenant_user_and_question(self, queue_notification):
         response = self.client.post("/feedback/", {"category": "problem", "message": "The diagram is missing.",
             "question_id": self.question.pk, "page_path": "/practice/questions/123/?private=ignored"})
         self.assertEqual(response.status_code, 200)
         feedback = StudentFeedback.objects.get()
         self.assertEqual((feedback.tenant, feedback.reporter, feedback.question), (self.tenant, self.student, self.question))
         self.assertEqual(feedback.page_path, "/practice/questions/123/")
-        self.assertIsNotNone(feedback.notification_sent_at)
+        queue_notification.assert_called_once_with(feedback.pk)
+        self.assertIsNone(feedback.notification_sent_at)
+        from apps.portal.feedback_notifications import notify_feedback
+        self.assertTrue(notify_feedback(feedback))
         self.assertEqual(len(mail.outbox), 1)
         self.assertEqual(mail.outbox[0].to, ["first@example.test", "second@example.test"])
         self.assertEqual(mail.outbox[0].from_email, "sender@example.test")
@@ -57,14 +61,16 @@ class StudentFeedbackTests(TestCase):
         self.assertIn(f"Question ID: {self.question.pk}", mail.outbox[0].body)
         self.assertContains(self.client.get(f"/practice/questions/{self.question.pk}/"), "This report will include the current question")
 
-    def test_failed_notification_is_saved_for_retry(self):
-        with patch("apps.portal.feedback_notifications.EmailMessage.send", side_effect=OSError("SMTP unavailable")):
-            response = self.client.post("/feedback/", {"category": "feedback", "message": "Please improve the search."})
+    @patch("apps.portal.feedback_notifications.queue_feedback_notification")
+    def test_failed_notification_is_saved_for_retry(self, queue_notification):
+        response = self.client.post("/feedback/", {"category": "feedback", "message": "Please improve the search."})
         self.assertEqual(response.status_code, 200)
-        self.assertIn("email alert could not be sent", response.json()["message"])
         feedback = StudentFeedback.objects.get()
-        self.assertIsNone(feedback.notification_sent_at)
+        queue_notification.assert_called_once_with(feedback.pk)
         from apps.portal.feedback_notifications import notify_feedback
+        with patch("apps.portal.feedback_notifications.EmailMessage.send", side_effect=OSError("SMTP unavailable")):
+            self.assertFalse(notify_feedback(feedback))
+        self.assertIsNone(feedback.notification_sent_at)
         self.assertTrue(notify_feedback(feedback))
         feedback.refresh_from_db()
         self.assertIsNotNone(feedback.notification_sent_at)

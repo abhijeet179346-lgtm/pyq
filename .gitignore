@@ -21,3 +21,7 @@ staticfiles/
 
 # Keys
 *.pem
+
+# Local NCERT semantic model and generated index
+data/models/all-MiniLM-L6-v2/
+data/ncert-search-index*.npz
