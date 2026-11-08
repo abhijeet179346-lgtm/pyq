@@ -83,9 +83,12 @@ def commit_questions(rows, tenant, user):
             topic_id=row["_topic_id"], subtopic_id=row.get("_subtopic_id"), source=row["source"], license=row["license"],
             status=Question.Status.DRAFT, created_by=user,
         )
+        if question.duplicate():
+            continue
         question.full_clean()
         created.append(question)
-    return Question.objects.bulk_create(created)
+    from apps.content.models import without_duplicates
+    return Question.objects.bulk_create(without_duplicates(created))
 
 
 def to_preview_rows(rows):

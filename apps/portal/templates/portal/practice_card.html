@@ -1,7 +1,7 @@
 <article class="practice-card" id="practice-card" data-mode="{{ run.mode|default:'learn' }}">
   <header class="practice-meta">
     <span class="exam-q-type">{{ question.get_question_type_display }}</span>
-    <span class="muted">{% if question.paper_id %}{{ question.paper.exam.name }} {{ question.paper.year }}{% if question.paper.sitting %} · {{ question.paper.sitting }}{% endif %}{% else %}Practice question{% endif %} · {{ question.difficulty_label }}</span>
+    <span class="muted">{% if question.paper_id %}{{ question.paper.exam.name }} {{ question.paper.year }}{% if question.paper.sitting %} · {{ question.paper.sitting }}{% endif %}{% elif question.exam_id %}{{ question.exam.name }}{% if question.source_year %} {{ question.source_year }}{% endif %}{% else %}Practice question{% endif %} · {{ question.difficulty_label }}</span>
     <div class="practice-meta-tools">
       <details class="practice-info"><summary>About this question</summary><div>
         <p>{{ question.topic.chapter.subject.name }} › {{ question.topic.chapter.name }} › {{ question.topic.name }}{% if question.subtopic_id %} › {{ question.subtopic.name }}{% endif %}</p>

@@ -11,9 +11,6 @@ class WorkspaceActivationMiddleware:
         prefixes = ("/learn/", "/tests/", "/tutor/", "/study/", "/teach/", "/manage/", "/imports/", "/practice/", "/progress/", "/library/")
         tenant = getattr(request, "tenant", None)
         user = request.user
-        direct_route = request.path.startswith(("/practice/", "/progress/", "/library/"))
-        if tenant and not tenant.is_master and direct_route:
-            return self.get_response(request)
         if user.is_authenticated and not user.email_verified:
             protected = request.path.startswith(prefixes) or request.path in ("/", "/activate/", "/workspace/open/")
             protected |= request.path.startswith("/admin/") and request.path not in ("/admin/login/", "/admin/logout/")

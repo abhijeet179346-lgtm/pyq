@@ -3,6 +3,7 @@ from . import views,timed_views
 
 urlpatterns = [
     path("practice/tests/",timed_views.catalog,name="timed_catalog"),
+    path("practice/tests/generate/",timed_views.generate,name="timed_generate"),
     path("practice/tests/<int:test_id>/start/",timed_views.start,name="timed_start"),
     path("practice/test-attempts/<int:attempt_id>/",timed_views.attempt,name="timed_attempt"),
     path("practice/test-attempts/<int:attempt_id>/result/",timed_views.result,name="timed_result"),

@@ -16,7 +16,7 @@ from apps.portal.verification import send_verification, VerificationDeliveryErro
 from apps.tenancy.models import Tenant
 
 
-@override_settings(EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend")
+@override_settings(EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend", REQUIRE_EMAIL_VERIFICATION=True)
 class EmailVerificationTests(TestCase):
     @classmethod
     def setUpTestData(cls):

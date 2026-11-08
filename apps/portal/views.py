@@ -6,18 +6,12 @@ from django.db import IntegrityError
 from django.shortcuts import redirect
 from django.views.decorators.http import require_http_methods, require_POST
 from django.core.exceptions import PermissionDenied
-from django.db.models import Count, Q
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
 from django.views.decorators.http import require_GET
 from urllib.parse import urlsplit
 
-from apps.assessments.models import TestAssignment
-from apps.catalog.models import Topic
-from apps.learning.models import Batch, PracticeAttempt, TeacherSubjectAssignment
-from apps.learning.views import _tenant_user
-from apps.tenancy.features import is_enabled
 from apps.tenancy.models import Tenant
 from . import direct
 from .forms import CombinedAccessForm, ActivationForm
@@ -73,41 +67,7 @@ def home(request):
         return render(request, "portal/login.html", {"form": CombinedAccessForm(request), "next": ""})
     if (request.user.tenant_id in (None, tenant.pk) or (request.user.tenant_id and request.user.tenant.is_master)) and not workspace_ready(request.user, tenant):
         return redirect("activate_account")
-    if request.user.is_superuser:
-        return redirect("admin:index")
-    tenant = _tenant_user(request)
-    user = request.user
-    batches = Batch.objects.filter(tenant=tenant, active=True)
-    if user.role == "student":
-        batches = batches.filter(enrollments__student=user, enrollments__active=True)
-    elif user.role == "teacher":
-        batches = batches.filter(teacher_assignments__teacher=user)
-    elif user.role != "tenant_admin" and not user.is_superuser:
-        raise PermissionDenied("This account cannot access the institute portal.")
-    batches = batches.distinct()
-    assignments = TestAssignment.objects.none()
-    if is_enabled(tenant, "tests") and is_enabled(tenant, "custom_test_assignment"):
-        assignments = TestAssignment.objects.filter(tenant=tenant, batch__in=batches,
-            active=True, deadline__gte=timezone.now()).select_related("batch", "template")
-    practice = PracticeAttempt.objects.filter(tenant=tenant, student=user)
-    evidence = practice.aggregate(total=Count("id"), correct=Count("id", filter=Q(is_correct=True)))
-    topics = Topic.objects.none()
-    if is_enabled(tenant, "ncert_studio"):
-        topics = Topic.objects.filter(material_sections__active=True,
-            material_sections__document__active=True).filter(
-                Q(material_sections__document__tenant=tenant) |
-                Q(material_sections__document__tenant__isnull=True))
-        if user.role == "teacher":
-            subjects = TeacherSubjectAssignment.objects.filter(tenant=tenant, teacher=user).values_list("subject_id", flat=True)
-            topics = topics.filter(chapter__subject_id__in=subjects)
-        topics = topics.select_related("chapter__subject").distinct()
-    return render(request, "portal/home.html", {
-        "batches": batches, "assignments": assignments[:5], "topics": topics[:6],
-        "practice_count": evidence["total"],
-        "accuracy": round(evidence["correct"] * 100 / evidence["total"]) if evidence["total"] else None,
-        "assignment_count": assignments.count(), "batch_count": batches.count(),
-        "is_educator": user.role in ("tenant_admin", "teacher") or user.is_superuser,
-    })
+    return direct.dashboard(request)
 
 
 @login_required

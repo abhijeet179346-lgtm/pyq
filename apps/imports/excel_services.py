@@ -78,13 +78,26 @@ def row_images(row,images,preview,prefix):
     return [] if preview else [store(data,extension,prefix) for data,extension in cleaned]
 
 
+def add_warning(row,text):
+    if isinstance(row,dict) and text not in row.get('warnings',''):
+        row['warnings']=(row.get('warnings','')+' '+text).strip()
+
+
+def note_duplicate(row,text,original):
+    if isinstance(row,dict):
+        row['duplicate_of']=str(original)
+        add_warning(row,text)
+
+
 @transaction.atomic
 def apply_rows(job,rows,preview=False,images=None):
     images=images or {}
     superuser=bool(job.initiated_by and job.initiated_by.is_superuser)
     if job.kind=='exams' and not superuser:raise PermissionDenied('Only platform administrators may edit exams.')
-    errors=[];created=0;tests={}
+    errors=[];created=0;tests={};seen={}
     for index,row in enumerate(rows,2):
+        source_row=row
+        if isinstance(source_row,dict):source_row.pop('duplicate_of',None)
         try:
             with transaction.atomic():
                 row = dict(row)
@@ -168,6 +181,21 @@ def apply_rows(job,rows,preview=False,images=None):
                 tags=[value.strip() for value in row.get('tags','').split(',') if value.strip()]
                 source_page=int(row['source_page']) if row.get('source_page') else None
                 question=Question(tenant=owner,kind=kind,paper=paper,section=section,stem=row['stem'],options=options,answer=json.dumps(answer) if isinstance(answer,list) else answer,question_type=row['question_type'],topic=topic,subtopic=subtopic,difficulty=int(row.get('difficulty') or 3),source=source,license=license,status='draft',created_by=job.initiated_by,solution=row.get('solution',''),source_page=source_page,tags=tags+[topic.chapter.subject.name,topic.chapter.name,topic.name]+([subtopic.name] if subtopic else []),difficulty_basis='Uploaded editorial rating.',taxonomy_basis='Uploaded taxonomy; review before publishing.')
+                if owner is not None and job.target_exam_id and kind=='PRACTICE':
+                    question.exam=job.target_exam
+                    question.source_year=int(row['year']) if str(row.get('year','')).isdigit() else None
+                # Duplicates are skipped (not errors) so one repeated question doesn't block the batch.
+                fingerprint=question.refresh_fingerprint()
+                scope=('paper',paper.pk) if paper else ('tenant',owner.pk if owner else None)
+                if fingerprint and (scope,fingerprint) in seen:
+                    note_duplicate(source_row,f'Repeats row {seen[(scope,fingerprint)]} of this file; skipped.','row');continue
+                original=question.duplicate()
+                if original:
+                    note_duplicate(source_row,f'Already exists as question #{original.pk}; skipped.',original.pk);continue
+                if fingerprint:seen[(scope,fingerprint)]=row.get('_row',index)
+                if paper and fingerprint:
+                    elsewhere=Question.objects.filter(fingerprint=fingerprint,paper__exam_id=paper.exam_id).exclude(paper=paper).exclude(status='retired').select_related('paper').first()
+                    if elsewhere:add_warning(source_row,f'Same question also appears in {elsewhere.paper} (#{elsewhere.pk}); imported because it is a different paper.')
                 question.figure_paths=row_images(row,images,preview,f'job-{job.pk}')
                 question.full_clean();question.save();concept,_=ConceptTag.objects.get_or_create(topic=topic,name=topic.name);QuestionConceptTag.objects.create(question=question,concept_tag=concept);created+=1
         except (ValueError,TypeError,ValidationError,ArithmeticError) as exc:errors.append(f'Row {row.get("_row",index)}: {exc}')

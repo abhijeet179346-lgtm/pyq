@@ -47,7 +47,7 @@ def selection(visible, params, allowed_subjects=None):
     if year:
         if not (year.isascii() and year.isdecimal() and len(year) == 4):
             raise Http404('Invalid year.')
-        queryset = queryset.filter(paper__year=int(year))
+        queryset = queryset.filter(Q(paper__year=int(year)) | Q(source_year=int(year)))
     if search:
         queryset = queryset.filter(Q(stem__icontains=search) | Q(topic__name__icontains=search) | Q(subtopic__name__icontains=search))
     chapters = sorted(tree.values(), key=lambda item: item['name'])

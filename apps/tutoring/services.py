@@ -296,12 +296,16 @@ def generate_study_questions(*, tenant, user, topic, material_sections):
             difficulty=max(1, min(int(row.get("difficulty", 3)), 5)),
             source="AI-generated from institute study material", license="Institute review required",
             status=Question.Status.DRAFT, created_by=user, ai_generated=True)
+        if question.duplicate():
+            continue
         question.full_clean()
         questions.append(question)
         links.append([tag_map[tag_id] for tag_id in row.get("concept_tag_ids", [])
                       if str(tag_id).isdigit() and int(tag_id) in tag_map])
-    created = Question.objects.bulk_create(questions)
-    from apps.content.models import QuestionConceptTag
+    from apps.content.models import QuestionConceptTag, without_duplicates
+    kept = without_duplicates(questions)
+    links = [link for question, link in zip(questions, links) if question in kept]
+    created = Question.objects.bulk_create(kept)
     QuestionConceptTag.objects.bulk_create([QuestionConceptTag(question=question, concept_tag=tag)
         for question, question_tags in zip(created, links) for tag in question_tags], ignore_conflicts=True)
     return created

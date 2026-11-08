@@ -166,7 +166,7 @@ class ContentJobAdmin(admin.ModelAdmin):
         if request.method!='GET':raise PermissionDenied()
         page=Paginator(obj.rows,20).get_page(request.GET.get('page'))
         return render(request,'admin/imports/contentjob/review.html',{**self.admin_site.each_context(request),'opts':self.model._meta,'title':f'Content job #{obj.pk} · {obj.get_kind_display()}',
-            'job':obj,'page':page,'progress':round(obj.next_page*100/obj.page_count) if obj.page_count else 0,
+            'job':obj,'page':page,'duplicate_count':sum(1 for row in obj.rows if isinstance(row,dict) and row.get('duplicate_of')),'progress':round(obj.next_page*100/obj.page_count) if obj.page_count else 0,
             'can_process':obj.status in ['queued','failed'] or (obj.status=='review' and obj.kind!='pdf'),
             'can_commit':obj.status=='review' and obj.kind!='pdf'})
 

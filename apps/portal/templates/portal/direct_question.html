@@ -1,7 +1,7 @@
 {% extends 'portal/base.html' %}{% load static %}{% block title %}Practice{% endblock %}
 {% block head %}<link rel="stylesheet" href="{% static 'portal/exam.css' %}">{% endblock %}
 {% block content %}
-<nav class="quiet-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'direct_bank' %}{% if question.paper_id %}?exam={{ question.paper.exam_id }}{% else %}?exam=practice{% endif %}">{% if question.paper_id %}{{ question.paper.exam.name }}{% else %}Question bank{% endif %}</a><span>/</span><a href="{% url 'direct_bank' %}{% if question.paper_id %}?exam={{ question.paper.exam_id }}{% else %}?exam=practice{% endif %}&amp;topic={{ question.topic_id }}&amp;view=browse">{{ question.topic.chapter.subject.name }} · {{ question.topic.name }}</a></nav>
+<nav class="quiet-breadcrumb" aria-label="Breadcrumb"><a href="{% url 'direct_bank' %}{% if question.paper_id %}?exam={{ question.paper.exam_id }}{% elif question.exam_id %}?exam={{ question.exam_id }}{% else %}?exam=practice{% endif %}">{% if question.paper_id %}{{ question.paper.exam.name }}{% elif question.exam_id %}{{ question.exam.name }}{% else %}Question bank{% endif %}</a><span>/</span><a href="{% url 'direct_bank' %}{% if question.paper_id %}?exam={{ question.paper.exam_id }}{% elif question.exam_id %}?exam={{ question.exam_id }}{% else %}?exam=practice{% endif %}&amp;topic={{ question.topic_id }}&amp;view=browse">{{ question.topic.chapter.subject.name }} · {{ question.topic.name }}</a></nav>
 <div class="practice-standalone">{% include "portal/practice_card.html" %}
 {% if feedback %}<p class="practice-again"><a class="btn secondary" href="{% url 'direct_question' question.pk %}">Try this question again</a></p>{% endif %}</div>
 {% endblock %}

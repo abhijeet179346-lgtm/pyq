@@ -1,6 +1,6 @@
 import re
 
-from django.test import Client, TestCase
+from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from apps.accounts.models import User
@@ -99,11 +99,12 @@ class DirectLearnerTests(TestCase):
         self.assertNotContains(response, "Secret institute lesson")
         self.assertNotContains(response, "Private body")
 
-    def test_direct_routes_do_not_run_on_institute_hosts(self):
+    def test_core_user_cannot_use_another_institutes_direct_routes(self):
         for path in ("/practice/", "/progress/", "/library/"):
             with self.subTest(path=path):
-                self.assertEqual(self.client.get(path, HTTP_HOST="private.localhost").status_code, 404)
+                self.assertRedirects(self.client.get(path, HTTP_HOST="private.localhost"), "/activate/", fetch_redirect_response=False)
 
+    @override_settings(REQUIRE_EMAIL_VERIFICATION=True)
     def test_unverified_direct_users_still_require_email_verification(self):
         self.user.email_verified_at = None
         self.user.save()

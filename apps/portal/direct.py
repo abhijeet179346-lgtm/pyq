@@ -7,7 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.core import signing
 from django.core.exceptions import PermissionDenied
 from django.core.paginator import Paginator
+from django.db import transaction
 from django.db.models import Count, Q, F
+from django.db.models.functions import Coalesce
 from django.http import FileResponse, Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, render, redirect
 from django.urls import reverse
@@ -19,40 +21,47 @@ from apps.tenancy.features import is_enabled
 from apps.catalog.models import Exam
 from apps.content.models import Question
 from apps.learning.answering import is_correct, option_pairs
+from apps.learning.models import Batch, PracticeAttempt, TeacherSubjectAssignment
 from apps.materials.models import MaterialSection
 from .models import DirectPracticeAttempt, PracticeBookmark, PracticeSession
 from .practice_selection import selection
 
 
 def _direct_user(request, feature=None):
-    if not getattr(request, "is_core_domain", False):
-        raise Http404()
     if not request.user.is_authenticated or not request.user.email_verified:
         raise PermissionDenied("Sign in with a verified learner account.")
     tenant = getattr(request, "tenant", None)
-    # Platform admins can use the learner pages too, as members of the core (master) tenant.
     member = request.user.tenant_id == getattr(tenant, "pk", None) or (request.user.is_superuser and request.user.tenant_id is None)
-    if tenant is None or not tenant.is_master or tenant.status != "active" or not member:
-        raise PermissionDenied("Sign in with an active core-platform account.")
+    from .services import workspace_ready
+    if tenant is None:
+        raise Http404()
+    if not member or not workspace_ready(request.user, tenant):
+        raise PermissionDenied("Sign in with an active account for this workspace.")
     if feature and not is_enabled(tenant, feature):
-        raise PermissionDenied("This feature is disabled for the core platform.")
+        raise PermissionDenied("This feature is disabled for this workspace.")
     return tenant
 
 
-def questions(tenant):
+def questions(tenant, user=None):
     visible = Q(pk__in=[])
     if is_enabled(tenant, "practice"):
+        exams = TenantExam.objects.filter(tenant=tenant, enabled=True, exam__active=True).values_list("exam_id", flat=True)
         if is_enabled(tenant, "global_pyq_bank"):
-            exams = TenantExam.objects.filter(tenant=tenant, enabled=True, exam__active=True).values_list("exam_id", flat=True)
             visible |= Q(tenant__isnull=True, kind=Question.Kind.PYQ, paper__exam_id__in=exams)
         if is_enabled(tenant, "tenant_question_bank"):
-            visible |= Q(tenant=tenant, kind=Question.Kind.PRACTICE)
+            visible |= Q(tenant=tenant, kind=Question.Kind.PRACTICE) & (Q(exam__isnull=True) | Q(exam_id__in=exams))
     valid_subject = Q(kind=Question.Kind.PRACTICE) | Q(paper__exam__subjects=F('topic__chapter__subject_id'))
-    return Question.objects.filter(visible & valid_subject, status=Question.Status.PUBLISHED).select_related("topic__chapter__subject", "paper__exam", "subtopic")
+    result = Question.objects.filter(visible & valid_subject, status=Question.Status.PUBLISHED)
+    if user is not None and not tenant.is_master and user.role == "teacher" and not user.is_superuser:
+        subjects = TeacherSubjectAssignment.objects.filter(tenant=tenant, teacher=user).values_list("subject_id", flat=True)
+        result = result.filter(topic__chapter__subject_id__in=subjects)
+    return result.select_related("topic__chapter__subject", "paper__exam", "exam", "subtopic")
 
 
-def exam_cards(tenant):
-    counts = dict(questions(tenant).values("paper__exam_id").annotate(total=Count("id")).values_list("paper__exam_id", "total"))
+def exam_cards(tenant, user=None):
+    visible = questions(tenant, user)
+    paper_counts = dict(visible.exclude(paper__isnull=True).values("paper__exam_id").annotate(total=Count("id")).values_list("paper__exam_id", "total"))
+    tenant_counts = dict(visible.filter(kind=Question.Kind.PRACTICE, exam__isnull=False).values("exam_id").annotate(total=Count("id")).values_list("exam_id", "total"))
     exams = list(Exam.objects.filter(active=True, tenantexam__tenant=tenant, tenantexam__enabled=True))
     order = {"jee-main": 0, "neet": 1, "jee-advanced": 2, "comedk": 3, "mht-cet": 4, "cuet-ug": 5}
     exams.sort(key=lambda exam: (order.get(exam.slug, 3), exam.name))
@@ -65,26 +74,44 @@ def exam_cards(tenant):
         "cuet-ug": ("Common University Entrance Test (UG)", "Choose a subject and practise previous-year questions.", "University entrance"),
     }
     for exam in exams:
-        exam.question_count = counts.get(exam.pk, 0)
+        exam.question_count = paper_counts.get(exam.pk, 0) + tenant_counts.get(exam.pk, 0)
         exam.full_name, exam.description, exam.category = descriptions.get(exam.slug, (exam.name, "Explore the published questions in this vault.", "Exam"))
-        years = list(questions(tenant).filter(paper__exam=exam).order_by("paper__year").values_list("paper__year", flat=True).distinct())
+        years = list(visible.filter(Q(paper__exam=exam) | Q(exam=exam)).annotate(
+            question_year=Coalesce("paper__year", "source_year")).exclude(question_year__isnull=True)
+            .order_by("question_year").values_list("question_year", flat=True).distinct())
         exam.year_range = str(years[0]) if len(years) == 1 else f"{years[0]}–{years[-1]}" if years else "Coming soon"
-    practice_count = questions(tenant).filter(kind=Question.Kind.PRACTICE).count()
+    practice_count = visible.filter(kind=Question.Kind.PRACTICE, exam__isnull=True).count()
     if practice_count:
         exams.append(SimpleNamespace(pk="practice", slug="practice", name="Additional practice", question_count=practice_count))
     return exams
 
 
+def _attempt_history(tenant, user):
+    visible = questions(tenant, user)
+    if tenant.is_master:
+        return DirectPracticeAttempt.objects.filter(user=user, question__in=visible)
+    return PracticeAttempt.objects.filter(tenant=tenant, student=user, question__in=visible).order_by("-submitted_at")
+
+
 def dashboard(request):
     tenant = _direct_user(request)
-    attempts = DirectPracticeAttempt.objects.filter(user=request.user, question__in=questions(tenant))
+    attempts = _attempt_history(tenant, request.user)
     stats = attempts.aggregate(total=Count("id"), correct=Count("id", filter=Q(is_correct=True)))
+    batches = Batch.objects.none()
+    if not tenant.is_master:
+        batches = Batch.objects.filter(tenant=tenant, active=True)
+        if request.user.role == "student" and not request.user.is_superuser:
+            batches = batches.filter(enrollments__student=request.user, enrollments__active=True)
+        elif request.user.role == "teacher" and not request.user.is_superuser:
+            batches = batches.filter(teacher_assignments__teacher=request.user)
     return render(request, "portal/direct_home.html", {
         "practice_count": stats["total"],
         "accuracy": round(stats["correct"] * 100 / stats["total"]) if stats["total"] else None,
-        "question_count": questions(tenant).count(), "recent_attempts": attempts.select_related("question__topic")[:5],
-        "exams": exam_cards(tenant),
+        "question_count": questions(tenant, request.user).count(), "recent_attempts": attempts.select_related("question__topic")[:5],
+        "exams": exam_cards(tenant, request.user),
         "today_attempts": attempts.filter(submitted_at__date=timezone.localdate()).count(),
+        "batches": batches.distinct(),
+        "is_educator": request.user.role in ("tenant_admin", "teacher") or request.user.is_superuser,
     })
 
 
@@ -92,16 +119,16 @@ def dashboard(request):
 @require_GET
 def question_bank(request):
     tenant = _direct_user(request, "practice")
-    exams = exam_cards(tenant)
+    exams = exam_cards(tenant, request.user)
     exam_id = request.GET.get("exam", "")
     if not exam_id:
         return render(request, "portal/direct_bank.html", {"exams": exams})
     selected = next((exam for exam in exams if str(exam.pk) == exam_id), None)
     if selected is None:
         raise Http404("This exam is not available.")
-    queryset = questions(tenant)
-    queryset = queryset.filter(kind=Question.Kind.PRACTICE) if selected.pk == "practice" else queryset.filter(paper__exam=selected)
-    years = queryset.exclude(paper__isnull=True).values_list("paper__year", flat=True).distinct().order_by("-paper__year")
+    queryset = questions(tenant, request.user)
+    queryset = queryset.filter(kind=Question.Kind.PRACTICE, exam__isnull=True) if selected.pk == "practice" else queryset.filter(Q(paper__exam=selected) | Q(exam=selected))
+    years = queryset.annotate(question_year=Coalesce("paper__year", "source_year")).exclude(question_year__isnull=True).values_list("question_year", flat=True).distinct().order_by("-question_year")
     counts = dict(queryset.values("topic__chapter__subject__name").annotate(total=Count("id")).values_list("topic__chapter__subject__name", "total"))
     configured_subjects = (list(selected.subjects.order_by('name').values_list('name', flat=True))
                            if selected.pk != 'practice' else sorted(counts))
@@ -132,11 +159,11 @@ def _new_session(request, tenant, ids, title, mode="learn", browse_url=""):
 def start_practice(request):
     tenant = _direct_user(request, "practice")
     exam_id = request.POST.get("exam", "")
-    exam = next((item for item in exam_cards(tenant) if str(item.pk) == exam_id), None)
+    exam = next((item for item in exam_cards(tenant, request.user) if str(item.pk) == exam_id), None)
     if exam is None:
         raise Http404("Exam unavailable.")
-    visible = questions(tenant)
-    visible = visible.filter(kind=Question.Kind.PRACTICE) if exam.pk == "practice" else visible.filter(paper__exam=exam)
+    visible = questions(tenant, request.user)
+    visible = visible.filter(kind=Question.Kind.PRACTICE, exam__isnull=True) if exam.pk == "practice" else visible.filter(Q(paper__exam=exam) | Q(exam=exam))
     allowed_subjects = list(exam.subjects.values_list('name', flat=True)) if exam.pk != 'practice' else None
     queryset, context = selection(visible, request.POST, allowed_subjects)
     params = request.POST.copy()
@@ -153,7 +180,7 @@ def start_practice(request):
     if order == "random":
         ids = list(queryset.order_by("?").values_list("pk", flat=True)[:500])
     elif order == "newest":
-        ids = list(queryset.order_by("-paper__year", "pk").values_list("pk", flat=True)[:500])
+        ids = list(queryset.annotate(question_year=Coalesce("paper__year", "source_year")).order_by(F("question_year").desc(nulls_last=True), "pk").values_list("pk", flat=True)[:500])
     else:
         ids = list(queryset.order_by("pk").values_list("pk", flat=True)[:500])
     count = request.POST.get("count", "20")
@@ -193,7 +220,7 @@ def _run_attempts(request, tenant, run):
     """Position → attempt for the answers recorded in this session (current question versions only)."""
     keys = {key: int(position) for position, key in run.answers.items()}
     attempts = DirectPracticeAttempt.objects.filter(user=request.user, submission_key__in=keys.keys(),
-        question__in=questions(tenant), question_version=F("question__version")).select_related("question__topic__chapter")
+        question__in=questions(tenant, request.user), question_version=F("question__version")).select_related("question__topic__chapter")
     return {keys[str(attempt.submission_key)]: attempt for attempt in attempts}
 
 
@@ -219,7 +246,7 @@ def practice_session(request, session_id, position):
     run = _practice_run(request, tenant, session_id)
     if not 1 <= position <= len(run.question_ids):
         raise Http404()
-    item = get_object_or_404(questions(tenant), pk=run.question_ids[position - 1])
+    item = get_object_or_404(questions(tenant, request.user), pk=run.question_ids[position - 1])
     return _question_response(request, tenant, item, run=run, position=position)
 
 
@@ -239,7 +266,7 @@ def practice_summary(request, session_id):
         row["correct"] += int(attempt.is_correct)
     for row in chapters.values():
         row["accuracy"] = round(100 * row["correct"] / row["total"])
-    by_id = {q.pk: q for q in questions(tenant).filter(pk__in=run.question_ids)}
+    by_id = {q.pk: q for q in questions(tenant, request.user).filter(pk__in=run.question_ids)}
     review = []
     for position, question_id in enumerate(run.question_ids, 1):
         attempt = attempts.get(position)
@@ -276,7 +303,7 @@ def retry_session(request, session_id):
 @require_http_methods(["POST"])
 def start_bookmarks(request):
     tenant = _direct_user(request, "practice")
-    ids = list(PracticeBookmark.objects.filter(user=request.user, question__in=questions(tenant)).values_list("question_id", flat=True))
+    ids = list(PracticeBookmark.objects.filter(user=request.user, question__in=questions(tenant, request.user)).values_list("question_id", flat=True))
     if not ids:
         return redirect("direct_progress")
     return _new_session(request, tenant, ids, "Bookmarked questions", request.POST.get("mode", "learn"))
@@ -286,7 +313,7 @@ def start_bookmarks(request):
 @require_http_methods(["POST"])
 def toggle_bookmark(request, question_id):
     tenant = _direct_user(request, "practice")
-    item = get_object_or_404(questions(tenant), pk=question_id)
+    item = get_object_or_404(questions(tenant, request.user), pk=question_id)
     bookmark, created = PracticeBookmark.objects.get_or_create(user=request.user, question=item)
     if not created:
         bookmark.delete()
@@ -302,7 +329,7 @@ def toggle_bookmark(request, question_id):
 @require_http_methods(["GET", "POST"])
 def question(request, question_id):
     tenant = _direct_user(request, "practice")
-    item = get_object_or_404(questions(tenant), pk=question_id)
+    item = get_object_or_404(questions(tenant, request.user), pk=question_id)
     return _question_response(request, tenant, item)
 
 
@@ -370,11 +397,28 @@ def _question_response(request, tenant, item, run=None, position=None):
             if is_fetch:
                 return JsonResponse({"error": "Choose or enter an answer first."}, status=400)
             return HttpResponseBadRequest("Choose or enter an answer first.")
-        attempt, _ = DirectPracticeAttempt.objects.get_or_create(submission_key=key, defaults={
-            "user": request.user, "question": item, "question_version": item.version,
-            "selected_answers": selected, "is_correct": is_correct(item, selected),
-            "time_taken_seconds": max(0, min(7200, int(time.time() - payload["started"]))),
-        })
+        with transaction.atomic():
+            attempt, created = DirectPracticeAttempt.objects.get_or_create(submission_key=key, defaults={
+                "user": request.user, "question": item, "question_version": item.version,
+                "selected_answers": selected, "is_correct": is_correct(item, selected),
+                "time_taken_seconds": max(0, min(7200, int(time.time() - payload["started"]))),
+            })
+            if created and not tenant.is_master:
+                batches = Batch.objects.filter(tenant=tenant, active=True)
+                if request.user.role == "student":
+                    batches = batches.filter(enrollments__student=request.user, enrollments__active=True)
+                elif request.user.role == "teacher":
+                    batches = batches.filter(teacher_assignments__teacher=request.user)
+                else:
+                    batches = batches.none()
+                legacy_attempt = PracticeAttempt.objects.create(
+                    tenant=tenant, student=request.user, question=item, batch=batches.first(),
+                    question_version=item.version, selected_answer=", ".join(selected),
+                    is_correct=attempt.is_correct, time_taken_seconds=attempt.time_taken_seconds,
+                )
+                from apps.tutoring.services import record_question_outcome
+                record_question_outcome(tenant=tenant, student=request.user, question=item,
+                                        correct=attempt.is_correct, practice_attempt=legacy_attempt)
         if run is not None:
             run.answers[str(position)] = str(attempt.submission_key)
             run.save(update_fields=["answers", "updated_at"])
@@ -415,10 +459,10 @@ def _question_response(request, tenant, item, run=None, position=None):
 @require_GET
 def progress(request):
     tenant = _direct_user(request, "mastery_analytics")
-    attempts = DirectPracticeAttempt.objects.filter(user=request.user, question__in=questions(tenant))
+    attempts = _attempt_history(tenant, request.user)
     chapters = attempts.values("question__topic__chapter__name").annotate(
         total=Count("id"), correct=Count("id", filter=Q(is_correct=True))).order_by("question__topic__chapter__name")
-    visible = questions(tenant)
+    visible = questions(tenant, request.user)
     return render(request, "portal/direct_progress.html", {
         "chapters": chapters, "attempts": attempts.select_related("question__topic")[:50],
         "bookmarks": PracticeBookmark.objects.filter(user=request.user, question__in=visible).select_related("question__topic__chapter__subject")[:50],
@@ -474,7 +518,7 @@ def _material_reader(request):
 def study_section(request, section_id):
     tenant = _material_reader(request)
     section=get_object_or_404(_study_sections(tenant),pk=section_id)
-    related=questions(tenant).filter(topic__chapter=section.topic.chapter)[:5]
+    related=questions(tenant, request.user).filter(topic__chapter=section.topic.chapter)[:5]
     return render(request,"portal/study_section.html",{"section":section,"related_questions":related})
 
 
@@ -499,7 +543,7 @@ def figure_urls(question):
 def question_figure(request, question_id, index):
     from apps.content.figures import content_type, open_figure
     tenant = _direct_user(request, "practice")
-    item = get_object_or_404(questions(tenant), pk=question_id)
+    item = get_object_or_404(questions(tenant, request.user), pk=question_id)
     if not 0 <= index < len(item.figure_paths or []):
         raise Http404()
     handle = open_figure(item.figure_paths[index])

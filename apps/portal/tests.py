@@ -42,7 +42,7 @@ class PortalTests(TestCase):
         }, follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.request["PATH_INFO"], "/")
-        self.assertContains(response, "Welcome back, student")
+        self.assertContains(response, "Your personal learning workspace")
         self.assertEqual(int(self.client.session["_auth_user_id"]), self.student.pk)
 
     def test_student_dashboard_shows_only_enrolled_batches(self):
@@ -56,19 +56,19 @@ class PortalTests(TestCase):
     def test_teacher_dashboard_shows_only_assigned_batches(self):
         self.client.force_login(self.teacher)
         response = self.client.get("/")
-        self.assertContains(response, "Teaching workspace")
+        self.assertContains(response, "Your classes")
         self.assertContains(response, "Visible batch")
         self.assertNotContains(response, "Unassigned batch")
 
     def test_dashboard_hides_features_that_are_not_enabled(self):
         self.client.force_login(self.student)
         response = self.client.get("/")
-        self.assertContains(response, reverse("practice_home"))
+        self.assertContains(response, f'href="{reverse("direct_bank")}"')
         self.assertNotContains(response, reverse("tutor_home"))
         self.assertNotContains(response, reverse("mastery_home"))
         FeatureEntitlement.objects.filter(tenant=self.tenant, key="practice").update(enabled_override=False)
         response = self.client.get("/")
-        self.assertNotContains(response, reverse("practice_home"))
+        self.assertNotContains(response, f'href="{reverse("direct_bank")}"')
         self.assertEqual(self.client.get("/learn/").status_code, 403)
 
     def test_portal_preserves_safe_next_url(self):

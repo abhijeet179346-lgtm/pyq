@@ -1,4 +1,5 @@
 from django.contrib.auth.models import AbstractUser
+from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
 
@@ -44,7 +45,7 @@ class User(AbstractUser):
 
     @property
     def email_verified(self):
-        return self.email_verified_at is not None
+        return self.email_verified_at is not None or not settings.REQUIRE_EMAIL_VERIFICATION
 
     def clean(self):
         super().clean()

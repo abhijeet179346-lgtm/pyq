@@ -56,9 +56,12 @@ def create_handoff(user, tenant=None):
 @transaction.atomic
 def consume_handoff(raw, tenant):
     digest = hashlib.sha256(raw.encode()).hexdigest()
+    verified_user = Q(user__email_verified_at__isnull=False)
+    if not settings.REQUIRE_EMAIL_VERIFICATION:
+        verified_user |= Q(user__is_active=True)
     grant = LoginHandoff.objects.filter(token_digest=digest, tenant=tenant,
         expires_at__gt=timezone.now(), consumed_at__isnull=True,
-        user__is_active=True, user__email_verified_at__isnull=False).filter(
+        user__is_active=True).filter(verified_user).filter(
             Q(user__tenant=tenant) | Q(user__is_superuser=True, user__tenant__isnull=True)
         ).select_related("user").first()
     if grant is None:

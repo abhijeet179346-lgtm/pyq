@@ -285,6 +285,10 @@ def approve_extracted(scan, selected_rows, edits, user, allowed_topic_ids=None):
         accepted_indices.append(str(index))
     if not questions:
         raise ValueError("Select at least one valid question and assign each a topic.")
+    from apps.content.models import without_duplicates
+    unique = without_duplicates(questions)
+    if len(unique) != len(questions):
+        raise ValueError("Two selected questions are the same. Deselect the repeated one and accept again.")
     Question.objects.bulk_create(questions)
     scan.accepted_rows = sorted(already_accepted | set(accepted_indices), key=int)
     scan.accepted_count = len(scan.accepted_rows)

@@ -23,7 +23,7 @@ MAX_QUESTIONS = 90
 MAX_CUSTOM_TESTS = 50
 
 
-def snapshot_row(question, pattern):
+def snapshot_row(question, pattern, exam):
     from apps.learning.answering import option_pairs
     from apps.portal.direct import correct_option_ids, expected_answers
     kind = question.question_type
@@ -36,7 +36,7 @@ def snapshot_row(question, pattern):
         answer = values[0] if len(values) == 1 else values
     correct, incorrect = pattern.get(kind, DEFAULT[kind])
     topic = question.topic
-    if question.paper.exam.slug == 'mht-cet' and topic.chapter.subject.name == 'Mathematics':
+    if exam.slug == 'mht-cet' and topic.chapter.subject.name == 'Mathematics':
         correct = 2
     return {"key": f"q{question.pk}", "question_id": question.pk, "stem": question.stem, "question_type": kind,
             "subject": topic.chapter.subject.name, "chapter": topic.chapter.name, "topic": topic.name, "topic_id": topic.pk,
@@ -47,12 +47,12 @@ def snapshot_row(question, pattern):
 
 def build_custom_test(user, tenant, exam, questions, title, minutes=None):
     """Return (test, skipped). Questions whose answer key can't be graded automatically are skipped."""
-    if TimedTest.objects.filter(owner=user, tenant=tenant).count() >= MAX_CUSTOM_TESTS:
-        raise ValueError(f"You already have {MAX_CUSTOM_TESTS} custom tests. Finish or reuse one before creating more.")
+    if TimedTest.objects.filter(owner=user, tenant=tenant, timed_attempts__isnull=True).count() >= MAX_CUSTOM_TESTS:
+        raise ValueError(f"You already have {MAX_CUSTOM_TESTS} unstarted custom tests. Start one before creating more.")
     pattern = PATTERNS.get(exam.slug, DEFAULT)
     rows, skipped = [], 0
     for question in questions[:MAX_QUESTIONS]:
-        row = snapshot_row(question, pattern)
+        row = snapshot_row(question, pattern, exam)
         try:
             validate_questions([row])
         except ValidationError:

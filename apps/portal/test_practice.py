@@ -170,8 +170,8 @@ class CustomTestBuilderTests(TestCase):
         self.assertEqual(test.duration_minutes, 10)  # 2 questions × 3.3 min, rounded up to 5-minute steps
         rows = {row["key"]: row for row in test.questions}
         self.assertEqual((rows[f"q{self.single.pk}"]["answer"], rows[f"q{self.single.pk}"]["marking"]["correct"]), ("B", 3))
-        self.assertContains(client.get("/practice/tests/"), "Your custom tests")
-        self.assertNotContains(self.client_for(self.other).get("/practice/tests/"), "Your custom tests")
+        self.assertContains(client.get("/practice/tests/"), test.name)
+        self.assertNotContains(self.client_for(self.other).get("/practice/tests/"), test.name)
         self.assertEqual(self.client_for(self.other).get(f"/practice/tests/{test.pk}/start/").status_code, 404)
         client.post(f"/practice/tests/{test.pk}/start/")
         attempt = TimedAttempt.objects.get(test=test, user=self.user)

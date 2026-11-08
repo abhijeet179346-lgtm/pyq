@@ -1,6 +1,6 @@
 from urllib.parse import urlsplit
 
-from django.test import Client, TestCase
+from django.test import Client, TestCase, override_settings
 from django.utils import timezone
 
 from apps.accounts.models import User
@@ -45,7 +45,8 @@ class PlatformPortalTests(TestCase):
         self.assertEqual(destination.hostname, "demo.localhost")
         tenant_client = Client(HTTP_HOST="demo.localhost")
         response = tenant_client.get(destination.path + "?" + destination.query, follow=True)
-        self.assertContains(response, "Site administration")
+        self.assertContains(response, "Your personal learning workspace")
+        self.assertContains(response, 'href="/admin/"')
         self.assertEqual(int(tenant_client.session["_auth_user_id"]), self.user.pk)
 
     def test_normal_account_cannot_request_cross_tenant_handoff(self):
@@ -53,6 +54,7 @@ class PlatformPortalTests(TestCase):
         with self.assertRaises(ValueError):
             create_handoff(self.student, tenant=other)
 
+    @override_settings(REQUIRE_EMAIL_VERIFICATION=True)
     def test_unverified_superuser_still_requires_verification(self):
         self.user.email_verified_at = None
         self.user.save(update_fields=["email_verified_at"])

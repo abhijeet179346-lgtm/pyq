@@ -1,6 +1,7 @@
 from datetime import timedelta
 from collections import Counter
 import json
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.db import transaction
@@ -9,7 +10,7 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404,redirect,render
 from django.utils import timezone
 from django.views.decorators.http import require_GET,require_POST,require_http_methods
-from apps.portal.direct import _direct_user
+from apps.portal.direct import _direct_user, exam_cards, questions
 from apps.features.models import TenantExam
 from apps.materials.recommendations import recommend_sections
 from .models import TimedTest,TimedAttempt
@@ -89,19 +90,77 @@ def catalog(request):
         with transaction.atomic():
             expired=TimedAttempt.objects.select_for_update().get(pk=expired.pk)
             finish(expired,expired=True)
-    attempts={item.test_id:item for item in TimedAttempt.objects.filter(user=request.user,test__in=tests)}
-    rows=[]
-    custom=[]
-    for test in tests:
-        row={'test':test,'count':len(test.questions),'attempt':attempts.get(test.pk)}
-        (custom if test.owner_id else rows).append(row)
-    summaries=[]
-    for series in sorted({row['test'].series for row in rows if row['test'].series.startswith('Full mock')}):
-        parts=[row for row in rows if row['test'].series==series]
-        finished=[row['attempt'] for row in parts if row['attempt'] and row['attempt'].status!='in_progress']
-        summaries.append({'series':series,'completed':len(finished),'papers':len(parts),'score':sum(item.score for item in finished)})
-    custom.sort(key=lambda row:row['test'].created_at,reverse=True)
-    return render(request,'assessments/timed_catalog.html',{'test_rows':rows,'custom_rows':custom,'series_summaries':summaries})
+    exams = [exam for exam in exam_cards(tenant, request.user) if exam.pk != 'practice' and exam.question_count]
+    exam_id = request.GET.get('exam', '')
+    selected = next((exam for exam in exams if str(exam.pk) == exam_id), None)
+    if exam_id and selected is None:
+        raise Http404('This exam has no available questions.')
+    subjects = []
+    if selected:
+        from django.db.models import Count, Q
+        visible = questions(tenant, request.user).filter(Q(paper__exam=selected) | Q(exam=selected))
+        subjects = list(visible.values('topic__chapter__subject__name').annotate(total=Count('id')).order_by('topic__chapter__subject__name'))
+    attempts = TimedAttempt.objects.filter(user=request.user, test__in=tests).select_related('test', 'test__exam').order_by('-started_at')
+    drafts = tests.filter(owner=request.user, timed_attempts__isnull=True).order_by('-created_at')
+    return render(request, 'assessments/timed_catalog.html', {
+        'exams': exams, 'selected_exam': selected, 'subjects': subjects,
+        'in_progress': attempts.filter(status='in_progress'),
+        'recent_results': attempts.exclude(status='in_progress'), 'drafts': drafts,
+    })
+
+
+@login_required
+@require_POST
+def generate(request):
+    from django.core.exceptions import ValidationError
+    from django.db.models import Q
+    from apps.content.models import Question
+    from .custom_tests import PATTERNS, DEFAULT, build_custom_test, snapshot_row
+    from .timed_services import validate_questions
+
+    tenant, _ = scope(request)
+    exam_id = request.POST.get('exam', '')
+    exam = next((item for item in exam_cards(tenant, request.user)
+                 if item.pk != 'practice' and str(item.pk) == exam_id and item.question_count), None)
+    if exam is None:
+        raise Http404('This exam has no available questions.')
+    visible = questions(tenant, request.user).filter(Q(paper__exam=exam) | Q(exam=exam)).filter(
+        question_type__in=(Question.Type.SINGLE, Question.Type.MULTI, Question.Type.INTEGER, Question.Type.NUMERICAL))
+    subject = request.POST.get('subject', '').strip()
+    names = list(visible.order_by('topic__chapter__subject__name').values_list(
+        'topic__chapter__subject__name', flat=True).distinct())
+    if subject:
+        if subject not in names:
+            raise Http404('This subject is unavailable for this exam.')
+        names = [subject]
+    target, minutes = (25, 60) if subject else (75, 180)
+    pattern = PATTERNS.get(exam.slug, DEFAULT)
+    # Take an even mix of subjects, filling spare places from subjects with more questions.
+    sources = [iter(visible.filter(topic__chapter__subject__name=name).order_by('?').iterator(chunk_size=100)) for name in names]
+    picked = []
+    while sources and len(picked) < target:
+        remaining = []
+        for source in sources:
+            for item in source:
+                try:
+                    validate_questions([snapshot_row(item, pattern, exam)])
+                except (ValidationError, KeyError, TypeError, ValueError):
+                    continue
+                picked.append(item)
+                remaining.append(source)
+                break
+            if len(picked) == target:
+                break
+        sources = remaining
+    title = f'{exam.name} · {subject}' if subject else f'{exam.name} · Full test'
+    try:
+        test, _ = build_custom_test(request.user, tenant, exam, picked, title, minutes)
+    except ValueError as exc:
+        messages.error(request, str(exc))
+        return redirect(f'{reverse("timed_catalog")}?exam={exam.pk}')
+    if len(picked) < target:
+        messages.info(request, f'This test has {len(picked)} available questions.')
+    return redirect('timed_start', test_id=test.pk)
 
 
 @login_required

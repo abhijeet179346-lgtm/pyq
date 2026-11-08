@@ -47,6 +47,7 @@ class MasterTenantTests(TestCase):
         self.assertEqual(self.client.get("/").status_code, 200)
         self.assertRedirects(self.client.get("/activate/"), "/", fetch_redirect_response=False)
 
+    @override_settings(REQUIRE_EMAIL_VERIFICATION=True)
     def test_core_registration_assigns_master_and_does_not_enroll_in_institute(self):
         client = Client(HTTP_HOST="localhost")
         client.post("/login/", {"email": "brand-new@example.test", "password": "Master-tenant-password-27"})

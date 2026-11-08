@@ -44,6 +44,7 @@ class OnboardingTests(OnboardingFixtures, TestCase):
                 self.assertContains(response, "Continue with Google")
                 self.assertNotContains(response, 'aria-label="Main navigation"')
 
+    @override_settings(REQUIRE_EMAIL_VERIFICATION=True)
     def test_new_email_creates_pending_account_with_only_email_and_password(self):
         for client, tenant, email in ((self.core, None, "new@core.test"), (self.school, self.tenant, "new@school.test")):
             with self.subTest(email=email):

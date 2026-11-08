@@ -2,16 +2,9 @@
 
 ## Available tests
 
-Learners open **Timed tests** in the navigation (`/practice/tests/`). The core tenant has:
+Learners open **Timed tests** in the navigation (`/practice/tests/`), choose an enabled exam and generate a full or subject test. Full tests select up to 75 questions across available subjects and run for 180 minutes; subject tests select up to 25 questions and run for 60 minutes. The chooser provides a balanced mix where enough questions are available and skips questions that cannot be graded automatically. Generated sets are practice papers and do not claim to reproduce an official exam's complete format. Marking schemes appear on the instructions screen.
 
-- Five JEE Advanced **full mock sets**, each comprising two papers.
-- Each paper: 180 minutes, 54 questions, 180 marks; Physics, Chemistry and Mathematics each contribute 18 questions.
-- Per subject: six single-correct (+3/−1), six multiple-correct (+4/−2 with +1 per correct option for a proper subset without a wrong selection), and six numerical (+3/0). Unanswered earns zero.
-- Five subject tests: two Physics, two Chemistry and one Mathematics, each 60 minutes, 18 questions and 60 marks.
-
-The official JEE Advanced format requires [two three-hour papers](https://jeeadv.ac.in/documents/IBEnglish_2026.pdf); detailed structures and marking schemes differ by year. These tests are **Advanced-style compilations**, not verbatim reconstructions of a specific year's official paper. The question source is [JEEBench, DAIR IIT Delhi](https://github.com/dair-iitd/jeebench), whose MIT notice is in `data/JEEBENCH_LICENSE.txt`. Original question ownership is retained. The initial bank and additional benchmark questions are preserved in `data/timed_test_questions.json`. Imported answer keys have not all been independently verified.
-
-There are no duplicate question keys within a two-paper mock set. The displayed 54-question, 180-mark mix is an explicit mock configuration; it does not claim to match every section of the 2024, 2025 or 2026 official patterns. Questions recur across different mock sets because these are compiled from a finite source pool. Paper 1 must be completed/expired before starting its Paper 2. Each learner has one attempt per paper; the two scores are combined in the full-mock progress summary after both papers finish.
+Existing attempts and recent results remain accessible from the timed-test page. Previously configured mock papers remain in the database and can still be opened through their direct links. The initial JEE Advanced bank and additional benchmark questions are preserved in `data/timed_test_questions.json`; see `data/JEEBENCH_LICENSE.txt` for the JEEBench notice. Imported answer keys have not all been independently verified.
 
 ## Timer, scoring and access
 

@@ -166,7 +166,7 @@ class QuestionAdmin(TenantScopedAdmin):
     form = QuestionAdminForm
     inlines=[QuestionMaterialLinkInline]
     list_display = ("id", "kind", "tenant", "question_type", "topic", "subtopic", "difficulty", "status", "ai_generated", "version")
-    list_filter = ("kind", "status", "question_type", "difficulty", "tenant", "paper__exam", "paper__year", "topic__chapter__subject", "topic__chapter", "topic", "subtopic")
+    list_filter = ("kind", "status", "question_type", "difficulty", "tenant", "exam", "source_year", "paper__exam", "paper__year", "topic__chapter__subject", "topic__chapter", "topic", "subtopic")
     search_fields = ("stem", "source", "topic__name", "subtopic__name", "tags")
     readonly_fields = ("version", "created_at", "updated_at", "figure_previews")
 

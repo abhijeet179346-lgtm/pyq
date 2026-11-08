@@ -87,6 +87,9 @@ class Command(BaseCommand):
                     tags=row.get("tags", [exam.name, subject.name, chapter.name, topic.name, subtopic.name if subtopic else "", str(row["year"])]),
                     status=Question.Status.PUBLISHED)
                 question.tags = list(dict.fromkeys([tag for tag in question.tags if tag] + [question.difficulty_label, question.get_question_type_display()]))
+                if question.duplicate():
+                    skipped += 1
+                    continue
                 question.full_clean()
                 question.save()
                 QuestionConceptTag.objects.create(question=question, concept_tag=concept)
