@@ -1,4 +1,5 @@
 import json
+import re
 import time
 import uuid
 from types import SimpleNamespace
@@ -474,7 +475,7 @@ def _study_sections(tenant):
     return MaterialSection.objects.filter(active=True,document__active=True).filter(
         Q(document__tenant=tenant)|Q(document__tenant__isnull=True)).filter(
         Q(document__exams__isnull=True)|Q(document__exams__in=enabled)).select_related(
-        "document","topic__chapter__subject").prefetch_related("document__exams").distinct()
+        "document","topic__chapter__subject").prefetch_related("document__exams", "topic__subtopics").distinct()
 
 
 @login_required
@@ -488,24 +489,59 @@ def library(request):
         if not exam.isascii() or not exam.isdecimal() or len(exam)>18 or not exams.filter(pk=int(exam)).exists():
             raise Http404("Exam unavailable.")
         sections = sections.filter(Q(document__exams__pk=int(exam))|Q(document__exams__isnull=True)).distinct()
-    subjects = list(sections.values_list("topic__chapter__subject__name",flat=True).order_by("topic__chapter__subject__name").distinct())
+    subject_cards = list(sections.values("topic__chapter__subject__name").annotate(
+        total=Count("pk", distinct=True), chapter_count=Count("topic__chapter_id", distinct=True)
+    ).order_by("topic__chapter__subject__name"))
+    subjects = [item["topic__chapter__subject__name"] for item in subject_cards]
     subject = request.GET.get("subject", "")
     if subject:sections=sections.filter(topic__chapter__subject__name=subject)
-    chapters = list(sections.values("topic__chapter_id","topic__chapter__name").order_by("topic__chapter__name").distinct())
+    chapters = list(sections.values("topic__chapter_id","topic__chapter__name").annotate(
+        total=Count("pk", distinct=True)).order_by("topic__chapter__name"))
     chapter = request.GET.get("chapter", "")
     if chapter:
         if not chapter.isascii() or not chapter.isdecimal() or len(chapter)>18:raise Http404("Invalid chapter.")
         sections=sections.filter(topic__chapter_id=int(chapter))
     query=request.GET.get("q", "").strip()
+    question_matches = []
     if query:
         from apps.materials.search import search_sections
         sections = search_sections(sections, query[:300])
+        # Search the published question taxonomy alongside the NCERT text. Each
+        # question is paired with the closest available reading section below.
+        tokens = list(dict.fromkeys(re.findall(r"[a-z0-9]+", query[:300].lower())))[:8]
+        visible_questions = questions(tenant, request.user)
+        if exam:
+            visible_questions = visible_questions.filter(Q(paper__exam_id=int(exam)) | Q(exam_id=int(exam)))
+        if subject:
+            visible_questions = visible_questions.filter(topic__chapter__subject__name=subject)
+        if chapter:
+            visible_questions = visible_questions.filter(topic__chapter_id=int(chapter))
+        q_match = Q(pk__in=[])
+        for token in tokens:
+            q_match |= Q(stem__icontains=token) | Q(topic__name__icontains=token) | Q(subtopic__name__icontains=token)
+        if tokens:
+            visible_questions = list(visible_questions.filter(q_match).select_related(
+                "topic__chapter__subject", "subtopic", "paper__exam", "exam")[:30])
+            question_ids = [question.pk for question in visible_questions]
+            matched_sections = list(_study_sections(tenant).filter(
+                Q(topic__questions__in=question_ids) | Q(question_links__question_id__in=question_ids)
+            ).distinct().select_related("document", "topic__chapter__subject")[:80])
+            section_by_topic = {section.topic_id: section for section in sections if section.topic_id}
+            for matched_section in matched_sections:
+                section_by_topic.setdefault(matched_section.topic_id, matched_section)
+            for question in visible_questions:
+                reading = section_by_topic.get(question.topic_id)
+                if reading:
+                    question_matches.append({"question": question, "section": reading})
     else:
         sections = sections.order_by("topic__chapter__subject__name", "topic__chapter__name", "title")
     params=request.GET.copy();params.pop("page",None)
     page=Paginator(sections,12).get_page(request.GET.get("page"))
     return render(request,"portal/direct_library.html",{"page":page,"exams":exams,"subjects":subjects,"chapters":chapters,
-        "selected_exam":exam,"selected_subject":subject,"selected_chapter":chapter,"search":query,"filter_query":params.urlencode()})
+        "subject_cards": subject_cards, "browse_subjects": not subject and not chapter and not query,
+        "browse_chapters": bool(subject and not chapter and not query),
+        "selected_exam":exam,"selected_subject":subject,"selected_chapter":chapter,"search":query,
+        "question_matches": question_matches, "filter_query":params.urlencode()})
 
 
 def _material_reader(request):

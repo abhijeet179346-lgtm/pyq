@@ -94,7 +94,9 @@ class DirectLearnerTests(TestCase):
         self.assertNotContains(self.client.get("/progress/"), self.question.stem)
 
     def test_direct_library_never_exposes_institute_material(self):
-        response = self.client.get("/library/")
+        # The library landing page shows subject cards; search lists sections, and "lesson" also
+        # matches the institute's private section if it were visible.
+        response = self.client.get("/library/", {"q": "lesson"})
         self.assertContains(response, "Public lesson")
         self.assertNotContains(response, "Secret institute lesson")
         self.assertNotContains(response, "Private body")

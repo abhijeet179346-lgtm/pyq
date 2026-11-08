@@ -79,7 +79,7 @@ class MasterTenantTests(TestCase):
                 FeatureEntitlement.objects.filter(tenant=self.master, key=feature).update(enabled_override=True)
 
     def test_master_material_is_visible_only_to_core_context(self):
-        self.assertContains(self.client.get("/library/"), "Core-owned study material")
+        self.assertContains(self.client.get("/library/", {"q": "Core-owned study material"}), "Core-owned study material")
         self.client.force_login(self.institute_user)
         self.assertEqual(self.client.get("/library/").status_code, 403)
         self.assertEqual(self.client.get("/").status_code, 403)
